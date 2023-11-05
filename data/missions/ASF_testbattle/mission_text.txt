@@ -1,0 +1,5 @@
+SPECIAL: Achieve a score of 95% or higher on this mission and all other missions from Amazighs Ship Founry to unlock the Lafiel as an optional custom start (requires nexerelin)
+
+----
+
+Simple mission to let you test all of the Standard ships from Amazigh's Ship Foundry.

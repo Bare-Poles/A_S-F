@@ -1,0 +1,123 @@
+{
+  "hullName": "Persenachia",
+  "hullId": "A_S-F_persenachia",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/phase/A_S-F_persenachia.png",
+  "style": "HIGH_TECH",
+  "coversColor": "204,161,207,240",
+  "height": 104,
+  "width": 98,
+  "center": [49, 50],
+  "collisionRadius": 53,
+  "shieldCenter": [4, -0],
+  "shieldRadius": 48,
+  "viewOffset": 0,
+  "builtInMods": [
+    "phasefield",
+    "A_S-F_UndyingMalice"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "ENERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [25, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 360,
+      "angle": 0,
+      "locations": [-18, -0]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": 15,
+      "locations": [-5, 29]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": -15,
+      "locations": [-5, -29]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [2, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-30, 17],
+      "length": 40,
+      "width": 10,
+      "angle": 182,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-30, -17],
+      "length": 40,
+      "width": 10,
+      "angle": 178,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-25, 26],
+      "length": 30,
+      "width": 8,
+      "angle": 175,
+      "contrailSize": 24,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-25, -26],
+      "length": 30,
+      "width": 8,
+      "angle": -175,
+      "contrailSize": 24,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    32, -12,
+    47, -13,
+    39, -23,
+    6, -31,
+    -5, -37,
+    -23, -28,
+    -29, -20,
+    -29, -13,
+    -18, -9,
+    -30, -7,
+    -41, -0,
+    -30, 7,
+    -18, 9,
+    -29, 13,
+    -29, 20,
+    -23, 28,
+    -5, 37,
+    6, 31,
+    39, 23,
+    47, 13,
+    32, 12
+  ]
+}

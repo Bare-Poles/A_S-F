@@ -1,0 +1,21 @@
+{
+    # variantOverrides restricts hulls to listed variants and adjusts their probability
+	"variantOverrides":{
+
+		"A_S-F_peryton_ass":1.5,
+		"A_S-F_peryton_fs":3,
+		"A_S-F_peryton_spr":3,
+	},
+
+	"knownHullMods":{
+		"hullMods":[
+			"A_S-F_ElectroVent",
+			"A_S-F_anarchyBallistic",
+			"A_S-F_anarchyEnergy",
+			"A_S-F_anarchyFlux",
+			"A_S-F_anarchyShields",
+			"A_S-F_anarchyTargeting",
+		],
+	},
+
+},

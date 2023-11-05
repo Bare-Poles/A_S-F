@@ -1,0 +1,213 @@
+{
+  "hullName": "Ecumenist",
+  "hullId": "A_S-F_ecumenist",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/ships/A_S-F_ecumenist.png",
+  "style": "HIGH_TECH",
+  "height": 158,
+  "width": 168,
+  "center": [84, 84],
+  "collisionRadius": 118,
+  "shieldCenter": [-2, -0],
+  "shieldRadius": 115,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [34, 0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [63, 17]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [63, -17]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 30,
+      "locations": [49, 32]
+    },
+    {
+      "id": "WS0005",
+      "size": "MEDIUM",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -30,
+      "locations": [49, -32]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": 60,
+      "locations": [33, 62]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": -60,
+      "locations": [33, -62]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 120,
+      "locations": [-18, 28]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -120,
+      "locations": [-18, -28]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 220,
+      "angle": 180,
+      "locations": [-66, 0]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": 90,
+      "locations": [9, 26]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": -90,
+      "locations": [9, -26]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-65, -41],
+      "length": 72,
+      "width": 16,
+      "angle": -180,
+      "contrailSize": 44,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-65, 41],
+      "length": 72,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 44,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-61, -63],
+      "length": 64,
+      "width": 14,
+      "angle": -180,
+      "contrailSize": 40,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-61, 63],
+      "length": 64,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 40,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-56, 52],
+      "length": 36,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 40,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-56, -52],
+      "length": 36,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 40,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    42, -11,
+    61, -12,
+    62, -27,
+    68, -36,
+    69, -47,
+    52, -72,
+    25, -81,
+    16, -71,
+    -7, -61,
+    -19, -76.5,
+    -59, -69,
+    -60, -58,
+    -55, -57,
+    -55, -48,
+    -63, -46,
+    -63, -36,
+    -54, -32,
+    -73, -28,
+    -82, 0,
+    -73, 28,
+    -54, 32,
+    -63, 36,
+    -63, 46,
+    -55, 48,
+    -55, 57,
+    -60, 58,
+    -59, 69,
+    -19, 76.5,
+    -7, 61,
+    16, 71,
+    25, 81,
+    52, 72,
+    69, 47,
+    68, 36,
+    62, 27,
+    61, 12,
+    42, 11
+  ]
+}

@@ -1,0 +1,28 @@
+{
+ "id": "A_S-F",
+ "name": "Amazigh's Ship Foundry",
+ "author": "Amazigh",
+
+ "version": {"major":0, "minor":13, "patch":0},
+ "description": "A Selection of Ships and Weapons.",
+ "gameVersion": "0.96a-RC8",
+
+ "modPlugin":"org.amazigh.foundry.scripts.ASF_ModPlugin",
+ "jars":["jars/ASF.jar"],
+
+ "totalConversion": "false",
+ "utility": "false",
+
+ "dependencies": [
+  {
+      "id": "lw_lazylib",
+      "name": "LazyLib",
+      "version": "2.8"
+  },
+  {
+      "id": "MagicLib",
+      "name": "MagicLib",
+      "version": { "major": '1', "minor": '0', "patch": '0' }
+  },
+ ],
+}

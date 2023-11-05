@@ -1,0 +1,41 @@
+id
+# NOTES
+# Ship IDs entered here will be allowed by the Engineering hub (Reverse Engineering ship hulls)
+# Ships that would break the game (Balance/Technical/Lore) if the player could produce them via blueprint should not be on this list.
+
+A_S-F_auditor
+A_S-F_gleam
+A_S-F_exegetes
+A_S-F_velox
+A_S-F_auspice
+A_S-F_rinka
+A_S-F_invigilator
+A_S-F_rinka_p
+A_S-F_rangda
+A_S-F_superlasher
+A_S-F_misside
+A_S-F_dunnock
+A_S-F_mtumaji
+A_S-F_mtetezi
+
+A_S-F_gaoler
+A_S-F_bathory
+A_S-F_lustre
+A_S-F_buraq
+A_S-F_henki
+A_S-F_peluda
+A_S-F_niteo
+A_S-F_mlinzi
+A_S-F_mbishi
+
+A_S-F_gemogee
+A_S-F_peryton
+A_S-F_lanner
+A_S-F_ilgryps
+A_S-F_triarii
+A_S-F_phobia
+A_S-F_initone
+A_S-F_ocklynge
+A_S-F_axicon
+A_S-F_ecumenist
+

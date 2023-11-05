@@ -1,0 +1,12 @@
+{
+	"id":"A_S-F_MaliceStorm",
+	"type":"STAT_MOD",
+	"aiType":"CUSTOM",
+	"aiScript":"org.amazigh.foundry.shipsystems.scripts.ai.ASF_MaliceStormAI",
+
+	"statsScript":"org.amazigh.foundry.shipsystems.scripts.ASF_MaliceStormStats",
+
+	"useSound":"system_emp_emitter_activate",
+	"loopSound":"system_emp_emitter_loop",
+	"outOfUsesSound":"gun_out_of_ammo",
+}
