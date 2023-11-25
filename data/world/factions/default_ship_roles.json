@@ -24,6 +24,8 @@
     "A_S-F_dunnock_atk": 2,
     "A_S-F_dunnock_brwl": 2,
     "A_S-F_dunnock_std": 2,
+
+    "A_S-F_estucheon_rkt": 2, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
   },
   "combatSmall": {
     "A_S-F_auditor_esc": 6,
@@ -79,6 +81,9 @@
     "A_S-F_gatorbacker_ark": 1,
 	# ArkTech ships have a default roles entry! (but it's *really* low rate, just so they *might* spawn in scav fleets, VERY rarely)
 
+    "A_S-F_estucheon_rkt": 3, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
+
+
   },
   "combatMedium": {
     "A_S-F_bathory_ass":0, # PL
@@ -111,6 +116,8 @@
     "A_S-F_gaderoga_ark": 1,
     "A_S-F_genbura_ark": 1,
 	# ArkTech ships have a default roles entry! (but it's *really* low rate, just so they *might* spawn in scav fleets, VERY rarely)
+
+    "A_S-F_estucheon_rkt": 6.5,
 
   },
   "combatLarge": {
@@ -149,6 +156,9 @@
     "A_S-F_initone_std":2.5,
     "A_S-F_initone_sup":2,
     "A_S-F_initone_sup2":0, # PL
+
+    "A_S-F_initone_lg_ass":6.5,
+    "A_S-F_initone_lg_elt":1.5, # lets make the G I G A C A N N O N / KB variant rarer!
 
     "A_S-F_ocklynge_ass": 1,
     "A_S-F_ocklynge_brwl": 2.5,

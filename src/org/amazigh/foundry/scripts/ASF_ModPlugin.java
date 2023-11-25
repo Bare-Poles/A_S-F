@@ -24,7 +24,11 @@ import org.amazigh.foundry.scripts.ai.ASF_PersisSwarmMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_PhiliaMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_RocketArtyMagicMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_TermiteMissileAI;
+import org.amazigh.foundry.scripts.ai.ASF_WeaverDrunkRocketAI;
 import org.amazigh.foundry.scripts.everyframe.ASF_arkTechSpawnPlugin;
+import org.dark.shaders.light.LightData;
+import org.dark.shaders.util.ShaderLib;
+
 import exerelin.utilities.NexConfig;
 import exerelin.utilities.NexFactionConfig;
 import exerelin.utilities.NexFactionConfig.StartFleetSet;
@@ -49,7 +53,9 @@ public class ASF_ModPlugin extends BaseModPlugin {
 	public static final String ASF_TERMITE_MISSILE_ID = "A_S-F_termite_srm";
 	public static final String ASF_PERSIS_MISSILE_ID = "A_S-F_persis_missile";
 	public static final String ASF_PERSIS_SUB_MISSILE_ID = "A_S-F_persis_frag";
-	
+	public static final String ASF_WEAVER_ROCKET_ID = "A_S-F_weaver_rocket";
+
+	public boolean HAS_GRAPHICSLIB = false;
     public boolean isExerelin = false;
     public boolean ratInfestation = false;
     
@@ -66,6 +72,15 @@ public class ASF_ModPlugin extends BaseModPlugin {
     }
     
     public void onApplicationLoad() throws Exception {
+
+        boolean hasGraphicsLib = Global.getSettings().getModManager().isModEnabled("shaderLib");
+        if (hasGraphicsLib) {
+            HAS_GRAPHICSLIB = true;
+            ShaderLib.init();
+            //TextureData.readTextureDataCSV((String)"data/config/asf_texture_data.csv");
+            LightData.readLightDataCSV((String)"data/config/asf_lights_data.csv");
+        }
+    	
     	isExerelin = Global.getSettings().getModManager().isModEnabled("nexerelin");
     	if(isExerelin) {
     		if (Global.getSettings().getMissionScore("ASF_phantasmagoria_mission") > 0) {
@@ -165,6 +180,8 @@ public class ASF_ModPlugin extends BaseModPlugin {
                 return new PluginPick<MissileAIPlugin>(new ASF_PersisMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
             case ASF_PERSIS_SUB_MISSILE_ID:
                 return new PluginPick<MissileAIPlugin>(new ASF_PersisSwarmMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            case ASF_WEAVER_ROCKET_ID:
+                return new PluginPick<MissileAIPlugin>(new ASF_WeaverDrunkRocketAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
             default:
                 return null;
         }

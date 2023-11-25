@@ -66,6 +66,7 @@ Energy Bolt Converger,A_S-F_energyBoltConverger,,,,,,,,TRUE,,0,0,0,0,org.amazigh
 Ammon Hullmod,A_S-F_ammonHullmod,,,,,,,,TRUE,TRUE,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ammonHullmod,<Ammon Timescale meme>,<Ammon Timescale meme>,,graphics/hullmods/insulated_engine_assembly.png
 Servant Targeting Core,A_S-F_ServantHullmod,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ServantHullmod,Advanced targeting unit that provides a significant increase to weapons range.,Advanced targeting unit that provides a significant increase to weapons range.,,graphics/hullmods/advanced_targeting_core.png
 Malice Resonator,A_S-F_UndyingMalice,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_UndyingMalice,<The lone flower blooming in the Abyss.>,<The lone flower blooming in the Abyss.>,,graphics/hullmods/A_S-F_undyingMalice.png
+Novel Coil Geometry,A_S-F_MaliceCoils,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_MaliceCoils,"<A heretic, clad in the husks of the dead.>","<A heretic, clad in the husks of the dead.>",,graphics/hullmods/A_S-F_MaliceCoils.png
 ,,,,,,,,,,,,,,,,,,,
 # Anarchy Systems,,,,,,,,,,,,,,,,,,,
 Ungoverned Ballistic Loader,A_S-F_anarchyBallistic,1,,Anarchy Systems,"offensive, merc",Weapons,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyBallistic,MinMaxer Ballistic Hullmod,MinMaxer Ballistic Hullmod,,graphics/hullmods/A_S-F_anarchyBallistic.png

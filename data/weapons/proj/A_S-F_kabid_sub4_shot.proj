@@ -7,7 +7,7 @@
 	"length":80.0,
 	"hitGlowRadius":10,
 	"width":4,
-	"fadeTime":0.3,
+	"fadeTime":0.2,
 	"fringeColor":[200,255,240,150],
 	"coreColor":[235,255,235,200],
 	# "fringeColor":[200,100,240,100],

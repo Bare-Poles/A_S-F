@@ -30,6 +30,8 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 	public static final float VENT_BONUS = 20f;
 
 	public static final float BEAM_GUARD = 0.2f; // [CUSTOM CARTRIDGE: BEAM GUARD]
+	public static final float SHELL_GUARD = 0.15f; // [CUSTOM CARTRIDGE: SHELL GUARD]
+	
 	
 	public static final float REVENGE_SHOT = 20f; // [CUSTOM CARTRIDGE: REVENGE SHOT]
 	
@@ -85,6 +87,8 @@ public class ASF_DerelictWarburn extends BaseHullMod {
         stats.getVentRateMult().modifyPercent(id, VENT_BONUS);
         
 		stats.getBeamDamageTakenMult().modifyMult(id, (1f - BEAM_GUARD));
+		stats.getKineticArmorDamageTakenMult().modifyMult(id, (1f - SHELL_GUARD));
+		stats.getKineticDamageTakenMult().modifyMult(id, (1f - SHELL_GUARD));
 	}
 	
 	public void advanceInCombat(ShipAPI ship, float amount){

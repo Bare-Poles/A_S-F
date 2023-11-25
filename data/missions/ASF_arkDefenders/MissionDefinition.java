@@ -70,12 +70,12 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		
 		
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_berzelius_desire", FleetMemberType.SHIP, "Don'yoku", false);
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_berzelius_desire", FleetMemberType.SHIP, "Don'yoku", false);
 		
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_mbishi_def", FleetMemberType.SHIP, "Sirius", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_mlinzi_def", FleetMemberType.SHIP, "Spica", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_mtetezi_def", FleetMemberType.SHIP, "Deneb", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_mtumaji_def", FleetMemberType.SHIP, "Altair", false);
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_mbishi_def", FleetMemberType.SHIP, "Sirius", false);
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_mlinzi_def", FleetMemberType.SHIP, "Spica", false);
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_mtetezi_def", FleetMemberType.SHIP, "Deneb", false);
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_mtumaji_def", FleetMemberType.SHIP, "Altair", false);
 		
 		
 		

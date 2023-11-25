@@ -154,6 +154,13 @@ A_S-F_misside,SHIP,"A missile platform like no other ship (in its class) the Mis
 A_S-F_initone,SHIP,"A vessel developed after an in-depth analysis of refined combat data, equipped with an advanced flux system that allows for more aggressive tactics to be employed.
 
 All around impressive performance allows the Initone to engage most targets effectively, but sacrifices made in the integration of the secondary flux bank have resulted in a reduction in what flux can be allocated to the shield emitter, leaving it somewhat vulnerable to kinetic firepower.",,,,
+A_S-F_initone_lg,SHIP,"Modified for operations in the Askonia system under orders from Supreme Executor Philip Andrada, this hull includes integrated solar shielding as well as a peculiar internal cladding provided by an industrial conglomerate out of Sindria itself. That the chief designer, appointed by the Supreme Executor for his many cycles of loyal service, sits on the board of that conglomerate is simply an example of the unity and efficiency of the Sindrian Polity.
+
+A vessel developed after an in-depth analysis of refined combat data, equipped with an advanced flux system that allows for more aggressive tactics to be employed.
+
+All around impressive performance allows the Initone to engage most targets effectively, but sacrifices made in the integration of the secondary flux bank have resulted in a reduction in what flux can be allocated to the shield emitter, leaving it somewhat vulnerable to kinetic firepower.
+
+Modifications approved by the Supreme Executor removed the 'awkward' and 'ineffective' missile mounts, leaving more room to focus on the vessels primary weaponry.",,,,
 A_S-F_naja,SHIP,"The Naja is a bomber designed with the sole intent of carrying and effectively delivering a cauldron torpedo.
 
 The design was proposed shortly after the Cobra project ran into initial setbacks and rather impressively the design was finalised and into production well before the Cobra even reached final prototype stages. Analysis of the Tri-Tachyon corporations public records show that any allegations of bribes being sent to The Domain Naval Procurement Board are completely unfounded, and it is undoubted that the Naja saw successful development purely through the merits of its design and not through corporate intervention of any kind.",,,,
@@ -187,6 +194,9 @@ A_S-F_mbishi,SHIP,"Initial analysis shows significant similarities to Domain aut
 
 Derived from the Berserker war drone hull, this ship is notably more flexible thanks to turreted weapon mounts,alongside the ability to mount missile weaponry.",,,,
 A_S-F_persenachia,SHIP,"""A heretic, clad in the husks of the dead. In order to hide her figure, she spreads a thick, dark mist. The black fog conceals her as she hunts her next victim.""",- Unknown,,,
+A_S-F_estucheon,SHIP,"Although automated machines of war were forbidden in core Domain space, war drones were quietly employed outside of officially incorporated volume. Frontier garrisons were often bolstered by drone ships, and they were deployed liberally against rebellious worlds to tip the terrible balance of attrition, setting the industrial might of the Domain versus the lives of 'freedom fighters'.
+
+While the Estucheon may appear to be the result of a corrupted production chip at first glance it is in fact a true designed vessel. It just so happens to be intended to use up spare parts cannibalized from other damaged vessels, resulting in a rather haphazard structure, albeit one that is bolstered with the addition of a pair of ports for the projection of flak canisters.",,,,
 ,,,,,,
 ,,,,,,
 A_S-F_plas_burster,WEAPON,"Fires bursts of volatile plasma, capable of saturating a region of space with point defense coverage.
@@ -349,7 +359,19 @@ A_S-F_quicksand,WEAPON,"A heavy duty point defense system that delivers a wither
 The Quicksand is a weapon designed to tear through fighters with a brutal efficiency, the sheer volume of fire also means it can wear down starship armour with sustained fire, but a sub-par feeding mechanism causes sustained performance to be somewhat lacking.",,,,
 A_S-F_silaha,WEAPON,"""A hypertrophied acceleration system, multiple layers of redundant charging coils, hardened transplutonic feed rails... yeah, it's a dream for maintenance... Just glad I don't have to deal with what happens to the poor sods on the recieving end.""",- Technician Arne Worth,,,
 A_S-F_persis,WEAPON,"""Each munition carries a bundle of multi-aspect swarmers, definitely a wonder to see in action, but fitting a tracking package that good into something so small? Now that's the real magic.""",- Weapons Technician Holland,,,
-,,,,,,
+A_S-F_weaver,WEAPON,"Extremely loose tolerances cause the rockets fired by this weapon to fly an erratic path in the likeness of its name, but it is at least able to apply pressure in extended engagements thanks to an attendant autoloader.
+
+While the use of a cheap and  generally unreliable propellant might seem a foolish mistake by the designers, in real terms it means that it was possible to manufacture the rockets on-demand with common materials, allowing for an effectively limitless supply of munitions in combat, that is only limited by the speed of the autoloader drawing newly fabricated munitions up from the cargo holds.
+
+The Weaver is largely outclassed by other missile weapons in firepower, but that was not the intent behind the design, as instead it was intended to be cheap and easily maintained by the automated systems of Domain war drones.
+
+Despite its relatively poor performance, distribution of blueprints for the manufacture of this weapon was restricted by the Domain, likely to prevent rebels and 'freedom fighters' from being able to access cheap and easily manufacturable weaponry, as such they are generally only found installed on Domain Exploraria drones.",,,,
+A_S-F_stamp,WEAPON,"The shells fired by this weapon are crude flash-forged things, typically ridden with defects. While somewhat effective against stripped armour, this weapon is otherwise definitively sub-par in all aspects other than flux efficiency.
+
+The Stamp is largely outclassed by  modern autocannons in all respects, but that was not the intent behind the design, as instead it was intended to be cheap and easily maintained by the automated systems of Domain war drones.
+
+Despite its relatively poor performance, distribution of blueprints for the manufacture of this weapon was restricted by the Domain, likely to prevent rebels and 'freedom fighters' from being able to access cheap and easily manufacturable weaponry, as such they are generally only found installed on Domain Exploraria drones.",,,,
+A_S-F_ionDriver,WEAPON,"Fires a pair of condensed Ion bolts, able to deliver impressive distuption to the point of impact. The condensed nature of the bolts trades the traditional Ion weapon 'arcing' effect for an improvement to raw destructive potential.",,,,
 ,,,,,,
 ,,,,,,
 A_S-F_cyclemissilefeed,SHIP_SYSTEM,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,Offensive,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,,
@@ -389,4 +411,4 @@ A_S-F_flak_screen,SHIP_SYSTEM,Fires a broad spread of flak canisters with variab
 A_S-F_ammon_deploy,SHIP_SYSTEM,Deploys four independent attack drones that will hunt down hostiles.,Drones (hightech),Deploys four independent attack drones that will hunt down hostiles.,,
 A_S-F_loaderOverdrive_berz,SHIP_SYSTEM,Temporarily disables weapons in order to replenish ammo stores and then provide a brief overclock of weapon fire rate.,Offensive,Temporarily disables weapons in order to replenish ammo stores and then provide a very overclock of weapon fire rate.,,
 A_S-F_MicroVent,SHIP_SYSTEM,Engages a partial emergency vent of the vessels flux grid at the cost of disabling weapons.,Special,Engages a partial emergency vent of the vessels flux grid at the cost of disabling weapons.,,
-A_S-F_MaliceStorm,SHIP_SYSTEM,"Discharges the Malice Resonator to produce a storm of energy that discharges into all nearby enemies, slowing and disrupting them.",Offensive,"Discharges the Malice Resonator to produce a storm of energy that discharges into all nearby enemies, slowing and disrupting them.",,
+A_S-F_MaliceStorm,SHIP_SYSTEM,"Cycles energy from the Malice Resonator through the hyperspace drive, producing a storm of energy that discharges into all nearby enemies, slowing and disrupting them. Power of the storm increases at higher resonator charge levels.",Offensive,"Cycles energy from the Malice Resonator through the hyperspace drive, producing a storm of energy that discharges into all nearby enemies, slowing and disrupting them. Power of the storm increases at higher resonator charge levels.",,

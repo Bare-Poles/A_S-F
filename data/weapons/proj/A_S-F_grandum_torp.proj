@@ -25,7 +25,6 @@
 				  "dec":350},
 	"engineSlots":[{"id":"ES1",
 					"loc":[-10, 0],
-				    #"style":"TORPEDO_ATROPOS",
 				    "style":"CUSTOM",
 					"styleSpec":{
 						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used

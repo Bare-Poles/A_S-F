@@ -21,12 +21,13 @@ Kaksos Autocannon,A_S-F_kaksos,0,,900,600,,120,,8,12,9,,,,KINETIC,84,,0,0.4,1,,4
 Laaja Spreadcannon,A_S-F_laaja,0,,3000,800,,80,,5,12,20,,,,KINETIC,60,,0,3,1,,18,24,2,3,,800,,,30,,,,"kinetic18, rare_bp, merc, ind",,,,Anti Shield,,,,Spread,"Projectiles have varying velocity and range.
 All projectiles will reach at least %s range, and %s will reach maximum range.",70% | 25%,,,,2227.25
 Copperhead Gun-Launcher,A_S-F_copperhead,1,0.8,400,800,,80,,5,20,5,8,1,2,HIGH_EXPLOSIVE,72,,0,0.25,2,0.25,3,15,3,1,,400,500,2.2,40,,9,"GUIDED_POOR, DO_NOT_CONSERVE","he6, LR, rare_bp, merc, ind",,,,Anti Armor,Medium,Minor (Course-Correction),,,,,Projectile tracking is enhanced by the installation of %s or by any other source of improved %s maneuverability.,ECCM | Missile,,2223.1
-Macron Cannon,A_S-F_macron,2,,900,800,,20,5,2,30,7,,,,HIGH_EXPLOSIVE,16,,0.1,0.983333,6,0.05,0,0,0,0,,1200,,,10,,,,"he7, LR, remnant, no_dealer",,Remnant,,Anti Armor,,,,,,,,,,2223.2
+Macron Cannon,A_S-F_macron,2,,750,800,,20,5,2,30,7,,,,HIGH_EXPLOSIVE,16,,0.1,0.983333,6,0.05,0,0,0,0,,1200,,,10,,,,"he7, LR, remnant, no_dealer",,Remnant,,Anti Armor,,,,,,,,,,2223.2
 Sakset Naval Rifle,A_S-F_sakset,2,0.9,3500,1100,,500,,30,8,22,,,,KINETIC,900,,0,2,1,,0,8,4,8,,1000,,,250,,,,"kinetic19, LR, rare_bp, merc, ind",,,,Anti Shield,,,,,"Causes an explosion on impact that deals %s damage to nearby targets, and a spread of %s pieces of shrapnel each dealing %s damage is released away from the target.",100 Energy | 8 | 25 Kinetic,,,,2228.25
 Crockett Artillery,A_S-F_crockett,2,0.8,4000,1000,,600,,100,8,20,,,,HIGH_EXPLOSIVE,600,,0,2,1,,0,6,2,2,,650,,,250,,,,"he19, rare_bp, merc",,,,Anti Armor,,,,,,,,,,2228.3
 Quicksand Machinecannon,A_S-F_quicksand,2,,1400,500,,30,,2,40,10,60,6.66666,10,HIGH_EXPLOSIVE,18,,0,0.05,,,1,8,0.5,6,,900,,,20,,,"PD,ANTI_FTR","he12, pd10, SR, rare_bp, merc, ind",,,,Point Defense,,,,,,,,,,2223.85
 Silaha Linear Cannon,A_S-F_silaha,3,0.3,50000,1200,,1000,400,400,4,30,,,,ENERGY,1500,,0.9,2.1,1,,0,0,0,0,,2000,,,500,,,,"energy18, he18, kinetic18, LR, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Artillery,,,,,"On impact increases the targets soft flux level by %s.
 Targets are also knocked back by the force of the impact.",800,Shots will not hit allied vessels and can be fired over them.,,,222020
+Stamp Tri-Cannon,A_S-F_stamp,0,,70,600,,80,,2,18,3,,,,FRAGMENTATION,20,,0,1.2,1,,13,21,2,4,,700,,,30,,,,"kinetic5, he5, derelict, no_dealer",,Explorarium,,General,,,,Spread,,,,,,2223.8
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Plasma Burster,A_S-F_plas_burster,2,0.8,2000,500,,60,,0,35,10,,,,ENERGY,45,,0.2,1.4,5,0.1,,,,,,750,,,100,,,"PD,ANTI_FTR","pd11, SR, hightech_bp, remnant, merc, ind",,,,Point Defense (Area),,,,Spread,,,,,,22223
@@ -45,6 +46,7 @@ If installed in an %s type mount: Per-shot damage is increased to %s, and base r
 Electro-Thermal Blaster,A_S-F_electroThermal_blaster,2,,600,500,,150,50,0,35,6,,,,ENERGY,165,,0.5,0.75,1,,0,10,2,4,,1000,,,,,,,"energy9, remnant, rare_bp, merc, ind",,,,General,,,,,,,,,,22222.25
 Strobe Beam,A_S-F_strobe,2,,2000,600,800,,,1,20,11,,,,ENERGY,,640,0,0,0.2,0.2,,,,,1000000,,,,,,,,"energy14, beam10, rare_bp, remnant, merc, ind",,,,General,,,,,,,,,,22220.2
 Micro-Pulse Repeater,A_S-F_micropulser,1,,300,400,,20,,1,100,4,12,3.75,3,ENERGY,12,,0.06666,0,1,,2,6,0.5,2.5,,1000,,,,,,PD,"pd7, energy7, hightech_bp, remnant, merc, ind",,,,Point Defense,,,,,,,,,,22217
+Ion Driver,A_S-F_ionDriver,3,0.6,6500,700,,400,1500,0,20,25,8,0.5,2,ENERGY,460,,0.7,0.3,1,,0,0,0,0,,1000,,,400,,,"STRIKE, USE_VS_FRIGATES","energy20, rare_bp, merc",,,,Strike,,,,,,,,,,22224
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Bramble Smartbomb Rack,A_S-F_bramble,1,,250,600,,250,,10,45,4,12,0.3333,4,FRAGMENTATION,75,,0,3.4,4,0.2,20,20,0,0,,200,600,2.5,150,,50,"GUIDED_POOR, DO_NOT_CONSERVE, PD, ANTI_FTR","utility8, missile0, missile_bp, ind",,,,Point Defense (Area),Slow,None,,,,,,,TRUE,2223.6
@@ -81,6 +83,7 @@ Cauldron Flux Shear Torpedo,A_S-F_cauldron_pod,1,,1200,1200,,800,1600,40,10,10,1
 
 Hits on hull or armor will arc %s times to weapons and engines, each arc dealing %s energy and %s EMP damage.",1000 | 4 | 100 | 400,,,TRUE,2229.11
 Persis Multi Seeker,A_S-F_persis,3,0.3,5000,2000,,600,,30,10,5,4,0.1,1,ENERGY,240,,0,2,1,,0,0,0,0,,400,100,5,200,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","missile9, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Fire Support,Fast,Excellent,,,,,,,,222021
+Weaver Rocket Pod,A_S-F_weaver,0,,900,1200,,80,,5,28,8,100,1,10,HIGH_EXPLOSIVE,0,,0,7.05,20,0.05,11,23,0.5,0.5,,360,90,4.5,45,,,,"rocket12, strike7, derelict, no_dealer",,Explorarium,,Pressure,Medium,Drunk,,,"Unstable propellant has a chance to overheat in flight, causing the rocket to detonate prematurely.",,,,,22212.33
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -125,7 +128,7 @@ Tactical Lance,A_S-F_tacLance,0,,1000,1000,160,,,1,25,,,,,ENERGY,,0,0.15,0.15,0.
 Huivi Missile Pod,A_S-F_henki_l,0,,1000,1600,,100,40,5,10,,30,0.5,6,FRAGMENTATION,,,0,2.25,6,0.15,1,1,0,0,,600,750,4.5,90,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT, MISSILE_SPREAD, RESET_BARREL_INDEX_ON_BURST",,,,,Saturation,Fast,Good,,,,,,,,22206
 Huivi Missile Pod,A_S-F_henki_r,0,,1000,1600,,100,40,5,10,,30,0.5,6,FRAGMENTATION,,,0,2.25,6,0.15,1,1,0,0,,600,750,4.5,90,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT, MISSILE_SPREAD, RESET_BARREL_INDEX_ON_BURST",,,,,Saturation,Fast,Good,,,,,,,,22206.1
 Huivi Missile Pod,A_S-F_pneuma_pod,0,,1000,1600,,100,40,5,10,,80,1.333333,16,FRAGMENTATION,,,0,2.3,8,0.1,1,1,0,0,,600,500,4.5,90,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT, MISSILE_SPREAD, RESET_BARREL_INDEX_ON_BURST",,,,,Saturation,Fast,Good,,,,,,,,22206.2
-Kombeo Cluster Flak (Fighter),A_S-F_kombeo_f,0,,1000,400,,40,,10,60,,,,,HIGH_EXPLOSIVE,50,,0,0.66666,1,,0,12,2,12,,700,,,40,,,"SYSTEM, PD",,,[ArkTech],,Point Defense (Area),,,,,Shells deploy %s clusters that each deal %s fragmentation damage.,4 | 20,,,,222014.1
+Kombeo Cluster Flak (Fighter),A_S-F_kombeo_f,0,,1000,400,,40,,10,60,,,,,HIGH_EXPLOSIVE,50,,0,0.66666,1,,0,12,2,12,,700,,,40,,,"SYSTEM, PD",,,[ArkTech],,Point Defense (Area),,,,,Shells deploy %s clusters that each deal %s fragmentation damage.,3 | 20,,,,222014.1
 Kundi SRM Launcher,A_S-F_kundi,0,,1000,1000,,120,20,10,0,,3,0.125,1,FRAGMENTATION,,,0,2.4,3,0.3,0,0,0,0,,450,150,4,60,,,"SYSTEM, ANTI_FTR, DO_NOT_AIM, MISSILE_SPREAD",,,,,Anti Small Craft,Fast,Excellent,,,,,,,,22207
 AURA Bolter,A_S-F_AURA_bolter,0,,10000,800,,100,,10,16,,,,,FRAGMENTATION,30,,0,0.2,1,,0,10,1,12,,800,,,40,,,"SYSTEM, PD, PD_ALSO, FIRE_WHEN_INEFFICIENT",,,[ArkTech],,General,,,,,"When %s is active, shots become charged and deal an additional %s damage on impact.",AURA Feed | 100 Energy,,,,22208
 AURA Bolter Charged,A_S-F_AURA_bolter_charged,0,,10000,800,,100,,10,16,,,,,FRAGMENTATION,30,,0,0.2,1,,0,10,1,12,,800,,,40,,,"SYSTEM, PD, PD_ALSO, FIRE_WHEN_INEFFICIENT",,,[ArkTech],,General,,,,,Shots are charged and deal an additional %s damage on impact.,100 Energy,,,,22208.1

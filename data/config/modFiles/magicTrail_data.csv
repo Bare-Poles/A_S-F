@@ -139,4 +139,9 @@ A_S-F_silaha_shot_contrail_1,A_S-F_silaha_shot,base_trail_contrail,10,0,0,0.65,1
 A_S-F_silaha_shot_contrail_2,A_S-F_silaha_shot,base_trail_contrail,10,0,0,0.25,12,130,"[80,120,190]","[60,80,60]",0.36,256,-128,TRUE,12,4,1,0,TRUE,FALSE,TRUE,60,400,0.1,0,0,0,false,TRUE
 A_S-F_silaha_shot_zap,A_S-F_silaha_shot,base_trail_zap,10,0.2,0,0.6,20,30,"[255,205,255]","[44,40,85]",0.3,256,128,TRUE,8,2,1,0,TRUE,FALSE,TRUE,40,240,0.4,0,0,90,TRUE,TRUE
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+A_S-F_stamp_shot,A_S-F_stamp_shot,base_trail_smoke,10,0.05,0,0.12,5,8,"[231,146,140]","[37,22,20]",0.3,256,32,TRUE,0,4,1,0,TRUE,FALSE,TRUE,0,80,0.35,0,0,120,true,false
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+A_S-F_ionDriver_shot_1,A_S-F_ionDriver_shot,base_trail_smooth,10,0.05,0,0.2,22,15,"[90,180,255]","[9,18,51]",0.5,256,-100,TRUE,5,0,1,0,TRUE,FALSE,TRUE,20,200,0.1,0,0,0,FALSE,TRUE
+A_S-F_ionDriver_shot_2,A_S-F_ionDriver_shot,base_trail_fuzzy,10,0.05,0,0.15,29,20,"[29,170,255]","[12,111,60]",0.25,256,-200,TRUE,-5,1,1,0,TRUE,FALSE,TRUE,20,300,0.1,0,0,0,FALSE,TRUE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

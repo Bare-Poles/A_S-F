@@ -22,13 +22,13 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 	
 	public static final float SUPPLY_COST = 80f;
 	
-	public static final float OVERLOAD_MULT = 0.85f;
-	
-	public static final float REVENGE_SHOT = 30f; // [CUSTOM CARTRIDGE: REVENGE SHOT]
+	public static final float OVERLOAD_MULT = 0.9f;
+	public static final float REVENGE_SHOT = 25f; // [CUSTOM CARTRIDGE: REVENGE SHOT]
+		//these two are a bit weaker than on normal warburn, because the ship is good enough already
 	
 	public static final float BROAD_RADAR = 50f; // [CUSTOM CARTRIDGE: BROAD RADAR]
 	
-	public static final float REPAIR_MULT = 240f; // 1800 armour - we repair *twice*, but at a but under half the power it ""should"" have (which would be 550ish) 
+	public static final float REPAIR_MULT = 240f; // 1800 armour - we repair *twice*, but at a bit under half the power it ""should"" have (which would be 550ish) 
 	public static final float BLAST_SIZE = 666f; // radius 226
 	
 	public static final float SHUNT = 0.05f;
@@ -50,7 +50,7 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
     }
         
 	public static final float TIMESCALE = 4f;
-	public static final float TIME_SPEED = 0.6f;
+	public static final float TIME_SPEED = 0.66f;
 	public static final float TIME_RoF = 0.55f;
 	
 	public Color ENGINE_COLOR = new Color(90,255,165,55);

@@ -230,7 +230,7 @@ public class ASF_pritzlFlux extends BaseHullMod {
 		label.setHighlight("" + (int)MAX_VENT_BONUS + "%");
 		label.setHighlightColors(h);
 		
-		tooltip.addPara("Ship will recieve the full bonus when it has no hard flux generated.", 4f);
+		tooltip.addPara("Ship will recieve the full vent rate bonus when it has no hard flux generated.", 4f);
 		tooltip.addPara("The bonus scales down based on what proportion of current flux is hard flux, with no bonus if all flux is hard flux.", pad);
 	}
 

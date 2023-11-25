@@ -38,12 +38,13 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_p_custom", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_mancatcher_custom", FleetMemberType.SHIP, "This Is A Test", false);
 		
-		
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_axicon_stk", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_niteo_ass", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_ilgryps_assault", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_lustre_ass", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_gleam_ass", FleetMemberType.SHIP, "This Is A Test", false);
+
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_estucheon_rkt", FleetMemberType.SHIP, "This Is A Test", false);
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_phobia_ass", FleetMemberType.SHIP, "Trial", true);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_elt", FleetMemberType.SHIP, "Trial", false);
@@ -51,6 +52,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_std", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_std", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_std", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_lg_elt", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_peryton_fs", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_gemogee_strike", FleetMemberType.SHIP, "Trial", false);
 		
@@ -80,6 +82,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "apogee_Balanced", FleetMemberType.SHIP, "Low Price Point", false);
 		api.addToFleet(FleetSide.ENEMY, "apogee_Balanced", FleetMemberType.SHIP, "Copies To Be Returned", false);
 		api.addToFleet(FleetSide.ENEMY, "heron_Strike", FleetMemberType.SHIP, "Arterial Roadway", false);
+		api.addToFleet(FleetSide.ENEMY, "falcon_LG_Attack", FleetMemberType.SHIP, "Filling A Blank", false);
 		api.addToFleet(FleetSide.ENEMY, "fury_Attack", FleetMemberType.SHIP, "So Well Received", false);
 		
 		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Common Type", false);
@@ -105,7 +108,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		// api.defeatOnShipLoss("When Not Provided");
 		
 		// Set up the map.
-		float width = 12000f;
+		float width = 12500f;
 		float height = 12000f;
 		api.initMap((float)-width/2f, (float)width/2f, (float)-height/2f, (float)height/2f);
 		

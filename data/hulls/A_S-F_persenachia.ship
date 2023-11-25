@@ -14,7 +14,8 @@
   "viewOffset": 0,
   "builtInMods": [
     "phasefield",
-    "A_S-F_UndyingMalice"
+    "A_S-F_UndyingMalice",
+    "A_S-F_MaliceCoils"
   ],
   "weaponSlots": [
     {

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.Map;
 
 import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.combat.AIUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
@@ -16,14 +17,9 @@ import com.fs.starfarer.api.combat.DamageType;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
-import com.fs.starfarer.api.combat.ShipCommand;
-import com.fs.starfarer.api.combat.ShipSystemAPI.SystemState;
-import com.fs.starfarer.api.combat.listeners.AdvanceableListener;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
 import com.fs.starfarer.api.combat.listeners.DamageListener;
-import com.fs.starfarer.api.combat.listeners.HullDamageAboutToBeTakenListener;
 import com.fs.starfarer.api.graphics.SpriteAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.skills.NeuralLinkScript;
 import com.fs.starfarer.api.loading.DamagingExplosionSpec;
 import com.fs.starfarer.api.ui.LabelAPI;
@@ -31,7 +27,6 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 
-import org.magiclib.util.MagicIncompatibleHullmods;
 import org.magiclib.util.MagicRender;
 import org.magiclib.util.MagicUI;
 
@@ -43,58 +38,32 @@ public class ASF_UndyingMalice extends BaseHullMod {
 	public static final float DAMAGE_PER_CHARGE = 100f;
 	public static final int DECAY_TIMER = 4;
 	
-	public static float PHASE_DISSIPATION_MULT_1 = 1.4f; // regen // ship has a weaker phase anchor (full diss bonus, but reduced reload/regen bonuses)
-	public static float PHASE_DISSIPATION_MULT_2 = 1.6f; // reload
-	public static float PHASE_DISSIPATION_MULT_3 = 2f; // diss
-	public static float FLUX_THRESHOLD_INCREASE_PERCENT = 75f; // and super adaptive phase coils
-	
 	public static final Color PARTICLE_COLOR = new Color(255,52,84,255);
 	public static final Color BLAST_COLOR = new Color(210,55,140,255);
 	
 	private IntervalUtil ventInterval1 = new IntervalUtil(0.3f,0.45f);
 	private IntervalUtil ventInterval2 = new IntervalUtil(0.3f,0.45f);
 	
-	//TODO
+	private IntervalUtil sysInterval = new IntervalUtil(0.35f,0.5f); //lower rate than in-system, because it's 100% chance
+	private static final float STORM_RANGE = 800f; // shorter range than the actual system, because
+	private static float ARC_DAM = 30f;
+	private static float ARC_EMP = 60f; 
 	
-	//timescale not having bullettime (fixed?)
+	private static final float REPAIR_CD = 10f;
 	
-	// revive is BROKEN (WHY!)
-	 // doesn't seem to *do*
-	 // also stops the ship from doing hull damage?????????
-	
-	//  vent vfx (could be a bit *more* (maybe also scale with charge?)
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 
 		stats.getSuppliesPerMonth().modifyPercent(id, MAINT_MALUS);
 		stats.getCRLossPerSecondPercent().modifyPercent(id, DEGRADE_INCREASE_PERCENT);
 		
-		stats.getDynamic().getMod(Stats.PHASE_CLOAK_FLUX_LEVEL_FOR_MIN_SPEED_MOD).modifyPercent(id, FLUX_THRESHOLD_INCREASE_PERCENT);
 	}
 	
 	@Override
 	public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
-
-		//ship.addListener(new ASF_UndyingDiveScript(ship));
+		
 		//ship.addListener(new ASF_maliceDamageListener(ship));
-
-        MutableShipStatsAPI stats = ship.getMutableStats();
-		if(stats.getVariant().getHullMods().contains("phase_anchor")){
-			//if someone tries to install phase anchor, remove it
-			MagicIncompatibleHullmods.removeHullmodWithWarning(
-					stats.getVariant(),
-					"phase_anchor",
-					"A_S-F_UndyingMalice"
-					);	
-		}
-		if(stats.getVariant().getHullMods().contains("adaptive_coils")){
-			//if someone tries to install adaptive phase coils, remove it
-			MagicIncompatibleHullmods.removeHullmodWithWarning(
-					stats.getVariant(),
-					"adaptive_coils",
-					"A_S-F_UndyingMalice"
-					);	
-		}
+		
 	}
 	
 	public void advanceInCombat(ShipAPI ship, float amount){
@@ -108,7 +77,6 @@ public class ASF_UndyingMalice extends BaseHullMod {
         CombatEngineAPI engine = Global.getCombatEngine();
         
         if (info.doOnce) {
-        	engine.getListenerManager().addListener(new ASF_UndyingDiveScript(ship));
         	engine.getListenerManager().addListener(new ASF_maliceDamageListener(ship));
         	info.doOnce = false;
         }
@@ -129,8 +97,8 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		        Vector2f arcPoint2 = MathUtils.getPointOnCircumference(ship.getLocation(), distanceRandom2, angleRandom2);
 		        
 		        engine.spawnEmpArcVisual(arcPoint1, ship, arcPoint2, ship, 8f,
-						new Color(153,92,103,35),
-						new Color(255,216,224,40));
+						new Color(153,92,103,135),
+						new Color(255,216,224,140));
 		        
 				Global.getSoundPlayer().playSound("tachyon_lance_emp_impact", 0.9f, 0.5f, ship.getLocation(), ship.getVelocity());
 				
@@ -206,7 +174,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		// Global.getCombatEngine().isPaused() ||
 		
         
-        // the damage listener and (standard) charge gain/decay - [start]
+        // the damage listener and (standard) charge gain/decay [AND] system gimmick - [start]
         Map<String, Object> customCombatData = Global.getCombatEngine().getCustomData();
         
         float currDamage = 0f;
@@ -219,24 +187,132 @@ public class ASF_UndyingMalice extends BaseHullMod {
         	info.charge = (float) customCombatData.get("ASF_undyingHullmodCharge" + ship.getId()); // updating charge if it was changed by the damage taken listener
         }
         
-        while (currDamage >= DAMAGE_PER_CHARGE) {
-            currDamage -= DAMAGE_PER_CHARGE;
-            info.charge += 1f;
-	        info.decay = -DECAY_TIMER;
+        // using isOn to match with when weapons are disabled from firing
+        if (ship.getSystem().isOn()) {
+        	
+        	info.decay = Math.max(-DECAY_TIMER, info.decay - (amount * 0.5f)); // rather than resetting decay, we instead slowly lower it, because that's less abusable than a flat out reset
+        	
+        	while (currDamage >= DAMAGE_PER_CHARGE) {
+                currDamage -= DAMAGE_PER_CHARGE;
+                info.charge += 0.2f; // reduced charge gain, but at least you get some
+                info.chargeSys += 1f; // charge is also used for "bonus arcs"
+            }
+        	
+        } else {
+        	if (!ship.getSystem().isActive()) {
+            	info.chargeSys = 0f; // oops you lose all "system charge" once the system ends!
+        	}
+        	
+        	while (currDamage >= DAMAGE_PER_CHARGE) {
+                currDamage -= DAMAGE_PER_CHARGE;
+                info.charge += 1f;
+    	        info.decay = -DECAY_TIMER;
+            }
+            
+            if (info.charge > 0f) {
+                info.decay += amount;
+            }
+            
+            if (info.decay > 0f && info.charge > 0f) {
+            	info.charge = Math.max(0f, info.charge - (info.decay * amount));
+            }
         }
         
-        if (info.charge > 0f) {
-            info.decay += amount;
-        }
+        if (info.chargeSys > 0f) {
+    		sysInterval.advance(amount);
+        	if(sysInterval.intervalElapsed()) {
+        		
+        		ShipAPI target_ship = AIUtils.getNearestEnemy(ship);
+        		
+        		if (MathUtils.isWithinRange(ship, target_ship, ship.getMutableStats().getSystemRangeBonus().computeEffective(STORM_RANGE))) {
+        			
+        			Vector2f loc = MathUtils.getRandomPointOnCircumference(ship.getLocation(), ship.getCollisionRadius() + MathUtils.getRandomNumberInRange(30f, 60f));
+        			
+        			target_ship.getVelocity().scale(0.95f); // slowing the target when they get arced
+	                
+        			float bonus = info.chargeSys * 10f; // bonus power added for each point of "system charge" - (you can in theory get some mad shit if you're in a big horde)
+        			float sysChargeDecay = 1f;
+        			float sysTemp = info.chargeSys;
+        			
+        			while(sysTemp > 5f) {
+        				sysTemp -= 5f; // so when you have a "lot" of charge stored, you get STRONGer arcs (also to help burn through charge mostly)	
+        				bonus *= 1.5f;
+        				sysChargeDecay += 1f;
+        			}
+        			
+        			bonus += (info.charge * 0.3f); // higher ("normal") charge? more powerful arcs!
+        			
+        			engine.spawnEmpArc(
+	                        ship,
+	                        loc,
+	                        ship,
+	                        target_ship,
+	                        DamageType.ENERGY,
+	                        ARC_DAM + bonus,
+	                        ARC_EMP + (bonus * 1.5f),
+	                        10000f,
+	                        "A_S-F_malice_arc_impact",
+	                        11f + (info.chargeSys * 0.5f) + (info.charge * 0.03f), // thiccer arcs to scale with "system charge"
+	                        new Color(153,92,103,220),
+							new Color(255,216,224,210));
+	                
+	                engine.spawnExplosion(loc, ship.getVelocity(), new Color(210,55,140,255), 50f + info.chargeSys, 0.5f);
+	                
+	                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
+			        		MathUtils.getRandomPointInCircle(null, 5f),
+			        		60f + (info.chargeSys * 1.2f),
+							1.6f,
+							0.5f,
+							0.7f,
+							0.25f,
+							new Color(255,216,224,95),
+							false);
+	                
+	                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
+			        		MathUtils.getRandomPointInCircle(null, 10f),
+			        		90f + (info.chargeSys * 1.8f),
+							MathUtils.getRandomNumberInRange(1.5f, 1.8f),
+							0.7f,
+							0.3f,
+							0.6f,
+							new Color(190,65,150,70),
+							false);
+	                
+	                for (int i=0; i < 7; i++) {
+	            		Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(50f, 85f));
+	            		engine.addSmoothParticle(loc,
+	    						sparkVel,
+	    						MathUtils.getRandomNumberInRange(4f, 9f), //size
+	    						1.0f, //brightness
+	    						MathUtils.getRandomNumberInRange(0.4f, 0.5f), //duration
+	    						new Color(255,52,84,255));
+	            	}
+	                info.chargeSys -= sysChargeDecay;	
+        			
+        		} else {
+        			
+        	        if (Math.random() < 0.5f) {
+        	        	
+        	        	float angle1 = MathUtils.getRandomNumberInRange(0f, 360f);
+        	        	float angle2 = angle1 + MathUtils.getRandomNumberInRange(65f, 85f);
+        	        	
+        	        	Vector2f loc1 = MathUtils.getPointOnCircumference(ship.getLocation(), ship.getCollisionRadius() + MathUtils.getRandomNumberInRange(30f, 60f), angle1);
+        	        	Vector2f loc2 = MathUtils.getPointOnCircumference(ship.getLocation(), ship.getCollisionRadius() + MathUtils.getRandomNumberInRange(30f, 60f), angle2);
+        	        	
+        	        	engine.spawnEmpArcVisual(loc1, ship, loc2, ship, 11f, new Color(153,92,103,220), new Color(255,216,224,210));
+        	        	
+        	        }
+        			
+        		}
+        	}
+    	}
         
-        if (info.decay > 0f && info.charge > 0f) {
-        	info.charge = Math.max(0f, info.charge - (info.decay * amount));
-        }
+        
         
         customCombatData.put("ASF_undyingHullmodDamage" + ship.getId(), currDamage);
-        // the damage listener and (standard) charge gain/decay - [end]
+        // the damage listener and (standard) charge gain/decay [AND] system gimmick - [end]
         
-        
+                
         // buff section - [start]
         MutableShipStatsAPI stats = ship.getMutableStats();
         if (info.charge > 0f) {
@@ -292,8 +368,6 @@ public class ASF_UndyingMalice extends BaseHullMod {
     			engine.getTimeMult().unmodify(spec.getId());
     		}
     		
-    		
-        	
         } else {
         	stats.getHitStrengthBonus().unmodify(spec.getId());
         	stats.getHullDamageTakenMult().unmodify(spec.getId());
@@ -305,24 +379,147 @@ public class ASF_UndyingMalice extends BaseHullMod {
         }
         // buff section - [end]
         
+		// repair section - [start]
+		if (info.repairCooldown < REPAIR_CD) {
+			info.repairCooldown += amount; // increment the repair cooldown.
+		}
+		
+		// only repair if we have:
+			// CR remaining (no zero CR zombie memes)
+			// at least 100 charge
+			// under 50% hull
+			// repair is not cooling down (the delay is to make this at least a *bit* balanced)
+		if (ship.getCurrentCR() > 0f && info.charge >= 100f && ship.getHullLevel() < 0.5f && info.repairCooldown >= REPAIR_CD) {
+			
+			info.charge -= 100f;
+			info.repairCooldown = 0f;
+			
+			float hull = ship.getHitpoints();
+			ship.setHitpoints(Math.min(ship.getMaxHitpoints(), hull + (ship.getMaxHitpoints() * 0.5f))); // +50% hull (with a sanity check just in case)
+			
+			ArmorGridAPI armorGrid = ship.getArmorGrid();
+	        final float[][] grid = armorGrid.getGrid();
+	        final float max = armorGrid.getMaxArmorInCell();
+	        
+	        float repairAmount = armorGrid.getMaxArmorInCell();
+	        
+			for (int x = 0; x < grid.length; x++) {
+	            for (int y = 0; y < grid[0].length; y++) {
+	                if (grid[x][y] < max) {
+	                    float regen = grid[x][y] + repairAmount;
+	                    armorGrid.setArmorValue(x, y, regen);
+	                }
+	            }
+	        }
+			
+			ship.syncWithArmorGridState();
+	        ship.syncWeaponDecalsWithArmorDamage();
+			
+	        for (int i=0; i < 40; i++) {
+				float angle = MathUtils.getRandomNumberInRange(0f, 360f);
+				Vector2f sparkLoc = MathUtils.getPointOnCircumference(ship.getLocation(), MathUtils.getRandomNumberInRange(35f, 45f), angle);
+				
+				Vector2f sparkVelTemp = MathUtils.getMidpoint(MathUtils.getRandomPointInCircle(null, 1f), ship.getVelocity());
+				Vector2f sparkVel = MathUtils.getPointOnCircumference(sparkVelTemp, MathUtils.getRandomNumberInRange(25f, 35f), angle);
+				engine.addSmoothParticle(sparkLoc,
+						sparkVel,
+						MathUtils.getRandomNumberInRange(4f, 9f), //size
+						1.0f, //brightness
+						MathUtils.getRandomNumberInRange(0.4f, 0.5f), //duration
+						new Color(50,240,100,255));
+        	}
+	        
+	        for (int i=0; i < 30; i++) {
+				float angle = MathUtils.getRandomNumberInRange(0f, 360f);
+				Vector2f sparkLoc = MathUtils.getPointOnCircumference(ship.getLocation(), MathUtils.getRandomNumberInRange(15f, 35f), angle);
+				
+				Vector2f sparkVelTemp = MathUtils.getMidpoint(MathUtils.getRandomPointInCircle(null, 1f), ship.getVelocity());
+				Vector2f sparkVel = MathUtils.getPointOnCircumference(sparkVelTemp, MathUtils.getRandomNumberInRange(25f, 35f), angle);
+				engine.addSmoothParticle(sparkLoc,
+						sparkVel,
+						MathUtils.getRandomNumberInRange(4f, 9f), //size
+						1.0f, //brightness
+						MathUtils.getRandomNumberInRange(0.65f, 0.85f), //duration
+						new Color(50,240,100,255));
+        	}
+
+	        for (int i=0; i < 28; i++) {
+	        	Vector2f sparkLoc = MathUtils.getRandomPointInCircle(ship.getLocation(), ship.getCollisionRadius() * 0.8f);
+	        	Global.getCombatEngine().addHitParticle(sparkLoc, ship.getVelocity(),
+	        			MathUtils.getRandomNumberInRange(5f, 10f), //size
+	        			0.8f, //bright
+	        			0.4f, //dur
+	        			new Color(50, 240, 100));
+	        }
+	        
+	        for (int i=0; i < 3; i++) {
+	        	
+				float distanceRandom1 = MathUtils.getRandomNumberInRange(60f, 110f);
+				float angleRandom1 = MathUtils.getRandomNumberInRange(0, 360);
+		        Vector2f arcPoint1 = MathUtils.getPointOnCircumference(ship.getLocation(), distanceRandom1, angleRandom1);
+		        
+		        float distanceRandom2 = distanceRandom1 * MathUtils.getRandomNumberInRange(1f, 1.3f);
+		        float angleRandom2 = angleRandom1 + MathUtils.getRandomNumberInRange(70, 130);
+		        Vector2f arcPoint2 = MathUtils.getPointOnCircumference(ship.getLocation(), distanceRandom2, angleRandom2);
+		        
+		        engine.spawnEmpArcVisual(arcPoint1, ship, arcPoint2, ship, 8f,
+						new Color(92,193,130,135),
+						new Color(190,255,220,140));
+			}
+	        
+			Global.getCombatEngine().addFloatingTextAlways(ship.getLocation(),
+					"Emergency repairs!",
+					NeuralLinkScript.getFloatySize(ship), new Color(80,255,175,255), ship, 16f, 3.2f, 1f, 0f, 1f,
+					1f);
+			
+			Global.getCombatEngine().spawnExplosion(ship.getLocation(), ship.getVelocity(), new Color(80,255,175,120), 120f, 0.75f);
+			
+			Global.getSoundPlayer().playSound("ui_refit_slot_filled_energy_large", 1.2f, 1.2f, ship.getLocation(), ship.getVelocity());
+			//TODO test sound
+	        
+		}
+        // repair section - [end]
+		
 
         // vent section - [start]
         stats.getVentRateMult().modifyPercent(spec.getId(), info.charge); // boost vent rate by an amount proportional to current charge
         
 		if (ship.getFluxTracker().isVenting()) {
-			info.charge = Math.max(0f, info.charge - (Math.max(5f, info.charge * 0.1f) * amount)); // while venting, charge decays by the higher of   5% /sec   or   1/10th of current charge /sec
+			info.charge = Math.max(0f, info.charge - ((info.charge * 0.1f) * amount)); // while venting, charge decays by 1/10th of current charge /sec
+				// you get this (potentially) huge charge decay, because you get a (potentially) *insane* boost to vent rate.
 			
-			ventInterval1.advance(amount);
+			float ventScalar = 1f;
+			if (info.charge > 100f) {
+        		float chargeTemp = info.charge - 100f;
+        		int tempCount = 1;
+        		ventScalar += 1f;
+        		
+        		while (chargeTemp > 0f) {
+        			if (chargeTemp > 100f) {
+        				ventScalar += Math.pow(0.5, tempCount);
+        			} else {
+        				ventScalar += (chargeTemp * 0.01f) * Math.pow(0.5, tempCount);
+        			}
+        			chargeTemp -= 100f;
+        			tempCount += 1;
+        		}
+        		
+        	} else {
+        		ventScalar += info.charge * 0.01f;
+        	}
+			// vent fx rate scales up to 3x rate as charge goes up
+			
+			ventInterval1.advance(amount * ventScalar);
             if (ventInterval1.intervalElapsed()) {
             	
             	for (int i=0; i < 3; i++) {
                 	Vector2f sparkPoint = MathUtils.getRandomPointInCircle(ship.getLocation(), ship.getCollisionRadius());
-    				Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 80f));
+    				Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(40f, 80f));
     				Global.getCombatEngine().addSmoothParticle(sparkPoint,
     						sparkVel,
     						MathUtils.getRandomNumberInRange(4f, 9f), //size
     						0.6f, //brightness
-    						0.55f, //duration
+    						0.65f, //duration
     						new Color(150,70,135,255));
             	}
 		        
@@ -334,23 +531,23 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		        		65f,
 						MathUtils.getRandomNumberInRange(1.6f, 2.0f),
 						0.8f,
-						0.4f,
-						0.7f,
+						0.5f,
+						0.8f,
 						new Color(140,70,130,70),
 						false);
             }
             
-            ventInterval2.advance(amount);
+            ventInterval2.advance(amount * ventScalar);
             if (ventInterval2.intervalElapsed()) {
             	
             	for (int i=0; i < 3; i++) {
                 	Vector2f sparkPoint = MathUtils.getRandomPointInCircle(ship.getLocation(), ship.getCollisionRadius());
-    				Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 80f));
+    				Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(40f, 80f));
     				Global.getCombatEngine().addSmoothParticle(sparkPoint,
     						sparkVel,
     						MathUtils.getRandomNumberInRange(4f, 9f), //size
     						0.6f, //brightness
-    						0.55f, //duration
+    						0.65f, //duration
     						new Color(150,70,135,255));
             	}
 		        
@@ -362,8 +559,8 @@ public class ASF_UndyingMalice extends BaseHullMod {
 						65f,
 						MathUtils.getRandomNumberInRange(1.6f, 2.0f),
 						0.8f,
-						0.4f,
-						0.7f,
+						0.5f,
+						0.8f,
 						new Color(140,70,130,70),
 						false);
             }
@@ -384,14 +581,22 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		}
 		
 		// the pipe glow is set up like this, so it fades in/out, rather than popping in instantly
+		
+		if (info.repairCooldown < REPAIR_CD) {
+			// repair is not ready, lower alpha mult.
+			alphaMult *= 0.5f;
+		}
+		
         if (info.charge >= 100f) {
         	if (info.fadeIn < 1f) {
-            	info.fadeIn = Math.min(1f, info.fadeIn - (amount * 1.5f));
+            	info.fadeIn = Math.min(1f, info.fadeIn + (amount * 1.5f));
         	}
         }
     	if (info.fadeIn > 0f) {
+    		
+    		int pipeAlpha = (int) Math.min(120, Math.max(0, (int) (120 * alphaMult * info.fadeIn)) );
         	SpriteAPI GlowPipe = Global.getSettings().getSprite("fx", "A_S-F_persenachia_pipe_glow");
-        	MagicRender.singleframe(GlowPipe, spritePos, spriteSize, ship.getFacing() - 90f, new Color(80,255,175,(int) 180 * alphaMult * info.fadeIn), true);
+        	MagicRender.singleframe(GlowPipe, spritePos, spriteSize, ship.getFacing() - 90f, new Color(80,255,175,pipeAlpha), true);
         	
         	if (info.charge < 100f) {
             	info.fadeIn = Math.max(0f, info.fadeIn - (amount * 1.5f));
@@ -441,8 +646,9 @@ public class ASF_UndyingMalice extends BaseHullMod {
         
         //TODO - comment this out for release!
         // debug display section - [start]
-        Global.getCombatEngine().maintainStatusForPlayerShip("MALICEDEBUG1", "graphics/icons/hullsys/phase_cloak.png", "DEBUG INFO", "Charge: " + info.charge, false);
+        Global.getCombatEngine().maintainStatusForPlayerShip("MALICEDEBUG3", "graphics/icons/hullsys/phase_cloak.png",  "Repair CD: " + info.repairCooldown, "Sys Charge: " + info.chargeSys, false);
         Global.getCombatEngine().maintainStatusForPlayerShip("MALICEDEBUG2", "graphics/icons/hullsys/phase_cloak.png", "Decay: " + info.decay, "currDamage: " + currDamage, false);
+        Global.getCombatEngine().maintainStatusForPlayerShip("MALICEDEBUG1", "graphics/icons/hullsys/phase_cloak.png", "DEBUG INFO", "Charge: " + info.charge, false);
         // debug display section - [end]
         
         
@@ -472,7 +678,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		
 		// A heretic, clad in the husks of the dead. In order to hide her figure, she spreads a thick, dark mist. The black fog conceals her as she hunts her next victim.
 		
-		LabelAPI label = tooltip.addPara("This vessel features a unique system called the Malice Resonator, this improves the ships performance after dealing damage and even allows it to cheat death.", pad);
+		LabelAPI label = tooltip.addPara("This vessel features a unique system called the Malice Resonator, this improves the ships performance after dealing damage and can use the accumulated energy to repair itself.", pad);
 		
 		label = tooltip.addPara("The monthly maintenance supply cost is increased by %s.", opad, bad, "" + (int)MAINT_MALUS + "%");
 		label.setHighlight("" + (int)MAINT_MALUS + "%");
@@ -481,23 +687,26 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		label.setHighlight("" + (int)DEGRADE_INCREASE_PERCENT + "%");
 		label.setHighlightColors(bad);
 		
-		label = tooltip.addPara("The resonator generates one charge for every %s damage the ship deals.", opad, h, "" + (int) DAMAGE_PER_CHARGE);
-		label.setHighlight("" + (int) DAMAGE_PER_CHARGE);
+		label = tooltip.addPara("The resonator generates one charge for every %s damage the ship deals.", opad, h, "" + (int)DAMAGE_PER_CHARGE);
+		label.setHighlight("" + (int)DAMAGE_PER_CHARGE);
 		label.setHighlightColors(h);
-		label = tooltip.addPara("The ship recieves bonuses to Weapon Performance against Armour, Timescale and Damage Resistance based on the number of stored charges.", pad);
+		label = tooltip.addPara("The ship recieves bonuses to %s, %s and %s based on the number of stored charges.", pad, h, "Weapon Hitstrength", "Timescale", "Damage Resistance");
+		label.setHighlight("Weapon Hitstrength", "Timescale", "Damage Resistance");
+		label.setHighlightColors(h, h, h);
 		label = tooltip.addPara("Active vent rate is increased based on the number of stored charges, but charges will also decay while actively venting.", pad);
 		label = tooltip.addPara("If the ship does not generate any new charges for %s then stored charges will start to decay.", pad, bad, "" + DECAY_TIMER + " seconds");
 		label.setHighlight("" + DECAY_TIMER + " seconds");
 		label.setHighlightColors(bad);
 		
-		
-		label = tooltip.addPara("When suffering critical damage that would otherwise destroy the ship, if there is at least %s available then the ship will initiate an emergency dive and engage a self-repair system, this consumes %s but restores the ship to full combat functionality.", opad, h, "100 Charge", "All Charges");
-		label.setHighlight("100 Charge", "All Charges");
-		label.setHighlightColors(h, bad);
-		
-		label = tooltip.addPara("%s or %s are incompatible with the Malice Resonator and cannot be installed on this vessel.", opad, bad, "Phase Anchor", "Adaptive Phase Coils");
-		label.setHighlight("Phase Anchor", "Adaptive Phase Coils");
-		label.setHighlightColors(bad, bad);
+		label = tooltip.addPara("If the ship drops below %s hull, and has at least %s charge stored, then the Resonator will consume %s charge to trigger an emergency repair.", pad, bad, "50%", "100", "100");
+		label.setHighlight("50%", "100", "100");
+		label.setHighlightColors(bad, h, h);
+		label = tooltip.addPara("An emergency repair will restore all damaged armour, and replenish %s of the ships maximum hull.", pad, h, "50%");
+		label.setHighlight("50%");
+		label.setHighlightColors(h);
+		label = tooltip.addPara("Emergency repairs can only be triggered once every %s seconds.", pad, h, "" + (int)REPAIR_CD);
+		label.setHighlight("" + (int)REPAIR_CD);
+		label.setHighlightColors(h);
 		
 	}
 	
@@ -543,208 +752,15 @@ public class ASF_UndyingMalice extends BaseHullMod {
     }
 	// damage dealt listener [end]
     
-    
-    // revive listener / anchor [start]
-    public static class ASF_UndyingDiveScript implements AdvanceableListener, HullDamageAboutToBeTakenListener {
-		public ShipAPI ship;
-		public boolean emergencyDive = false;
-		public float diveProgress = 0f;
-		
-		public static final Color DIVE_TEXT_COLOR = new Color(185,100,205,255);
-		
-		public static final Color UNDYING_TEXT_COLOR = new Color(210,175,121,255);
-		
-	    private float diveDuration = 5f; // how long the ship will "dive" for before reviving.
-		
-	    private final IntervalUtil repairSparkInterval = new IntervalUtil(0.05f, 0.05f);
-	    
-		
-		public ASF_UndyingDiveScript(ShipAPI ship) {
-			this.ship = ship;
-		}
-		
-		public boolean notifyAboutToTakeHullDamage(Object param, ShipAPI ship, Vector2f point, float damageAmount) {
-			
-				if (!emergencyDive) {
-					boolean canDive = false;
-					
-			        Map<String, Object> customCombatData = Global.getCombatEngine().getCustomData();
-					float currCharge = 0f;
-			        if (customCombatData.get("ASF_undyingHullmodCharge" + ship.getId()) instanceof Float) {
-			            currCharge = (float) customCombatData.get("ASF_undyingHullmodCharge" + ship.getId());
-			        }
-					
-					if (ship.getCurrentCR() > 0f && currCharge >= 100f) {
-						canDive = true;
-						// so we can only do this if we have some CR remaining
-					}
-					
-					float hull = ship.getHitpoints();
-					if (damageAmount >= hull && canDive) {
-						
-						// repair hull!
-						ship.setHitpoints(ship.getMaxHitpoints());
-						
-						//full armour repair!
-						ArmorGridAPI armorGrid = ship.getArmorGrid();
-				        final float[][] grid = armorGrid.getGrid();
-				        final float max = armorGrid.getMaxArmorInCell();
-				        
-				        float repairAmount = armorGrid.getMaxArmorInCell();
-				        
-						for (int x = 0; x < grid.length; x++) {
-				            for (int y = 0; y < grid[0].length; y++) {
-				                if (grid[x][y] < max) {
-				                    float regen = grid[x][y] + repairAmount;
-				                    armorGrid.setArmorValue(x, y, regen);
-				                }
-				            }
-				        }
-						
-				        ship.syncWithArmorGridState();
-				        ship.syncWeaponDecalsWithArmorDamage();
-						
-						emergencyDive = true;
-						
-						if (!ship.isPhased()) {
-							Global.getSoundPlayer().playSound("system_phase_cloak_activate", 1f, 1f, ship.getLocation(), ship.getVelocity());
-
-							Global.getSoundPlayer().playSound("ui_refit_slot_filled_energy_large", 1.2f, 1.0f, ship.getLocation(), ship.getVelocity());
-							//TODO test sound
-							
-					        customCombatData.put("ASF_undyingHullmodCharge" + ship.getId(), 0f); // resetting charge!
-						}
-					}
-				}
-			
-			if (emergencyDive) {
-				return true;
-			}
-			
-			return false;
-		}
-
-		public void advance(float amount) {
-			String id = "undying_dive_modifier";
-			
-			if (emergencyDive) {
-				
-				if (diveProgress == 0f) {
-					
-					if (ship.getFluxTracker().showFloaty()) {
-						float timeMult = ship.getMutableStats().getTimeMult().getModifiedValue();
-						Global.getCombatEngine().addFloatingTextAlways(ship.getLocation(),
-								"Emergency dive!",
-								NeuralLinkScript.getFloatySize(ship), DIVE_TEXT_COLOR, ship, 16f * timeMult, 3.2f/timeMult, 1f/timeMult, 0f, 1f/timeMult,
-								1f);
-					}
-				}
-				
-				// clear flux (also so we don't break this from phase cost!)
-				ship.getFluxTracker().setHardFlux(0f);
-				ship.getFluxTracker().setCurrFlux(0f);
-				
-				
-				diveProgress += amount;
-				
-				ship.blockCommandForOneFrame(ShipCommand.USE_SYSTEM);
-				
-				float curr = ship.getExtraAlphaMult();
-				ship.getPhaseCloak().forceState(SystemState.IN, Math.min(1f, Math.max(curr, diveProgress)));
-				
-				MutableShipStatsAPI stats = ship.getMutableStats();
-				
-				stats.getHullDamageTakenMult().modifyMult(id, 0f);
-				
-				stats.getCombatEngineRepairTimeMult().modifyMult(id, 0.1f); // we repair weppies/engines!
-				stats.getCombatWeaponRepairTimeMult().modifyMult(id, 0.1f);
-				
-				stats.getEnergyRoFMult().modifyMult(id, 10f); // we also reload all weppies!
-				stats.getBallisticRoFMult().modifyMult(id, 10f);
-				stats.getMissileRoFMult().modifyMult(id, 10f);
-				
-				
-				Vector2f spritePos = MathUtils.getPointOnCircumference(ship.getLocation(), 2f, ship.getFacing());
-				Vector2f spriteSize = new Vector2f(98f, 104f);
-				
-				SpriteAPI GlowTatt1 = Global.getSettings().getSprite("fx", "A_S-F_persenachia_tatt_glow1");
-				int alpha1 = (int) (50f - (diveProgress * 10f));
-				
-				MagicRender.singleframe(GlowTatt1, spritePos, spriteSize, ship.getFacing() - 90f, new Color(125,255,135,alpha1), true);
-				
-				if (diveProgress < 2.5f) {
-					SpriteAPI GlowTatt2 = Global.getSettings().getSprite("fx", "A_S-F_persenachia_tatt_glow2");
-					int alpha2 = (int) (50f - diveProgress * 20f);
-					
-					MagicRender.singleframe(GlowTatt2, MathUtils.getRandomPointInCircle(spritePos, 1f), spriteSize, ship.getFacing() - 90f, new Color(80,255,175,alpha2), true);
-				}
-				
-				repairSparkInterval.advance(amount);
-    	        if (repairSparkInterval.intervalElapsed()) {
-    	        	Vector2f sparkLoc = MathUtils.getRandomPointInCircle(ship.getLocation(), ship.getCollisionRadius() * 0.8f);
-    	        	Global.getCombatEngine().addHitParticle(sparkLoc, ship.getVelocity(),
-    	        			MathUtils.getRandomNumberInRange(5f, 10f), //size
-    	        			0.8f, //bright
-    	        			0.4f, //dur
-    	        			new Color(50, 240, 100));
-    	        }
-				
-				
-				if (diveProgress >= diveDuration) {
-					emergencyDive = false;
-					diveProgress = 0f;
-					
-					ship.getPhaseCloak().forceState(SystemState.OUT, 0f);
-					
-					stats.getHullDamageTakenMult().unmodify(id);
-					
-					stats.getCombatEngineRepairTimeMult().unmodify(id);
-					stats.getCombatWeaponRepairTimeMult().unmodify(id);
-					stats.getEnergyRoFMult().unmodify(id);
-					stats.getBallisticRoFMult().unmodify(id);
-					stats.getMissileRoFMult().unmodify(id);
-					
-				}
-				
-			}
-			
-			
-			boolean phased = ship.isPhased();
-			if (ship.getPhaseCloak() != null && ship.getPhaseCloak().isChargedown()) {
-				phased = false;
-			}
-			
-			MutableShipStatsAPI stats = ship.getMutableStats();
-			if (phased) {
-				stats.getFluxDissipation().modifyMult(id, PHASE_DISSIPATION_MULT_3);
-				stats.getBallisticRoFMult().modifyMult(id, PHASE_DISSIPATION_MULT_2);
-				stats.getEnergyRoFMult().modifyMult(id, PHASE_DISSIPATION_MULT_2);
-				stats.getMissileRoFMult().modifyMult(id, PHASE_DISSIPATION_MULT_2);
-				stats.getBallisticAmmoRegenMult().modifyMult(id, PHASE_DISSIPATION_MULT_1);
-				stats.getEnergyAmmoRegenMult().modifyMult(id, PHASE_DISSIPATION_MULT_1);
-				stats.getMissileAmmoRegenMult().modifyMult(id, PHASE_DISSIPATION_MULT_1);
-			} else {
-				stats.getFluxDissipation().unmodifyMult(id);
-				stats.getBallisticRoFMult().unmodifyMult(id);
-				stats.getEnergyRoFMult().unmodifyMult(id);
-				stats.getMissileRoFMult().unmodifyMult(id);
-				stats.getBallisticAmmoRegenMult().unmodifyMult(id);
-				stats.getEnergyAmmoRegenMult().unmodifyMult(id);
-				stats.getMissileAmmoRegenMult().unmodifyMult(id);
-			}
-			
-		}
-
-	}
-    // revive listener / anchor [end] 
-    
 	
     private class ShipSpecificData {
     	private float charge = 0f;
+    	private float chargeSys = 0f;
     	private float decay = -4f;
     	private boolean dead = false;
     	private boolean doOnce = true;
     	private float fadeIn = 0f;
+    	private float repairCooldown = 5f;
     }
 
 }
