@@ -17,7 +17,7 @@ import com.fs.starfarer.api.util.IntervalUtil;
 
 public class ASF_CockatriceBeamEffect implements BeamEffectPlugin {
 
-	private IntervalUtil fireInterval = new IntervalUtil(0.3f, 0.45f); // ~7-11 arcs (ish)
+	private IntervalUtil fireInterval = new IntervalUtil(0.15f, 0.25f); // ~22 arcs (average)
 	private IntervalUtil arcInterval = new IntervalUtil(0.2f, 0.3f);
 	private boolean wasZero = true;
 	private float speedMult = 0.95f;
@@ -34,7 +34,7 @@ public class ASF_CockatriceBeamEffect implements BeamEffectPlugin {
     		Vector2f loc = beam.getFrom();
         	
     		float angleRandom1 = MathUtils.getRandomNumberInRange(0, 360);
-            float distanceRandom1 = MathUtils.getRandomNumberInRange(15f, 31f);
+            float distanceRandom1 = MathUtils.getRandomNumberInRange(16f, 33f);
             Vector2f arcPoint1 = MathUtils.getPointOnCircumference(loc, distanceRandom1, angleRandom1);
             
             float angleRandom2 = angleRandom1 + MathUtils.getRandomNumberInRange(50, 130);
@@ -78,11 +78,11 @@ public class ASF_CockatriceBeamEffect implements BeamEffectPlugin {
 				
 				if (!hitShield || piercedShield) {
 					Vector2f point = beam.getRayEndPrevFrame();
-					float dam = beam.getDamage().getDamage() * 0.5f;
-					float emp = beam.getDamage().getFluxComponent() * 0.5f;
+					float dam = beam.getDamage().getDamage() * 0.25f;
+					float emp = beam.getDamage().getFluxComponent() * 0.4f;
 					engine.spawnEmpArcPierceShields(
 									   beam.getSource(), point, beam.getDamageTarget(), beam.getDamageTarget(),
-									   DamageType.ENERGY, 
+									   DamageType.ENERGY,
 									   dam, // damage
 									   emp, // emp 
 									   1000f, // max range 

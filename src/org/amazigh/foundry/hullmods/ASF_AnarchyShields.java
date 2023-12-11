@@ -12,26 +12,44 @@ import com.fs.starfarer.api.util.Misc;
 
 public class ASF_AnarchyShields extends BaseHullMod {
 
-	public static final float SHIELD_BONUS = 15f;
-	
 	public static final float MAINT_MALUS = 10f;
+	
+	public static final float SHIELD_BONUS = 15f;
+	public static final float SHIELD_BONUS_S = 20f;
+	
 	public static final float MANEUVER_MALUS = 20f;
+	public static final float MANEUVER_MALUS_S = 10f;
 	public static final float SHIELD_MALUS = 40f;
+	public static final float SHIELD_MALUS_S = 20f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getShieldDamageTakenMult().modifyMult(id, 1f - SHIELD_BONUS * 0.01f);
 		
 		stats.getSuppliesPerMonth().modifyPercent(id, MAINT_MALUS);
 		stats.getSuppliesToRecover().modifyPercent(id, MAINT_MALUS);
 		stats.getDynamic().getMod("deployment_points_mod").modifyPercent(id, MAINT_MALUS);
-
-		stats.getMaxSpeed().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
-		stats.getAcceleration().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
-		stats.getDeceleration().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
-		stats.getTurnAcceleration().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
-		stats.getMaxTurnRate().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
-		stats.getShieldTurnRateMult().modifyMult(id, 1f - (SHIELD_MALUS * 0.01f));
-		stats.getShieldUnfoldRateMult().modifyMult(id, 1f - (SHIELD_MALUS * 0.01f));
+		
+		boolean sMod = isSMod(stats);
+		if (sMod) {
+			stats.getShieldDamageTakenMult().modifyMult(id, 1f - SHIELD_BONUS_S * 0.01f);
+			
+			stats.getMaxSpeed().modifyMult(id, 1f - (MANEUVER_MALUS_S * 0.01f));
+			stats.getAcceleration().modifyMult(id, 1f - (MANEUVER_MALUS_S * 0.01f));
+			stats.getDeceleration().modifyMult(id, 1f - (MANEUVER_MALUS_S * 0.01f));
+			stats.getTurnAcceleration().modifyMult(id, 1f - (MANEUVER_MALUS_S * 0.01f));
+			stats.getMaxTurnRate().modifyMult(id, 1f - (MANEUVER_MALUS_S * 0.01f));
+			stats.getShieldTurnRateMult().modifyMult(id, 1f - (SHIELD_MALUS_S * 0.01f));
+			stats.getShieldUnfoldRateMult().modifyMult(id, 1f - (SHIELD_MALUS_S * 0.01f));
+		} else {
+			stats.getShieldDamageTakenMult().modifyMult(id, 1f - SHIELD_BONUS * 0.01f);
+			
+			stats.getMaxSpeed().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
+			stats.getAcceleration().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
+			stats.getDeceleration().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
+			stats.getTurnAcceleration().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
+			stats.getMaxTurnRate().modifyMult(id, 1f - (MANEUVER_MALUS * 0.01f));
+			stats.getShieldTurnRateMult().modifyMult(id, 1f - (SHIELD_MALUS * 0.01f));
+			stats.getShieldUnfoldRateMult().modifyMult(id, 1f - (SHIELD_MALUS * 0.01f));
+		}
 	}
 	
 
@@ -77,6 +95,13 @@ public class ASF_AnarchyShields extends BaseHullMod {
 	
 	public String getUnapplicableReason(ShipAPI ship) {
 		return "Ship has no shields";
+	}
+
+	public String getSModDescriptionParam(int index, HullSize hullSize) {
+		if (index == 0) return "" + (int)SHIELD_BONUS_S + "%";
+		if (index == 1) return "" + (int)MANEUVER_MALUS_S + "%";
+		if (index == 2) return "" + (int)SHIELD_MALUS_S + "%";
+		return null;
 	}
 
 }

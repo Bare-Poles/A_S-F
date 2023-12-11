@@ -19,8 +19,8 @@
 	"flameoutTime":0.6,
 	"noEngineGlowTime":0.1,
 	"fadeTime":0.3,
-	"engineSpec":{"turnAcc":60,
-				  "turnRate":20,
+	"engineSpec":{"turnAcc":75, #60
+				  "turnRate":25, #20
 				  "acc":600,
 				  "dec":40},
 	"engineSlots":[{"id":"ES1",

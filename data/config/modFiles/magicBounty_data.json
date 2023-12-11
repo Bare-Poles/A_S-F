@@ -657,7 +657,6 @@
 		"job_reputation_reward": 10,
 		"job_item_reward": {
 		    "A_S-F_arktech_weapon_package":1,
-
 	        },
 		
 		"job_type": "obliteration",
@@ -679,18 +678,13 @@
 		"target_skill_preference": "NO_ENERGY_YES_BALLISTIC_NO_MISSILE_YES_DEFENSE",
 		
 		"fleet_name": "Proto-Ark Fleet",
-		"fleet_faction": "ML_bounty",
+		"fleet_faction": "A_S-F_arkTechD", # ML_bounty
 		"fleet_flagship_variant": "A_S-F_berzelius_desire",
 		"fleet_flagship_recoverable": False,
 		"fleet_preset_ships": {
-			"doom_Strike": 1,
-			"A_S-F_phobia_torp": 1,
-			"A_S-F_phobia_ass": 1,
-			"harbinger_Strike": 1,
-			"afflictor_Strike": 2,
 		},
 		"fleet_preset_autofit": true,
-		"fleet_scaling_multiplier": 0.5,
+		"fleet_scaling_multiplier": 1,
 		"fleet_min_FP": 180,
 		"fleet_composition_faction": "A_S-F_arkTechD",
 		"fleet_composition_quality": 1,

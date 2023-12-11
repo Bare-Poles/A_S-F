@@ -12,21 +12,34 @@ import com.fs.starfarer.api.util.Misc;
 
 public class ASF_AnarchyEnergy extends BaseHullMod {
 
-	public static final float ENERGY_DAM_BONUS = 15f;
-	
 	public static final float MAINT_MALUS = 10f;
-	public static final float OVERLOAD_MALUS = 20f;
+	
+	public static final float ENERGY_DAM_BONUS = 15f;
+	public static final float ENERGY_DAM_BONUS_S = 20f;
+	
+	public static final float OVERLOAD_MALUS = 20f;	
+	public static final float OVERLOAD_MALUS_S = 10f;
 	public static final float CAPACITY_MALUS = 10f;
+	public static final float CAPACITY_MALUS_S = 5f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getEnergyWeaponDamageMult().modifyMult(id, 1f + (ENERGY_DAM_BONUS * 0.01f));
 		
 		stats.getSuppliesPerMonth().modifyPercent(id, MAINT_MALUS);
 		stats.getSuppliesToRecover().modifyPercent(id, MAINT_MALUS);
 		stats.getDynamic().getMod("deployment_points_mod").modifyPercent(id, MAINT_MALUS);
 		
-		stats.getOverloadTimeMod().modifyMult(id, 1f + (0.01f * OVERLOAD_MALUS));
-		stats.getFluxCapacity().modifyMult(id, 1f - (CAPACITY_MALUS * 0.01f));
+		boolean sMod = isSMod(stats);
+		if (sMod) {
+			stats.getEnergyWeaponDamageMult().modifyMult(id, 1f + (ENERGY_DAM_BONUS_S * 0.01f));
+			
+			stats.getOverloadTimeMod().modifyMult(id, 1f + (0.01f * OVERLOAD_MALUS_S));
+			stats.getFluxCapacity().modifyMult(id, 1f - (CAPACITY_MALUS_S * 0.01f));
+		} else {
+			stats.getEnergyWeaponDamageMult().modifyMult(id, 1f + (ENERGY_DAM_BONUS * 0.01f));
+			
+			stats.getOverloadTimeMod().modifyMult(id, 1f + (0.01f * OVERLOAD_MALUS));
+			stats.getFluxCapacity().modifyMult(id, 1f - (CAPACITY_MALUS * 0.01f));
+		}
 	}
 	
 
@@ -62,6 +75,13 @@ public class ASF_AnarchyEnergy extends BaseHullMod {
 		label = tooltip.addPara("Flux capacity reduced by %s.", pad, bad, "" + (int)CAPACITY_MALUS + "%");
 		label.setHighlight("" + (int)CAPACITY_MALUS + "%");
 		label.setHighlightColors(bad);
+	}
+
+	public String getSModDescriptionParam(int index, HullSize hullSize) {
+		if (index == 0) return "" + (int)ENERGY_DAM_BONUS_S + "%";
+		if (index == 1) return "" + (int)OVERLOAD_MALUS_S + "%";
+		if (index == 2) return "" + (int)CAPACITY_MALUS_S + "%";
+		return null;
 	}
 
 }

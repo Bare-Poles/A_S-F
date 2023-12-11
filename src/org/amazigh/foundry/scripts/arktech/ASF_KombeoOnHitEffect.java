@@ -49,7 +49,20 @@ public class ASF_KombeoOnHitEffect implements ProximityExplosionEffect {
             engine.spawnDamagingExplosion(blast,explosion.getSource(),blastPoint,false);
             
             float timerRandom = MathUtils.getRandomNumberInRange(0.25f, 0.4f);
-            engine.spawnExplosion(blastPoint, explosion.getVelocity(), COLOR_X, 30f, timerRandom);   
+            engine.spawnExplosion(blastPoint, explosion.getVelocity(), COLOR_X, 30f, timerRandom);
+
+            for (int j = 0; j < 2; j++) {
+            	engine.addNebulaParticle(blastPoint,
+            			MathUtils.getRandomPointInCircle(explosion.getVelocity(), 7f),
+                        MathUtils.getRandomNumberInRange(25f, 35f),
+                        1.8f,
+                        0.1f,
+                        0.3f,
+                        MathUtils.getRandomNumberInRange(1.5f, 2.1f),
+                        new Color(35,18,13, 121),
+                        true);
+            }
+                
         }
         Global.getSoundPlayer().playSound("system_canister_flak_explosion", 1.4f, 0.5f, point, explosion.getVelocity()); //"explosion_flak", 0.8f, 0.9f
         
@@ -60,8 +73,8 @@ public class ASF_KombeoOnHitEffect implements ProximityExplosionEffect {
                 2.1f,
                 0.1f,
                 0.3f,
-                MathUtils.getRandomNumberInRange(1.2f, 2.3f),
-                new Color(25, 20, 19, 130),
+                MathUtils.getRandomNumberInRange(1.4f, 2.4f),
+                new Color(25,20,19, 130),
                 true);
         }
 	}

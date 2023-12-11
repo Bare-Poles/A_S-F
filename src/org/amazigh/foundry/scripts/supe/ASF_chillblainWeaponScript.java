@@ -3,14 +3,10 @@ package org.amazigh.foundry.scripts.supe;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 
-import org.lazywizard.lazylib.combat.CombatUtils;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class ASF_chillblainWeaponScript implements EveryFrameWeaponEffectPlugin {
+public class ASF_chillblainWeaponScript implements OnFireEffectPlugin, EveryFrameWeaponEffectPlugin {
 	
 	private static Map<HullSize, Float> hullDamMult = new HashMap<HullSize, Float>();
 	static {
@@ -32,9 +28,8 @@ public class ASF_chillblainWeaponScript implements EveryFrameWeaponEffectPlugin 
 		hullDamFlat.put(HullSize.DEFAULT, 100f);
 	}
 	
-    private List<DamagingProjectileAPI> alreadyRegisteredProjectiles = new ArrayList<DamagingProjectileAPI>();
-    
     public void onFire(DamagingProjectileAPI projectile, WeaponAPI weapon, CombatEngineAPI engine) {
+    	engine.addPlugin(new ASF_chillblainDetonator((MissileAPI) projectile));
     }
     
     @Override
@@ -77,22 +72,6 @@ public class ASF_chillblainWeaponScript implements EveryFrameWeaponEffectPlugin 
         	
 			engine.maintainStatusForPlayerShip("CHILLDAM", "graphics/icons/hullsys/entropy_amplifier.png", "Approximate damage of final blast to current target", "Core Blast: " + (int)coreDam + " | " + arcCount + " * Arcs, each dealing: " + (int)arcDam, false);
     	}
-    	
-    	
-    	
-        for (MissileAPI proj : CombatUtils.getMissilesWithinRange(weapon.getLocation(), 200f)) {
-            if (proj.getWeapon() == weapon && !alreadyRegisteredProjectiles.contains(proj) && engine.isEntityInPlay(proj) && !proj.didDamage()) {
-            	engine.addPlugin(new ASF_chillblainDetonator(proj));
-            	alreadyRegisteredProjectiles.add(proj);
-            }
-        }
-        
-        //And clean up our registered projectile list
-        List<DamagingProjectileAPI> cloneList = new ArrayList<>(alreadyRegisteredProjectiles);
-        for (DamagingProjectileAPI proj : cloneList) {
-            if (!engine.isEntityInPlay(proj) || proj.didDamage()) {
-                alreadyRegisteredProjectiles.remove(proj);
-            }
-        }
+
     }
 }

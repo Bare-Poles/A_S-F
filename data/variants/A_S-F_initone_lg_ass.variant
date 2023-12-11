@@ -24,7 +24,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "autopulse"
+        "WS0001": "A_S-F_ionDriver"
       }
     },
     {

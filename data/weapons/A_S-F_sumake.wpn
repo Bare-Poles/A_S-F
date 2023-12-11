@@ -3,9 +3,6 @@
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"SMALL",
-
-	"everyFrameEffect": "org.amazigh.foundry.scripts.arktech.ASF_SumakeWeaponScript",
-
 	"turretSprite":"graphics/weapons/A_S-F_sumake_turret_base.png",
 	"turretGlowSprite":"graphics/weapons/A_S-F_sumake_turret_glow.png",
 	"hardpointSprite":"graphics/weapons/A_S-F_sumake_hardpoint_base.png",

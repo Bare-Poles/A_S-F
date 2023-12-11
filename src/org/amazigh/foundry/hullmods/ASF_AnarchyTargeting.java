@@ -11,25 +11,41 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
 public class ASF_AnarchyTargeting extends BaseHullMod {
-
-	public static final float RANGE_BONUS = 15f;
 	
 	public static final float MAINT_MALUS = 10f;
+	
+	public static final float RANGE_BONUS = 15f;
+	public static final float RANGE_BONUS_S = 20f;
+	
 	public static final float DISS_MALUS = 10f;
+	public static final float DISS_MALUS_S = 5f;
 	public static final float PPT_MALUS = 15f;
+	public static final float PPT_MALUS_S = 7.5f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getBallisticWeaponRangeBonus().modifyPercent(id, RANGE_BONUS);
-		stats.getEnergyWeaponRangeBonus().modifyPercent(id, RANGE_BONUS);
-		stats.getNonBeamPDWeaponRangeBonus().modifyPercent(id, -RANGE_BONUS);
-		stats.getBeamPDWeaponRangeBonus().modifyPercent(id, -RANGE_BONUS);
 		
 		stats.getSuppliesPerMonth().modifyPercent(id, MAINT_MALUS);
 		stats.getSuppliesToRecover().modifyPercent(id, MAINT_MALUS);
 		stats.getDynamic().getMod("deployment_points_mod").modifyPercent(id, MAINT_MALUS);
-		
-		stats.getFluxDissipation().modifyMult(id, 1f - (DISS_MALUS * 0.01f));
-		stats.getPeakCRDuration().modifyMult(id, 1f - (PPT_MALUS * 0.01f));
+
+		boolean sMod = isSMod(stats);
+		if (sMod) {
+			stats.getBallisticWeaponRangeBonus().modifyPercent(id, RANGE_BONUS_S);
+			stats.getEnergyWeaponRangeBonus().modifyPercent(id, RANGE_BONUS_S);
+			stats.getNonBeamPDWeaponRangeBonus().modifyPercent(id, -RANGE_BONUS); // you get +5% PD range if s-modded, but i'm not advertising it because it's funnier not to.
+			stats.getBeamPDWeaponRangeBonus().modifyPercent(id, -RANGE_BONUS);
+
+			stats.getFluxDissipation().modifyMult(id, 1f - (DISS_MALUS_S * 0.01f));
+			stats.getPeakCRDuration().modifyMult(id, 1f - (PPT_MALUS_S * 0.01f));
+		} else {
+			stats.getBallisticWeaponRangeBonus().modifyPercent(id, RANGE_BONUS);
+			stats.getEnergyWeaponRangeBonus().modifyPercent(id, RANGE_BONUS);
+			stats.getNonBeamPDWeaponRangeBonus().modifyPercent(id, -RANGE_BONUS);
+			stats.getBeamPDWeaponRangeBonus().modifyPercent(id, -RANGE_BONUS);
+
+			stats.getFluxDissipation().modifyMult(id, 1f - (DISS_MALUS * 0.01f));
+			stats.getPeakCRDuration().modifyMult(id, 1f - (PPT_MALUS * 0.01f));
+		}
 	}
 	
 
@@ -66,6 +82,13 @@ public class ASF_AnarchyTargeting extends BaseHullMod {
 		label = tooltip.addPara("Peak performance time is reduced by %s.", pad, bad, "" + (int)PPT_MALUS + "%");
 		label.setHighlight("" + (int)PPT_MALUS + "%");
 		label.setHighlightColors(bad);
+	}
+
+	public String getSModDescriptionParam(int index, HullSize hullSize) {
+		if (index == 0) return "" + (int)RANGE_BONUS_S + "%";
+		if (index == 1) return "" + (int)DISS_MALUS_S + "%";
+		if (index == 2) return "" + (double)PPT_MALUS_S + "%";
+		return null;
 	}
 
 }

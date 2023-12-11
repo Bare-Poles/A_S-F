@@ -10,6 +10,7 @@ import com.fs.starfarer.api.combat.BeamAPI;
 import com.fs.starfarer.api.combat.BeamEffectPlugin;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEntityAPI;
+import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
@@ -60,13 +61,14 @@ public class ASF_KufikiriBeamEffect implements BeamEffectPlugin {
 				if (hitShield) {
 					for (int i=0; i < 3; i++) {
 						float kufikiriKEAngle = (i * 12f) - 12f;
-						
-						engine.spawnProjectile(ship, weapon, "A_S-F_kufikiri_KE_sub", beam.getFrom(), weapon.getCurrAngle() + kufikiriKEAngle, vel);
+						CombatEntityAPI projK = engine.spawnProjectile(ship, weapon, "A_S-F_kufikiri_KE_sub", beam.getFrom(), weapon.getCurrAngle() + kufikiriKEAngle, vel);
+						engine.addPlugin(new ASF_KufikiriKEProjScript((DamagingProjectileAPI) projK, target));
 					}
 					Global.getSoundPlayer().playSound("A_S-F_kufikiri_fire", 1.1f, 1.0f, beam.getFrom(), vel);
 					engine.spawnExplosion(beam.getFrom(), vel, COLOR_KE, 40f, 0.5f);   
 				} else {
-					engine.spawnProjectile(ship, weapon, "A_S-F_kufikiri_HE_sub", beam.getFrom(), weapon.getCurrAngle() +  MathUtils.getRandomNumberInRange(3f, -3f), vel);
+					CombatEntityAPI projH = engine.spawnProjectile(ship, weapon, "A_S-F_kufikiri_HE_sub", beam.getFrom(), weapon.getCurrAngle() +  MathUtils.getRandomNumberInRange(3f, -3f), vel);
+					engine.addPlugin(new ASF_KufikiriHEProjScript((DamagingProjectileAPI) projH, target));
 					Global.getSoundPlayer().playSound("A_S-F_kufikiri_fire", 0.9f, 1.0f, beam.getFrom(), vel);
 					engine.spawnExplosion(beam.getFrom(), vel, COLOR_HE, 40f, 0.5f);
 					

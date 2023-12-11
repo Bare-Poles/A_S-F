@@ -69,11 +69,27 @@ Malice Resonator,A_S-F_UndyingMalice,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hu
 Novel Coil Geometry,A_S-F_MaliceCoils,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_MaliceCoils,"<A heretic, clad in the husks of the dead.>","<A heretic, clad in the husks of the dead.>",,graphics/hullmods/A_S-F_MaliceCoils.png
 ,,,,,,,,,,,,,,,,,,,
 # Anarchy Systems,,,,,,,,,,,,,,,,,,,
-Ungoverned Ballistic Loader,A_S-F_anarchyBallistic,1,,Anarchy Systems,"offensive, merc",Weapons,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyBallistic,MinMaxer Ballistic Hullmod,MinMaxer Ballistic Hullmod,,graphics/hullmods/A_S-F_anarchyBallistic.png
-Energy Conduit Overcharger,A_S-F_anarchyEnergy,1,,Anarchy Systems,"offensive, merc",Weapons,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyEnergy,MinMaxer Energy Hullmod,MinMaxer Energy Hullmod,,graphics/hullmods/A_S-F_anarchyEnergy.png
-Exposed Flux Radiators,A_S-F_anarchyFlux,1,,Anarchy Systems,"special, merc",Special,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyFlux,MinMaxer Flux Hullmod,MinMaxer Flux Hullmod,,graphics/hullmods/A_S-F_anarchyFlux.png
-Ungoverned Shield Emitter,A_S-F_anarchyShields,1,,Anarchy Systems,"defensive, merc",Shields,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyShields,MinMaxer Shield Hullmod,MinMaxer Shield Hullmod,,graphics/hullmods/A_S-F_anarchyShields.png
-Overclocked Targeting Unit,A_S-F_anarchyTargeting,1,,Anarchy Systems,"offensive, merc",Weapons,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyTargeting,MinMaxer Range Hullmod,MinMaxer Range Hullmod,,graphics/hullmods/A_S-F_anarchyTargeting.png
+Ungoverned Ballistic Loader,A_S-F_anarchyBallistic,1,,Anarchy Systems,"offensive, merc",Weapons,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyBallistic,MinMaxer Ballistic Hullmod,MinMaxer Ballistic Hullmod,"Ballistic weapon Rate of Fire bonus is increased to %s.
+Ballistic weapon Ammo Regeneration Bonus is increased to %s.
+
+Weapon Recoil Malus is reduced to %s.
+Weapon turn rate Malus is reduced to %s.",graphics/hullmods/A_S-F_anarchyBallistic.png
+Energy Conduit Overcharger,A_S-F_anarchyEnergy,1,,Anarchy Systems,"offensive, merc",Weapons,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyEnergy,MinMaxer Energy Hullmod,MinMaxer Energy Hullmod,"Energy weapon damage bonus is increased to %s.
+
+Overload duration Malus is reduced to %s.
+Flux capacity Malus is reduced to %s.",graphics/hullmods/A_S-F_anarchyEnergy.png
+Exposed Flux Radiators,A_S-F_anarchyFlux,1,,Anarchy Systems,"special, merc",Special,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyFlux,MinMaxer Flux Hullmod,MinMaxer Flux Hullmod,"Flux dissipation bonus is increased to %s.
+
+Armor rating Malus is reduced to %s.
+EMP damage taken Malus is reduced to %s.",graphics/hullmods/A_S-F_anarchyFlux.png
+Ungoverned Shield Emitter,A_S-F_anarchyShields,1,,Anarchy Systems,"defensive, merc",Shields,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyShields,MinMaxer Shield Hullmod,MinMaxer Shield Hullmod,"Shield damage taken reduction is increased to %s.
+
+Top speed and maneuverability Malus is reduced to %s.
+Shield turn and unfold rate Malus is reduced to %s.",graphics/hullmods/A_S-F_anarchyShields.png
+Overclocked Targeting Unit,A_S-F_anarchyTargeting,1,,Anarchy Systems,"offensive, merc",Weapons,10000,,,,1,1,1,1,org.amazigh.foundry.hullmods.ASF_AnarchyTargeting,MinMaxer Range Hullmod,MinMaxer Range Hullmod,"Weapon range bonus is increased to %s.
+
+Flux dissipation Malus is reduced to %s.
+Peak performance time Malus is reduced to %s.",graphics/hullmods/A_S-F_anarchyTargeting.png
 ,,,,,,,,,,,,,,,,,,,
 # Standard Modular,,,,,,,,,,,,,,,,,,,
 Electromagnetic Flux Stabiliser,A_S-F_ElectroVent,1,,,"special, merc",Special,8000,,,,3,6,9,16,org.amazigh.foundry.hullmods.ASF_ElectroVent,Zappy Rapid Overload,Zappy Rapid Overload,Increases flux capacity by %s/%s/%s/%s.,graphics/hullmods/A_S-F_electroVent.png

@@ -4,7 +4,7 @@ Cycle Temporal Core,A_S-F_temporalCore,,,0.1,,,0.1,,2,0.04,0.5,3,5.5,2,,,,,,,,,,
 Dimensional Teleporter,A_S-F_dimensionalteleporter,,,,,,0.15,,,,0.3,,0.3,4.9,,,,,,,,,,,,,graphics/icons/hullsys/displacer.png
 Amita Drive,A_S-F_amitaDrive,,,,,,,,,,1,6,1.5,12.5,,,,,,,,,,,,,graphics/icons/hullsys/high_energy_focus.png
 Ballistic Overdrive,A_S-F_rangdaSys,200,,,,,,,,,5,,3,5,TRUE,,,TRUE,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png
-Malice Storm,A_S-F_MaliceStorm,,,,,,,,,,0.5,5,1,10,,,,,TRUE,,,,,,,,graphics/icons/hullsys/emp_emitter.png
+Malice Storm,A_S-F_MaliceStorm,,,,,,,,,,0.5,5,1,30,,,,,TRUE,,,,,,,,graphics/icons/hullsys/emp_emitter.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Bounty/One-off Ships,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -48,5 +48,6 @@ Infernium Afterburner,A_S-F_floggerBurn,1,,,,,,,2,0.08,0.7,0.7,0.8,,,,,,,,TRUE,,
 EMP Emission,A_S-F_empEmission,,,,800,,,,4,0.1666,0.25,,0.05,0.2,,,,,,,,,,,,,graphics/icons/hullsys/emp_emitter.png
 Flux-Assault System,A_S-F_fluxAssault,,,,,,,,3,0.0666,0.25,2,1.75,0,,,,,,,,,,,,,graphics/icons/hullsys/high_energy_focus.png
 Flak Screen,A_S-F_flak_screen,,,,,,,,2,0.0555,,,,4.5,,,,,,,,,,,,,
+Bunker Shield,A_S-F_bunkerShield,1,,,,,,,,,1.5,6,1.5,12,TRUE,,,,TRUE,,,,,,,,graphics/icons/hullsys/fortress_shield.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,

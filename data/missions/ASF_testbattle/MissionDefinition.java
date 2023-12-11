@@ -47,20 +47,21 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_estucheon_rkt", FleetMemberType.SHIP, "This Is A Test", false);
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_phobia_ass", FleetMemberType.SHIP, "Trial", true);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_elt", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_ass", FleetMemberType.SHIP, "Trial", true);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_std", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_std", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_std", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_sup", FleetMemberType.SHIP, "Trial", false); //elt
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_sup", FleetMemberType.SHIP, "Trial", true); //ass
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_sup", FleetMemberType.SHIP, "Trial", false); //std
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_ass", FleetMemberType.SHIP, "Trial", false); //std
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_sup", FleetMemberType.SHIP, "Trial", false); //std
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_lg_elt", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_peryton_fs", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_gemogee_strike", FleetMemberType.SHIP, "Trial", false);
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_henki_std", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_peluda_ass", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_peluda_sup", FleetMemberType.SHIP, "Trial", false); //ass
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_edifice_sup", FleetMemberType.SHIP, "Trial", false); //esc
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_bathory_ass", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_gaoler_sup", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_buraq_std", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_gaoler_stk", FleetMemberType.SHIP, "Trial", false); //sup
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_buraq_sup2", FleetMemberType.SHIP, "Trial", false); //std
 
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_superlasher_supp", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_misside_std", FleetMemberType.SHIP, "Trial", false);
@@ -72,8 +73,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_invigilator_ass", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_velox_ass", FleetMemberType.SHIP, "Trial", false);
-
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_dunnock_brwl", FleetMemberType.SHIP, "Trial", false);
+		
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_dunnock_atk", FleetMemberType.SHIP, "Trial", false); //brwl
 		
 		// Set up the enemy fleet.
 		api.addToFleet(FleetSide.ENEMY, "doom_Strike", FleetMemberType.SHIP, "Search Dialog", false);
@@ -82,16 +83,16 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "apogee_Balanced", FleetMemberType.SHIP, "Low Price Point", false);
 		api.addToFleet(FleetSide.ENEMY, "apogee_Balanced", FleetMemberType.SHIP, "Copies To Be Returned", false);
 		api.addToFleet(FleetSide.ENEMY, "heron_Strike", FleetMemberType.SHIP, "Arterial Roadway", false);
-		api.addToFleet(FleetSide.ENEMY, "falcon_LG_Attack", FleetMemberType.SHIP, "Filling A Blank", false);
 		api.addToFleet(FleetSide.ENEMY, "fury_Attack", FleetMemberType.SHIP, "So Well Received", false);
-		
-		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Common Type", false);
-		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Only Interested", false);
+		api.addToFleet(FleetSide.ENEMY, "falcon_LG_Attack", FleetMemberType.SHIP, "Filling A Blank", false);
+
 		api.addToFleet(FleetSide.ENEMY, "manticore_Assault", FleetMemberType.SHIP, "Strange Feeling", false);
 		api.addToFleet(FleetSide.ENEMY, "manticore_Support", FleetMemberType.SHIP, "Proudly Made", false);
+		api.addToFleet(FleetSide.ENEMY, "medusa_PD", FleetMemberType.SHIP, "Harsh Words", false);
+		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Common Type", false);
+		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Only Interested", false);
 		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, "Please Transfer", false);
 		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, "Never Commit", false);
-		
 		
 		api.addToFleet(FleetSide.ENEMY, "tempest_Attack", FleetMemberType.SHIP, "Your Help", false);
 		api.addToFleet(FleetSide.ENEMY, "tempest_Attack", FleetMemberType.SHIP, "My Greed", false);
@@ -108,16 +109,16 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		// api.defeatOnShipLoss("When Not Provided");
 		
 		// Set up the map.
-		float width = 12500f;
-		float height = 12000f;
+		float width = 18000f;
+		float height = 16000f;
 		api.initMap((float)-width/2f, (float)width/2f, (float)-height/2f, (float)height/2f);
 		
 		float minX = -width/2;
 		float minY = -height/2;
 		
 		// Add an asteroid field
-		api.addAsteroidField(minX, minY + height / 2, 0, 8000f,
-							 20f, 70f, 100);
+		api.addAsteroidField(minX, minY + height / 2, 0, 10000f,
+							 20f, 75f, 120);
 		
 	}
 

@@ -31,7 +31,7 @@ Misside,A_S-F_misside,Missile Frigate,Midline,flarelauncher_active,6,1750,300,25
 Dunnock,A_S-F_dunnock,Frigate,Low Tech,canister_flak,5,2750,500,2500,,200,45,,125,120,80,50,80,280,OMNI,,150,0.4,1.2,,,30,50,50,30,1,30,10,10000,8,10,300,0.25,4,4,,"rare_bp, merc, ind",,0.4,2,2,222206
 Mtumaji,A_S-F_mtumaji,Drone,[ArkTech],A_S-F_loaderOverdriveD,5,1500,400,1500,,120,40,,140,120,100,100,120,140,PHASE,A_S-F_MicroVent,,,,,,0,0,20,20,1,20,10,24000,5,5,480,0.25,5,5,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,,,,222343.3
 Mtetezi,A_S-F_mtetezi,Drone,[ArkTech],A_S-F_AURA_D,5,1800,450,1500,,120,40,,160,140,120,110,140,180,PHASE,A_S-F_MicroVent,,,,,,0,0,20,20,1,20,10,24000,5,5,480,0.25,5,5,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,2,222343.4
-Persenachia,A_S-F_persenachia,Phase Superfrigate,High Tech,A_S-F_MaliceStorm,16,1200,300,6000,,400,60,,180,200,160,90,300,180,PHASE,phasecloak,,,,0,0.1666666,1,5,10,20,1,20,11,90000,10,40,180,0.25,20,20,"PHASE, HIDE_IN_CODEX","no_autofit, req_military, no_dealer",,0,2,2,2223.1
+Persenachia,A_S-F_persenachia,Phase Superfrigate,High Tech,A_S-F_MaliceStorm,16,1200,200,6000,,350,60,,180,200,160,90,300,180,PHASE,phasecloak,,,,0,0.1666666,1,5,10,20,1,20,11,90000,10,40,180,0.25,20,20,"PHASE, HIDE_IN_CODEX","no_autofit, req_military, no_dealer",,0,2,2,2223.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Gaoler,A_S-F_gaoler,Carrier,Midline,A_S-F_drone_shackle,10,4500,300,3000,2833,200,60,2,60,45,25,25,25,450,FRONT,,230,0.4,0.8,,,100,160,40,40,2,20,9,52500,5,15,360,0.25,12,12,CARRIER,"rare_bp, merc, ind",,0.5,2,3,318318
 Bathory,A_S-F_bathory,Destroyer,Midline,flarelauncher_active,12,4000,500,5000,,320,105,,90,80,65,30,55,380,OMNI,,120,0.4,0.7,,,60,100,60,50,2,25,9,60000,4,20,300,0.25,12,12,,"rare_bp, hist2t, merc, ind",,0.5,2,3,314314
@@ -50,6 +50,11 @@ Lafiel,A_S-F_lafiel,Superdestroyer,High Tech,A_S-F_unhingeChronoflow,24,6800,700
 Mbishi,A_S-F_mbishi,Drone,[ArkTech],A_S-F_loaderOverdriveD,10,4500,650,4500,,250,90,,70,50,20,20,20,450,PHASE,A_S-F_MicroVent,,,,,,0,0,80,40,2,20,8,96000,5,10,540,0.25,10,10,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,3,222344.2
 Mlinzi,A_S-F_mlinzi,Drone,[ArkTech],A_S-F_AURA_D,10,4500,625,4500,,250,90,,75,60,35,25,25,500,PHASE,A_S-F_MicroVent,,,,,,0,0,80,40,2,20,8,96000,5,10,540,0.25,10,10,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,3,222344.3
 Estucheon,A_S-F_estucheon,Drone,Explorarium,A_S-F_flak_screen,4,2500,400,2400,,150,40,,80,50,30,30,25,250,NONE,,0,0,0,,,0,0,40,20,1,20,9,20000,5,8,480,0.25,4,4,"UNBOARDABLE, HIDE_IN_CODEX","derelict, auto_rec",,0.5,2,3,222316
+Edifice,A_S-F_edifice,Destroyer,High Tech,A_S-F_bunkerShield,12,3500,300,8000,,400,90,,80,80,60,30,60,300,OMNI,,360,0.3,0.6,,,35,50,50,40,2,20,9,65000,5,20,480,0.25,12,12,,"merc, ind",,0.6,2,3,222309
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Sunder,sunder,Destroyer,Midline,highenergyfocus,10,4000,250,7500,8333,500,105,,90,80,60,30,30,350,FRONT,,300,0.4,1.2,,,50,70,80,50,2,25,9,45000,5,15,300,0.25,11,11,,,,,,,
+Medusa,medusa,Destroyer,High Tech,displacer,12,3000,300,6000,6667,400,100,,100,90,60,40,100,300,OMNI,,120,0.3,0.6,,,35,50,50,40,2,20,9,60000,5,20,300,0.25,12,12,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Gemogee,A_S-F_gemogee,Carrier,High Tech,reservewing,16,9500,800,12000,14000,700,125,2,55,40,30,20,25,2400,FRONT,,360,0.6,0.7,,,150,450,500,200,2,100,8,170000,3,15,420,0.25,18,18,"CARRIER, COMBAT","rare_bp, merc, ind",,0.6,2,3,403403
 Peryton,A_S-F_peryton,Missile Cruiser,Low Tech,A_S-F_cyclemissilefeed,12,5000,650,4500,4000,150,120,,50,40,30,15,15,900,FRONT,,100,0.5,0.9,,,100,180,100,60,3,20,8,90000,3,12,480,0.25,16,16,,"rare_bp, merc, ind",0.8,0.5,2,3,408418

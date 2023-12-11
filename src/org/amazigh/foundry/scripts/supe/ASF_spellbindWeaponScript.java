@@ -4,41 +4,18 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.util.IntervalUtil;
 
 import org.magiclib.util.MagicLensFlare;
-
 import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 
-public class ASF_spellbindWeaponScript implements EveryFrameWeaponEffectPlugin {
+public class ASF_spellbindWeaponScript implements OnFireEffectPlugin, EveryFrameWeaponEffectPlugin {
 	
-    private List<DamagingProjectileAPI> alreadyRegisteredProjectiles = new ArrayList<DamagingProjectileAPI>();
-
     private final IntervalUtil interval = new IntervalUtil(0.05f, 0.05f);
     private final IntervalUtil interval2 = new IntervalUtil(0.1f, 0.1f);
     
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
-
-    	// bit to attach the script to the projectile
-        for (DamagingProjectileAPI proj : CombatUtils.getProjectilesWithinRange(weapon.getLocation(), 200f)) {
-        	
-            if (proj.getWeapon() == weapon && !alreadyRegisteredProjectiles.contains(proj) && engine.isEntityInPlay(proj) && !proj.didDamage()) {
-            	engine.addPlugin(new ASF_spellbindProjScript(proj));
-            	alreadyRegisteredProjectiles.add(proj);
-            }
-        }
-        
-        //And clean up our registered projectile list
-        List<DamagingProjectileAPI> cloneList = new ArrayList<>(alreadyRegisteredProjectiles);
-        for (DamagingProjectileAPI proj : cloneList) {
-            if (!engine.isEntityInPlay(proj) || proj.didDamage()) {
-                alreadyRegisteredProjectiles.remove(proj);
-            }
-        }
         
         // if the weapon is charging, then we spawn some visual effects
         if ((weapon.getChargeLevel() > 0f) && (weapon.getCooldownRemaining() == 0f)) {
@@ -99,6 +76,8 @@ public class ASF_spellbindWeaponScript implements EveryFrameWeaponEffectPlugin {
     	
     	Vector2f point = projectile.getLocation();
     	float projAngle = projectile.getFacing();
+    	
+    	engine.addPlugin(new ASF_spellbindProjScript(projectile));
     	
     	for (int i=0; i < 28; i++) {
 			float angle = MathUtils.getRandomNumberInRange(0f, 360f);

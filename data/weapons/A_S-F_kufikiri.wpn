@@ -7,7 +7,6 @@
 	"collisionClassByFighter":"RAY_FIGHTER",
 
 	"beamEffect":"org.amazigh.foundry.scripts.arktech.ASF_KufikiriBeamEffect",
-	"everyFrameEffect": "org.amazigh.foundry.scripts.arktech.ASF_KufikiriWeaponScript",
 
 	"turretSprite":"graphics/weapons/A_S-F_Kufikiri_turret_base.png",
 	"turretGlowSprite":"graphics/weapons/A_S-F_Kufikiri_turret_glow.png",

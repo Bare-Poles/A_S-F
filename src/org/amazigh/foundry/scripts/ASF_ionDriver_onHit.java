@@ -36,7 +36,7 @@ public class ASF_ionDriver_onHit implements OnHitEffectPlugin {
             		MathUtils.getRandomNumberInRange(3f, 6f), //size
             		1.0f, //brightness
             		MathUtils.getRandomNumberInRange(0.62f, 0.83f), //duration
-            		new Color(29,170,255,255));
+            		new Color(29,200,230,255)); // 29,170,255
         }
 		
 		// inner arcs
@@ -49,9 +49,9 @@ public class ASF_ionDriver_onHit implements OnHitEffectPlugin {
 	        float angleRandom2 = angleRandom1 + MathUtils.getRandomNumberInRange(80, 130);
 	        Vector2f arcPoint2 = MathUtils.getPointOnCircumference(point, distanceRandom2, angleRandom2);
 	        
-	        engine.spawnEmpArcVisual(arcPoint1, target, arcPoint2, target, 9f,
-					new Color(25,110,165,103),
-					new Color(220,230,255,121));
+	        engine.spawnEmpArcVisual(arcPoint1, target, arcPoint2, target, 8f,
+					new Color(25,130,155,98), // 25,110,165
+					new Color(220,240,250,114)); // 230,255,114
 		}
 		
 		// outer arcs
@@ -65,8 +65,8 @@ public class ASF_ionDriver_onHit implements OnHitEffectPlugin {
 	        Vector2f arcPoint2 = MathUtils.getPointOnCircumference(point, distanceRandom2, angleRandom2);
 	        
 	        engine.spawnEmpArcVisual(arcPoint1, target, arcPoint2, target, 9f,
-					new Color(25,110,165,98),
-					new Color(220,230,255,114));
+					new Color(25,145,140,103), // 25,110,165
+					new Color(220,240,250,121)); // 230,255,114
 		}
 		
 	}

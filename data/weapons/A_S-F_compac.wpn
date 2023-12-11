@@ -3,8 +3,6 @@
 	"specClass":"projectile",
 	"type":"ENERGY",
 	"size":"MEDIUM",
-
-	"everyFrameEffect": "org.amazigh.foundry.scripts.ASF_compacWeaponScript",
 	
 	"turretSprite":"graphics/weapons/A_S-F_compac_base.png",
 	"turretGlowSprite":"graphics/weapons/A_S-F_compac_glow.png",
@@ -29,6 +27,6 @@
 					   "particleDuration":0.2,
 					   "particleCount":5,
 					   "particleColor":[255,100,225,255]},
-	"projectileSpecId":"A_S-F_compac_bolt",
+	"projectileSpecId":"A_S-F_compac_bolt_fake",
 	"fireSoundTwo":"A_S-F_compac_fire",
 }

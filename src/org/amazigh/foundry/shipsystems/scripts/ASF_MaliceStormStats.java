@@ -25,15 +25,15 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 
 	private CombatEngineAPI engine;
 
-	private static final float STORM_RANGE = 1200f;
+	private static final float STORM_RANGE = 1000f;
 	private static float SPD_MULT = 0.2f; // how much the target is to be slowed by
 	
 	private static float ARC_BLAST_SIZE = 50f;
 	
-	public static final float DAMAGE_REDUCTION = 0.4f;
+	public static final float DAMAGE_REDUCTION = 0.2f; // you get damage resistance during sys use, not sure if this is really *needed* but w/e
 	
-	private IntervalUtil arcInterval1 = new IntervalUtil(0.2f,0.45f);
-	private IntervalUtil arcInterval2 = new IntervalUtil(0.2f,0.45f);
+	private IntervalUtil arcInterval1 = new IntervalUtil(0.25f,0.5f);
+	private IntervalUtil arcInterval2 = new IntervalUtil(0.25f,0.5f);
 	private IntervalUtil sparkInterval = new IntervalUtil(0.05f,0.05f);
 	
 	private IntervalUtil cloudInterval1 = new IntervalUtil(0.2f,0.3f);
@@ -44,16 +44,19 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	
 	private static Map<HullSize, Float> arcRateMult = new HashMap<HullSize, Float>();
 	static {
-		arcRateMult.put(HullSize.FIGHTER, 0.15f);
+		arcRateMult.put(HullSize.FIGHTER, 0.1f);
 		arcRateMult.put(HullSize.FRIGATE, 0.2f);
 		arcRateMult.put(HullSize.DESTROYER, 0.25f);
 		arcRateMult.put(HullSize.CRUISER, 0.35f);
 		arcRateMult.put(HullSize.CAPITAL_SHIP, 0.45f);
-		arcRateMult.put(HullSize.DEFAULT, 0.3f);
+		arcRateMult.put(HullSize.DEFAULT, 0.1f);
 	}
 	
-	private static float ARC_DAM = 50f;
-	private static float ARC_EMP = 150f;
+	private static float ARC_DAM = 60f;
+	private static float ARC_EMP = 300f;
+	private static float PHASE_FLUX_SPIKE = 300f;
+	
+	private static float ARC_RATE_DECAY_MULT = 0.9f;
 	
 	
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
@@ -94,79 +97,119 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 		
 		float amount = engine.getElapsedInLastFrame();
 		
-		arcInterval1.advance(amount);
+		arcInterval1.advance(amount * effectLevel);
 		if (arcInterval1.intervalElapsed()) {
 			
 			arcFired1 = false;
+			float arcMult = 1f; // scaling down arc chance if an arc has already happened, to prevent it being completely brainless op when in a big swarm
+			float arcMultM = 1f; // seperate scalar for missiles
 			
 			for (ShipAPI target_ship : engine.getShips()) {
 				// check if the ship is a valid target
-				if (target_ship.isHulk() || target_ship.getOwner() == ship.getOwner()) {
+				if (target_ship.isHulk() || target_ship.getOwner() == ship.getOwner() || target_ship.isPhased()) {
 					continue;
 				}
 				
 				// if the target ship is within range, do an arc
 				if (MathUtils.isWithinRange(ship, target_ship, range)) {
-					if (Math.random() < arcRateMult.get(target_ship.getHullSize())) {
+					if (Math.random() < (arcRateMult.get(target_ship.getHullSize()) * arcMult)) {						
 						arcFired1 = true;
+						arcMult *= ARC_RATE_DECAY_MULT;
+
+						if (target_ship.isPhased()) {
+	    					// if the enemy is phased, then we have them eat a chunk of soft flux, less "AI breaking" than hitting them with an arc after all
+	    					target_ship.getFluxTracker().increaseFlux(PHASE_FLUX_SPIKE, false);
+	    					
+	    					engine.addNebulaParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), 10f),
+	    			        		MathUtils.getRandomPointInCircle(target_ship.getVelocity(), 5f),
+	    			        		target_ship.getCollisionRadius(),
+	    							1.6f,
+	    							0.5f,
+	    							0.7f,
+	    							0.35f,
+	    							new Color(255,216,224,95),
+	    							false);
+	    	                
+	    	                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), 10f),
+	    			        		MathUtils.getRandomPointInCircle(target_ship.getVelocity(), 10f),
+	    			        		target_ship.getCollisionRadius(),
+	    							MathUtils.getRandomNumberInRange(1.5f, 1.8f),
+	    							0.7f,
+	    							0.3f,
+	    							0.65f,
+	    							new Color(190,65,150,70),
+	    							false);
+	    	                
+	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.4f); i++) {
+	    	                	Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(target_ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 75f));
+	    	                	
+	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.6f),
+	    	    						sparkVel,
+	    	    						MathUtils.getRandomNumberInRange(4f, 8f), //size
+	    	    						1.0f, //brightness
+	    	    						MathUtils.getRandomNumberInRange(0.45f, 0.6f), //duration
+	    	    						new Color(255,52,84,255));
+	    	                }
+	    	                
+	        			} else {
+			                float angle = MathUtils.getRandomNumberInRange(0f, 360f);
+			                
+			                float distance = target_ship.getCollisionRadius() + MathUtils.getRandomNumberInRange(30f, 60f);
+			                Vector2f loc = MathUtils.getPointOnCircumference(target_ship.getLocation(), distance, angle);
+			                
+			                CombatEntityAPI dummy = new SimpleEntity(loc);
+
+			                target_ship.getVelocity().scale(0.95f); // slowing the target when they get arced
+			                
+			                engine.spawnEmpArc(
+			                        ship,
+			                        loc,
+			                        dummy,
+			                        target_ship,
+			                        DamageType.ENERGY,
+			                        ARC_DAM,
+			                        ARC_EMP,
+			                        10000f,
+			                        "A_S-F_malice_arc_impact",
+			                        11f,
+			                        new Color(153,92,103,220),
+									new Color(255,216,224,210));
+			                
+			                engine.spawnExplosion(loc, dummy.getVelocity(), new Color(210,55,140,255), ARC_BLAST_SIZE, 0.5f);
+			                
+			                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
+					        		MathUtils.getRandomPointInCircle(null, 5f),
+					        		ARC_BLAST_SIZE * 1.2f,
+									1.6f,
+									0.5f,
+									0.7f,
+									0.25f,
+									new Color(255,216,224,95),
+									false);
+			                
+			                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
+					        		MathUtils.getRandomPointInCircle(null, 10f),
+					        		ARC_BLAST_SIZE * 1.8f,
+									MathUtils.getRandomNumberInRange(1.5f, 1.8f),
+									0.7f,
+									0.3f,
+									0.6f,
+									new Color(190,65,150,70),
+									false);
+			                
+			                for (int i=0; i < 7; i++) {
+			            		Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(50f, 85f));
+			            		engine.addSmoothParticle(loc,
+			    						sparkVel,
+			    						MathUtils.getRandomNumberInRange(4f, 9f), //size
+			    						1.0f, //brightness
+			    						MathUtils.getRandomNumberInRange(0.4f, 0.5f), //duration
+			    						new Color(255,52,84,255));
+			            	}
+			                
+			                engine.removeEntity(dummy);
+	        			}
 						
-		                float angle = MathUtils.getRandomNumberInRange(0f, 360f);
-		                
-		                float distance = target_ship.getCollisionRadius() + MathUtils.getRandomNumberInRange(30f, 60f);
-		                Vector2f loc = MathUtils.getPointOnCircumference(target_ship.getLocation(), distance, angle);
-		                
-		                CombatEntityAPI dummy = new SimpleEntity(loc);
-		                
-		                target_ship.getVelocity().scale(0.95f); // slowing the target when they get arced
-		                
-		                engine.spawnEmpArc(
-		                        ship,
-		                        loc,
-		                        dummy,
-		                        target_ship,
-		                        DamageType.ENERGY,
-		                        ARC_DAM,
-		                        ARC_EMP,
-		                        10000f,
-		                        "A_S-F_malice_arc_impact",
-		                        11f,
-		                        new Color(153,92,103,220),
-								new Color(255,216,224,210));
-		                
-		                engine.spawnExplosion(loc, dummy.getVelocity(), new Color(210,55,140,255), ARC_BLAST_SIZE, 0.5f);
-		                
-		                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
-				        		MathUtils.getRandomPointInCircle(null, 5f),
-				        		ARC_BLAST_SIZE * 1.2f,
-								1.6f,
-								0.5f,
-								0.7f,
-								0.25f,
-								new Color(255,216,224,95),
-								false);
-		                
-		                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
-				        		MathUtils.getRandomPointInCircle(null, 10f),
-				        		ARC_BLAST_SIZE * 1.8f,
-								MathUtils.getRandomNumberInRange(1.5f, 1.8f),
-								0.7f,
-								0.3f,
-								0.6f,
-								new Color(190,65,150,70),
-								false);
-		                
-		                for (int i=0; i < 7; i++) {
-		            		Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(50f, 85f));
-		            		engine.addSmoothParticle(loc,
-		    						sparkVel,
-		    						MathUtils.getRandomNumberInRange(4f, 9f), //size
-		    						1.0f, //brightness
-		    						MathUtils.getRandomNumberInRange(0.4f, 0.5f), //duration
-		    						new Color(255,52,84,255));
-		            	}
-		                
-		                engine.removeEntity(dummy);
-		                
 					}
 				}
 			}
@@ -176,11 +219,12 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
         		if (target_missile.getOwner() == ship.getOwner()) {
         			continue;
         		}
-
+        		
 				// if the target missile is within range, do an arc
         		if (MathUtils.isWithinRange(ship, target_missile, range)) {
-        			if (Math.random() < 0.1f) {
+        			if (Math.random() < (0.1f *arcMultM)) {
         				arcFired1 = true;
+        				arcMultM *= ARC_RATE_DECAY_MULT;
         				
         				float angle = MathUtils.getRandomNumberInRange(0f, 360f);
 		                
@@ -286,10 +330,12 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 			}
 		}
 		
-		arcInterval2.advance(amount);
+		arcInterval2.advance(amount * effectLevel);
 		if (arcInterval2.intervalElapsed()) {
 			
 			arcFired2 = false;
+			float arcMult = 1f; // scaling down arc chance if an arc has already happened, to prevent it being completely brainless op when in a big swarm
+			float arcMultM = 1f; // seperate scalar for missiles
 			
 			for (ShipAPI target_ship : engine.getShips()) {
 				// check if the ship is a valid target
@@ -299,66 +345,105 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 				
 				// if the target ship is within range, do an arc
 				if (MathUtils.isWithinRange(ship, target_ship, range)) {
-					if (Math.random() < arcRateMult.get(target_ship.getHullSize())) {
+					
+					if (Math.random() < (arcRateMult.get(target_ship.getHullSize()) * arcMult)) {						
 						arcFired2 = true;
-						
-		                float angle = MathUtils.getRandomNumberInRange(0f, 360f);
-		                
-		                float distance = target_ship.getCollisionRadius() + MathUtils.getRandomNumberInRange(30f, 60f);
-		                Vector2f loc = MathUtils.getPointOnCircumference(target_ship.getLocation(), distance, angle);
-		                
-		                CombatEntityAPI dummy = new SimpleEntity(loc);
+						arcMult *= ARC_RATE_DECAY_MULT;
 
-		                target_ship.getVelocity().scale(0.95f); // slowing the target when they get arced
-		                
-		                engine.spawnEmpArc(
-		                        ship,
-		                        loc,
-		                        dummy,
-		                        target_ship,
-		                        DamageType.ENERGY,
-		                        ARC_DAM,
-		                        ARC_EMP,
-		                        10000f,
-		                        "A_S-F_malice_arc_impact",
-		                        11f,
-		                        new Color(153,92,103,220),
-								new Color(255,216,224,210));
-		                
-		                engine.spawnExplosion(loc, dummy.getVelocity(), new Color(210,55,140,255), ARC_BLAST_SIZE, 0.5f);
-		                
-		                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
-				        		MathUtils.getRandomPointInCircle(null, 5f),
-				        		ARC_BLAST_SIZE * 1.2f,
-								1.6f,
-								0.5f,
-								0.7f,
-								0.25f,
-								new Color(255,216,224,95),
-								false);
-		                
-		                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
-				        		MathUtils.getRandomPointInCircle(null, 10f),
-				        		ARC_BLAST_SIZE * 1.8f,
-								MathUtils.getRandomNumberInRange(1.5f, 1.8f),
-								0.7f,
-								0.3f,
-								0.6f,
-								new Color(190,65,150,70),
-								false);
-		                
-		                for (int i=0; i < 7; i++) {
-		            		Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(50f, 85f));
-		            		engine.addSmoothParticle(loc,
-		    						sparkVel,
-		    						MathUtils.getRandomNumberInRange(4f, 9f), //size
-		    						1.0f, //brightness
-		    						MathUtils.getRandomNumberInRange(0.4f, 0.5f), //duration
-		    						new Color(255,52,84,255));
-		            	}
-		                
-		                engine.removeEntity(dummy);
-		                
+						if (target_ship.isPhased()) {
+	    					// if the enemy is phased, then we have them eat a chunk of soft flux, less "AI breaking" than hitting them with an arc after all
+	    					target_ship.getFluxTracker().increaseFlux(PHASE_FLUX_SPIKE, false);
+	    					
+	    					engine.addNebulaParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), 10f),
+	    			        		MathUtils.getRandomPointInCircle(target_ship.getVelocity(), 5f),
+	    			        		target_ship.getCollisionRadius(),
+	    							1.6f,
+	    							0.5f,
+	    							0.7f,
+	    							0.35f,
+	    							new Color(255,216,224,95),
+	    							false);
+	    	                
+	    	                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), 10f),
+	    			        		MathUtils.getRandomPointInCircle(target_ship.getVelocity(), 10f),
+	    			        		target_ship.getCollisionRadius(),
+	    							MathUtils.getRandomNumberInRange(1.5f, 1.8f),
+	    							0.7f,
+	    							0.3f,
+	    							0.65f,
+	    							new Color(190,65,150,70),
+	    							false);
+	    	                
+	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.4f); i++) {
+	    	                	Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(target_ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 75f));
+	    	                	
+	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.6f),
+	    	    						sparkVel,
+	    	    						MathUtils.getRandomNumberInRange(4f, 8f), //size
+	    	    						1.0f, //brightness
+	    	    						MathUtils.getRandomNumberInRange(0.45f, 0.6f), //duration
+	    	    						new Color(255,52,84,255));
+	    	                }
+	    	                
+	        			} else {
+			                float angle = MathUtils.getRandomNumberInRange(0f, 360f);
+			                
+			                float distance = target_ship.getCollisionRadius() + MathUtils.getRandomNumberInRange(30f, 60f);
+			                Vector2f loc = MathUtils.getPointOnCircumference(target_ship.getLocation(), distance, angle);
+			                
+			                CombatEntityAPI dummy = new SimpleEntity(loc);
+
+			                target_ship.getVelocity().scale(0.95f); // slowing the target when they get arced
+			                
+			                engine.spawnEmpArc(
+			                        ship,
+			                        loc,
+			                        dummy,
+			                        target_ship,
+			                        DamageType.ENERGY,
+			                        ARC_DAM,
+			                        ARC_EMP,
+			                        10000f,
+			                        "A_S-F_malice_arc_impact",
+			                        11f,
+			                        new Color(153,92,103,220),
+									new Color(255,216,224,210));
+			                
+			                engine.spawnExplosion(loc, dummy.getVelocity(), new Color(210,55,140,255), ARC_BLAST_SIZE, 0.5f);
+			                
+			                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
+					        		MathUtils.getRandomPointInCircle(null, 5f),
+					        		ARC_BLAST_SIZE * 1.2f,
+									1.6f,
+									0.5f,
+									0.7f,
+									0.25f,
+									new Color(255,216,224,95),
+									false);
+			                
+			                engine.addNebulaParticle(MathUtils.getRandomPointInCircle(loc, 10f),
+					        		MathUtils.getRandomPointInCircle(null, 10f),
+					        		ARC_BLAST_SIZE * 1.8f,
+									MathUtils.getRandomNumberInRange(1.5f, 1.8f),
+									0.7f,
+									0.3f,
+									0.6f,
+									new Color(190,65,150,70),
+									false);
+			                
+			                for (int i=0; i < 7; i++) {
+			            		Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(50f, 85f));
+			            		engine.addSmoothParticle(loc,
+			    						sparkVel,
+			    						MathUtils.getRandomNumberInRange(4f, 9f), //size
+			    						1.0f, //brightness
+			    						MathUtils.getRandomNumberInRange(0.4f, 0.5f), //duration
+			    						new Color(255,52,84,255));
+			            	}
+			                
+			                engine.removeEntity(dummy);
+	        			}
+						
 					}
 				}
 			}
@@ -371,8 +456,9 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 
 				// if the target missile is within range, do an arc
         		if (MathUtils.isWithinRange(ship, target_missile, range)) {
-        			if (Math.random() < 0.1f) {
+        			if (Math.random() < (0.1f * arcMultM)) {
         				arcFired2 = true;
+        				arcMultM *= ARC_RATE_DECAY_MULT;
         				
         				float angle = MathUtils.getRandomNumberInRange(0f, 360f);
 		                
@@ -616,11 +702,11 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	
 	public void unapply(MutableShipStatsAPI stats, String id) {
 		
-		
 		ShipAPI ship = (ShipAPI) stats.getEntity();
         if (engine != Global.getCombatEngine()) {
             engine = Global.getCombatEngine();
         }
+        
         for (ShipAPI target_ship : engine.getShips()) {
             if (target_ship.isHulk() || target_ship.isFighter() || target_ship.getOwner() == ship.getOwner()) {
                 continue;

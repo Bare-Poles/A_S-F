@@ -12,21 +12,34 @@ import com.fs.starfarer.api.util.Misc;
 
 public class ASF_AnarchyFlux extends BaseHullMod {
 
-	public static final float DISS_BONUS = 15f;
-	
 	public static final float MAINT_MALUS = 10f;
+	
+	public static final float DISS_BONUS = 15f;
+	public static final float DISS_BONUS_S = 20f;
+	
 	public static final float ARMOUR_MALUS = 10f;
+	public static final float ARMOUR_MALUS_S = 5f;
 	public static final float EMP_MALUS = 50f;
+	public static final float EMP_MALUS_S = 25f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getFluxDissipation().modifyMult(id, 1f + (DISS_BONUS * 0.01f));
 		
 		stats.getSuppliesPerMonth().modifyPercent(id, MAINT_MALUS);
 		stats.getSuppliesToRecover().modifyPercent(id, MAINT_MALUS);
 		stats.getDynamic().getMod("deployment_points_mod").modifyPercent(id, MAINT_MALUS);
 		
-		stats.getArmorBonus().modifyMult(id, 1f - (0.01f * ARMOUR_MALUS));
-		stats.getEmpDamageTakenMult().modifyMult(id, 1f + (EMP_MALUS * 0.01f));
+		boolean sMod = isSMod(stats);
+		if (sMod) {
+			stats.getFluxDissipation().modifyMult(id, 1f + (DISS_BONUS_S * 0.01f));
+			
+			stats.getArmorBonus().modifyMult(id, 1f - (0.01f * ARMOUR_MALUS_S));
+			stats.getEmpDamageTakenMult().modifyMult(id, 1f + (EMP_MALUS_S * 0.01f));
+		} else {
+			stats.getFluxDissipation().modifyMult(id, 1f + (DISS_BONUS * 0.01f));
+			
+			stats.getArmorBonus().modifyMult(id, 1f - (0.01f * ARMOUR_MALUS));
+			stats.getEmpDamageTakenMult().modifyMult(id, 1f + (EMP_MALUS * 0.01f));
+		}
 	}
 	
 
@@ -62,6 +75,13 @@ public class ASF_AnarchyFlux extends BaseHullMod {
 		label = tooltip.addPara("EMP damage taken increased by %s.", pad, bad, "" + (int)EMP_MALUS + "%");
 		label.setHighlight("" + (int)EMP_MALUS + "%");
 		label.setHighlightColors(bad);
+	}
+
+	public String getSModDescriptionParam(int index, HullSize hullSize) {
+		if (index == 0) return "" + (int)DISS_BONUS_S + "%";
+		if (index == 1) return "" + (int)ARMOUR_MALUS_S + "%";
+		if (index == 2) return "" + (int)EMP_MALUS_S + "%";
+		return null;
 	}
 
 }

@@ -119,6 +119,11 @@
 
     "A_S-F_estucheon_rkt": 6.5,
 
+    "A_S-F_edifice_ass": 3,
+    "A_S-F_edifice_esc": 2,
+    "A_S-F_edifice_sup": 3,
+
+
   },
   "combatLarge": {
     "A_S-F_gemogee_esc": 1,

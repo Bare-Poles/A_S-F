@@ -1,10 +1,10 @@
 {
 	"id":"A_S-F_coralian_bolt_fake",
 	"specClass":"projectile",
+
+	"onHitEffect":"org.amazigh.foundry.scripts.ASF_coralianOnHitEffect",
+
 	"spawnType":"BALLISTIC_AS_BEAM",
-
-	"onFireEffect":"org.amazigh.foundry.scripts.ASF_coralianOnFireEffect",
-
 	"collisionClass":"RAY",
 	"collisionClassByFighter":"RAY_FIGHTER",
 	"length":45.0,

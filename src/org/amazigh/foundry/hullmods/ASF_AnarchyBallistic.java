@@ -11,26 +11,45 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
 public class ASF_AnarchyBallistic extends BaseHullMod {
-
-	public static final float RoF_BONUS = 15f;
-	public static final float REGEN_BONUS = 10f;
 	
 	public static final float MAINT_MALUS = 10f;
+	
+	public static final float RoF_BONUS = 15f;
+	public static final float RoF_BONUS_S = 20f;
+	public static final float REGEN_BONUS = 10f;
+	public static final float REGEN_BONUS_S = 15f;
+	
 	public static final float RECOIL_MALUS = 30f;
+	public static final float RECOIL_MALUS_S = 15f;
 	public static final float TURRET_TURN_MALUS = 40f;
+	public static final float TURRET_TURN_MALUS_S = 20f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getBallisticRoFMult().modifyMult(id, 1f + (RoF_BONUS * 0.01f));
-		stats.getBallisticAmmoRegenMult().modifyMult(id, 1f + (REGEN_BONUS * 0.01f));
-		
+
 		stats.getSuppliesPerMonth().modifyPercent(id, MAINT_MALUS);
 		stats.getSuppliesToRecover().modifyPercent(id, MAINT_MALUS);
 		stats.getDynamic().getMod("deployment_points_mod").modifyPercent(id, MAINT_MALUS);
 		
-		stats.getMaxRecoilMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS));
-		stats.getRecoilPerShotMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS));
-		stats.getRecoilDecayMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS));
-		stats.getWeaponTurnRateBonus().modifyMult(id, 1f - (TURRET_TURN_MALUS * 0.01f));
+		boolean sMod = isSMod(stats);
+		if (sMod) {
+			
+			stats.getBallisticRoFMult().modifyMult(id, 1f + (RoF_BONUS_S * 0.01f));
+			stats.getBallisticAmmoRegenMult().modifyMult(id, 1f + (REGEN_BONUS_S * 0.01f));
+
+			stats.getMaxRecoilMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS_S));
+			stats.getRecoilPerShotMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS_S));
+			stats.getRecoilDecayMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS_S));
+			stats.getWeaponTurnRateBonus().modifyMult(id, 1f - (TURRET_TURN_MALUS_S * 0.01f));
+		} else {
+			stats.getBallisticRoFMult().modifyMult(id, 1f + (RoF_BONUS * 0.01f));
+			stats.getBallisticAmmoRegenMult().modifyMult(id, 1f + (REGEN_BONUS * 0.01f));
+			
+			stats.getMaxRecoilMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS));
+			stats.getRecoilPerShotMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS));
+			stats.getRecoilDecayMult().modifyMult(id, 1f + (0.01f * RECOIL_MALUS));
+			stats.getWeaponTurnRateBonus().modifyMult(id, 1f - (TURRET_TURN_MALUS * 0.01f));
+		}
+		
 	}
 	
 
@@ -71,4 +90,13 @@ public class ASF_AnarchyBallistic extends BaseHullMod {
 		label.setHighlightColors(bad);
 	}
 
+	public String getSModDescriptionParam(int index, HullSize hullSize) {
+		if (index == 0) return "" + (int)RoF_BONUS_S + "%";
+		if (index == 1) return "" + (int)REGEN_BONUS_S + "%";
+		if (index == 2) return "" + (int)RECOIL_MALUS_S + "%";
+		if (index == 3) return "" + (int)TURRET_TURN_MALUS_S + "%";
+		return null;
+	}
+	
+	
 }

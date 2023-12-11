@@ -101,7 +101,7 @@ public class ASF_MaliceCoils extends BaseHullMod {
 		
 		LabelAPI label = tooltip.addPara("This vessel features a novel and advanced phase coil geometry that provides several advantages over traditional coils.", pad);
 		
-		label = tooltip.addPara("The flux threshold at which speed bottoms out while phased is increased to %s.", pad, h, "90%");
+		label = tooltip.addPara("The flux threshold at which speed bottoms out while phased is increased to %s.", opad, h, "90%");
 		label.setHighlight("90%");
 		label.setHighlightColors(h);
 		label = tooltip.addPara("Soft flux dissipation and weapon recharge rate is increased by %s while phased.", pad, h, (int)PHASE_DISSIPATION_MULT + Strings.X);

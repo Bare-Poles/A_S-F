@@ -268,9 +268,9 @@
 	],
 
 	"A_S-F_malice_arc_impact":[
-		{"file":"sounds/sfx_systems/emp_emitter_impact_01.ogg","pitch":1.2,"volume":0.3},
-		{"file":"sounds/sfx_systems/emp_emitter_impact_02.ogg","pitch":1.2,"volume":0.3},
-		{"file":"sounds/sfx_systems/emp_emitter_impact_03.ogg","pitch":1.2,"volume":0.3},
+		{"file":"sounds/sfx_systems/emp_emitter_impact_01.ogg","pitch":1.2,"volume":0.23},
+		{"file":"sounds/sfx_systems/emp_emitter_impact_02.ogg","pitch":1.2,"volume":0.23},
+		{"file":"sounds/sfx_systems/emp_emitter_impact_03.ogg","pitch":1.2,"volume":0.23},
 		],
 
 	"A_S-F_weaver_fire":
@@ -293,10 +293,10 @@
 
 	"A_S-F_ionDriver_fire":
 	[
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.93,"volume":0.8},
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.94,"volume":0.8},
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.93,"volume":0.8},
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.94,"volume":0.8},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.93,"volume":0.72},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.94,"volume":0.72},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.93,"volume":0.72},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.94,"volume":0.72},
 	],
 
 

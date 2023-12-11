@@ -24,13 +24,14 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0001": "heavyac"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "heavyac",
         "WS0002": "pulselaser",
         "WS0003": "pulselaser"
       }
