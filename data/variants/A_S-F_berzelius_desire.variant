@@ -9,8 +9,9 @@
   "permaMods": [],
   "hullMods": [
     "ballistic_rangefinder",
-    "heavyarmor",
-    "fluxbreakers"
+    "fluxbreakers",
+    "targetingunit",
+    "autorepair"
   ],
   "weaponGroups": [
     {

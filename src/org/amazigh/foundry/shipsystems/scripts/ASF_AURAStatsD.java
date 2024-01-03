@@ -13,7 +13,7 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 
 public class ASF_AURAStatsD extends BaseShipSystemScript {
 
-	public static final float DAMAGE_RESIST = 0.25f;
+	public static final float DAMAGE_RESIST = 0.2f;
 	
 	public static final float TIME_MULT = 1.5f;
 	public static final float FLUX_BONUS = 10f;
@@ -54,7 +54,7 @@ public class ASF_AURAStatsD extends BaseShipSystemScript {
 		float timer = Global.getCombatEngine().getElapsedInLastFrame();
 		missileDelay -= timer;
 		while (missileDelay <= 0f) {
-			missileDelay += 0.6f;
+			missileDelay += 0.7f;
 			for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
 	            if (weapon.isSystemSlot()) {
 	              float randomArc = MathUtils.getRandomNumberInRange(-16f, 16f);

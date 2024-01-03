@@ -13,7 +13,6 @@
   "viewOffset": 0,
   "builtInMods": [
     "automated",
-    "advancedcore",
     "A_S-F_BerzeliusHullmod"
   ],
   "builtInWings": [

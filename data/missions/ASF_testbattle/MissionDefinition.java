@@ -47,21 +47,21 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_estucheon_rkt", FleetMemberType.SHIP, "This Is A Test", false);
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_phobia_ass", FleetMemberType.SHIP, "Trial", true);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_sup", FleetMemberType.SHIP, "Trial", false); //elt
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_sup", FleetMemberType.SHIP, "Trial", true); //ass
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_sup", FleetMemberType.SHIP, "Trial", false); //std
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_ass", FleetMemberType.SHIP, "Trial", false); //std
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_sup", FleetMemberType.SHIP, "Trial", false); //std
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_elt", FleetMemberType.SHIP, "Trial", false); //sup
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_ass", FleetMemberType.SHIP, "Trial", true); //sup
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_std", FleetMemberType.SHIP, "Trial", false); //sup
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_std", FleetMemberType.SHIP, "Trial", false); //ass
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_std", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_lg_elt", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_peryton_fs", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_gemogee_strike", FleetMemberType.SHIP, "Trial", false);
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_henki_std", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_peluda_sup", FleetMemberType.SHIP, "Trial", false); //ass
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_edifice_sup", FleetMemberType.SHIP, "Trial", false); //esc
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_peluda_ass", FleetMemberType.SHIP, "Trial", false); //sup
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_edifice_esc", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_bathory_ass", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_gaoler_stk", FleetMemberType.SHIP, "Trial", false); //sup
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_buraq_sup2", FleetMemberType.SHIP, "Trial", false); //std
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_gaoler_sup", FleetMemberType.SHIP, "Trial", false); //stk
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_buraq_std", FleetMemberType.SHIP, "Trial", false); //sup2
 
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_superlasher_supp", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_misside_std", FleetMemberType.SHIP, "Trial", false);
@@ -74,7 +74,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_invigilator_ass", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_velox_ass", FleetMemberType.SHIP, "Trial", false);
 		
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_dunnock_atk", FleetMemberType.SHIP, "Trial", false); //brwl
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_dunnock_brwl", FleetMemberType.SHIP, "Trial", false); //atk
 		
 		// Set up the enemy fleet.
 		api.addToFleet(FleetSide.ENEMY, "doom_Strike", FleetMemberType.SHIP, "Search Dialog", false);

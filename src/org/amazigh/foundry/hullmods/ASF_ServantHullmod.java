@@ -16,7 +16,7 @@ import com.fs.starfarer.api.util.IntervalUtil;
 
 public class ASF_ServantHullmod extends BaseHullMod {
 	
-	public static final float BEAM_GUARD = 0.3f;
+	public static final float BEAM_GUARD = 0.3f; // [CUSTOM CARTRIDGE: BEAM GUARD]
 	
 	public static final float REVENGE_SHOT = 0.5f; // [CUSTOM CARTRIDGE: REVENGE SHOT]
 	
@@ -39,7 +39,7 @@ public class ASF_ServantHullmod extends BaseHullMod {
         return cellLoc;
     }
     
-	public static float RANGE_BONUS = 100f;
+	public static float RANGE_BONUS = 70f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		
@@ -125,11 +125,9 @@ public class ASF_ServantHullmod extends BaseHullMod {
 		// Repair Section
 		
 		
-		
 		// RoF Modifier
 		stats.getBallisticRoFMult().modifyMult(spec.getId(), 1f + (REVENGE_SHOT * HULL_RATIO));
 		// RoF Modifier
-		
 		
 		
 		// Scaling range boost

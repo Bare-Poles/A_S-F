@@ -8,15 +8,15 @@ public class ASF_loaderOverdriveDStats extends BaseShipSystemScript {
 	public static final float ROF_BONUS = 7.0f;
 	public static final float FLUX_REDUCTION = 80f;
 
-	public static final float REPAIR_BOOST = 0.6f;
+	public static final float REPAIR_BOOST = 0.5f;
 	
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
 		
 		float mult = 1f + (ROF_BONUS * effectLevel);
 		stats.getBallisticRoFMult().modifyMult(id, mult);
 		stats.getBallisticAmmoRegenMult().modifyMult(id, mult);
-		stats.getMissileRoFMult().modifyMult(id, mult);
-		stats.getMissileAmmoRegenMult().modifyMult(id, mult);
+		stats.getMissileRoFMult().modifyMult(id, mult * 0.8f); // missile spam reduction
+		stats.getMissileAmmoRegenMult().modifyMult(id, mult * 0.8f);
 		
 		float multc = FLUX_REDUCTION * effectLevel;
 		stats.getBallisticWeaponFluxCostMod().modifyPercent(id, -multc);

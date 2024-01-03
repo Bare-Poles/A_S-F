@@ -12,14 +12,14 @@ Ammon,A_S-F_ammon,,Remnant,,,125,40,300,,60,0,,350,560,480,200,380,10,NONE,,0,0,
 Cusp,A_S-F_cusp,,Remnant,,,300,40,250,,50,0,,185,325,250,65,165,25,OMNI,,160,0,1,,,0,0,,,,,,,,,,,,,,,,0,,,222120
 Uchoyo,A_S-F_servant,,[ArkTech],,,800,200,1600,,100,0,,160,320,280,90,180,60,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,222342.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Auditor,A_S-F_auditor,Frigate,Midline,fortressshield,6,1600,175,4000,1500,120,30,,90,110,90,60,100,220,OMNI,,300,0.5,0.8,,,15,30,30,20,1,20,10,28000,8,10,360,0.25,6,6,,"rare_bp, hist2t, merc",,0.5,2,2,214214
+Auditor,A_S-F_auditor,Frigate,Midline,maneuveringjets,5,1600,250,4000,1500,160,30,,90,110,90,60,100,220,OMNI,,300,0.5,0.7,,,15,30,30,20,1,20,10,28000,8,10,360,0.25,5,5,,"rare_bp, hist2t, merc",,0.5,2,2,214214
 Gleam,A_S-F_gleam,Droneship,Remnant,A_S-F_chronostutter,9,1750,200,2800,3125,280,45,,140,250,200,90,270,250,OMNI,,150,0.3,0.6,,,0,0,60,40,1,40,11,40000,5,15,240,0.25,7,7,"UNBOARDABLE, HIDE_IN_CODEX","remnant, auto_rec",,0.5,2,2,222226
 Phantasmagoria,A_S-F_phantasmagoria,Superfrigate,High Tech,A_S-F_dimensionalteleporter,12,1250,200,3000,,250,45,,180,240,160,90,270,240,PHASE,A_S-F_temporalCore,,,,,,1,5,10,20,1,20,11,90000,10,35,180,0.25,16,16,HIDE_IN_CODEX,"no_autofit, req_military, no_dealer",,0,2,2,2223
 Exegetes,A_S-F_exegetes,Frigate,Midline,maneuveringjets,6,2000,350,2000,,250,50,,120,130,100,75,150,220,OMNI,,50,0.4,0.5,,,15,20,30,20,1,20,10,30000,10,20,240,0.25,6,6,,"rare_bp, merc, ind",0.8,0.5,2,2,222211
 Gathima,A_S-F_gathima,Frigate,[ArkTech],A_S-F_loaderOverdrive,9,3500,500,2750,,200,50,,120,100,80,40,60,300,OMNI,,140,0.4,1,,,20,30,30,20,1,20,10,80000,8,10,240,0.25,8,8,HIDE_IN_CODEX,"A_S-F_arktech, no_dealer",,0.4,2,2,222343
 Gatorbacker,A_S-F_gatorbacker,Frigate,[ArkTech],A_S-F_priorityTargeting,9,3200,500,2750,,200,50,,130,110,90,45,70,300,OMNI,,140,0.4,1,,,20,30,30,20,1,20,10,80000,8,10,240,0.25,8,8,HIDE_IN_CODEX,"A_S-F_arktech, no_dealer",,0.4,2,2,222343.1
 Galsteel,A_S-F_galsteel,Frigate,[ArkTech],A_S-F_AURA,9,3800,500,3250,,200,55,,120,100,80,40,65,320,OMNI,,140,0.4,1,,,20,30,30,20,1,20,10,80000,8,10,240,0.25,8,8,HIDE_IN_CODEX,"A_S-F_arktech, no_dealer",,0.4,2,2,222343.2
-Revizor,A_S-F_auditor_mod,Frigate,Midline,fortressshield,8,1600,200,4000,,150,35,,90,120,100,60,120,240,FRONT,,360,0.4,0.7,,,20,25,10,15,1,15,10,50000,8,12,360,0.25,8,8,HIDE_IN_CODEX,no_dealer,,0.5,2,2,214214.1
+Revizor,A_S-F_auditor_mod,Frigate,Midline,maneuveringjets,6,1800,300,4000,,180,35,,90,120,100,60,120,240,FRONT,,360,0.4,0.6,,,20,25,10,15,1,15,10,50000,8,12,360,0.25,6,6,HIDE_IN_CODEX,no_dealer,,0.5,2,2,214214.1
 Velox,A_S-F_velox,Frigate,High Tech,plasmajets,6,1500,130,2250,,180,55,,160,200,160,70,150,150,OMNI,,90,0.3,0.8,,,15,25,30,20,1,20,10,18000,10,20,180,0.25,6,6,,"rare_bp, merc, ind",,0.5,2,2,222200
 Auspice,A_S-F_auspice,Droneship,Remnant,emp,8,1500,150,2200,,220,30,,150,250,200,90,270,180,OMNI,,200,0.3,0.6,,,0,0,40,40,1,40,11,30000,5,15,240,0.25,5,5,"UNBOARDABLE, HIDE_IN_CODEX","remnant, auto_rec",,0.5,2,2,222227
 Rinka,A_S-F_rinka,Frigate,Midline,A_S-F_rinkaJets,10,2000,320,3000,,320,55,,120,180,120,80,240,180,OMNI,,100,0.375,0.8,,,10,20,30,20,1,20,10,32000,10,20,240,0.25,10,10,,"rare_bp, merc, ind",0.6,0.5,2,2,2224
@@ -29,8 +29,8 @@ Rangda,A_S-F_rangda,Superfrigate,Midline,A_S-F_rangdaSys,11,2000,600,3600,,300,5
 Flogger,A_S-F_superlasher,Heavy Frigate,Low Tech,A_S-F_floggerBurn,8,2500,400,3000,,250,60,,140,160,140,60,90,240,FRONT,,210,0.4,1,,,30,60,40,25,1,25,11,30000,8,10,240,0.25,8,8,,"rare_bp, merc",,0.5,2,2,222204
 Misside,A_S-F_misside,Missile Frigate,Midline,flarelauncher_active,6,1750,300,2500,,160,55,,120,110,90,60,90,150,FRONT,,270,0.375,0.9,,,20,40,40,25,1,25,10,25000,8,10,240,0.25,6,6,,"rare_bp, merc",,0.5,2,2,222205
 Dunnock,A_S-F_dunnock,Frigate,Low Tech,canister_flak,5,2750,500,2500,,200,45,,125,120,80,50,80,280,OMNI,,150,0.4,1.2,,,30,50,50,30,1,30,10,10000,8,10,300,0.25,4,4,,"rare_bp, merc, ind",,0.4,2,2,222206
-Mtumaji,A_S-F_mtumaji,Drone,[ArkTech],A_S-F_loaderOverdriveD,5,1500,400,1500,,120,40,,140,120,100,100,120,140,PHASE,A_S-F_MicroVent,,,,,,0,0,20,20,1,20,10,24000,5,5,480,0.25,5,5,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,,,,222343.3
-Mtetezi,A_S-F_mtetezi,Drone,[ArkTech],A_S-F_AURA_D,5,1800,450,1500,,120,40,,160,140,120,110,140,180,PHASE,A_S-F_MicroVent,,,,,,0,0,20,20,1,20,10,24000,5,5,480,0.25,5,5,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,2,222343.4
+Mtumaji,A_S-F_mtumaji,Drone,[ArkTech],A_S-F_loaderOverdriveD,6,1500,400,1500,,120,40,,140,120,100,100,120,140,PHASE,A_S-F_MicroVent,,,,,,0,0,20,20,1,20,10,24000,5,5,480,0.25,5,5,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,,,,222343.3
+Mtetezi,A_S-F_mtetezi,Drone,[ArkTech],A_S-F_AURA_D,6,1800,450,1500,,120,40,,160,140,120,110,140,180,PHASE,A_S-F_MicroVent,,,,,,0,0,20,20,1,20,10,24000,5,5,480,0.25,5,5,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,2,222343.4
 Persenachia,A_S-F_persenachia,Phase Superfrigate,High Tech,A_S-F_MaliceStorm,16,1200,200,6000,,350,60,,180,200,160,90,300,180,PHASE,phasecloak,,,,0,0.1666666,1,5,10,20,1,20,11,90000,10,40,180,0.25,20,20,"PHASE, HIDE_IN_CODEX","no_autofit, req_military, no_dealer",,0,2,2,2223.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Gaoler,A_S-F_gaoler,Carrier,Midline,A_S-F_drone_shackle,10,4500,300,3000,2833,200,60,2,60,45,25,25,25,450,FRONT,,230,0.4,0.8,,,100,160,40,40,2,20,9,52500,5,15,360,0.25,12,12,CARRIER,"rare_bp, merc, ind",,0.5,2,3,318318
@@ -47,8 +47,8 @@ Pneuma,A_S-F_pneuma,Destroyer,Midline,A_S-F_quickBoost_3,16,4000,600,6000,,350,1
 Peluda,A_S-F_peluda,Destroyer,High Tech,highenergyfocus,12,3600,500,6000,,400,95,,90,90,60,45,90,350,OMNI,,180,0.3,0.6,,,35,50,50,40,2,20,9,65000,4,20,300,0.25,12,12,,"rare_bp, hist2t, merc, ind",,0.5,2,3,2227
 Niteo,A_S-F_niteo,Droneship,Remnant,A_S-F_unhingeChronoflow,18,6500,700,8500,,600,115,,70,120,100,35,65,750,OMNI,,140,0.5,0.6,,,0,0,60,60,2,30,9,200000,5,16,420,0.25,25,25,"UNBOARDABLE, HIDE_IN_CODEX","remnant, auto_rec",0.7,0.7,2,3,222414.1
 Lafiel,A_S-F_lafiel,Superdestroyer,High Tech,A_S-F_unhingeChronoflow,24,6800,700,9000,,650,120,,75,140,115,40,80,760,FRONT,,210,0.3,0.6,,,25,40,60,60,2,30,9,250000,5,20,420,0.25,28,28,HIDE_IN_CODEX,"no_autofit, req_military, no_dealer",,0.7,2,3,222414.2
-Mbishi,A_S-F_mbishi,Drone,[ArkTech],A_S-F_loaderOverdriveD,10,4500,650,4500,,250,90,,70,50,20,20,20,450,PHASE,A_S-F_MicroVent,,,,,,0,0,80,40,2,20,8,96000,5,10,540,0.25,10,10,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,3,222344.2
-Mlinzi,A_S-F_mlinzi,Drone,[ArkTech],A_S-F_AURA_D,10,4500,625,4500,,250,90,,75,60,35,25,25,500,PHASE,A_S-F_MicroVent,,,,,,0,0,80,40,2,20,8,96000,5,10,540,0.25,10,10,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,3,222344.3
+Mbishi,A_S-F_mbishi,Drone,[ArkTech],A_S-F_loaderOverdriveD,12,4500,650,4500,,250,90,,70,50,20,20,20,450,PHASE,A_S-F_MicroVent,,,,,,0,0,80,40,2,20,8,96000,5,10,540,0.25,10,10,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,3,222344.2
+Mlinzi,A_S-F_mlinzi,Drone,[ArkTech],A_S-F_AURA_D,12,4500,625,4500,,250,90,,75,60,35,25,25,500,PHASE,A_S-F_MicroVent,,,,,,0,0,80,40,2,20,8,96000,5,10,540,0.25,10,10,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,3,222344.3
 Estucheon,A_S-F_estucheon,Drone,Explorarium,A_S-F_flak_screen,4,2500,400,2400,,150,40,,80,50,30,30,25,250,NONE,,0,0,0,,,0,0,40,20,1,20,9,20000,5,8,480,0.25,4,4,"UNBOARDABLE, HIDE_IN_CODEX","derelict, auto_rec",,0.5,2,3,222316
 Edifice,A_S-F_edifice,Destroyer,High Tech,A_S-F_bunkerShield,12,3500,300,8000,,400,90,,80,80,60,30,60,300,OMNI,,360,0.3,0.6,,,35,50,50,40,2,20,9,65000,5,20,480,0.25,12,12,,"merc, ind",,0.6,2,3,222309
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -75,7 +75,7 @@ Ocklynge,A_S-F_ocklynge,Heavy Cruiser,Low Tech,A_S-F_flak_screen,14,16000,1500,1
 Axicon,A_S-F_axicon,Droneship Battlecarrier,Remnant,A_S-F_ammon_deploy,18,12000,1100,10000,,500,155,2,50,35,30,12,20,3000,OMNI,,210,0.4,0.6,,,0,0,150,90,3,30,9,200000,5,15,540,0.25,30,30,"UNBOARDABLE, HIDE_IN_CODEX, CARRIER, COMBAT","remnant, auto_rec",,0.5,2,3,222416
 Ecumenist,A_S-F_ecumenist,Cruiser,High Tech,entropyamplifier,15,6000,800,10000,,700,140,,70,55,45,20,25,1000,OMNI,,120,0.4,0.6,,,80,150,100,90,3,30,8,160000,4,20,420,0.25,25,25,,"rare_bp, hist2t, merc, ind",,0.6,2,3,222417
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Berzelius,A_S-F_berzelius,Proto-Ark,[ArkTech],A_S-F_loaderOverdrive_berz,60,20000,1800,20000,,1100,430,2,50,50,20,6,9,3800,OMNI,,160,0.4,1,,,0,0,300,400,15,27,7,1600000,3,12,900,0.2,75,75,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, no_autofit",,0.4,2,4,222346
+Berzelius,A_S-F_berzelius,Proto-Ark,[ArkTech],A_S-F_loaderOverdrive_berz,65,20000,1800,20000,,1100,430,2,50,50,20,6,9,3800,OMNI,,160,0.4,1,,,0,0,300,400,15,27,7,1600000,3,12,900,0.2,75,75,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, no_autofit",,0.4,2,4,222346
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Shackle Drone,A_S-F_drone_shackle,,,,,150,20,100,,50,,,225,250,200,150,250,10,NONE,,,,,,,0,0,,,,,,,,,,,,,,,,0,,,22203

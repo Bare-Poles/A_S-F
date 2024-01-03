@@ -26,6 +26,8 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 	public static final float REVENGE_SHOT = 25f; // [CUSTOM CARTRIDGE: REVENGE SHOT]
 		//these two are a bit weaker than on normal warburn, because the ship is good enough already
 	
+	public static final float RoF_PENALTY = 0.15f; // because the ship is too strong, give it an inherent reduction to RoF to balans it out
+	
 	public static final float BROAD_RADAR = 50f; // [CUSTOM CARTRIDGE: BROAD RADAR]
 	
 	public static final float REPAIR_MULT = 240f; // 1800 armour - we repair *twice*, but at a bit under half the power it ""should"" have (which would be 550ish) 
@@ -51,7 +53,7 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
         
 	public static final float TIMESCALE = 4f;
 	public static final float TIME_SPEED = 0.66f;
-	public static final float TIME_RoF = 0.55f;
+	public static final float TIME_RoF = 0.6f;
 	
 	public Color ENGINE_COLOR = new Color(90,255,165,55);
     private static final Color COLOR_EX = new Color(90,255,165,155);
@@ -97,6 +99,11 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		stats.getEnergyWeaponFluxCostMod().modifyPercent(spec.getId(), -(REVENGE_SHOT * HULL_RATIO));
 		stats.getMissileWeaponFluxCostMod().modifyPercent(spec.getId(), -(REVENGE_SHOT * HULL_RATIO));
 		// Revenge Shot
+		
+		// RoF Penalty
+		stats.getBallisticRoFMult().modifyMult(spec.getId(), 1f - RoF_PENALTY);
+		// RoF Penalty
+		
 		
 		// Vent Repair Section
 		if (ship.getFluxTracker().isVenting()) {

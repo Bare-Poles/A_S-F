@@ -121,6 +121,22 @@
       "angle": 180,
       "contrailSize": 64,
       "style": "MIDLINE"
+    },
+    {
+      "location": [-17, 55],
+      "length": 28,
+      "width": 8,
+      "angle": 135,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-17, -55],
+      "length": 28,
+      "width": 8,
+      "angle": -135,
+      "contrailSize": 128,
+      "style": "MIDLINE"
     }
   ],
   "bounds": [

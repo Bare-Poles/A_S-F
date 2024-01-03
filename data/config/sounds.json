@@ -293,10 +293,25 @@
 
 	"A_S-F_ionDriver_fire":
 	[
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.93,"volume":0.72},
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.94,"volume":0.72},
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.93,"volume":0.72},
-		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.94,"volume":0.72},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.93,"volume":0.63},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_01.ogg","pitch":0.94,"volume":0.63},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.93,"volume":0.63},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_ionDriver_fire_02.ogg","pitch":0.94,"volume":0.63},
+	],
+
+	"A_S-F_Quad_Multi-Lance_fire":
+	[
+		{"file":"sounds/sfx_wpn_missiles/gorgon_dem_payload_01.ogg","pitch":0.86,"volume":0.82},
+		{"file":"sounds/sfx_wpn_missiles/gorgon_dem_payload_01.ogg","pitch":0.84,"volume":0.82},
+		{"file":"sounds/sfx_wpn_missiles/gorgon_dem_payload_01.ogg","pitch":0.82,"volume":0.82},
+		{"file":"sounds/sfx_wpn_missiles/gorgon_dem_payload_01.ogg","pitch":0.8,"volume":0.82},
+		{"file":"sounds/sfx_wpn_missiles/gorgon_dem_payload_01.ogg","pitch":0.78,"volume":0.82},
+	],
+
+	"A_S-F_Quad_Multi-Lance_loop":
+	[
+		# {"file":"sounds/sfx_wpn_energy/high_intens_laser_loop.ogg","pitch":1.1,"volume":1},
+		 {"file":"sounds/sfx_wpn_energy/laser_loop.ogg","pitch":0.86,"volume":1.0},
 	],
 
 

@@ -28,9 +28,9 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 	public static final float SUPPLY_COST = 60f;
 
 	public static final float VENT_BONUS = 20f;
-
-	public static final float BEAM_GUARD = 0.2f; // [CUSTOM CARTRIDGE: BEAM GUARD]
-	public static final float SHELL_GUARD = 0.15f; // [CUSTOM CARTRIDGE: SHELL GUARD]
+	
+	public static final float BEAM_GUARD = 0.1f; // [CUSTOM CARTRIDGE: BEAM GUARD]
+	public static final float SHELL_GUARD = 0.2f; // [CUSTOM CARTRIDGE: SHELL GUARD]
 	
 	
 	public static final float REVENGE_SHOT = 20f; // [CUSTOM CARTRIDGE: REVENGE SHOT]
@@ -75,7 +75,7 @@ public class ASF_DerelictWarburn extends BaseHullMod {
         return cellLoc;
     }
         
-	public static final float TIMESCALE = 3f;
+	public static final float TIMESCALE = 2.5f;
 	public static final float TIME_SPEED = 0.6f;
 	public static final float TIME_RoF = 0.5f;
 	
@@ -236,7 +236,7 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 			stats.getMissileRoFMult().modifyMult(spec.getId(), 1f - (TIME_RoF * (Math.min(info.TIMER/3f, 1f))));
 			
 			float hullBonus = Math.min(0.8f, 1 - ship.getHullLevel()) / 0.8f;
-			float DAM_RES = 0.1f + (0.35f * hullBonus);
+			float DAM_RES = 0.05f + (0.2f * hullBonus);
 			stats.getHullDamageTakenMult().modifyMult(spec.getId(), 1f - DAM_RES);
 			stats.getArmorDamageTakenMult().modifyMult(spec.getId(), 1f - DAM_RES);
 			stats.getEmpDamageTakenMult().modifyMult(spec.getId(), 1f - DAM_RES);
@@ -283,7 +283,6 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 
 		
 		// AI trickery section
-		
 		if (Global.getCombatEngine().isPaused() || ship.getShipAI() == null) {
 			return;
 		}
@@ -292,8 +291,7 @@ public class ASF_DerelictWarburn extends BaseHullMod {
             ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);	
         }
 		
-        	// (forcing a vent, if ship has over 90% flux, and system is not on)
-        
+        	// (forcing a vent if ship has over 90% flux, and system is not on)
 		// AI trickery section
 		
                 
@@ -301,14 +299,15 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 		// So what this hullmod does is as follows:
 		// - Increases monthly supply cost by 50%
 		// - Increases active rent rate by 20% (warburn "derelicts" don't risk overloads [no shield] so they get venting instead!)
-			// reduces beam damage taken by 20%
+			// reduces beam damage taken by 10%
+			// reduces kinetic damage taken by 20%
 		// - Reduces all weapons flux cost as the ship takes hull damage
 		// - Repairs armour while venting, the amount repaired scales up based on current flux level
 		// -- On taking Hull damage:
 		// --- Increment a "timer" gaining 5 seconds of time for each 10% hull damage taken.
 		// --- If timer is over 4, start decaying the timer and gain a timeflow + damage resistance buff until the timer runs out.
 		// --- Speed and RoF are reduced while this buff is active, to stop you becoming a psycho demon, and to make it more of a "free vent" than a buff.
-			// this "derelict" version of the hullmod has a lower timescale, but a stronger damage resist buff than the "normal" variant
+			// this "derelict" version of the hullmod has a lower timescale and damage resist buff than the "normal" variant does
 	
 	public String getDescriptionParam(int index, HullSize hullSize) {
 		return null;

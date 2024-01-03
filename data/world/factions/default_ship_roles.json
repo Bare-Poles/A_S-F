@@ -81,6 +81,12 @@
     "A_S-F_gatorbacker_ark": 1,
 	# ArkTech ships have a default roles entry! (but it's *really* low rate, just so they *might* spawn in scav fleets, VERY rarely)
 
+    "A_S-F_mtetezi_def": 1,
+    "A_S-F_mtetezi_prot": 1,
+    "A_S-F_mtumaji_def": 1,
+    "A_S-F_mtumaji_prot": 1,
+	# for the ArtTech bounty!
+
     "A_S-F_estucheon_rkt": 3, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
 
 
@@ -116,6 +122,12 @@
     "A_S-F_gaderoga_ark": 1,
     "A_S-F_genbura_ark": 1,
 	# ArkTech ships have a default roles entry! (but it's *really* low rate, just so they *might* spawn in scav fleets, VERY rarely)
+
+    "A_S-F_mbishi_def": 1,
+    "A_S-F_mbishi_prot": 1,
+    "A_S-F_mlinzi_def": 1,
+    "A_S-F_mlinzi_prot": 1,
+	# for the ArtTech bounty!
 
     "A_S-F_estucheon_rkt": 6.5,
 

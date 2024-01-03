@@ -7,6 +7,7 @@ import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 public class ASF_loaderOverdriveBerzStats extends BaseShipSystemScript {
 
 	public static final float ROF_BONUS = 7.0f; // 8x
+	public static final float ROF_BONUS_M = 5.0f; // 6x (the missile spam was a bit much)
 	public static final float FLUX_REDUCTION = 85f;
 	
 	public static final float ENERGY_DAMAGE = 1f; // 2x
@@ -15,20 +16,21 @@ public class ASF_loaderOverdriveBerzStats extends BaseShipSystemScript {
 	public static final float TURRET_TURN_BOOST = 75f;
 	
 	public static final float SPEED_BOOST = 25f; // [CUSTOM CARTRIDGE: MOVING BURST]
-	public static final float ACCEL_BOOST = 100f;
-	public static final float TURN_BONUS_P = 50f;
+	public static final float ACCEL_BOOST = 80f;
+	public static final float TURN_BONUS_P = 40f;
 	public static final float TURN_BONUS_F = 4f;
 	public static final float TURN_A_BONUS_F = 6;
 	
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
 		
 		float mult = 1f + (ROF_BONUS * effectLevel);
+		float mult_m = 1f + (ROF_BONUS_M * effectLevel);
 		
 		if (state == ShipSystemStatsScript.State.OUT) {
 			stats.getBallisticRoFMult().modifyMult(id, mult);
 			stats.getBallisticAmmoRegenMult().modifyMult(id, mult);
-			stats.getMissileRoFMult().modifyMult(id, mult);
-			stats.getMissileAmmoRegenMult().modifyMult(id, mult);
+			stats.getMissileRoFMult().modifyMult(id, mult_m);
+			stats.getMissileAmmoRegenMult().modifyMult(id, mult_m);
 			stats.getEnergyRoFMult().modifyMult(id, mult);
 			stats.getEnergyAmmoRegenMult().modifyMult(id, mult);
 			
@@ -42,8 +44,8 @@ public class ASF_loaderOverdriveBerzStats extends BaseShipSystemScript {
 		} else {
 			stats.getBallisticRoFMult().modifyMult(id, mult * 2f);
 			stats.getBallisticAmmoRegenMult().modifyMult(id, mult * 2f);
-			stats.getMissileRoFMult().modifyMult(id, mult * 2f);
-			stats.getMissileAmmoRegenMult().modifyMult(id, mult * 2f);
+			stats.getMissileRoFMult().modifyMult(id, mult_m * 1.5f); // we really are lowering the missile boost, less spam.
+			stats.getMissileAmmoRegenMult().modifyMult(id, mult_m * 1.5f);
 			stats.getEnergyRoFMult().modifyMult(id, mult * 2f);
 			stats.getEnergyAmmoRegenMult().modifyMult(id, mult * 2f);
 		}

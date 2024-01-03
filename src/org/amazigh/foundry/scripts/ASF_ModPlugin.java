@@ -63,6 +63,7 @@ public class ASF_ModPlugin extends BaseModPlugin {
     public static String TRANSPARENCE_ALT_DESCRIPTION = "The Transparence is a unique prototype ship featuring a wide variety of bleeding-edge technologies. The Photon Accelerator Core around which this vessel has been constructed stretches the bounds of what could be considered possible by conventional domain science to allow for the ship to deliver cruiser-grade levels of firepower while being nearly as agile as some frigates.";
     public static String RANGDA_ALT_DESCRIPTION = "A prototype testbed for a novel vectored thrust system, the Rangda is one of the most slippery vessels in the sector, able to get in and out of combat with ease.";
     public static String LAFIEL_ALT_DESCRIPTION = "Origins unknown, the designers clearly thought that it'd be sane to expose living crew to a rapidly fluctuating temporal gradient. Aftereffects of combat deployment mean that even with stringent psychological profiling, frequent cycling of crews is highly recommended.";
+    public static String PERSENACHIA_ALT_DESCRIPTION = "A heretic, surrounded with the husks of the dead. In order to hide its form, it spreads a dense and violent storm. The glowing fog conceals it while it hunts its prey and then entraps them in a dance of death, creating more victims.";
     
     //New game stuff
     @Override
@@ -107,14 +108,22 @@ public class ASF_ModPlugin extends BaseModPlugin {
     			fleetSetRangda.addFleet(rangdaFleet);
     			Global.getSettings().getDescription("A_S-F_rangda", Description.Type.SHIP).setText2(RANGDA_ALT_DESCRIPTION);
     		}
-    		
-    		// so you *can* unlock the lafiel as a custom start, "just" beat all missions (test included) with over 95% score.
-    		if (Global.getSettings().getMissionScore("ASF_phantasmagoria_mission") > 0.95f && Global.getSettings().getMissionScore("ASF_transparence_mission") > 0.95f && Global.getSettings().getMissionScore("ASF_rangda_mission") > 0.95f && Global.getSettings().getMissionScore("ASF_arkDefenders") > 0.95f && Global.getSettings().getMissionScore("ASF_testbattle") > 0.95f) {
+    		if (Global.getSettings().getMissionScore("ASF_persenachia_mission") > 0) {
     			NexFactionConfig faction = NexConfig.getFactionConfig("player");
-    			StartFleetSet fleetSetRangda = faction.getStartFleetSet(StartFleetType.SUPER.name());
-    			List<String> rangdaFleet = new ArrayList<>(1);
-    			rangdaFleet.add("A_S-F_lafiel_starter");
-    			fleetSetRangda.addFleet(rangdaFleet);
+    			StartFleetSet fleetSetPers = faction.getStartFleetSet(StartFleetType.SUPER.name());
+    			List<String> persenachiaFleet = new ArrayList<>(1);
+    			persenachiaFleet.add("A_S-F_persenachia_starter");
+    			fleetSetPers.addFleet(persenachiaFleet);
+    			Global.getSettings().getDescription("A_S-F_persenachia", Description.Type.SHIP).setText2(PERSENACHIA_ALT_DESCRIPTION);
+    		}
+    		
+    		// so you *can* unlock the lafiel as a custom start, "just" beat all special missions with over 95% score (only 75% score is needed for the test mission tho!)
+    		if (Global.getSettings().getMissionScore("ASF_phantasmagoria_mission") > 0.95f && Global.getSettings().getMissionScore("ASF_transparence_mission") > 0.95f && Global.getSettings().getMissionScore("ASF_rangda_mission") > 0.95f && Global.getSettings().getMissionScore("ASF_persenachia_mission") > 0.95f && Global.getSettings().getMissionScore("ASF_arkDefenders") > 0.95f && Global.getSettings().getMissionScore("ASF_testbattle") > 0.75f) {
+    			NexFactionConfig faction = NexConfig.getFactionConfig("player");
+    			StartFleetSet fleetSetLafiel = faction.getStartFleetSet(StartFleetType.SUPER.name());
+    			List<String> lafielFleet = new ArrayList<>(1);
+    			lafielFleet.add("A_S-F_lafiel_starter");
+    			fleetSetLafiel.addFleet(lafielFleet);
     			Global.getSettings().getDescription("A_S-F_lafiel", Description.Type.SHIP).setText2(LAFIEL_ALT_DESCRIPTION);
     		}
     		

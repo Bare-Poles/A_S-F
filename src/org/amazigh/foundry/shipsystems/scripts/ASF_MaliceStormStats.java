@@ -30,7 +30,7 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	
 	private static float ARC_BLAST_SIZE = 50f;
 	
-	public static final float DAMAGE_REDUCTION = 0.2f; // you get damage resistance during sys use, not sure if this is really *needed* but w/e
+	public static final float DAMAGE_REDUCTION = 0.25f; // you get damage resistance during sys use, not sure if this is really *needed* but w/e
 	
 	private IntervalUtil arcInterval1 = new IntervalUtil(0.25f,0.5f);
 	private IntervalUtil arcInterval2 = new IntervalUtil(0.25f,0.5f);
@@ -49,12 +49,12 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 		arcRateMult.put(HullSize.DESTROYER, 0.25f);
 		arcRateMult.put(HullSize.CRUISER, 0.35f);
 		arcRateMult.put(HullSize.CAPITAL_SHIP, 0.45f);
-		arcRateMult.put(HullSize.DEFAULT, 0.1f);
+		arcRateMult.put(HullSize.DEFAULT, 0.15f);
 	}
 	
 	private static float ARC_DAM = 60f;
-	private static float ARC_EMP = 300f;
-	private static float PHASE_FLUX_SPIKE = 300f;
+	private static float ARC_EMP = 400f;
+	private static float PHASE_FLUX_SPIKE = 200f;
 	
 	private static float ARC_RATE_DECAY_MULT = 0.9f;
 	
@@ -126,7 +126,7 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	    							1.6f,
 	    							0.5f,
 	    							0.7f,
-	    							0.35f,
+	    							0.25f,
 	    							new Color(255,216,224,95),
 	    							false);
 	    	                
@@ -140,14 +140,14 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	    							new Color(190,65,150,70),
 	    							false);
 	    	                
-	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.4f); i++) {
+	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.2f); i++) {
 	    	                	Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(target_ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 75f));
 	    	                	
-	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.6f),
+	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.65f),
 	    	    						sparkVel,
 	    	    						MathUtils.getRandomNumberInRange(4f, 8f), //size
 	    	    						1.0f, //brightness
-	    	    						MathUtils.getRandomNumberInRange(0.45f, 0.6f), //duration
+	    	    						MathUtils.getRandomNumberInRange(0.35f, 0.5f), //duration
 	    	    						new Color(255,52,84,255));
 	    	                }
 	    	                
@@ -360,7 +360,7 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	    							1.6f,
 	    							0.5f,
 	    							0.7f,
-	    							0.35f,
+	    							0.25f,
 	    							new Color(255,216,224,95),
 	    							false);
 	    	                
@@ -374,14 +374,14 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	    							new Color(190,65,150,70),
 	    							false);
 	    	                
-	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.4f); i++) {
+	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.2f); i++) {
 	    	                	Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(target_ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 75f));
 	    	                	
-	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.6f),
+	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.65f),
 	    	    						sparkVel,
 	    	    						MathUtils.getRandomNumberInRange(4f, 8f), //size
 	    	    						1.0f, //brightness
-	    	    						MathUtils.getRandomNumberInRange(0.45f, 0.6f), //duration
+	    	    						MathUtils.getRandomNumberInRange(0.35f, 0.5f), //duration
 	    	    						new Color(255,52,84,255));
 	    	                }
 	    	                
@@ -630,6 +630,19 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 							false);
 				}
 				
+				Vector2f cloudLoc2 = MathUtils.getRandomPointOnCircumference(ship.getLocation(), range * MathUtils.getRandomNumberInRange(0.5f, 0.9f));
+				for (int i=0; i < 2; i++) {
+					engine.addNebulaParticle(MathUtils.getRandomPointInCircle(cloudLoc2, 50f),
+							MathUtils.getRandomPointInCircle(null, 10f),
+							MathUtils.getRandomNumberInRange(220f, 300f),
+							MathUtils.getRandomNumberInRange(1.8f, 2.3f),
+							0.7f,
+							0.6f,
+							MathUtils.getRandomNumberInRange(1.8f, 2.5f),
+							new Color(160,60,185,70),
+							false);
+				}
+				
 				engine.addNebulaParticle(MathUtils.getRandomPointInCircle(ship.getLocation(), 60f),
 						MathUtils.getRandomPointInCircle(null, 10f),
 						MathUtils.getRandomNumberInRange(360f, 480f),
@@ -656,9 +669,22 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 							new Color(150,65,190,70),
 							false);
 				}
+
+				Vector2f cloudLoc2 = MathUtils.getRandomPointOnCircumference(ship.getLocation(), range * MathUtils.getRandomNumberInRange(0.5f, 0.9f));
+				for (int i=0; i < 2; i++) {
+					engine.addNebulaParticle(MathUtils.getRandomPointInCircle(cloudLoc2, 50f),
+							MathUtils.getRandomPointInCircle(null, 10f),
+							MathUtils.getRandomNumberInRange(220f, 300f),
+							MathUtils.getRandomNumberInRange(1.8f, 2.3f),
+							0.7f,
+							0.6f,
+							MathUtils.getRandomNumberInRange(1.8f, 2.5f),
+							new Color(160,60,185,70),
+							false);
+				}
 				
-				Vector2f cloudLoc2 = MathUtils.getRandomPointOnCircumference(ship.getLocation(), range * MathUtils.getRandomNumberInRange(0.05f, 0.9f));
-				engine.addNebulaParticle(cloudLoc2,
+				Vector2f cloudLoc3 = MathUtils.getRandomPointOnCircumference(ship.getLocation(), range * MathUtils.getRandomNumberInRange(0.05f, 0.9f));
+				engine.addNebulaParticle(cloudLoc3,
 		        		MathUtils.getRandomPointInCircle(null, 10f),
 						85f,
 						1.6f,
@@ -668,7 +694,7 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 						new Color(255,104,158,123),
 						false);
 	            
-	            engine.addNebulaParticle(cloudLoc2,
+	            engine.addNebulaParticle(cloudLoc3,
 		        		MathUtils.getRandomPointInCircle(null, 10f),
 						170f,
 						MathUtils.getRandomNumberInRange(1.5f, 1.8f),
@@ -678,7 +704,7 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 						new Color(190,65,140,70),
 						false);
 	            
-	            engine.addSmoothParticle(cloudLoc2,
+	            engine.addSmoothParticle(cloudLoc3,
 	            		MathUtils.getRandomPointInCircle(null, 1f),
 						MathUtils.getRandomNumberInRange(35f, 45f), //size
 						1.0f, //brightness
@@ -687,7 +713,7 @@ public class ASF_MaliceStormStats extends BaseShipSystemScript {
 	            
 	            for (int i=0; i < 5; i++) {
 	        		Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(35f, 70f));
-	        		engine.addSmoothParticle(cloudLoc2,
+	        		engine.addSmoothParticle(cloudLoc3,
 							sparkVel,
 							MathUtils.getRandomNumberInRange(4f, 9f), //size
 							1.0f, //brightness

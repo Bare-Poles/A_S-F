@@ -19,10 +19,11 @@
 		},
 
         "portraits":{
-            "rr_portrait_yumemi":"graphics/portraits/portrait_yumemi.png",
-            "rr_portrait_berzel":"graphics/portraits/portrait_berzel.png",
+            "A_S-F_portrait_yumemi":"graphics/portraits/portrait_yumemi.png",
+            "A_S-F_portrait_berzel":"graphics/portraits/portrait_berzel.png",
             "A_S-F_portrait_anomaly":"graphics/portraits/portrait_uNknoWn.png",
             "A_S-F_portrait_anomaly_a":"graphics/portraits/portrait_uniDEntIFied.png",
+            "A_S-F_portrait_nicole_malice":"graphics/portraits/portrait_nicole_malice.png",
         },
 	"misc":{
 		"ASF_pritzl_vent_icon":"graphics/icons/tactical/venting_flux.png",

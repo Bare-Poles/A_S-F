@@ -44,19 +44,20 @@ public class ASF_UndyingMalice extends BaseHullMod {
 	public static final float TIME_MOD = 0.5f; // +50% timescale "base"
 	
 	public static final float DAMAGE_PER_CHARGE = 100f;
-	public static final int DECAY_TIMER = 4;
+	public static final int DECAY_TIMER = 2;
 	
 	public static final Color PARTICLE_COLOR = new Color(255,52,84,255);
 	public static final Color BLAST_COLOR = new Color(210,55,140,255);
 	
+	public static final float VENT_BONUS = 80f; // +80% active vent rate "base"
 	private IntervalUtil ventInterval1 = new IntervalUtil(0.3f,0.45f);
 	private IntervalUtil ventInterval2 = new IntervalUtil(0.3f,0.45f);
 	
 	private IntervalUtil sysInterval = new IntervalUtil(0.35f,0.5f); // a bit lower rate than system arcs, because it's 100% rate (and more powerful)
 	private static final float STORM_RANGE = 750f; // shorter range than the actual system, because
 	private static float ARC_DAM = 50f; // so these start out a bit weaker than the "aura" ones, with lower EMP, and scale up to be powerful at higher charge levels
-	private static float ARC_EMP = 125f;
-	private static float PHASE_FLUX_SPIKE = 150f;
+	private static float ARC_EMP = 200f;
+	private static float PHASE_FLUX_SPIKE = 100f;
 	
 	private static final float REPAIR_CD = 10f;
 	private static final float REPAIR_THRESHOLD = 150f; // amount of charge needed before repairs are available
@@ -214,12 +215,14 @@ public class ASF_UndyingMalice extends BaseHullMod {
             currDamage -= DAMAGE_PER_CHARGE;
             info.charge = Math.min(maxCharge, info.charge + 1f);
             
-            // decay timer scales down once you exceed 10% of max charge (this means that once you hit 50% of max charge, there is no delay before charge starts decaying)
-            if (info.charge > (maxCharge * 0.1f)) {
-            	info.decay = - Math.max(0f, DECAY_TIMER * (1f - Math.min(1f, (info.charge - (maxCharge * 0.1f)) / (maxCharge * 0.4f)) ));
-            } else {
-    	        info.decay = -DECAY_TIMER;
-            }
+            info.decay = -DECAY_TIMER;
+            
+//            // decay timer scales down once you exceed 10% of max charge (this means that once you hit 50% of max charge, there is no delay before charge starts decaying)
+//            if (info.charge > (maxCharge * 0.1f)) {
+//            	info.decay = - Math.max(0f, DECAY_TIMER * (1f - Math.min(1f, (info.charge - (maxCharge * 0.1f)) / (maxCharge * 0.4f)) ));
+//            } else {
+//    	        info.decay = -DECAY_TIMER;
+//            }
 	        
         }
         
@@ -264,8 +267,8 @@ public class ASF_UndyingMalice extends BaseHullMod {
     	// using isOn to match with when weapons are disabled from firing
         if (ship.getSystem().isOn()) {
         	
-        	// decay charge by: 2.5% of current value/second
-        	info.charge -= (info.charge * 0.025f * amount);
+        	// decay charge by: ["scalardD"]% of current value/second
+        	info.charge -= (info.charge * 0.01f * chargeScalarD * amount);
         	
     		sysInterval.advance(amount);
         	if(sysInterval.intervalElapsed()) {
@@ -276,7 +279,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
         			if (MathUtils.isWithinRange(ship, target_ship, ship.getMutableStats().getSystemRangeBonus().computeEffective(STORM_RANGE))) {
         				if (target_ship.isPhased()) {
         					// if the nearest enemy is phased, then we have them eat a chunk of soft flux, less "AI breaking" than hitting them with an arc after all
-        					target_ship.getFluxTracker().increaseFlux(PHASE_FLUX_SPIKE * chargeScalar, false);
+        					target_ship.getFluxTracker().increaseFlux(PHASE_FLUX_SPIKE * chargeScalarD, false);
         					
         					engine.addNebulaParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), 10f),
         			        		MathUtils.getRandomPointInCircle(target_ship.getVelocity(), 5f),
@@ -284,7 +287,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
         							1.6f,
         							0.5f,
         							0.7f,
-        							0.35f,
+        							0.25f,
         							new Color(255,216,224,95),
         							false);
         	                
@@ -298,14 +301,14 @@ public class ASF_UndyingMalice extends BaseHullMod {
         							new Color(190,65,150,70),
         							false);
         	                
-        	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.4f); i++) {
+        	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.2f); i++) {
         	                	Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(target_ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 75f));
         	                	
-        	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.6f),
+        	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.65f),
         	    						sparkVel,
         	    						MathUtils.getRandomNumberInRange(4f, 8f), //size
         	    						1.0f, //brightness
-        	    						MathUtils.getRandomNumberInRange(0.45f, 0.6f), //duration
+        	    						MathUtils.getRandomNumberInRange(0.35f, 0.6f), //duration
         	    						new Color(255,52,84,255));
         	                }
         	                
@@ -314,7 +317,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
                 			
                 			target_ship.getVelocity().scale(0.95f); // slowing the target when they get arced
 
-                			info.charge = Math.max(0f, info.charge - 0.2f); // you lose 0.2 charge for each of these ""bonus"" arcs fired (lose charge against tough armour/strong shields)
+                			info.charge = Math.max(0f, info.charge - 0.1f); // you lose 0.1 charge for each of these ""bonus"" arcs fired (lose charge against very tough armour/strong shields)
                 				// with a sanity check to prevent it going into negative charge!
                 			
                 			// scales up to 50 damage at 100 charge, then scales to an "infinite" bonus, with each point of charge being worth a bit less
@@ -328,7 +331,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
         	                        target_ship,
         	                        DamageType.ENERGY,
         	                        ARC_DAM + chargeScalarD * 50f,
-        	                        ARC_EMP + (chargeScalarD * 75f),
+        	                        ARC_EMP + (chargeScalarD * 100f),
         	                        10000f,
         	                        "A_S-F_malice_arc_impact",
         	                        11f + (chargeScalarD), // thiccer arcs to scale with bonus
@@ -462,6 +465,9 @@ public class ASF_UndyingMalice extends BaseHullMod {
 			
 			info.charge *= 0.5f; // you really don't want to be forced into having a repair, as it eats a *lot* of charge, even/especially at higher charge levels.
 			info.repairCooldown = 0f;
+			
+			ship.getFluxTracker().setHardFlux(ship.getFluxTracker().getHardFlux() * 0.5f); // halving current flux, a lil helping hand!
+			ship.getFluxTracker().setCurrFlux(ship.getFluxTracker().getCurrFlux() * 0.5f); // we do both both hard+soft, and hard first because of how hard/soft are handled.
 			
 			float hull = ship.getHitpoints();
 			ship.setHitpoints(Math.min(ship.getMaxHitpoints(), hull + (ship.getMaxHitpoints() * 0.5f))); // +50% hull (with a sanity check just in case)
@@ -601,13 +607,13 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		
 		
         // vent section - [start]
-        stats.getVentRateMult().modifyPercent(spec.getId(), (100f * chargeScalar)); // boost vent rate by an amount proportional to current charge
+        stats.getVentRateMult().modifyPercent(spec.getId(), (VENT_BONUS * chargeScalar)); // boost vent rate by an amount proportional to current charge
         
 		if (ship.getFluxTracker().isVenting()) {
-			info.charge = Math.max(0f, info.charge - ((info.charge * 0.1f) * amount)); // while venting, charge decays by 1/10th of current charge /sec
-				// you get this (potentially) huge charge decay, because you get a (potentially) *insane* boost to vent rate.
+			info.charge = Math.max(0f, info.charge - ((info.charge * 0.05f) * amount)); // while venting, charge decays by 1/20th of current charge /sec
+				// you get this reasonably significant charge decay, because you get a (potentially) *insane* boost to vent rate.
 			
-			// vent fx rate scales up to as charge goes up, at the same rate as the vent speed bonus goes up.
+			// vent fx rate scales up as charge goes up, at the same rate as the vent speed bonus goes up.
 			ventInterval1.advance(amount * chargeScalar);
             if (ventInterval1.intervalElapsed()) {
             	
@@ -798,7 +804,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
 	@Override
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
 		float pad = 2f;
-		float dpad = 4f;
+		float dpad = 6f;
 		float opad = 10f;
 		float tpad = 10f;
 		float hpad = 12f;
@@ -840,13 +846,19 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		label.setHighlight("Current charge capacity is:", "" + (int) ((ship.getMaxFlux() * 0.1f)));
 		label.setHighlightColors(grey, h);
 		
-		label = tooltip.addPara("Resonator charge can only remain stable for a limited duration before decaying.", opad);
-		label = tooltip.addPara("If charge is under %s of capacity, there is a %s pause after generating charge before decay starts.", pad, h, "10%", "" + DECAY_TIMER + " second");
-		label.setHighlight("10%", "" + DECAY_TIMER + " second");
-		label.setHighlightColors(h, h);
-		label = tooltip.addPara("This pause shortens as charge level increases, once charge hits %s of capacity there is no pause to decay, but decay rate will still reset on dealing damage.", pad, h, "50%");
-		label.setHighlight("50%");
-		label.setHighlightColors(h, h);
+		label = tooltip.addPara("Resonator charge can only remain stable for a limited duration before %s.", opad, bad, "Decaying");
+		label.setHighlight("Decaying");
+		label.setHighlightColors(bad);
+		label = tooltip.addPara("There is a %s pause after generating charge before decay starts.", pad, h, DECAY_TIMER + " second");
+		label.setHighlight(DECAY_TIMER + " second");
+		label.setHighlightColors(h);
+		
+//		label = tooltip.addPara("If charge is under %s of capacity, there is a %s pause after generating charge before decay starts.", pad, h, "10%", "" + DECAY_TIMER + " second");
+//		label.setHighlight("10%", "" + DECAY_TIMER + " second");
+//		label.setHighlightColors(h, h);
+//		label = tooltip.addPara("This pause shortens as charge level increases, once charge hits %s of capacity there is no pause to decay, but decay rate will still reset on dealing damage.", pad, h, "50%");
+//		label.setHighlight("50%");
+//		label.setHighlightColors(h, h);
 		
 		tooltip.addSectionHeading("Emergency Repair System", h, repBanner, Alignment.MID, hpad);
 		label = tooltip.addPara("If the ship drops below %s hull and has at least %s charge stored, then the Resonator will consume %s of current charge to trigger an emergency repair.", tpad, bad, "50%", "" + (int) REPAIR_THRESHOLD, "50%");
@@ -879,26 +891,27 @@ public class ASF_UndyingMalice extends BaseHullMod {
                 if (!ship.isAlive()) {
                     Global.getCombatEngine().getListenerManager().removeListener(this);
                 }
-            }
-            if (target instanceof ShipAPI) {
-                if (!((ShipAPI) target).isAlive()) return;
-            }
-            
-            float totalDamage = 0;
-            totalDamage += result.getDamageToHull();
-            totalDamage += (result.getDamageToShields() * 0.7f); // damage to shields counts lower, because balance
-            totalDamage += result.getTotalDamageToArmor();
-            Map<String, Object> customCombatData = Global.getCombatEngine().getCustomData();
-            
-            float currDamage = 0f;
+                
+                if (target instanceof ShipAPI) {
+                    if (!((ShipAPI) target).isAlive()) return;
+                }
+                
+                float totalDamage = 0;
+                totalDamage += result.getDamageToHull();
+                totalDamage += (result.getDamageToShields());
+                totalDamage += result.getTotalDamageToArmor();
+                Map<String, Object> customCombatData = Global.getCombatEngine().getCustomData();
+                
+                float currDamage = 0f;
 
-            if (customCombatData.get("ASF_undyingHullmodDamage" + ship.getId()) instanceof Float) {
-                currDamage = (float) customCombatData.get("ASF_undyingHullmodDamage" + ship.getId());
+                if (customCombatData.get("ASF_undyingHullmodDamage" + ship.getId()) instanceof Float) {
+                    currDamage = (float) customCombatData.get("ASF_undyingHullmodDamage" + ship.getId());
+                }
+                
+                currDamage += totalDamage;
+                
+                customCombatData.put("ASF_undyingHullmodDamage" + ship.getId(), currDamage);
             }
-            
-            currDamage += totalDamage;
-            
-            customCombatData.put("ASF_undyingHullmodDamage" + ship.getId(), currDamage);
         }
     }
 	// damage dealt listener [end]
@@ -906,7 +919,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
 	
     private class ShipSpecificData {
     	private float charge = 0f;
-    	private float decay = -4f;
+    	private float decay = -2f;
     	private boolean dead = false;
     	private boolean doOnce = true;
     	private float fadeIn = 0f;

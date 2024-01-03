@@ -1,8 +1,8 @@
 id,type,text1,text2,text3,text4,notes
 A_S-F_gemogee,SHIP,"A modification of the Apogee, sacrifices its main weaponry to fit a pair of Gemini-type containers. Cargo capacity sees a minor increase, but more important is the ability to support a pair of fighter wings.",,,,
-A_S-F_auditor,SHIP,"A heavily modified Monitor, sacrifices some maneuverability in order to have a cut-down Paladin PD System in place of the flak cannons the normal Monitor mounts.
+A_S-F_auditor,SHIP,"An attempt to mate the strengths of the Monitor and the Brawler, the combination of a cut-down Paladin PD System and a medium weapon mount allow for impressive flexibility in combat.
 
-The changed weapon mounting can let it fare better in fleet support and point defense roles, but the more sluggish acceleration and lack of turreted weaponry on both sides makes it more vulnerable if caught out of position.",,,,
+While potent, the Auditor sits in something of an strange niche, lacking the sheer staying power of the Monitor, or the raw firepower of the Brawler it instead acts as something of a generalist escort frigate well suited to field long range support weapons.",,,,
 A_S-F_peryton,SHIP,"A missile armed light cruiser that follows the principle of quantity having a quality of its own, features a unique missile rack setup that allows for notably more missiles than normal to be stored, and for them to be fed into launchers at a greater pace, but at the downside of reduced missile warhead potency. 
 
 Similarly to the more common Gryphon, the Peryton also has a relatively underpowered flux core for its size, but if it is able to sit at a distance behind other fleet assets and unleash a steady barrage of missiles, this weakness is unlikely to be a major concern.",,,,
@@ -72,7 +72,7 @@ The Splendor was developed by competing design team as a competitor to the Brill
 A_S-F_nebel,SHIP,"A unique vessel, the Nebel appears to be an extremely heavily modified version of the Splendor droneship featuring a fully fleshed out crew compartment. A specialised missile foundry has also been installed in the core of the vessel, giving this ship the potential to be far more deadly than other ships of the same weight class and when combined with it's superior combat mobility it can pose as a threat to even capital grade vessels.",,,,
 A_S-F_auditor_mod,SHIP,"Heavily customised variant of the Auditor designed to optimise defensive and anti-fighter capabilities.
 
-The Auditor is a heavily modified Monitor that sacrifices some maneuverability in order to have a cut-down Paladin PD System in place of the flak cannons the normal Monitor mounts. This further modified variant restores the lost maneuverability and installs a pair of customised ""Shevalye"" PD Systems giving it unsurpassed defensive capability for a vessel of its size.",,,,
+This custom modification of the Auditor attempts to go back to its core origin in the Monitor, discarding attempts at increased firepower and instead installs a pair of customised ""Shevalye"" PD Systems giving it unsurpassed point defense capability for a vessel of its size.",,,,
 A_S-F_velox,SHIP,"An ultra mobile lightweight frigate, while the Velox is able to mount a very respectable strike package in order to make the most out of its strike potential it must sacrifice point defense capabilities.
 
 A favorite of admirals who favour the wolfpack school of combat, the Velox's effective shielding and impressive speed make it reparkably survivable and give it ample opportunities to take advantage of narrow windows of vulnerability.",,,,
@@ -193,7 +193,8 @@ Much like how it's smaller cousin the Mtumaju is based on the Sentry, this is an
 A_S-F_mbishi,SHIP,"Initial analysis shows significant similarities to Domain automated war drones, but there are several irregular design features and modifications that mark this as something... Different.
 
 Derived from the Berserker war drone hull, this ship is notably more flexible thanks to turreted weapon mounts,alongside the ability to mount missile weaponry.",,,,
-A_S-F_persenachia,SHIP,"""A heretic, clad in the husks of the dead. In order to hide her figure, she spreads a thick, dark mist. The black fog conceals her as she hunts her next victim.""",- Unknown,,,
+A_S-F_persenachia,SHIP,"""A heretic, surrounded with the husks of the dead. In order to hide its form, it spreads a dense and violent storm. The glowing fog conceals it while it hunts its prey and then entraps them in a dance of death, creating more victims.""
+- Unknown",,,,
 A_S-F_estucheon,SHIP,"Although automated machines of war were forbidden in core Domain space, war drones were quietly employed outside of officially incorporated volume. Frontier garrisons were often bolstered by drone ships, and they were deployed liberally against rebellious worlds to tip the terrible balance of attrition, setting the industrial might of the Domain versus the lives of 'freedom fighters'.
 
 While the Estucheon may appear to be the result of a corrupted production chip at first glance it is in fact a true designed vessel. It just so happens to be intended to use up spare parts cannibalized from other damaged vessels, resulting in a rather haphazard structure, albeit one that is bolstered with the addition of a pair of ports for the projection of flak canisters.",,,,
@@ -376,6 +377,9 @@ The Stamp is largely outclassed by  modern autocannons in all respects, but that
 
 Despite its relatively poor performance, distribution of blueprints for the manufacture of this weapon was restricted by the Domain, likely to prevent rebels and 'freedom fighters' from being able to access cheap and easily manufacturable weaponry, as such they are generally only found installed on Domain Exploraria drones.",,,,
 A_S-F_ionDriver,WEAPON,"Fires a pair of condensed Ion bolts, able to deliver impressive distuption to the point of impact. The condensed nature of the bolts trades the traditional Ion weapon 'arcing' effect for an improvement to raw destructive potential.",,,,
+A_S-F_quad_multi-lance,WEAPON,"A quad mounting of high energy beam emitters, while lacking the power throughput to allow for a continuous beam, the burst output is nothing to be trifled with.
+
+The attached capacitor bank allows for a brief burst of firepower that can tear through armour and overwhelm lighter shield emitters with ease, but once the initial burst has been expended it will rapidly falter against more heavy duty protection.",,,,
 ,,,,,,
 ,,,,,,
 A_S-F_cyclemissilefeed,SHIP_SYSTEM,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,Offensive,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,,

@@ -21,11 +21,11 @@
     {
       "id": "WS 002",
       "size": "SMALL",
-      "type": "UNIVERSAL",
-      "mount": "HARDPOINT",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
       "arc": 5,
-      "angle": 0,
-      "locations": [16, -49]
+      "angle": 180,
+      "locations": [-31, -0]
     },
     {
       "id": "WS 003",
@@ -38,12 +38,12 @@
     },
     {
       "id": "WS 004",
-      "size": "SMALL",
+      "size": "MEDIUM",
       "type": "HYBRID",
       "mount": "TURRET",
       "arc": 90,
-      "angle": -20,
-      "locations": [12, -21]
+      "angle": -15,
+      "locations": [16, -29]
     },
     {
       "id": "WS 005",
@@ -127,6 +127,22 @@
       "width": 8,
       "angle": 180,
       "contrailSize": 64,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-17, 55],
+      "length": 28,
+      "width": 8,
+      "angle": 135,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-17, -55],
+      "length": 28,
+      "width": 8,
+      "angle": -135,
+      "contrailSize": 128,
       "style": "MIDLINE"
     }
   ],

@@ -29,7 +29,9 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		// Set up the fleets
 		api.initFleet(FleetSide.PLAYER, "TTS", FleetGoal.ATTACK, false);
 		api.initFleet(FleetSide.ENEMY, "TTDS", FleetGoal.ATTACK, true);
-
+		
+		api.setHyperspaceMode(true);
+		
 		// Set a blurb for each fleet
 		api.setFleetTagline(FleetSide.PLAYER, "Prototype Vessel.");
 		api.setFleetTagline(FleetSide.ENEMY, "Rogue Fragment.");

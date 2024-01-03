@@ -50,11 +50,12 @@ public class ASF_MicroVentStats extends BaseShipSystemScript {
 	
 	private static Map<HullSize, Float> REPAIR_FLAT = new HashMap<HullSize, Float>();
 	static {
+		REPAIR_FLAT.put(HullSize.FIGHTER, 0.1f);
 		REPAIR_FLAT.put(HullSize.FRIGATE, 0.3f);
 		REPAIR_FLAT.put(HullSize.DESTROYER, 0.6f);
 		REPAIR_FLAT.put(HullSize.CRUISER, 0.9f); // no cruisers
 		REPAIR_FLAT.put(HullSize.CAPITAL_SHIP, 1.2f); // no capitals
-		REPAIR_FLAT.put(HullSize.DEFAULT, 0.7f);
+		REPAIR_FLAT.put(HullSize.DEFAULT, 0.5f);
 	}
 	
 	private IntervalUtil visInterval1 = new IntervalUtil(0.75f,1.25f);
@@ -78,7 +79,7 @@ public class ASF_MicroVentStats extends BaseShipSystemScript {
 		if (!vented) {
 			vented = true;
 			
-			// vent 10% of current flux!
+			// instantly vent 10% of current flux!
 			ship.getFluxTracker().setHardFlux(Math.max(0f, ship.getFluxTracker().getHardFlux() * VENT_LEVEL));
 			ship.getFluxTracker().setCurrFlux(Math.max(0f, ship.getFluxTracker().getCurrFlux() * VENT_LEVEL));
 			
