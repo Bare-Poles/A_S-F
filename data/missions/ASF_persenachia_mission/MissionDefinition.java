@@ -11,6 +11,7 @@ import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
+
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
@@ -21,6 +22,10 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
+import com.fs.starfarer.api.combat.BattleCreationContext;
+import com.fs.starfarer.api.impl.combat.EscapeRevealPlugin;
+
+
 public class MissionDefinition implements MissionDefinitionPlugin {
 
   @Override
@@ -28,7 +33,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		// Set up the fleets
 		api.initFleet(FleetSide.PLAYER, "MAL", FleetGoal.ATTACK, false);
-		api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true);
+		api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true); //ESCAPE
 		
 		api.setHyperspaceMode(true);
 		
@@ -97,7 +102,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		// Set up the map.
 		float width = 11000f;
-		float height = 13000f;
+		float height = 14000f; //24000f;
 		api.initMap((float)-width/2f, (float)width/2f, (float)-height/2f, (float)height/2f);
 		
 		float minX = -width/2;
@@ -110,6 +115,15 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 			float radius = 600f + ((float) Math.random() * 1000f); 
 			api.addNebula(x, y, radius);
 		}
+		
+		
+		api.getContext().aiRetreatAllowed = false;
+        api.getContext().enemyDeployAll = true;
+        api.getContext().fightToTheLast = true;
+		
+		//BattleCreationContext context = new BattleCreationContext(null, null, null, null);
+		//context.setInitialEscapeRange(7000f);
+		//api.addPlugin(new EscapeRevealPlugin(context));
 		
 	}
   
