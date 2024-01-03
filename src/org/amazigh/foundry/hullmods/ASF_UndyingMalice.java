@@ -778,12 +778,12 @@ public class ASF_UndyingMalice extends BaseHullMod {
         }
         // ui info display section - [end]
         
-        //TODO - comment this out for release!
+        
         // debug display section - [start]
-        engine.maintainStatusForPlayerShip("MALICEDEBUG4", "graphics/icons/hullsys/phase_cloak.png",  "chargeScalar: " + chargeScalar, "chargeScalarD: " + chargeScalarD, false);
-        engine.maintainStatusForPlayerShip("MALICEDEBUG3", "graphics/icons/hullsys/phase_cloak.png",  "Repair CD: " + info.repairCooldown, "Max Charge: " + maxCharge, false);
-        engine.maintainStatusForPlayerShip("MALICEDEBUG2", "graphics/icons/hullsys/phase_cloak.png", "Decay: " + info.decay, "currDamage: " + currDamage, false);
-        engine.maintainStatusForPlayerShip("MALICEDEBUG1", "graphics/icons/hullsys/phase_cloak.png", "DEBUG INFO", "Charge: " + info.charge, false);
+        // engine.maintainStatusForPlayerShip("MALICEDEBUG4", "graphics/icons/hullsys/phase_cloak.png",  "chargeScalar: " + chargeScalar, "chargeScalarD: " + chargeScalarD, false);
+        // engine.maintainStatusForPlayerShip("MALICEDEBUG3", "graphics/icons/hullsys/phase_cloak.png",  "Repair CD: " + info.repairCooldown, "Max Charge: " + maxCharge, false);
+        // engine.maintainStatusForPlayerShip("MALICEDEBUG2", "graphics/icons/hullsys/phase_cloak.png", "Decay: " + info.decay, "currDamage: " + currDamage, false);
+        // engine.maintainStatusForPlayerShip("MALICEDEBUG1", "graphics/icons/hullsys/phase_cloak.png", "DEBUG INFO", "Charge: " + info.charge, false);
         // debug display section - [end]
         
         
