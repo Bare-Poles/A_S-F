@@ -201,6 +201,10 @@ While the Estucheon may appear to be the result of a corrupted production chip a
 A_S-F_edifice,SHIP,"An attempt at producing a hull that emulates the advantages of the Paragon-class battleship at a smaller scale, the reduced internal space in the hull meant that an advanced targeting core was unable to be installed, so designers were forced to alter the design proposition to fit the Edifice into the role of a point defense escort, with the potential to offer respectable firepower for its size.
 
 Despite the designers best efforts, the Edifice lacks the same shielding capabilities of a true Fortress Shield, but taking inspiration from the “flux shunt” installed on the contentious Monitor-class it has the ability to relieve shield flux while active.",,,,
+A_S-F_morris,SHIP,"A vessel designed for and as such epitomising delivery of massed firepower. The Morris might seem like a one-trick pony, but respectable defenses that are tied together by the heavy array of canister flak ports mean that it can prove a solid anchor for smaller fleets.",,,,
+A_S-F_morris_p,SHIP,"Following the prinicple that bigger is better, pirate shipwrights have taken a Morris and replaced its distinctive gun clusters with a pair of large hardpoints.
+
+Several shield emitter nodes and some notable sections of armour plating were among the elements damaged or removed in the process of the pirates installing an upgrade to the vessels flux management abilities. Unfortunately the distinctive heavy canister flak system also fell victim to pirate improvements, and has been replaced with a simpler cluster of flare launchers.",,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,

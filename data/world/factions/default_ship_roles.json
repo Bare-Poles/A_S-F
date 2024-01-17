@@ -85,7 +85,7 @@
     "A_S-F_mtetezi_prot": 1,
     "A_S-F_mtumaji_def": 1,
     "A_S-F_mtumaji_prot": 1,
-	# for the ArtTech bounty!
+	# for the ArkTech bounty!
 
     "A_S-F_estucheon_rkt": 3, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
 
@@ -127,7 +127,7 @@
     "A_S-F_mbishi_prot": 1,
     "A_S-F_mlinzi_def": 1,
     "A_S-F_mlinzi_prot": 1,
-	# for the ArtTech bounty!
+	# for the ArkTech bounty!
 
     "A_S-F_estucheon_rkt": 6.5,
 
@@ -135,6 +135,13 @@
     "A_S-F_edifice_esc": 2,
     "A_S-F_edifice_sup": 3,
 
+    "A_S-F_morris_ass": 2.5,
+    "A_S-F_morris_od": 0.5,
+    "A_S-F_morris_std": 2.5,
+    "A_S-F_morris_sup": 2.5,
+    "A_S-F_morris_p_ass": 4,
+    "A_S-F_morris_p_od": 1,
+    "A_S-F_morris_p_raider": 4,
 
   },
   "combatLarge": {

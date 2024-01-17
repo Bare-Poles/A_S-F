@@ -10,7 +10,7 @@
 	"glowColor":[120,150,255,255],
 	"turretOffsets":[7, 2.5, 7, -2.5],
 	"turretAngleOffsets":[0, 0],
-	"hardpointOffsets":[9, 2.5, 9, -2.5],
+	"hardpointOffsets":[10, 2.5, 10, -2.5],
 	"hardpointAngleOffsets":[0, 0],
 	"barrelMode":"LINKED", # or LINKED.  whether barrels fire at the same time or alternate.
 	"animationType": "GLOW_AND_FLASH",

@@ -3,7 +3,7 @@
  "name": "Amazigh's Ship Foundry",
  "author": "Amazigh",
 
- "version": {"major":1, "minor":0, "patch":2},
+ "version": {"major":1, "minor":1, "patch":0},
  "description": "A Selection of Ships and Weapons.",
  "gameVersion": "0.96a-RC8",
 

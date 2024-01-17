@@ -51,10 +51,8 @@ Mbishi,A_S-F_mbishi,Drone,[ArkTech],A_S-F_loaderOverdriveD,12,4500,650,4500,,250
 Mlinzi,A_S-F_mlinzi,Drone,[ArkTech],A_S-F_AURA_D,12,4500,625,4500,,250,90,,75,60,35,25,25,500,PHASE,A_S-F_MicroVent,,,,,,0,0,80,40,2,20,8,96000,5,10,540,0.25,10,10,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, auto_rec",,0.5,2,3,222344.3
 Estucheon,A_S-F_estucheon,Drone,Explorarium,A_S-F_flak_screen,4,2500,400,2400,,150,40,,80,50,30,30,25,250,NONE,,0,0,0,,,0,0,40,20,1,20,9,20000,5,8,480,0.25,4,4,"UNBOARDABLE, HIDE_IN_CODEX","derelict, auto_rec",,0.5,2,3,222316
 Edifice,A_S-F_edifice,Destroyer,High Tech,A_S-F_bunkerShield,12,3500,300,8000,,400,90,,80,80,60,30,60,300,OMNI,,360,0.3,0.6,,,35,50,50,40,2,20,9,65000,5,20,480,0.25,12,12,,"merc, ind",,0.6,2,3,222309
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sunder,sunder,Destroyer,Midline,highenergyfocus,10,4000,250,7500,8333,500,105,,90,80,60,30,30,350,FRONT,,300,0.4,1.2,,,50,70,80,50,2,25,9,45000,5,15,300,0.25,11,11,,,,,,,
-Medusa,medusa,Destroyer,High Tech,displacer,12,3000,300,6000,6667,400,100,,100,90,60,40,100,300,OMNI,,120,0.3,0.6,,,35,50,50,40,2,20,9,60000,5,20,300,0.25,12,12,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Morris,A_S-F_morris,Destroyer,Low Tech,A_S-F_flak_screen,12,7000,900,7000,,300,110,,70,55,35,30,45,600,OMNI,,140,0.4,1,,,70,120,80,90,3,30,9,48000,5,12,420,0.25,12,12,,"merc, ind",,0.4,2,3,222310
+Morris (P),A_S-F_morris_p,Destroyer,Pirate,flarelauncher,12,7000,800,7000,,350,110,,70,55,35,30,45,600,OMNI,,140,0.4,1.2,,,70,120,80,90,3,30,9,48000,5,12,420,0.25,12,12,,rare_bp,,0.6,2,3,222310.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Gemogee,A_S-F_gemogee,Carrier,High Tech,reservewing,16,9500,800,12000,14000,700,125,2,55,40,30,20,25,2400,FRONT,,360,0.6,0.7,,,150,450,500,200,2,100,8,170000,3,15,420,0.25,18,18,"CARRIER, COMBAT","rare_bp, merc, ind",,0.6,2,3,403403
 Peryton,A_S-F_peryton,Missile Cruiser,Low Tech,A_S-F_cyclemissilefeed,12,5000,650,4500,4000,150,120,,50,40,30,15,15,900,FRONT,,100,0.5,0.9,,,100,180,100,60,3,20,8,90000,3,12,480,0.25,16,16,,"rare_bp, merc, ind",0.8,0.5,2,3,408418

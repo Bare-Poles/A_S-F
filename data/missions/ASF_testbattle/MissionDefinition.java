@@ -56,6 +56,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_peryton_fs", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_gemogee_strike", FleetMemberType.SHIP, "Trial", false);
 		
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_morris_std", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_morris_p_raider", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_henki_std", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_peluda_ass", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_edifice_esc", FleetMemberType.SHIP, "Trial", false); //sup

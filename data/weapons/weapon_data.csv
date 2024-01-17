@@ -25,7 +25,7 @@ Macron Cannon,A_S-F_macron,2,,750,800,,20,5,2,30,7,,,,HIGH_EXPLOSIVE,15,,0.1,0.9
 Sakset Naval Rifle,A_S-F_sakset,2,0.9,3500,1100,,500,,30,8,22,,,,KINETIC,900,,0,2,1,,0,8,4,8,,1000,,,250,,,,"kinetic19, LR, rare_bp, merc, ind",,,,Anti Shield,,,,,"Shell bursts on impact, releasing a spread of %s pieces of shrapnel each dealing %s damage.",25 | 30 Fragmentation,,,,2228.25
 Crockett Artillery,A_S-F_crockett,2,0.8,4000,1000,,600,,100,8,20,,,,HIGH_EXPLOSIVE,600,,0,2,1,,0,6,2,2,,650,,,250,,,,"he19, rare_bp, merc",,,,Anti Armor,,,,,,,,,,2228.3
 Quicksand Machinecannon,A_S-F_quicksand,2,,1400,500,,30,,2,40,10,60,6.66666,10,HIGH_EXPLOSIVE,18,,0,0.05,,,1,8,0.5,6,,900,,,20,,,"PD,ANTI_FTR","he12, pd10, SR, rare_bp, merc, ind",,,,Point Defense,,,,,,,,,,2223.85
-Silaha Linear Cannon,A_S-F_silaha,3,0.3,50000,1200,,1000,400,400,4,30,,,,ENERGY,1500,,0.9,2.1,1,,0,0,0,0,,2000,,,500,,,,"energy18, he18, kinetic18, LR, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Artillery,,,,,"On impact increases the targets soft flux level by %s.
+Silaha Linear Cannon,A_S-F_silaha,3,0.3,50000,1200,,900,400,400,4,30,,,,ENERGY,1500,,0.9,2.1,1,,0,0,0,0,,2000,,,500,,,,"energy18, he18, kinetic18, LR, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Artillery,,,,,"On impact increases the targets soft flux level by %s.
 Targets are also knocked back by the force of the impact.",800,Shots will not hit allied vessels and can be fired over them.,,,222020
 Stamp Tri-Cannon,A_S-F_stamp,0,,70,600,,80,,2,18,3,,,,FRAGMENTATION,20,,0,1.2,1,,13,21,2,4,,700,,,30,,,,"kinetic5, he5, derelict, no_dealer",,Explorarium,,General,,,,Spread,,,,,,2223.8
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -60,7 +60,7 @@ Bipartisan Submunition,A_S-F_bipartisan_sub,0,,6969,8000,,200,,15,10,69,20,0.1,,
 Lilin Missile Coil,A_S-F_lilin,3,0.3,5000,1600,,250,,20,10,5,5,0.16,1,ENERGY,75,,0,1.25,1,,0,0,0,0,,300,800,8,150,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","missile9, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,General,Medium,Good,,,Causes an explosion on impact that deals an additional %s damage to the target.,250 Fragmentation,,,,222012
 Naxdin Anomaly Torpedo,A_S-F_naxdin,3,0.3,8000,1200,,400,600,40,10,6,2,0.01666,1,ENERGY,0,,0,8,1,,0,0,0,0,,300,100,8,330,,,"GUIDED_POOR, DO_NOT_CONSERVE, STRIKE, USE_VS_FRIGATES, FIRE_WHEN_INEFFICIENT","utility14, missile9, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Suppression,Medium,Medium,,,On impact erupts into an electromagnetic anomaly that deals significant amounts of additional Energy and EMP damage to anything within it's proximity.,,,,TRUE,222016
 Gimbal Micromissile Pod,A_S-F_gimbal,0,,1000,1600,,100,,25,10,11,24,0.8,4,KINETIC,30,,0,2.6,8,0.2,6,20,2,2,,550,150,5,50,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT, MISSILE_SPREAD, DIRECT_AIM","kinetic12, missile11, remnant, rare_bp, merc, ind",,,,Close Support,Fast,Good,,,,,,,,22211.1
-Sprocket HSRM,A_S-F_sprocket,1,,300,1200,,300,100,15,10,5,16,,,ENERGY,0,,0,5.5,2,0.5,0,0,0,0,,440,50,4,180,,,"DO_NOT_AIM, CONSERVE_1","missile7, rare_bp, merc, remnant, ind, reload_6pt",,,,Anti Small Craft,Medium,Good,,,,,,,TRUE,22211.7
+Sprocket HSRM,A_S-F_sprocket,1,,300,1200,,300,100,15,10,5,12,,,ENERGY,0,,0,7.5,2,0.5,0,0,0,0,,440,50,4,180,,,"DO_NOT_AIM, CONSERVE_1","missile7, rare_bp, merc, remnant, ind, reload_6pt",,,,Anti Small Craft,Medium,Good,,,,,,,TRUE,22211.7
 Chillblain Catalyst Missile,A_S-F_chillblain,3,,999999,2000,,1000,500,0,10,35,8,,,ENERGY,2000,,0,15,1,,0,0,0,0,,360,100,7,750,,,"DO_NOT_AIM, STRIKE, USE_VS_FRIGATES, CONSERVE_1","no_sell, no_dealer, restricted",,[Anomalous],,Anti Capital,Medium,Medium,,,"On impact or after %s seconds the missiles warhead will trigger, releasing an energy field.
 
 The Energy field will randomly arc to any nearby vessels, and after %s seconds the energy field will collapse, and any vessel within the field will take %s damage scaling with their %s and %s.",6 | 5 | Energy | Size | Mass,,,TRUE,22200.1
@@ -163,14 +163,14 @@ Kabid Sub 1,A_S-F_kabid_sub1,0,,1000,900,,140,10,10,12,,,,,KINETIC,0,,0,0.1,1,,0
 Kabid Sub 2,A_S-F_kabid_sub2,0,,1000,900,,120,20,8,12,,,,,KINETIC,0,,0,0.1,1,,0,0,0,0,,3500,,,50,,,SYSTEM,,,,,,,,,,,,,,,222013.2
 Kabid Sub 3,A_S-F_kabid_sub3,0,,1000,900,,100,30,6,12,,,,,KINETIC,0,,0,0.1,1,,0,0,0,0,,3250,,,50,,,SYSTEM,,,,,,,,,,,,,,,222013.3
 Kabid Sub 4,A_S-F_kabid_sub4,0,,1000,900,,80,40,4,12,,,,,KINETIC,0,,0,0.1,1,,0,0,0,0,,3000,,,50,,,SYSTEM,,,,,,,,,,,,,,,222013.4
-Naxdin Burst,A_S-F_naxdin_burst,0,,1000,12,,120,,1,12,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,4,,,50,,,SYSTEM,,,,,,,,,,,,,,,222016.1
-Naxdin Bolt,A_S-F_naxdin_bolt,0,,1000,50,,40,50,5,12,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,800,,,50,,,SYSTEM,,,,,,,,,,,,,,,222016.2
+Naxdin Burst,A_S-F_naxdin_burst,0,,1000,12,,120,,1,12,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,4,,,50,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,222016.1
+Naxdin Bolt,A_S-F_naxdin_bolt,0,,1000,50,,40,50,5,12,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,800,,,50,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,222016.2
 Tereshkov OnHit,A_S-F_tereshkov_onhit,0,,1000,120,,100,,4,10,,,,,FRAGMENTATION,0,,0,0.1,1,,0,0,0,0,,600,,,10,,,SYSTEM,,,,,Anti Armor,,,,,,,,,,222201.1
 Kufikiri HE Sub,A_S-F_kufikiri_HE_sub,0,,1000,1000,,200,,16,10,,,,,HIGH_EXPLOSIVE,0,,0,0.1,1,,0,0,0,0,,700,,,100,,,SYSTEM,,,,,,,,,,,,,,,222017.1
 Kufikiri KE Sub,A_S-F_kufikiri_KE_sub,0,,1000,1000,,90,50,9,10,,,,,KINETIC,0,,0,0.1,1,,0,0,0,0,,800,,,100,,,SYSTEM,,,,,,,,,,,,,,,222017.2
-Chillblain Collapse Field,A_S-F_chillblain_field,0,,100000,100,,5000,1000,10,18,,,,,ENERGY,0,,0,1,1,,0,0,0,0,,1,,,800,,,SYSTEM,,,,,Destruction,,,,,,,,,,22200.11
+Chillblain Collapse Field,A_S-F_chillblain_field,0,,100000,100,,5000,1000,10,18,,,,,ENERGY,0,,0,1,1,,0,0,0,0,,1,,,800,,,SYSTEM,dummy_proj,,,,Destruction,,,,,,,,,,22200.11
 Nasibu Dummy,A_S-F_nasibu_dummy,0,,10000,1500,,200,,10,15,,,,,ENERGY,0,,0,0.1,1,,5,5,0,0,,500,1,9,80,,,SYSTEM,,,,,,,,,,"Missiles are launched in a spread, with a random launch orientation.",,,,,222019.1
-Spellbind Flak,A_S-F_spellbind_flak,0,,100000,40,,200,,15,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,60,,,100,,,SYSTEM,,,,,,,,,,,,,,,22200.21
+Spellbind Flak,A_S-F_spellbind_flak,0,,100000,40,,200,,15,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,60,,,100,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,22200.21
 Lamia Bolt,A_S-F_lamia_bolt,0,,1000,700,,100,300,4,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,600,,,10,,,SYSTEM,,,,,,,,,,,,,,,2223.31
 Lerna Submunition,A_S-F_lerna_sub,0,,1000,800,,300,900,10,20,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,0,0,8,120,,,SYSTEM,,,,,,,,,,"Submunition hits on hull or armor will arc to weapons and engines, dealing extra damage equal to the original hit.",,,,,2223.41
 Lerna Bolt,A_S-F_lerna_bolt,0,,1000,800,,100,300,4,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,600,,,10,,,SYSTEM,,,,,,,,,,,,,,,2223.42
@@ -180,7 +180,7 @@ Light Canister Flak,A_S-F_light_canister_flak,0,,1000,200,,100,,10,10,,,,,HIGH_E
 Burst PD Laser (Clavata),A_S-F_joro_heavyburst,0,,10000,750,360,,180,4,180,,8,0.6,,ENERGY,,200,0.1,0.1,0.3,0.1,,,,,15000,,,,,,,"SYSTEM, PD, ANTI_FTR, IGNORES_FLARES",,,,,Point Defense,,,,,Advanced built-in targeting sensors enable the weapon to identify decoy flares and not fire on them.,decoy flares,,,,222222.5
 Sakset Fragment,A_S-F_sakset_frag,0,,1000,90,,30,0,5,10,,,,,FRAGMENTATION,0,,0,0.1,1,,0,0,0,0,,450,,,10,,,"SYSTEM, PD",,,,,,,,,,,,,,,2228.35
 Flak Screen,A_S-F_flak_screen,0,,10000,300,,200,,,,,,0,,HIGH_EXPLOSIVE,0,0,0,0.1,5,0.75,100,100,0,0,,50,200,3,150,,,SYSTEM,,,,,,,,,,,,,,,22235.6
-Targeting Laser - Silaha,A_S-F_targetinglaser_silaha,0,,1,0,100,,120,8,200,0,,,,ENERGY,,0,0.05,0.05,,,,,,,1000000,,,,,,,SYSTEM,,,,,Special,,,,,,,,,,222020.1
+Targeting Laser - Silaha,A_S-F_targetinglaser_silaha,0,,1,0,100,,150,8,200,0,,,,ENERGY,,0,0.05,0.05,,,,,,,1000000,,,,,,,SYSTEM,,,,,Special,,,,,,,,,,222020.1
 Persis Submunition,A_S-F_persis_sub,0,,10000,1500,,50,,3,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,500,100,3,30,,,SYSTEM,,,,,Swarm,Fast,Excellent,,,,,,,,222021.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
