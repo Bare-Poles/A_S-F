@@ -14,7 +14,7 @@ A_S-F_gleam,SHIP,"A remnant of the autonomous AI fleets developed by the Tri-Tac
 
 The Gleam is an advanced testbed for esoteric technologies, mounting a prototype of the Temporal Shell system that exists in a more refined form on the Scarab. A concerning note is that the rear ""Formia Emitter"" module does not appear on the officialy recorded Tri-Tachyon blueprints for the Gleam.",,,,
 A_S-F_glitter,SHIP,"An autonomous AI heavy fighter, while short ranged the Glitter's modified beam weapons allow it to both put modest pressure on shielding and deal serious EMP damage. The AI cores installed in the Glitter are noted to be sadistic and actively avoid targeting communications nodes, allowing calls for assistance to go out as they slowly and methodically tear helpless vessels to pieces.",,,,
-A_S-F_lanner,SHIP,"The Lanner comes from a derivative of the Cruiser-school design concept, eschewing all around balaned firepower and instead being designed around a single large fixed frontal heavy mount around which the loadout of the entire ship is focused. A generous number of missile hardpoints allow the ship to make up for any lack in aesthetics with raw finisher firepower.",,,,
+A_S-F_lanner,SHIP,"The Lanner comes from a derivative of the Cruiser-school design concept, eschewing all around balanced firepower and instead being designed around a single large fixed frontal heavy mount around which the loadout of the entire ship is focused. A generous number of missile hardpoints allow the ship to make up for any lack in aesthetics with raw finisher firepower.",,,,
 A_S-F_lustre,SHIP,"Autonomous AI fleets were developed by the Tri-Tachyon Corporation. Illegal under Domain (and Hegemony) law, and an abomination to the Church of Galactic Redemption, the First AI War saw these creations purged from the Sector. This however, is no remnant of those fleets.
 
 The Lustre is a mystery, the first recorded sightings were during the the second AI war, the sparse and limited records are largely fragmentary and with no identifiable links to any known Tri-Tachyon designs the first sightings were initally passed off as sensor glitches or even outright fabrications, but in the years past repeated and more well documented sightings have proven it to be worryingly real. Analysis of the few that have been recovered partially intact have revealed that its systems show a departure from domain standard engineering practices. While its core systems are similar enough to understand, the adaptive components are largely incomprehensible to even the most well trained technicians.",,,,
@@ -205,6 +205,17 @@ A_S-F_morris,SHIP,"A vessel designed for and as such epitomising delivery of mas
 A_S-F_morris_p,SHIP,"Following the prinicple that bigger is better, pirate shipwrights have taken a Morris and replaced its distinctive gun clusters with a pair of large hardpoints.
 
 Several shield emitter nodes and some notable sections of armour plating were among the elements damaged or removed in the process of the pirates installing an upgrade to the vessels flux management abilities. Unfortunately the distinctive heavy canister flak system also fell victim to pirate improvements, and has been replaced with a simpler cluster of flare launchers.",,,,
+A_S-F_chompiron,SHIP,"] WARNING: Hull Ident Failure.
+] Pattern Matching....
+] 76% Match: Champion Cruiser.
+] ERROR: Anomalous Energy Readings Detected.
+] ERROR: RRA SCAN NAN; 
+] ERROR: ES-RESTART FAIL; 
+] ERROR: MANITRACK COMPUTE OOB;
+] -
+] -
+] -",,,,
+A_S-F_estes,SHIP,"A replica of a renowned fighter craft from ages past. With its excellent maneuverability the original was lauded as being unmatched in dogfights, this replica doesn't quite maintain the same maneuverability, but more than makes up for it in durability and firepower.",,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,
@@ -384,6 +395,10 @@ A_S-F_ionDriver,WEAPON,"Fires a pair of condensed Ion bolts, able to deliver imp
 A_S-F_quad_multi-lance,WEAPON,"A quad mounting of high energy beam emitters, while lacking the power throughput to allow for a continuous beam, the burst output is nothing to be trifled with.
 
 The attached capacitor bank allows for a brief burst of firepower that can tear through armour and overwhelm lighter shield emitters with ease, but once the initial burst has been expended it will rapidly falter against more heavy duty protection.",,,,
+A_S-F_heatstroke,WEAPON,"""Shields were holding fine, but then one shell snuck past... cut through a dozen bulkheads before it finally burnt itself out.""",- Ensign Kathryn McCabe,,,
+A_S-F_quicksand_f,WEAPON,"A heavy duty point defense system that delivers a withering hail of explosive tipped shells, primarily effective against smaller craft but also servicable in the role of intercepting inbound munitions, this fighter-mount variant only features a single barrel, cutting fire rate in half.",,,,
+A_S-F_omer_f,WEAPON,"Lightweight missiles with a specialised flight control system that has them spread out in flight in an attempt to avoid point defense fire, only held back by limited warhead mass and somehat prohibitive mounting requirements, this fighter-mount variant fires fewer missiles at a lower rate than the standard version.",,,,
+,,,,,,
 ,,,,,,
 ,,,,,,
 A_S-F_cyclemissilefeed,SHIP_SYSTEM,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,Offensive,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,,
@@ -414,7 +429,7 @@ A_S-F_quickBoost_3,SHIP_SYSTEM,Triggers secondary engine injectors to rapidly bo
 A_S-F_AURA_feed,SHIP_SYSTEM,Improves overall performance of the ship and overclocks performance of launched fighters for a short period. Also charges the shots fired by the ships integrated AURA Bolter,Offensive,Improves overall performance of the ship and overclocks performance of launched fighters for a short period. Also charges the shots fired by the ships integrated AURA Bolter,,
 A_S-F_rangdaSys,SHIP_SYSTEM,"Significantly increases ballistic rate of fire, can remain enabled indefinitely but generates hard flux while active. On system shutdown provides a small burst of armour repair if not overloaded.",Offensive,"Significantly increases ballistic rate of fire, can remain enabled indefinitely but generates hard flux while active. On system shutdown provides a small burst of armour repair if not overloaded.",,
 A_S-F_unhingeChronoflow,SHIP_SYSTEM,Provides a significant but unstable increase to the flow of time on board the ship. Generates flux when used.,Special,Provides a significant but unstable increase to the flow of time on board the ship. Generates flux when used.,,
-A_S-F_drone_screen,SHIP_SYSTEM,"Deploys a screen of armour drones to protect the vessel. The drones also act as remote sensor relays, increasing ballistic and energy weapon ranges by 3 for each drone deployed.",Drones,"Deploys a screen of armour drones to protect the vessel. The drones also act as remote sensor relays, increasing ballistic and energy weapon ranges by 3 for each drone deployed.",3,
+A_S-F_drone_screen,SHIP_SYSTEM,"Deploys a screen of armour drones to protect the vessel. The drones also act as remote sensor relays, increasing ballistic and energy weapon ranges by 2 for each drone deployed.",Drones,"Deploys a screen of armour drones to protect the vessel. The drones also act as remote sensor relays, increasing ballistic and energy weapon ranges by 2 for each drone deployed.",2,
 A_S-F_light_canister_flak,SHIP_SYSTEM,Fires a large number of light flak canisters with variable-timed proximity fuses all around the ship.,Defensive,Fires a large number of light flak canisters with variable-timed proximity fuses all around the ship. Each canister deals 100 High Explosive damage in an area and is targeted to avoid friendly fire.,100 High Explosive,
 A_S-F_floggerBurn,SHIP_SYSTEM,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at an extreme velocity at the expense of being unable to use shields.",Movement,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at an extreme velocity at the expense of being unable to use shields.",,
 A_S-F_empEmission,SHIP_SYSTEM,Activates an EMP generator that fires a powerful splintering emp arc at a nearby enemy ship. Stores multiple charges.,Offensive,Activates an EMP generator that fires a powerful splintering emp arc at a nearby enemy ship. Stores multiple charges.,,

@@ -15,7 +15,7 @@ Kufikiri Smartcannon,A_S-F_kufikiri,3,0.3,15000,850,50,,,1,12,16,,,,ENERGY,,1000
 
 %s Three charged Projectiles that deal %s Kinetic and %s EMP damage each (%s)
 
-%s One volatile Projectile that deals %s High Explosive and %s Fragmentation damage (%s + %s)",Shield: | 90 | 50 | 135 Kinetic DPS | Hull/Armour: | 200 | 160 | 100 HE DPS | 80 Frag DPS,,,,222017
+%s One volatile Projectile that deals %s High Explosive and %s Fragmentation damage (%s + %s)",Shield: | 100 | 60 | 150 Kinetic DPS | Hull/Armour: | 240 | 180 | 120 HE DPS | 90 Frag DPS,,,,222017
 Sumake Magnegun,A_S-F_sumake,3,0.3,5000,600,,60,60,6,25,7,,,,ENERGY,30,,0.4,1.6,1,,0,0,0,0,,650,,,20,,,,"kinetic8, he8, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Suppression,,,,Special,Shots spread out before turning to face aim direction.,,,,,222018
 Kaksos Autocannon,A_S-F_kaksos,0,,900,600,,120,,8,12,9,,,,KINETIC,84,,0,0.4,1,,4,22,3,8,,800,,,30,,,,"kinetic15, SR, rare_bp, merc, ind",,,,Anti Shield,,,,,,,,,,2224.125
 Laaja Spreadcannon,A_S-F_laaja,0,,3000,800,,80,,5,12,20,,,,KINETIC,60,,0,3,1,,18,24,2,3,,800,,,30,,,,"kinetic18, rare_bp, merc, ind",,,,Anti Shield,,,,Spread,"Projectiles have varying velocity and range.
@@ -28,6 +28,9 @@ Quicksand Machinecannon,A_S-F_quicksand,2,,1400,500,,30,,2,40,10,60,6.66666,10,H
 Silaha Linear Cannon,A_S-F_silaha,3,0.3,50000,1200,,900,400,400,4,30,,,,ENERGY,1500,,0.9,2.1,1,,0,0,0,0,,2000,,,500,,,,"energy18, he18, kinetic18, LR, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Artillery,,,,,"On impact increases the targets soft flux level by %s.
 Targets are also knocked back by the force of the impact.",800,Shots will not hit allied vessels and can be fired over them.,,,222020
 Stamp Tri-Cannon,A_S-F_stamp,0,,70,600,,80,,2,18,3,,,,FRAGMENTATION,20,,0,1.2,1,,13,21,2,4,,700,,,30,,,,"kinetic5, he5, derelict, no_dealer",,Explorarium,,General,,,,Spread,,,,,,2223.8
+Heatstroke Combustion Cannon,A_S-F_heatstroke,3,,999999,1000,,3000,,500,8,35,,,,FRAGMENTATION,2000,,0,5,1,,0,9,3,3,,450,,,500,,,"FIRE_WHEN_INEFFICIENT, DANGEROUS","no_sell, no_dealer, restricted",,[Anomalous],,Punishment,,,,,"In flight the projectile releases up to %s sub-projectiles, each dealing %s damage.
+On impact with hull or armour main/sub-projectiles will embed and deal an additional %s/%s damage over the course of %s seconds. 
+Embedded projectiles deal up to %s additional damage, scaling with the targets flux level, and if the target %s then they %s and their remaining duration is %s.",10 | 100 | 900 | 200 High Explosive | 8 | 100% | Overloads | Combust | Doubled,,,,22200.3
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Plasma Burster,A_S-F_plas_burster,2,0.8,2000,500,,60,,0,35,10,,,,ENERGY,45,,0.2,1.4,5,0.1,,,,,,750,,,100,,,"PD,ANTI_FTR","pd11, SR, hightech_bp, remnant, merc, ind",,,,Point Defense (Area),,,,Spread,,,,,,22223
@@ -50,7 +53,7 @@ Ion Driver,A_S-F_ionDriver,3,0.6,6500,700,,400,1500,0,18,20,8,0.5,2,ENERGY,440,,
 Quad Multi-Lance,A_S-F_quad_multi-lance,3,,5000,1000,1800,,,1,10,20,4,0.111111,1,ENERGY,,1636.363636,0.3,0.3,0.8,0.6,,,,,4000,,,,,,,,"beam20, LR, rare_bp, merc",,,,General,,,,,,,,,,22225
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bramble Smartbomb Rack,A_S-F_bramble,1,,250,600,,250,,10,45,4,12,0.3333,4,FRAGMENTATION,75,,0,3.4,4,0.2,20,20,0,0,,200,600,2.5,150,,50,"GUIDED_POOR, DO_NOT_CONSERVE, PD, ANTI_FTR","utility8, pd6, missile_bp, ind",,,,Point Defense (Area),Slow,None,,,,,,,TRUE,2223.6
+Bramble Smartbomb Rack,A_S-F_bramble,1,,250,600,,250,,10,45,4,16,0.4,4,FRAGMENTATION,75,,0,3.25,4,0.25,20,30,5,2,,200,600,2.5,150,,50,"GUIDED_POOR, DO_NOT_CONSERVE, PD, ANTI_FTR","utility8, pd6, missile_bp, ind",,,,Point Defense (Area),Slow,None,,,,,,,TRUE,2223.6
 Thicket Smartbomb Launcher,A_S-F_thicket,1,,1500,1500,,2400,,10,20,10,,,,FRAGMENTATION,0,,0,12,1,,0,0,0,0,,215,80,10,250,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","utility11, missile7, missile_bp, ind",,,,Anti Fighter,Medium,Medium,,,"Missile splits into a trio of Smartbombs, that then deploy proximity mines.",,,,TRUE,2223.5
 Wasteland Smartbomb Complex,A_S-F_wasteland,2,0.8,4000,1600,,1500,,10,20,18,4,0.0625,,FRAGMENTATION,0,,0,4,1,,0,0,0,0,,350,50,10,350,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","utility18, missile15, rare_bp, hist1t, ind",,,,Anti Fighter,Medium,Medium,,,Missiles deploy a field of munitions that indiviudally launch bursts of Anti-Fighter SRMs.,,,,TRUE,2223.55
 Lamia DEM,A_S-F_lamia,2,0.8,250,2000,,300,900,10,20,4,3,0.025,1,ENERGY,0,,0,3,1,,0,0,0,0,,250,85,8,150,,,"DO_NOT_AIM, DO_NOT_CONSERVE, STRIKE, USE_VS_FRIGATES","utility10, missile6, strike1, rare_bp, merc",,,,Suppression,Medium,Medium,,,"Submunition hits on hull or armor will arc to weapons and engines, dealing extra damage equal to the original hit.",,,,TRUE,2223.3
@@ -60,7 +63,7 @@ Bipartisan Submunition,A_S-F_bipartisan_sub,0,,6969,8000,,200,,15,10,69,20,0.1,,
 Lilin Missile Coil,A_S-F_lilin,3,0.3,5000,1600,,250,,20,10,5,5,0.16,1,ENERGY,75,,0,1.25,1,,0,0,0,0,,300,800,8,150,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","missile9, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,General,Medium,Good,,,Causes an explosion on impact that deals an additional %s damage to the target.,250 Fragmentation,,,,222012
 Naxdin Anomaly Torpedo,A_S-F_naxdin,3,0.3,8000,1200,,400,600,40,10,6,2,0.01666,1,ENERGY,0,,0,8,1,,0,0,0,0,,300,100,8,330,,,"GUIDED_POOR, DO_NOT_CONSERVE, STRIKE, USE_VS_FRIGATES, FIRE_WHEN_INEFFICIENT","utility14, missile9, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Suppression,Medium,Medium,,,On impact erupts into an electromagnetic anomaly that deals significant amounts of additional Energy and EMP damage to anything within it's proximity.,,,,TRUE,222016
 Gimbal Micromissile Pod,A_S-F_gimbal,0,,1000,1600,,100,,25,10,11,24,0.8,4,KINETIC,30,,0,2.6,8,0.2,6,20,2,2,,550,150,5,50,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT, MISSILE_SPREAD, DIRECT_AIM","kinetic12, missile11, remnant, rare_bp, merc, ind",,,,Close Support,Fast,Good,,,,,,,,22211.1
-Sprocket HSRM,A_S-F_sprocket,1,,300,1200,,300,100,15,10,5,12,,,ENERGY,0,,0,7.5,2,0.5,0,0,0,0,,440,50,4,180,,,"DO_NOT_AIM, CONSERVE_1","missile7, rare_bp, merc, remnant, ind, reload_6pt",,,,Anti Small Craft,Medium,Good,,,,,,,TRUE,22211.7
+Sprocket HSRM,A_S-F_sprocket,1,,300,1200,,300,100,15,10,5,12,,,ENERGY,0,,0,7.5,2,0.5,0,0,0,0,,360,50,4.75,150,,,"DO_NOT_AIM, CONSERVE_1","missile7, rare_bp, merc, remnant, ind, reload_6pt",,,,Anti Small Craft,Medium,Good,,,,,,,TRUE,22211.7
 Chillblain Catalyst Missile,A_S-F_chillblain,3,,999999,2000,,1000,500,0,10,35,8,,,ENERGY,2000,,0,15,1,,0,0,0,0,,360,100,7,750,,,"DO_NOT_AIM, STRIKE, USE_VS_FRIGATES, CONSERVE_1","no_sell, no_dealer, restricted",,[Anomalous],,Anti Capital,Medium,Medium,,,"On impact or after %s seconds the missiles warhead will trigger, releasing an energy field.
 
 The Energy field will randomly arc to any nearby vessels, and after %s seconds the energy field will collapse, and any vessel within the field will take %s damage scaling with their %s and %s.",6 | 5 | Energy | Size | Mass,,,TRUE,22200.1
@@ -68,9 +71,9 @@ Nasibu Missile Projector,A_S-F_nasibu,3,0.3,15000,1500,,200,,10,15,14,50,0.25,10
 
 Volatile warheads detonate on impact dealing an additional %s damage to the target.",100 High Explosive,,,,222019
 Destructor Rocket Artillery,A_S-F_destructor,2,,4000,2500,,500,,15,10,20,120,,,HIGH_EXPLOSIVE,0,,0,7,6,1,8,8,0,0,,400,50,6.75,150,,6,"CONSERVE_3, STRIKE, USE_VS_FRIGATES, MISSILE_SPREAD","rocket18, strike15, rare_bp, merc, ind",,,,Anti Armor,Fast,Minor (Course-Correction),,,Causes an explosion on impact that deals %s damage to nearby targets.,100 Fragmentation,,,,222101
-Contradict Rocket Artillery,A_S-F_contradict,2,,1500,2500,,500,800,15,10,10,,,,FRAGMENTATION,0,,0,12,1,,8,8,0,0,,400,50,6.75,200,,6,"FIRE_WHEN_INEFFICIENT, MISSILE_SPREAD","rocket6, utility13, rare_bp, merc, ind",,,,Suppression,Fast,Minor (Course-Correction),,,"On impact increases the targets soft flux level by %s.
-Hits on hull or armor will produce up to %s arcs, each dealing %s and %s damage.",600 | 3 | 50 Energy | 200 EMP,,,TRUE,222102
-Omer Spread Missiles,A_S-F_omer,1,,350,1200,,60,,15,40,5,45,0.666666,3,HIGH_EXPLOSIVE,15,,0,4.3,3,0.1,16,16,0,0,,450,90,3.75,35,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","utility10, missile3, rare_bp, remnant, merc, ind",,,,Anti Small Craft,Fast,Excellent,,,,,,,,22212.1
+Contradict Rocket Artillery,A_S-F_contradict,2,,1500,2500,,500,1000,15,10,8,,,,FRAGMENTATION,0,,0,12,1,,8,8,0,0,,400,50,6.75,200,,6,"FIRE_WHEN_INEFFICIENT, MISSILE_SPREAD","rocket6, utility13, rare_bp, merc, ind",,,,Suppression,Fast,Minor (Course-Correction),,,"On impact increases the targets soft flux level by %s.
+Hits on hull or armor will produce up to %s arcs, each dealing %s and %s damage.",750 | 3 | 50 Energy | 250 EMP,,,TRUE,222102
+Omer Spread Missiles,A_S-F_omer,1,,350,1200,,60,,15,40,5,45,0.5,3,HIGH_EXPLOSIVE,15,,0,4.3,3,0.1,16,16,0,0,,450,90,3.75,35,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","utility10, missile3, rare_bp, remnant, merc, ind",,,,Anti Small Craft,Fast,Excellent,,,,,,,,22212.1
 Albatreos Cruise Missile,A_S-F_albatreos,2,,1800,3000,,1500,,35,12,12,10,,,HIGH_EXPLOSIVE,0,,0,12,1,,8,0,0,0,,500,120,12,250,,,"DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","missile14, strike11, rare_bp, remnant, merc, ind",,,,Finisher,Fast,Special,,,After an initial aiming stage accelerates rapidly and continues with limited guidance.,,,,TRUE,222103
 Twister MIRV Rack,A_S-F_twister,1,0.7,250,2000,,750,,15,25,4,3,,,HIGH_EXPLOSIVE,0,,0,2,1,,0,0,0,0,,250,50,9.5,175,,,DO_NOT_AIM,"missile8, strike3, missile_bp, merc, ind",,,,Finisher,Medium,Good,,,,,,,TRUE,22216
 Cockatrice DEM Torpedo,A_S-F_cockatrice,2,,2000,2000,,1500,,15,15,12,6,,,ENERGY,0,,0,12,1,,0,0,0,0,,160,0,11.5,600,,,"GUIDED_POOR, STRIKE","strike8, missile3, merc, rare_bp, damage_special, damage_soft_flux",,,,Suppression (Strike),Slow,Good,,,"The missile fires a high-powered ion beam when it gets near the target, dealing approximately %s energy damage over the course of %s seconds. This damage is affected by missile damage modifiers and not energy weapon ones.
@@ -84,7 +87,7 @@ Cauldron Flux Shear Torpedo,A_S-F_cauldron_pod,1,,1200,1200,,800,1600,40,10,10,1
 
 Hits on hull or armor will arc %s times to weapons and engines, each arc dealing %s energy and %s EMP damage.",1000 | 4 | 100 | 400,,,TRUE,2229.11
 Persis Multi Seeker,A_S-F_persis,3,0.3,5000,2000,,600,,30,10,5,4,0.083333,1,ENERGY,240,,0,2.5,1,,0,0,0,0,,400,100,5,150,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","missile9, A_S-F_arktech_wep, no_sell, no_dealer",,[ArkTech],,Fire Support,Fast,Excellent,,,,,,,,222021
-Weaver Rocket Pod,A_S-F_weaver,0,,900,1200,,80,,5,28,8,100,1,10,HIGH_EXPLOSIVE,0,,0,7.05,20,0.05,11,23,0.5,0.5,,360,90,4.5,45,,,,"rocket12, strike7, derelict, no_dealer",,Explorarium,,Pressure,Medium,Drunk,,,"Unstable propellant has a chance to overheat in flight, causing the rocket to detonate prematurely.",,,,,22212.33
+Weaver Rocket Pod,A_S-F_weaver,0,,900,1200,,80,,5,28,7,100,1,10,HIGH_EXPLOSIVE,0,,0,7.05,20,0.05,11,23,0.5,0.5,,360,90,4.5,45,,,,"rocket12, strike7, derelict, no_dealer",,Explorarium,,Pressure,Medium,Drunk,,,"Unstable propellant has a chance to overheat in flight, causing the rocket to detonate prematurely.",,,,,22212.33
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -134,7 +137,7 @@ Kundi SRM Launcher,A_S-F_kundi,0,,1000,1000,,120,20,10,0,,3,0.125,1,FRAGMENTATIO
 AURA Bolter,A_S-F_AURA_bolter,0,,10000,800,,100,,10,16,,,,,FRAGMENTATION,30,,0,0.2,1,,0,10,1,12,,800,,,40,,,"SYSTEM, PD, PD_ALSO, FIRE_WHEN_INEFFICIENT",,,[ArkTech],,General,,,,,"When %s is active, shots become charged and deal an additional %s damage on impact.",AURA Feed | 100 Energy,,,,22208
 AURA Bolter Charged,A_S-F_AURA_bolter_charged,0,,10000,800,,100,,10,16,,,,,FRAGMENTATION,30,,0,0.2,1,,0,10,1,12,,800,,,40,,,"SYSTEM, PD, PD_ALSO, FIRE_WHEN_INEFFICIENT",,,[ArkTech],,General,,,,,Shots are charged and deal an additional %s damage on impact.,100 Energy,,,,22208.1
 Gimbal Micromissile Pod (Bomber),A_S-F_gimbal_bomber,0,,1000,1200,,100,,25,10,,10,,,KINETIC,0,,0,4.2,10,0.2,6,20,2,2,,550,90,4,50,,6,"SYSTEM, STRIKE, USE_VS_FRIGATES, MISSILE_SPREAD, DIRECT_AIM",,,,,Anti Shield,Fast,Good,,,,,,,TRUE,22211.11
-Sprocket HSRM (Bomber),A_S-F_sprocket_bomber,0,,1000,1200,,300,100,15,10,,2,,,ENERGY,0,,0,4.5,2,0.5,0,0,0,0,,440,50,4,175,,6,"SYSTEM, STRIKE, USE_VS_FRIGATES, MISSILE_SPREAD",,,,,Anti Small Craft,Medium,Good,,,,,,,TRUE,22211.71
+Sprocket HSRM (Bomber),A_S-F_sprocket_bomber,0,,1000,1200,,300,100,15,10,,2,,,ENERGY,0,,0,4.5,2,0.5,0,0,0,0,,360,50,4.75,150,,6,"SYSTEM, STRIKE, USE_VS_FRIGATES, MISSILE_SPREAD",,,,,Anti Small Craft,Medium,Good,,,,,,,TRUE,22211.71
 Contradict Rocket (Bomber),A_S-F_contradict_bomber_fake,0,,1000,1200,,400,600,15,10,,1,,,FRAGMENTATION,0,,0,5,1,,8,8,0,0,,400,0,4.5,150,,6,"SYSTEM, STRIKE, USE_VS_FRIGATES, MISSILE_SPREAD",,,,,Suppression,Fast,Minor (Course-Correction),,,"On impact increases the targets soft flux level by %s.
 Hits on hull or armor will produce up to %s arcs, each dealing %s and %s damage.",450 | 3 | 40 Energy | 150 EMP,,,TRUE,222102.1
 Aspina Spread Missiles,A_S-F_aspina,0,,10000,1200,,75,,16,40,,80,2.666666,8,HIGH_EXPLOSIVE,0,,0,2.65,8,0.05,16,16,0,0,,450,90,4,50,,,"SYSTEM, ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT, RESET_BARREL_INDEX_ON_BURST",,,,,Anti Small Craft,Fast,Excellent,,,,,Ammunition regeneration rate is reduced to %s of the standard rate while %s is active.,1/3 | Ballistic Overdrive,,22212.2
@@ -149,6 +152,9 @@ Cauldron Flux Shear Torpedo,A_S-F_cauldron,0,,1000,1200,,800,1600,40,10,,1,,,ENE
 Hits on hull or armor will arc %s times to weapons and engines, each arc dealing %s energy and %s EMP damage.",1000 | 4 | 100 | 400,,,TRUE,2229.1
 Micro-Pulse Repeater (High Delay),A_S-F_micropulser_ammon,0,,1000,400,,20,,1,100,,6,2,3,ENERGY,12,,0.06666,0,1,,2,6,0.5,2.5,,1000,,,,,,"SYSTEM, PD",,,,,Point Defense,,,,,,,,,,22217.1
 Moros-class Torpedo,A_S-F_moros_f,0,,1000,1200,,600,,20,10,,1,,,HIGH_EXPLOSIVE,0,,0,1,1,,0,0,0,,,700,400,3,180,,,"SYSTEM, STRIKE",,,,,Torpedo,Very Fast,None,,,,,,,TRUE,2229.21
+Quicksand Machinecannon (Fighter),A_S-F_quicksand_f,0,,1000,500,,30,,2,40,,20,3.33333,5,HIGH_EXPLOSIVE,18,,0,0.1,,,1,8,0.5,6,,900,,,20,,,"SYSTEM,PD,ANTI_FTR",,,,,Point Defense,,,,,,,,,,2223.851
+Omer Spread Missiles (Fighter),A_S-F_omer_f,0,,1000,1000,,60,,15,40,,4,0.2,2,HIGH_EXPLOSIVE,15,,0,9.9,2,0.1,16,16,0,0,,450,90,3,25,,,"SYSTEM,ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE",,,,,Anti Small Craft,Fast,Excellent,,,,,,,,22212.11
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Wasteland Dummy,A_S-F_wasteland_dummy,0,,1000,1000,,125,,15,50,,,,,HIGH_EXPLOSIVE,0,,0,0.1,1,,0,0,0,0,,400,200,4,50,,,"SYSTEM, ANTI_FTR, DO_NOT_AIM",,,,,Anti Small Craft,Fast,Excellent,,,,,,,,22210.11
@@ -166,8 +172,8 @@ Kabid Sub 4,A_S-F_kabid_sub4,0,,1000,900,,80,40,4,12,,,,,KINETIC,0,,0,0.1,1,,0,0
 Naxdin Burst,A_S-F_naxdin_burst,0,,1000,12,,120,,1,12,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,4,,,50,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,222016.1
 Naxdin Bolt,A_S-F_naxdin_bolt,0,,1000,50,,40,50,5,12,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,800,,,50,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,222016.2
 Tereshkov OnHit,A_S-F_tereshkov_onhit,0,,1000,120,,100,,4,10,,,,,FRAGMENTATION,0,,0,0.1,1,,0,0,0,0,,600,,,10,,,SYSTEM,,,,,Anti Armor,,,,,,,,,,222201.1
-Kufikiri HE Sub,A_S-F_kufikiri_HE_sub,0,,1000,1000,,200,,16,10,,,,,HIGH_EXPLOSIVE,0,,0,0.1,1,,0,0,0,0,,700,,,100,,,SYSTEM,,,,,,,,,,,,,,,222017.1
-Kufikiri KE Sub,A_S-F_kufikiri_KE_sub,0,,1000,1000,,90,50,9,10,,,,,KINETIC,0,,0,0.1,1,,0,0,0,0,,800,,,100,,,SYSTEM,,,,,,,,,,,,,,,222017.2
+Kufikiri HE Sub,A_S-F_kufikiri_HE_sub,0,,1000,1000,,240,,16,10,,,,,HIGH_EXPLOSIVE,0,,0,0.1,1,,0,0,0,0,,700,,,100,,,SYSTEM,,,,,,,,,,,,,,,222017.1
+Kufikiri KE Sub,A_S-F_kufikiri_KE_sub,0,,1000,1000,,100,60,9,10,,,,,KINETIC,0,,0,0.1,1,,0,0,0,0,,800,,,100,,,SYSTEM,,,,,,,,,,,,,,,222017.2
 Chillblain Collapse Field,A_S-F_chillblain_field,0,,100000,100,,5000,1000,10,18,,,,,ENERGY,0,,0,1,1,,0,0,0,0,,1,,,800,,,SYSTEM,dummy_proj,,,,Destruction,,,,,,,,,,22200.11
 Nasibu Dummy,A_S-F_nasibu_dummy,0,,10000,1500,,200,,10,15,,,,,ENERGY,0,,0,0.1,1,,5,5,0,0,,500,1,9,80,,,SYSTEM,,,,,,,,,,"Missiles are launched in a spread, with a random launch orientation.",,,,,222019.1
 Spellbind Flak,A_S-F_spellbind_flak,0,,100000,40,,200,,15,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,60,,,100,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,22200.21
@@ -182,6 +188,8 @@ Sakset Fragment,A_S-F_sakset_frag,0,,1000,90,,30,0,5,10,,,,,FRAGMENTATION,0,,0,0
 Flak Screen,A_S-F_flak_screen,0,,10000,300,,200,,,,,,0,,HIGH_EXPLOSIVE,0,0,0,0.1,5,0.75,100,100,0,0,,50,200,3,150,,,SYSTEM,,,,,,,,,,,,,,,22235.6
 Targeting Laser - Silaha,A_S-F_targetinglaser_silaha,0,,1,0,100,,150,8,200,0,,,,ENERGY,,0,0.05,0.05,,,,,,,1000000,,,,,,,SYSTEM,,,,,Special,,,,,,,,,,222020.1
 Persis Submunition,A_S-F_persis_sub,0,,10000,1500,,50,,3,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,500,100,3,30,,,SYSTEM,,,,,Swarm,Fast,Excellent,,,,,,,,222021.1
+Heatstroke Sub,A_S-F_heatstroke_sub,0,,100000,700,,100,,10,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,350,,,10,,,SYSTEM,,,[Anomalous],,Punishment,,,,,"On impact with hull or armour projectile will embed and deal an additional %s damage over the course of %s seconds. 
+If the target overloads then embedded projectiles will combust, changing their damage type to %s.",300 Fragmentation | 8 | High Explosive,,,,22200.31
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Rangda Deco,A_S-F_rangda_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,"no_drop, no_drop_salvage",,,,,,,,,,,,,,

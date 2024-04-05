@@ -4,19 +4,19 @@
   "hullSize": "FIGHTER",
   "spriteName": "graphics/ships/A_S-F_panel_drone.png",
   "style": "MIDLINE",
-  "height": 14,
-  "width": 30,
-  "center": [15, 6],
-  "collisionRadius": 16,
+  "height": 16,
+  "width": 40,
+  "center": [20, 8],
+  "collisionRadius": 21,
   "shieldCenter": [0, -0],
-  "shieldRadius": 15,
+  "shieldRadius": 20,
   "viewOffset": 0,
   "weaponSlots": [],
   "engineSlots": [],
   "bounds": [
-    6, 10,
-    -1, 14,
-    -1, -14,
-    6, -10
+    3, 15,
+    -3, 18,
+    -3, -18,
+    3, -15
   ]
 }

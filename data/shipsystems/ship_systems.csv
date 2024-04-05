@@ -42,9 +42,9 @@ Cycle Missile Feeds,A_S-F_cyclemissilefeed,,,,,,0.3,,,,1,0,0,8,,,,,,,,,,,,,graph
 Shackle Drones,A_S-F_drone_shackle,,,,,,,,20,0.04,0,,0,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_mid.png
 Lynx Jets,A_S-F_rinkaJets,,,,,,,,2,0.08,0.8,3.4,0.8,0.2,,,,,,,,,,,,,graphics/icons/hullsys/maneuvering_jets.png
 Quick Boost,A_S-F_quickBoost,,,,,,,,2,0.125,0.25,0.25,1,0.5,,,,TRUE,,,,,,,,,graphics/icons/hullsys/burn_drive.png
-Drone Screen,A_S-F_drone_screen,,,,,,,,32,0.08,0,,0,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_sensor.png
+Drone Screen,A_S-F_drone_screen,,,,,,,,24,0.075,0,,0,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_sensor.png
 Light Canister Flak,A_S-F_light_canister_flak,,,,,,,,2,0.0666,,,,5,,,,,,,,,,,,,
-Infernium Afterburner,A_S-F_floggerBurn,1,,,,,,,2,0.08,0.7,0.7,0.8,,,,,,,,TRUE,,TRUE,,,,graphics/icons/hullsys/burn_drive.png
+Infernium Afterburner,A_S-F_floggerBurn,1,,,,,,,2,0.08,0.6,0.6,0.7,,,,,,,,TRUE,,TRUE,,,,graphics/icons/hullsys/burn_drive.png
 EMP Emission,A_S-F_empEmission,,,,800,,,,4,0.1666,0.25,,0.05,0.2,,,,,,,,,,,,,graphics/icons/hullsys/emp_emitter.png
 Flux-Assault System,A_S-F_fluxAssault,,,,,,,,3,0.0666,0.25,2,1.75,0,,,,,,,,,,,,,graphics/icons/hullsys/high_energy_focus.png
 Canister Flak,A_S-F_flak_screen,,,,,,,,2,0.0555,,,,4.5,,,,,,,,,,,,,

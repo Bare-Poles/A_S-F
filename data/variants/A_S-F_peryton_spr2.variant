@@ -3,7 +3,7 @@
   "hullId": "A_S-F_peryton",
   "displayName": "Suppression",
   "goalVariant": false,
-  "fluxCapacitors": 20,
+  "fluxCapacitors": 24,
   "fluxVents": 13,
   "quality": 1,
   "permaMods": [],

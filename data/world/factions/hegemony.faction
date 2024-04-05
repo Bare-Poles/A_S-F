@@ -23,6 +23,7 @@
 	"knownFighters":{
 		"fighters":[
 			"A_S-F_downfall_wing",
+			"A_S-F_estes_wing",
 		],
 	},
 	"knownWeapons":{

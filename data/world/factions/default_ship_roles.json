@@ -106,9 +106,9 @@
     "A_S-F_buraq_sup": 2.5,
     "A_S-F_buraq_sup2": 0, # PL
 
-    "A_S-F_lustre_ass": 3,
-    "A_S-F_lustre_sup": 2,
-    "A_S-F_lustre_stk": 2.5,
+    "A_S-F_lustre_ass": 2.5,
+    "A_S-F_lustre_sup": 1.5,
+    "A_S-F_lustre_stk": 2,
     "A_S-F_henki_ass": 3,
     "A_S-F_henki_od": 2,
     "A_S-F_henki_std": 2.5,
@@ -208,6 +208,7 @@
     "A_S-F_gaoler_stk": 3,
     "A_S-F_gaoler_sup": 3,
     "A_S-F_gaoler_sup2": 0, # PL
+    "A_S-F_gaoler_sup3": 0, # INDIE/SCAV
   },
   "carrierMedium": {
     "A_S-F_gemogee_esc": 2,

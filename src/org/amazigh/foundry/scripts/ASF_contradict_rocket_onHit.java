@@ -29,7 +29,7 @@ public class ASF_contradict_rocket_onHit implements OnHitEffectPlugin {
 			for (int i=0; i < 6; i++) {
 				// done like this so i can force it to bring them (close) to overload, and not just waste the entire soft flux spike if near max flux
 				((ShipAPI) target).getFluxTracker().increaseFlux(projectile.getEmpAmount() * 0.125f, false);
-				// Normal Contradict: (800 x 0.125 = 100) x 6 = 600
+				// Normal Contradict: (1000 x 0.125 = 125) x 6 = 750
 				// Bomber Contradict: (600 x 0.125 = 75) x 6 = 450
 			}
 			

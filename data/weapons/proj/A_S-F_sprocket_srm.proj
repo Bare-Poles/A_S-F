@@ -12,10 +12,10 @@
 	"flameoutTime":0.5, # fadeout duration
 	"noEngineGlowTime":0.5, # time spent without the engine glow being rendered
 	"fadeTime":0.5, # fadeout duration
-  	"engineSpec":{"turnAcc":600,
-				  "turnRate":175,
-				  "acc":550,
-				  "dec":500},
+  	"engineSpec":{"turnAcc":500,
+				  "turnRate":150,
+				  "acc":500,
+				  "dec":450},
 	"explosionSpec":{"duration":0.1f, # not visual
 					 "radius":50,
 					 "coreRadius":35,

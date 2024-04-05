@@ -5,6 +5,11 @@
 		"A_S-F_peryton_ass":1.5,
 		"A_S-F_peryton_fs":3,
 		"A_S-F_peryton_spr":3,
+
+		"A_S-F_gaoler_esc": 2,
+		"A_S-F_gaoler_stk": 3,
+		"A_S-F_gaoler_sup": 1,
+		"A_S-F_gaoler_sup3": 2,
 	},
 
 	"knownHullMods":{

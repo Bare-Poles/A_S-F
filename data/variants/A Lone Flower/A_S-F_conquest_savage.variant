@@ -3,7 +3,7 @@
   "hullId": "conquest",
   "displayName": "Savage",
   "goalVariant": false,
-  "fluxCapacitors": 6,
+  "fluxCapacitors": 11,
   "fluxVents": 50,
   "quality": 1,
   "permaMods": [],

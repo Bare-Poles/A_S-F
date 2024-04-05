@@ -3,7 +3,7 @@
   "hullId": "A_S-F_initone",
   "displayName": "Assault",
   "goalVariant": false,
-  "fluxCapacitors": 6,
+  "fluxCapacitors": 8,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],

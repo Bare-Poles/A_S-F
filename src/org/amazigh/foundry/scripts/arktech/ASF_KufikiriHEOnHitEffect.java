@@ -22,7 +22,7 @@ public class ASF_KufikiriHEOnHitEffect implements OnHitEffectPlugin {
 	public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target,
 					  Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {
 		
-		float blastDamage = projectile.getDamageAmount() * 0.8f;
+		float blastDamage = projectile.getDamageAmount() * 0.75f;
 		
 		DamagingExplosionSpec blast = new DamagingExplosionSpec(0.2f,
                 40f,

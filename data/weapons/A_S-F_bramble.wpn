@@ -10,7 +10,7 @@
   "turretOffsets": [8,0, 5,-4, 5,4, 3,0],
   "turretAngleOffsets": [0, -15, 15, 0],
   "hardpointOffsets": [11,0, 8,-4, 8,4, 6,0],
-  "hardpointAngleOffsets": [0, -15, 15, 0],
+  "hardpointAngleOffsets": [0, -20, 20, 0],
   "textureType": ROUGH,
   "barrelMode": "ALTERNATING",
   "animationType": "SMOKE",

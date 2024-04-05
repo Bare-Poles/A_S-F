@@ -144,4 +144,14 @@ A_S-F_stamp_shot,A_S-F_stamp_shot,base_trail_smoke,10,0.05,0,0.12,5,8,"[231,146,
 A_S-F_ionDriver_shot_1,A_S-F_ionDriver_shot,base_trail_smooth,10,0.05,0,0.2,22,15,"[90,180,255]","[9,18,51]",0.5,256,-100,TRUE,5,0,1,0,TRUE,FALSE,TRUE,20,200,0.1,0,0,0,FALSE,TRUE
 A_S-F_ionDriver_shot_2,A_S-F_ionDriver_shot,base_trail_fuzzy,10,0.05,0,0.15,29,20,"[29,170,255]","[12,111,60]",0.25,256,-200,TRUE,-5,1,1,0,TRUE,FALSE,TRUE,20,300,0.1,0,0,0,FALSE,TRUE
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+A_S-F_heatstroke_shot_smoke,A_S-F_heatstroke_shot,base_trail_heavySmoke,10,0.1,0.15,0.65,15,36,"[55,55,50]","[110,110,135]",0.4,320,5,TRUE,-20,2,0,0,TRUE,FALSE,FALSE,0,25,0,0,0,20,true,false
+A_S-F_heatstroke_shot_core,A_S-F_heatstroke_shot,base_trail_zapWithCore,10,0,0,0.7,12,8,"[255,76,58]","[192,57,44]",0.4,240,120,TRUE,-10,0,0,0,TRUE,FALSE,FALSE,0,25,0,0,0,0,FALSE,false
+A_S-F_heatstroke_shot_sparkles_1,A_S-F_heatstroke_shot,A_S-F_trail_sparkle_light,10,0.05,0.1,0.6,18,20,"[255,121,92]","[255,101,77]",0.25,48,80,TRUE,5,1,0,0,TRUE,FALSE,FALSE,0,10,0.1,0,0,0,FALSE,false
+A_S-F_heatstroke_shot_sparkles_2,A_S-F_heatstroke_shot,A_S-F_trail_sparkle_light,10,0.05,0.1,0.6,18,20,"[255,121,92]","[255,101,77]",0.25,48,-80,TRUE,5,1,0,0,TRUE,FALSE,FALSE,0,-10,0.1,0,0,0,FALSE,false
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+A_S-F_heatstroke_sub_shot_smoke,A_S-F_heatstroke_sub_shot,base_trail_heavySmoke,10,0.1,0.1,0.35,7,17,"[55,55,50]","[110,110,135]",0.35,320,5,TRUE,-20,2,0,0,TRUE,FALSE,FALSE,0,25,0,0,0,20,true,false
+A_S-F_heatstroke_sub_shot_core,A_S-F_heatstroke_sub_shot,base_trail_zapWithCore,10,0,0,0.4,6,4,"[255,76,58]","[192,57,44]",0.4,200,100,TRUE,-10,0,0,0,TRUE,FALSE,FALSE,0,25,0,0,0,0,FALSE,false
+A_S-F_heatstroke_sub_shot_sparkles_1,A_S-F_heatstroke_sub_shot,A_S-F_trail_sparkle_light,10,0.05,0.05,0.35,9,10,"[255,121,92]","[255,101,77]",0.2,24,52,TRUE,5,1,0,0,TRUE,FALSE,FALSE,0,10,0.1,0,0,0,FALSE,false
+A_S-F_heatstroke_sub_shot_sparkles_2,A_S-F_heatstroke_sub_shot,A_S-F_trail_sparkle_light,10,0.05,0.05,0.35,9,10,"[255,121,92]","[255,101,77]",0.2,24,-52,TRUE,5,1,0,0,TRUE,FALSE,FALSE,0,-10,0.1,0,0,0,FALSE,false
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

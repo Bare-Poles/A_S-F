@@ -18,6 +18,7 @@
 					 "collisionClass":MISSILE_FF,
 					 "collisionClassByFighter":MISSILE_FF},
 	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"onExplosionEffect":"org.amazigh.foundry.scripts.ASF_BrambleOnExplEffect",
 					"slowToMaxSpeed":true,
 					"range":50,
 					"explosionSpec":{"duration":0.1f,

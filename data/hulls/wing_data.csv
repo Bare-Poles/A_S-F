@@ -1,6 +1,7 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
 A_S-F_gladius_hajod_wing,A_S-F_gladius_hajod_fighter,"no_drop, no_sell, mid",0,,6,6,V,4000,500,300,3,FIGHTER,Fighter,10,12000,,,,,,,,,,,,,2224
 A_S-F_downfall_wing,A_S-F_downfall_assault,"fighter4, fighter, low, leader_no_swarm, attack_at_an_angle, rare_bp, hist1t, merc, ind",2,0.7,7,15,V,4000,500,100,2,FIGHTER,Heavy Fighter,18,15000,,,,,,,,,,,,,2227
+A_S-F_estes_wing,A_S-F_estes_int,"fighter3, interceptor, low, rare_bp, merc, ind",2,0.8,7,12,V,5000,500,750,2,FIGHTER,Assault Interceptor,15,10000,,,,,,,,,,,,,5
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 A_S-F_incisor_wing,A_S-F_incisor_support,"support2, fighter, high, rare_bp, hist1t, merc, ind",1,0.8,5,8,CLAW,1000,600,,4,SUPPORT,Support,8,9000,,,,,,,,,,,,,2225
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,

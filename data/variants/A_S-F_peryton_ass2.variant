@@ -3,7 +3,7 @@
   "hullId": "A_S-F_peryton",
   "displayName": "Assault",
   "goalVariant": false,
-  "fluxCapacitors": 20,
+  "fluxCapacitors": 24,
   "fluxVents": 17,
   "quality": 1,
   "permaMods": [],

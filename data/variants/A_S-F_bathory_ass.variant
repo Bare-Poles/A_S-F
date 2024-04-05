@@ -3,7 +3,7 @@
   "hullId": "A_S-F_bathory",
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 10,
+  "fluxCapacitors": 12,
   "fluxVents": 20,
   "quality": 1,
   "permaMods": [],

@@ -4,7 +4,7 @@
   "displayName": "Rocket",
   "goalVariant": true,
   "fluxCapacitors": 0,
-  "fluxVents": 6,
+  "fluxVents": 7,
   "quality": 1,
   "permaMods": [],
   "hullMods": [

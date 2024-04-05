@@ -3,7 +3,7 @@
   "hullId": "A_S-F_misside",
   "displayName": "Standard",
   "goalVariant": false,
-  "fluxCapacitors": 0,
+  "fluxCapacitors": 4,
   "fluxVents": 10,
   "quality": 1,
   "permaMods": [],

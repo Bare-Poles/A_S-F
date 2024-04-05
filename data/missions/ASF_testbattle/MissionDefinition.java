@@ -27,6 +27,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_apologee_anom", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_perytonne_anom", FleetMemberType.SHIP, "This Is A Test", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_chompiron_anom", FleetMemberType.SHIP, "This Is A Test", false);
 		
 		//api.addToFleet(FleetSide.PLAYER, "falcon_p_Strike", FleetMemberType.SHIP, "xXxXx Nerd Slayer 420 xXxXx", false);
 		
