@@ -96,3 +96,5 @@ Peak performance time Malus is reduced to %s.",graphics/hullmods/A_S-F_anarchyTa
 ,,,,,,,,,,,,,,,,,,,
 # Standard Modular,,,,,,,,,,,,,,,,,,,
 Electromagnetic Flux Stabiliser,A_S-F_ElectroVent,1,,,"special, merc",Special,8000,,,,3,6,9,16,org.amazigh.foundry.hullmods.ASF_ElectroVent,Zappy Rapid Overload,Zappy Rapid Overload,Increases flux capacity by %s/%s/%s/%s.,graphics/hullmods/A_S-F_electroVent.png
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,

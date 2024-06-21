@@ -812,6 +812,14 @@ public class ASF_PhantasmagoriaRegulator_off extends BaseHullMod {
 			return;
 		}
 		
+		// so that the AI knows to never overload the Temporal Core (truly i am giving it access to too much power here)
+		if (info.stability < 25f) {
+			ship.blockCommandForOneFrame(ShipCommand.TOGGLE_SHIELD_OR_PHASE_CLOAK);
+		}
+		if (info.stability < 10f) {
+			ship.blockCommandForOneFrame(ShipCommand.USE_SYSTEM);
+		}
+		
         if (!ship.getFluxTracker().isOverloadedOrVenting()) {
         	if (ship.getFluxTracker().getFluxLevel() > 0.9f && info.stability < 50f) {
         		// if flux is over 90%, and stability is below 50: VENT (for stab)

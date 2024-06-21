@@ -581,7 +581,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
 		
 		/*
 		Ballistic : Each ballistic weapon installed in one of the universal mounts increases system sub-arc count by one, and gives the sub-arcs a chance to pierce shields that scales with the targets hardflux level.
-		Energy : Energy weapon flux cost reduced by 3% for each energy weapon installed in one of the universal mounts.
+		Energy : Energy weapon flux cost reduced by 4% for each energy weapon installed in one of the universal mounts.
 		Missile : Features a microforge that forges ammo for any non-reloading missile weapons installed in one of the universal mounts at a rate that gives each launcher an equivalent of 40 DPS. Reload rate is halved when phased and progress will pause if the ship is overloaded or venting.
 		*/
 		

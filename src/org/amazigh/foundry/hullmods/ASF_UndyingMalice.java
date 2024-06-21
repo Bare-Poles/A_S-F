@@ -73,6 +73,29 @@ public class ASF_UndyingMalice extends BaseHullMod {
 	}
 	
 	
+	//TODO
+	//TODO
+	//TODO
+	
+	// Big rework!
+
+	// Storm when phased [thus truly justifying phase upkeep!]
+	// consumes charge on arc fire, arc rate scales with charge
+	// amount of "Passive" timescale from charge to go down
+	// System changed to a temporal shell that scales with charge
+	// 	[multiply passive timescale, drain charge?]
+
+	// arc chance:
+	//  if ( charge > math.random(0,charge+200) ) { ARC! }
+	// 	200 as a "placeholder", but it's the value that determines arc rate scaling!
+	//  you get "50% arc chance" when charge matches the value, and then it scales up and up but never reaches 100%
+	
+	//TODO
+	//TODO
+	//TODO
+	
+	
+	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 
 		stats.getSuppliesPerMonth().modifyPercent(id, MAINT_MALUS);

@@ -11,7 +11,7 @@ import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
 import org.lwjgl.util.vector.Vector2f;
 
-public class ASF_MaliceStormAI implements ShipSystemAIScript {
+public class ASF_empEmissionAI implements ShipSystemAIScript {
 
     private ShipAPI ship;
     private CombatEngineAPI engine;
@@ -19,7 +19,7 @@ public class ASF_MaliceStormAI implements ShipSystemAIScript {
     // check four to five times a second, to make it slightly random, but also RESPONSIVE
     private IntervalUtil timer = new IntervalUtil(0.2f, 0.25f);
     
-    private static final float RANGE = 1100f; // system range (slightly lower than the actual system range, so we only catch stuff that's 100% in range, and can't escape instantly
+    private static final float RANGE = 650f; // system range
     
     @Override
     public void init(ShipAPI ship, ShipSystemAPI system, ShipwideAIFlags flags, CombatEngineAPI engine) {
@@ -54,7 +54,10 @@ public class ASF_MaliceStormAI implements ShipSystemAIScript {
         if (targetLocation == null) {
         	return;
         } else if (MathUtils.isWithinRange(ship, target, ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE))) {
-            ship.useSystem();
+        	if (!target.isPhased()) {
+                ship.useSystem();
+        	}
+        	// just, as long as the target is in range and isn't phased? go nuts!
         }
 
     }

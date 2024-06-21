@@ -34,7 +34,7 @@ public class ASF_empEmissionStats extends BaseShipSystemScript {
 	public static float BLAST_DAMAGE = 300f;
 	public static float BLAST_DAMAGE_OUTER = 200f;
 	
-	protected static float BASE_RANGE = 600f;
+	protected static float BASE_RANGE = 660f; // 10 range longer than "advertised" to make it more reliable to use or smth idk
 	
 	public static final Color ARC_COLOR_O = new Color(35,100,155,255);
 	public static final Color ARC_COLOR_I = new Color(255,225,255,255);

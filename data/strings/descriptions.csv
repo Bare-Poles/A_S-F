@@ -440,3 +440,5 @@ A_S-F_loaderOverdrive_berz,SHIP_SYSTEM,Temporarily disables weapons in order to 
 A_S-F_MicroVent,SHIP_SYSTEM,Engages a partial emergency vent of the vessels flux grid at the cost of disabling weapons.,Special,Engages a partial emergency vent of the vessels flux grid at the cost of disabling weapons.,,
 A_S-F_MaliceStorm,SHIP_SYSTEM,"Cycles energy from the Malice Resonator through the hyperspace drive, producing a storm of energy that discharges into all nearby enemies, slowing and disrupting them. Resonator charge is drained to enhance the power of the storm.",Offensive,"Cycles energy from the Malice Resonator through the hyperspace drive, producing a storm of energy that discharges into all nearby enemies, slowing and disrupting them. Resonator charge is drained to enhance the power of the storm.",,
 A_S-F_bunkerShield,SHIP_SYSTEM,"Redirects all power from the weapon systems to shields, greatly increasing the efficiency at which damage is absorbed. Can only remain active for a limited duration before needing to shut down.",Defensive,"Reduces the damage taken by shields, can only remain active for a short period.",,
+,,,,,,
+,,,,,,
