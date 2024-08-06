@@ -12,7 +12,7 @@
 		"job_name": "Destroy Pirate prototype",
 		"job_description": "A pirate warlord has managed to get $hisHerTheir hands on a Lanner cruiser and has had extensive refits applied to the hull. This ship has been sighted in numerous raids and has caused significant losses to trade convoys. \nWe have managed to learn the current location of the vessel and want it destroyed before the fleet can return to hiding at a pirate haven.",
 		"job_comm_reply": "You're what they sent to stop me? This'll be fun.",
-		"job_intel_success": "As you are finishing re-organising your fleet after the battle you receive a message thanking you for your help dealing with the pirate theat in the sector.",
+		"job_intel_success": "As you are finishing re-organising your fleet after the battle you receive a message thanking you for your help dealing with the pirate threat in the sector.",
 		
 		"job_forFaction": "persean",
 		"job_deadline": 180,
@@ -147,9 +147,9 @@
 		"trigger_weight_mult": 0.5,
 
 		"job_name": "Destroy Testbed",
-		"job_description": "Infomation recovered by our agents suggest that the Diktat have managed to produce a working testbed for an advanced combat destroyer, It would be greatly appreciated by the Corporation if the shakedown druise for this vessel could run into an... \"accident\"",
-		"job_comm_reply": "As you approach the fleet your sensor officer reports incoming targeting locks and can detect the unmistakable energy signature of weapons being brought to combat readiness. You then recieve a simple message from the fleet \"This is a Sindran Diktat military exercise, about-turn immediately. Interference in military affairs will be considered an act of aggression. Out.\"",
-		"job_intel_success": "With the loss of that prototype the Diktat will surely re-analyse the cost-benifit ratio of continuing development along those lines, you will find the credits for a job well done already in your account.",
+		"job_description": "Information recovered by our agents suggest that the Diktat have managed to produce a working testbed for an advanced combat destroyer, It would be greatly appreciated by the Corporation if the shakedown cruise for this vessel could run into an... \"accident\"",
+		"job_comm_reply": "As you approach the fleet your sensor officer reports incoming targeting locks and can detect the unmistakable energy signature of weapons being brought to combat readiness. You then receive a simple message from the fleet \"This is a Sindrian Diktat military exercise, about-turn immediately. Interference in military affairs will be considered an act of aggression. Out.\"",
+		"job_intel_success": "With the loss of that prototype the Diktat will surely re-analyse the cost-benefit ratio of continuing development along those lines, you will find the credits for a job well done already in your account.",
 		"job_intel_failure": "The Gutkeled is such an interesting ship, and as much as Tri-Tachyon were paying for its destruction you felt it better to instead salvage it. While the Corporation will be annoyed that the vessel remains intact as a proof of Diktat engineering prowess, you can surely put this vessel to good use yourself.",
 		
 		"job_forFaction": "tritachyon",
@@ -283,7 +283,7 @@
 		"job_name": "Trial Intervention",
 		"job_description": "Intercepted hyperwave comms suggest that the Kazeron Navarchy are proceeding with trials for a new breed of defensive fleet support frigate, The location for the current round of trials has been located and a... \"deniable\" fleet would be ideally placed to halt these trials from proceeding any further.",
 		"job_comm_reply": "This is league business, your interference is noted and will be relayed to the Navarch.",
-		"job_intel_success": "As the battle ends you recieve a message from your unknown employer thanking you for ensuring that nothing came from this trail.",
+		"job_intel_success": "As the battle ends you receive a message from your unknown employer thanking you for ensuring that nothing came from this trail.",
 		
 		"job_deadline": 90,
 		"job_credit_reward": 80000,
@@ -415,9 +415,9 @@
 		"trigger_weight_mult": 3,
 
 		"job_name": "Destroy Anomalous Vessel",
-		"job_description": "An unknown and unidentified vessel was spotted by a faithful fleet, it appears to employ technologies outlawed by the domain and against the tenets of our faith. The ship and its attendant fleet proved able to destroy a force of knights sent to purge it, so we offer a bounty to those brave enough to take on this vile abomination.",
+		"job_description": "An unknown and unidentified vessel was spotted by a faithful fleet, it appears to employ technologies outlawed by the Domain and against the tenets of our faith. The ship and its attendant fleet proved able to destroy a force of knights sent to purge it, so we offer a bounty to those brave enough to take on this vile abomination.",
 		"job_comm_reply": "Your communications officer attempts to open a connection with the fleet, but they only get a heavily distorted image of a spacer in a vac-suit, and with a burst of garbled static the connection cuts.",
-		"job_intel_success": "Your salvage crews do their best to pick through the shattered remains of the vessel, and suprisingly manage to recover the main missile weapon intact, alongside an uncorrupted blueprint for the Peryton Missile Cruiser.",
+		"job_intel_success": "Your salvage crews do their best to pick through the shattered remains of the vessel, and surprisingly manage to recover the main missile weapon intact, alongside an uncorrupted blueprint for the Peryton Missile Cruiser.",
 
 		"job_forFaction": "luddic_church",
 		"job_deadline": 300,
@@ -732,7 +732,7 @@
 		"job_name": "Terminate Anomalous Target",
 		"job_description": "An unregistered vessel has been reported to be interfering with deep-sector expeditions and experimental hardware, recovered wreckage shows unusual energy signatures that do not match with any known weapons. The corporation are offering a sizable bounty for the destruction of this interloper.",
 		"job_comm_reply": "Your communication attempt opens to a black screen, you wonder for a moment if the terminal is working correctly before you a distorted picture of a suited spacer appears on-screen, but mere moments later the terminal crashes and goes into a hard-reboot cycle.",
-		"job_intel_success": "Recovery teams work their way through the mangled wreck of the vessel, and after a while they report that the main cannon is still intact, and they suprisingly managed to recover the blueprint for a standard Champion Cruiser.",
+		"job_intel_success": "Recovery teams work their way through the mangled wreck of the vessel, and after a while they report that the main cannon is still intact, and they surprisingly managed to recover the blueprint for a standard Champion Cruiser.",
 
 		"job_forFaction": "tritachyon",
 		"job_deadline": 300,

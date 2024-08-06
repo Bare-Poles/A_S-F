@@ -37,11 +37,11 @@ To such an extent that power conduits and munition feeds for the ships other wea
 Increases the ammo capacity of missile weapons by %s and missile weapons have %s increased fire rate and ammo regeneration.
 Ballistic Weapon Rate of Fire is reduced by %s and Energy Weapon Damage and Flux Cost are also reduced by %s.",Increases missile weapon ammo.,,graphics/hullmods/A_S-F_bulk_missile_storage2.png
 Enhanced Ballistic Support Package,A_S-F_rinkaHullmod,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_rinkaHullmod,<Just give me a clear view.>,"Increased Ballistic performance, variable based on system state.",,graphics/hullmods/A_S-F_rinkaHullmod.png
-Photon Acclerator Core,A_S-F_transparenceHullmod,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_transparenceHullmod,<Get It By Your Hands>,<Get It By Your Hands>,,graphics/hullmods/A_S-F_transparenceHullmod.png
+Photon Accelerator Core,A_S-F_transparenceHullmod,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_transparenceHullmod,<Get It By Your Hands>,<Get It By Your Hands>,,graphics/hullmods/A_S-F_transparenceHullmod.png
 Plasma-tap Shields,A_S-F_plasmaTapShields,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_PlasmaTapShields,"<Things are gonna get pretty busy, crew!>","<Things are gonna get pretty busy, crew!>",,graphics/hullmods/A_S-F_plasmaTapShields.png
 Warburn Systems (Fighter),A_S-F_GyastarHullmod,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_GyastarHullmod,<The Fortress of Annihilation>,<The Fortress of Annihilation>,,graphics/hullmods/A_S-F_warburn.png
 Assault Coils,A_S-F_rinkaHullmod_p,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_rinkaHullmod_p,<Enemy in my sights!>,Increased Ballistic performance.,,graphics/hullmods/A_S-F_rinkaHullmod_p.png
-Inertial Bracing,A_S-F_inertialBracing,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_inertialBracing,"To compensate for the sheer levels of force that the ships thrusters can apply, additional specialised bracing has been installed to ensure the ship can survive even the most extreme maneuvres.
+Inertial Bracing,A_S-F_inertialBracing,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_inertialBracing,"To compensate for the sheer levels of force that the ships thrusters can apply, additional specialised bracing has been installed to ensure the ship can survive even the most extreme maneuvers.
 This bracing has a secondary benefit of acting as a spall liner, giving the ship greater resistance to damage.
 
 Fragmentation damage taken by hull and armour reduced by %s.
