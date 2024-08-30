@@ -34,20 +34,20 @@
 				    "length":40.0,
 				    "angle":180.0}],
 	"behaviorSpec":{"behavior":"MIRV",
-					"splitRange":760, #800
+					"splitRange":700,
 					"minTimeToSplit":2,
 					"canSplitEarly":true,
 					"splitSound":"hurricane_mirv_split",
 					"numShots":6,
-					"damage":150,
+					"damage":160,
 					"impact":8,
 					"emp":0,
 					"damageType":HIGH_EXPLOSIVE,
 					"hitpoints":60,
-					"arc":150, # 180
+					"arc":150,
 					"arcOffset":180,
 					"evenSpread":true,
-					"spreadSpeed":150, # 180
+					"spreadSpeed":160, #180
 					"spreadSpeedRange":60,
 					"projectileSpec":"A_S-F_twister_submunition",
 					"smokeSpec":{"particleSizeMin":20.0,

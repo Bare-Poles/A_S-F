@@ -111,7 +111,7 @@ public class ASF_MaliceCoils extends BaseHullMod {
 		label.setHighlight((int)PHASE_COOLDOWN_REDUCTION + "%");
 		label.setHighlightColors(h);
 		
-		label = tooltip.addPara("%s or %s are incompatible with this vessels phase coils and as such cannot be installed on this vessel.", opad, bad, "Phase Anchor", "Adaptive Phase Coils");
+		label = tooltip.addPara("%s and %s are incompatible with this vessels phase coils and as such cannot be installed on this vessel.", opad, bad, "Phase Anchor", "Adaptive Phase Coils");
 		label.setHighlight("Phase Anchor", "Adaptive Phase Coils");
 		label.setHighlightColors(bad, bad);
 		
