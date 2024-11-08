@@ -12,6 +12,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.ArmorGridAPI;
+import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
@@ -30,6 +31,9 @@ import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
+
+import java.util.List;
+import com.fs.starfarer.api.input.InputEventAPI;
 
 import org.magiclib.util.MagicRender;
 import org.magiclib.util.MagicUI;
@@ -124,6 +128,9 @@ public class ASF_UndyingMalice extends BaseHullMod {
         
         if (info.doOnce) {
         	engine.getListenerManager().addListener(new ASF_maliceDamageListener(ship));
+        	
+        	Global.getCombatEngine().addPlugin(new chargeBarManager(ship));
+        	
         	info.doOnce = false;
         }
         
@@ -763,42 +770,42 @@ public class ASF_UndyingMalice extends BaseHullMod {
         
     	
         // ui info display section - [start]
-        if (ship == engine.getPlayerShip()) {
-        	
-        	float chargeFill = Math.max(0f, Math.min(1f, info.charge / maxCharge)); // a double sanity check because i'm paranoid lol!
-        	
-        	if (info.charge >= REPAIR_THRESHOLD) {
-        		if (info.repairCooldown < REPAIR_CD) {
-            		MagicUI.drawHUDStatusBar(ship,
-            				chargeFill,
-    						new	Color(205,98,22,255), // old col: 80,205,125,255
-    						null,
-    						chargeFill * (Math.min(1f, info.repairCooldown * 0.1f)), // the repair "marker" moves up as the repair recharges
-    						"CHARGE: " + (int) info.charge,
-    						"",
-    						false);
-        		} else {
-        			// when repair is ready the color matches the pipes!
-            		MagicUI.drawHUDStatusBar(ship,
-            				chargeFill,
-    						new	Color(105,255,155,255),
-    						null,
-    						chargeFill,
-    						"CHARGE: " + (int) info.charge,
-    						"",
-    						false);
-        		}
-        	} else {
-        		MagicUI.drawHUDStatusBar(ship,
-        				chargeFill,
-        				new	Color(205,42,68,255), // was:  "textFriendColor").darker().darker()
-						null,
-						0,
-						"CHARGE: " + (int) info.charge,
-						"",
-						false);
-        	}
-        }
+//        if (ship == engine.getPlayerShip()) {
+//        	
+//        	float chargeFill = Math.max(0f, Math.min(1f, info.charge / maxCharge)); // a double sanity check because i'm paranoid lol!
+//        	
+//        	if (info.charge >= REPAIR_THRESHOLD) {
+//        		if (info.repairCooldown < REPAIR_CD) {
+//            		MagicUI.drawHUDStatusBar(ship,
+//            				chargeFill,
+//    						new	Color(205,98,22,255), // old col: 80,205,125,255
+//    						null,
+//    						chargeFill * (Math.min(1f, info.repairCooldown * 0.1f)), // the repair "marker" moves up as the repair recharges
+//    						"CHARGE: " + (int) info.charge,
+//    						"",
+//    						false);
+//        		} else {
+//        			// when repair is ready the color matches the pipes!
+//            		MagicUI.drawHUDStatusBar(ship,
+//            				chargeFill,
+//    						new	Color(105,255,155,255),
+//    						null,
+//    						chargeFill,
+//    						"CHARGE: " + (int) info.charge,
+//    						"",
+//    						false);
+//        		}
+//        	} else {
+//        		MagicUI.drawHUDStatusBar(ship,
+//        				chargeFill,
+//        				new	Color(205,42,68,255), // was:  "textFriendColor").darker().darker()
+//						null,
+//						0,
+//						"CHARGE: " + (int) info.charge,
+//						"",
+//						false);
+//        	}
+//        }
         // ui info display section - [end]
         
         
@@ -939,7 +946,69 @@ public class ASF_UndyingMalice extends BaseHullMod {
     }
 	// damage dealt listener [end]
     
-	
+    //bar rendering everyframe
+    private static class chargeBarManager extends BaseEveryFrameCombatPlugin {
+
+        ShipAPI ship;
+
+        private chargeBarManager(ShipAPI ship) {
+            this.ship = ship;
+        }
+
+        @Override
+        public void advance(float amount, List<InputEventAPI> events) {
+
+            CombatEngineAPI engine = Global.getCombatEngine();
+            
+            if (!ship.isAlive()) {
+                engine.removePlugin(this);
+                return;
+            }
+            
+            if (ship == engine.getPlayerShip()) {
+            	
+            	float maxCharge = ship.getMaxFlux() * 0.1f; // we limit max charge, for balans
+            	
+            	ShipSpecificData info = (ShipSpecificData) engine.getCustomData().get("UNDYING_MALICE_DATA_KEY" + ship.getId());
+            	float chargeFill = Math.max(0f, Math.min(1f, info.charge / maxCharge)); // a double sanity check because i'm paranoid lol!
+            	
+            	if (info.charge >= REPAIR_THRESHOLD) {
+            		if (info.repairCooldown < REPAIR_CD) {
+                		MagicUI.drawHUDStatusBar(ship,
+                				chargeFill,
+        						new	Color(205,98,22,255), // old col: 80,205,125,255
+        						null,
+        						chargeFill * (Math.min(1f, info.repairCooldown * 0.1f)), // the repair "marker" moves up as the repair recharges
+        						"CHARGE: " + (int) info.charge,
+        						"",
+        						false);
+            		} else {
+            			// when repair is ready the color matches the pipes!
+                		MagicUI.drawHUDStatusBar(ship,
+                				chargeFill,
+        						new	Color(105,255,155,255),
+        						null,
+        						chargeFill,
+        						"CHARGE: " + (int) info.charge,
+        						"",
+        						false);
+            		}
+            	} else {
+            		MagicUI.drawHUDStatusBar(ship,
+            				chargeFill,
+            				new	Color(205,42,68,255), // was:  "textFriendColor").darker().darker()
+    						null,
+    						0,
+    						"CHARGE: " + (int) info.charge,
+    						"",
+    						false);
+            	}
+            }
+            
+        }
+    }
+    //bar rendering everyframe
+    
     private class ShipSpecificData {
     	private float charge = 0f;
     	private float decay = -2f;

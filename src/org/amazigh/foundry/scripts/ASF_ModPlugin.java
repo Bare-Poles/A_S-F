@@ -54,6 +54,7 @@ public class ASF_ModPlugin extends BaseModPlugin {
 	public static final String ASF_PERSIS_MISSILE_ID = "A_S-F_persis_missile";
 	public static final String ASF_PERSIS_SUB_MISSILE_ID = "A_S-F_persis_frag";
 	public static final String ASF_WEAVER_ROCKET_ID = "A_S-F_weaver_rocket";
+	public static final String ASF_NEXTER_MISSILE_ID = "A_S-F_nexter_mssl";
 
 	public boolean HAS_GRAPHICSLIB = false;
     public boolean isExerelin = false;
@@ -191,6 +192,8 @@ public class ASF_ModPlugin extends BaseModPlugin {
                 return new PluginPick<MissileAIPlugin>(new ASF_PersisSwarmMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
             case ASF_WEAVER_ROCKET_ID:
                 return new PluginPick<MissileAIPlugin>(new ASF_WeaverDrunkRocketAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            case ASF_NEXTER_MISSILE_ID:
+                return new PluginPick<MissileAIPlugin>(new ASF_RocketArtyMagicMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
             default:
                 return null;
         }

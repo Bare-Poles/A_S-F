@@ -12,8 +12,8 @@
 
 	"hardpointOffsets":[9.5, 3, 5.5, -1, 0.5, -4],
 	"turretOffsets":[4, 3, 0, -1, -5, -4],
-	"hardpointAngleOffsets":[35, 45, 55],
-	"turretAngleOffsets":[35, 45, 55],
+	"hardpointAngleOffsets":[-35, -45, -55],
+	"turretAngleOffsets":[-35, -45, -55],
 
 	"fringeColor":[255,255,255,255],
 	"coreColor":[255,255,255,255],

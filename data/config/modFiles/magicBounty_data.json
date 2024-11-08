@@ -226,7 +226,7 @@
 		"job_forFaction": "tritachyon",
 		"job_deadline": 90,
 		"job_credit_reward": 400000,
-		"job_reward_scaling": 1.0,
+		"job_reward_scaling": 0.75,
 		"job_reputation_reward": 5,
 		
 		"job_type": "assassination",
@@ -350,7 +350,7 @@
 		"job_forFaction": "independent",
 		"job_deadline": 80,
 		"job_credit_reward": 120000,
-		"job_reward_scaling": 0.6,
+		"job_reward_scaling": 0.1,
 		"job_reputation_reward": 10,
 		
 		"job_type": "assassination",
@@ -584,7 +584,7 @@
 		"job_forFaction": "hegemony",
 		"job_deadline": 100,
 		"job_credit_reward": 350000,
-		"job_reward_scaling": 1.0,
+		"job_reward_scaling": 0.75,
 		"job_reputation_reward": 5,
 		
 		"job_type": "assassination",
@@ -653,7 +653,7 @@
 		"job_forFaction": "hegemony",
 		"job_deadline": 360,
 		"job_credit_reward": 100000,
-		"job_reward_scaling": 1.0,
+		"job_reward_scaling": 0.8,
 		"job_reputation_reward": 10,
 		"job_item_reward": {
 		    "A_S-F_arktech_weapon_package":1,

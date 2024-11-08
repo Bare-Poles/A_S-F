@@ -26,12 +26,14 @@
 			"A_S-F_kaksos",
 			"A_S-F_laaja",
 			"A_S-F_copperhead",
+			"A_S-F_nexter",
 
 			"A_S-F_bramble",
 			"A_S-F_thicket",
 			"A_S-F_wasteland",
 			"A_S-F_destructor",
 			"A_S-F_contradict",
+			"A_S-F_twister",
 		],
 	},
 	"knownHullMods":{

@@ -3,8 +3,8 @@
   "hullId": "A_S-F_ocklynge",
   "displayName": "Brawler",
   "goalVariant": true,
-  "fluxCapacitors": 0,
-  "fluxVents": 29,
+  "fluxCapacitors": 1,
+  "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -17,24 +17,22 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0004": "breachpod",
-        "WS0005": "breachpod"
+        "WS0004": "jackhammer",
+        "WS0005": "jackhammer"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "A_S-F_laaja",
-        "WS0006": "heavymortar"
+        "WS0001": "A_S-F_laaja"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "A_S-F_laaja",
-        "WS0007": "heavymortar"
+        "WS0002": "A_S-F_laaja"
       }
     },
     {
@@ -48,6 +46,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0006": "A_S-F_nexter",
         "WS0009": "lightdualac",
         "WS0010": "lightdualac",
         "WS0012": "lightdualac",
@@ -58,6 +57,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0007": "A_S-F_nexter",
         "WS0008": "lightdualac",
         "WS0011": "lightdualac",
         "WS0013": "lightdualac",

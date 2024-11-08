@@ -31,6 +31,7 @@ Stamp Tri-Cannon,A_S-F_stamp,0,,70,600,,80,,2,18,3,,,,FRAGMENTATION,20,,0,1.2,1,
 Heatstroke Combustion Cannon,A_S-F_heatstroke,3,,999999,1000,,3000,,500,8,35,,,,FRAGMENTATION,2000,,0,5,1,,0,9,3,3,,450,,,500,,,"FIRE_WHEN_INEFFICIENT, DANGEROUS","no_sell, no_dealer, restricted",,[Anomalous],,Punishment,,,,,"In flight the projectile releases up to %s sub-projectiles, each dealing %s damage.
 On impact with hull or armour main/sub-projectiles will embed and deal an additional %s/%s damage over the course of %s seconds. 
 Embedded projectiles deal up to %s additional damage, scaling with the targets flux level, and if the target %s then they %s and their remaining duration is %s.",10 | 100 | 900 | 200 High Explosive | 8 | 100% | Overloads | Combust | Doubled,,,,22200.3
+Nexter Gun-Launcher,A_S-F_nexter,1,0.8,1400,900,,140,,10,12,10,8,0.714285,2,HIGH_EXPLOSIVE,126,,0,0.35,2,0.35,2,12,2,1,,400,550,2.5,80,,9,"GUIDED_POOR, DO_NOT_CONSERVE","he12, rare_bp, merc, ind",,,,Anti Armor,Medium,Minor (Course-Correction),,,,,Projectile tracking is enhanced by the installation of %s or by any other source of improved %s maneuverability.,ECCM | Missile,,2224.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Plasma Burster,A_S-F_plas_burster,2,0.8,2000,500,,60,,0,35,10,,,,ENERGY,45,,0.2,1.4,5,0.1,,,,,,750,,,100,,,"PD,ANTI_FTR","pd11, SR, hightech_bp, remnant, merc, ind",,,,Point Defense (Area),,,,Spread,,,,,,22223

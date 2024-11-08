@@ -189,7 +189,7 @@ A_S-F_mtetezi,SHIP,"Initial analysis shows significant similarities to Domain au
 Loosely based on the Defender war drone hull, with an additional turreted weapon mount and a more aggressive burst-oriented system.",,,,
 A_S-F_mlinzi,SHIP,"Initial analysis shows significant similarities to Domain automated war drones, but there are several irregular design features and modifications that mark this as something... Different.
 
-Much like how it's smaller cousin the Mtumaju is based on the Sentry, this is an augmented Bastillon war drone and also features an AURA system in place of flares, along with modified wepaon mounts allowing for a more directed delivery of fire.",,,,
+Much like how it's smaller cousin the Mtumaju is based on the Sentry, this is an augmented Bastillon war drone and also features an AURA system in place of flares, along with modified weapon mounts allowing for a more directed delivery of fire.",,,,
 A_S-F_mbishi,SHIP,"Initial analysis shows significant similarities to Domain automated war drones, but there are several irregular design features and modifications that mark this as something... Different.
 
 Derived from the Berserker war drone hull, this ship is notably more flexible thanks to turreted weapon mounts,alongside the ability to mount missile weaponry.",,,,
@@ -398,6 +398,9 @@ The attached capacitor bank allows for a brief burst of firepower that can tear 
 A_S-F_heatstroke,WEAPON,"""Shields were holding fine, but then one shell snuck past... cut through a dozen bulkheads before it finally burnt itself out.""",- Ensign Kathryn McCabe,,,
 A_S-F_quicksand_f,WEAPON,"A heavy duty point defense system that delivers a withering hail of explosive tipped shells, primarily effective against smaller craft but also servicable in the role of intercepting inbound munitions, this fighter-mount variant only features a single barrel, cutting fire rate in half.",,,,
 A_S-F_omer_f,WEAPON,"Lightweight missiles with a specialised flight control system that has them spread out in flight in an attempt to avoid point defense fire, only held back by limited warhead mass and somehat prohibitive mounting requirements, this fighter-mount variant fires fewer missiles at a lower rate than the standard version.",,,,
+A_S-F_nexter,WEAPON,"An dated design, the Nexter and its semi-guided missile-shells offer impressive range and accuracy in exchange for a vulnerability to point defense fire.
+
+There was a relatively brief era where Gun-Launcher systems were commonplace, but improvements in point-defense targeting rendered them all-but obsolete rather rapidly. The Nexter is one of the few that remains in (comparatively) common service, one of the more effective of such weapons it performs rather effectively against anything without a heavy PD screen.",,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,

@@ -4,7 +4,7 @@
   "displayName": "Attack",
   "goalVariant": true,
   "fluxCapacitors": 0,
-  "fluxVents": 10,
+  "fluxVents": 7,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -23,7 +23,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "heavymortar"
+        "WS0002": "A_S-F_nexter"
       }
     },
     {

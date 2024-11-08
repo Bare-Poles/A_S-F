@@ -314,5 +314,9 @@
 		 {"file":"sounds/sfx_wpn_energy/laser_loop.ogg","pitch":0.86,"volume":1.0},
 	],
 
+	"A_S-F_nexter_fire":
+	[
+		{"file":"sounds/sfx_wpn_guns/heavy_mortar_fire_01.ogg","pitch":0.8,"volume":0.85},
+	],
 
 }
