@@ -51,11 +51,13 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_elt", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_ass", FleetMemberType.SHIP, "Trial", true); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_std", FleetMemberType.SHIP, "Trial", false); //sup
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_std", FleetMemberType.SHIP, "Trial", false); //ass
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_std", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_marlow_stk", FleetMemberType.SHIP, "Trial", false); //ass
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_std", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_lg_elt", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_peryton_fs", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_gemogee_strike", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_scrag_od", FleetMemberType.SHIP, "Trial", false);
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_morris_std", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_morris_p_raider", FleetMemberType.SHIP, "Trial", false);
@@ -83,6 +85,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "doom_Strike", FleetMemberType.SHIP, "Search Dialog", false);
 		api.addToFleet(FleetSide.ENEMY, "champion_Support", FleetMemberType.SHIP, "Extreme Rendition", false);
 		api.addToFleet(FleetSide.ENEMY, "eradicator_Assault", FleetMemberType.SHIP, "Terminal Attention", false);
+		api.addToFleet(FleetSide.ENEMY, "eradicator_Support", FleetMemberType.SHIP, "Two Years Of Plotting", false);
 		api.addToFleet(FleetSide.ENEMY, "apogee_Balanced", FleetMemberType.SHIP, "Low Price Point", false);
 		api.addToFleet(FleetSide.ENEMY, "apogee_Balanced", FleetMemberType.SHIP, "Copies To Be Returned", false);
 		api.addToFleet(FleetSide.ENEMY, "heron_Strike", FleetMemberType.SHIP, "Arterial Roadway", false);

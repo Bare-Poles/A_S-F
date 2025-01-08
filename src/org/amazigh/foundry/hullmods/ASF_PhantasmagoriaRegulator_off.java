@@ -834,18 +834,21 @@ public class ASF_PhantasmagoriaRegulator_off extends BaseHullMod {
         	if (ship.getFluxTracker().getFluxLevel() > 0.9f && info.stability < 50f) {
         		// if flux is over 90%, and stability is below 50: VENT (for stab)
                 ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);
+            	return;
                 // it's generally good to vent when at high flux, and the AI is likely to be in range for the arcs when it hits high flux (by firing a weapon)
         	}
         	
         	if (ship.getFluxTracker().getFluxLevel() > 0.4f && info.stability < 30f) {
         		// if flux is over 40%, and stability is below 30: VENT (for stab)
                 ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);
+            	return;
                 // if at low stab, then vent more aggressively than at high stab, we want to try and have the AI preserve stability.
         	}
         	
         	if (ship.getFluxTracker().getFluxLevel() > 0.7f && ship.getHullLevel() < 0.95f) {
         		// if flux is over 70%, and we've taken more than 5% hull damage: VENT (for regen)
                 ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);
+            	return;
                 // just a "safety" check to make sure the AI will vent (for some regen) if it's taken even a small amount of damage
         	}
         	

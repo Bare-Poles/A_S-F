@@ -10,7 +10,8 @@
   "hullMods": [
     "eccm",
     "solar_shielding",
-    "hardenedshieldemitter"
+    "hardenedshieldemitter",
+    "fluxcoil"
   ],
   "weaponGroups": [
     {

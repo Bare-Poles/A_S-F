@@ -216,7 +216,10 @@ A_S-F_chompiron,SHIP,"] WARNING: Hull Ident Failure.
 ] -
 ] -",,,,
 A_S-F_estes,SHIP,"A replica of a renowned fighter craft from ages past. With its excellent maneuverability the original was lauded as being unmatched in dogfights, this replica doesn't quite maintain the same maneuverability, but more than makes up for it in durability and firepower.",,,,
-,,,,,,
+A_S-F_scrag,SHIP,"Pure aggression focused into a compact package the Scrag is a pirate design through and through,  being focused almost entirely on speed and firepower.
+
+Sacrificing cargo capacity and rear facing weaponry gave pirate shipwrights the space required to install a truly oversized main engine that allows the craft to briefly burn at tremendous speeds.",,,,
+A_S-F_marlow,SHIP,"Initially envisaged as a sturdy fire support platform, the Marlow was a victim of scope creep and a resulting a lack of oversight resulted in an attempt to design a ship that can simultaneously act as fire support, carrier and lineship. Sacrifices and compromises were made in the design, ending up with a ship that can technically do all of the things it was meant to, but not necessarily at the same time.",,,,
 ,,,,,,
 ,,,,,,
 A_S-F_plas_burster,WEAPON,"Fires bursts of volatile plasma, capable of saturating a region of space with point defense coverage.
@@ -398,7 +401,7 @@ The attached capacitor bank allows for a brief burst of firepower that can tear 
 A_S-F_heatstroke,WEAPON,"""Shields were holding fine, but then one shell snuck past... cut through a dozen bulkheads before it finally burnt itself out.""",- Ensign Kathryn McCabe,,,
 A_S-F_quicksand_f,WEAPON,"A heavy duty point defense system that delivers a withering hail of explosive tipped shells, primarily effective against smaller craft but also servicable in the role of intercepting inbound munitions, this fighter-mount variant only features a single barrel, cutting fire rate in half.",,,,
 A_S-F_omer_f,WEAPON,"Lightweight missiles with a specialised flight control system that has them spread out in flight in an attempt to avoid point defense fire, only held back by limited warhead mass and somehat prohibitive mounting requirements, this fighter-mount variant fires fewer missiles at a lower rate than the standard version.",,,,
-A_S-F_nexter,WEAPON,"An dated design, the Nexter and its semi-guided missile-shells offer impressive range and accuracy in exchange for a vulnerability to point defense fire.
+A_S-F_nexter,WEAPON,"A dated design, the Nexter and its semi-guided missile-shells offer impressive range and accuracy in exchange for a vulnerability to point defense fire.
 
 There was a relatively brief era where Gun-Launcher systems were commonplace, but improvements in point-defense targeting rendered them all-but obsolete rather rapidly. The Nexter is one of the few that remains in (comparatively) common service, one of the more effective of such weapons it performs rather effectively against anything without a heavy PD screen.",,,,
 ,,,,,,
@@ -443,5 +446,5 @@ A_S-F_loaderOverdrive_berz,SHIP_SYSTEM,Temporarily disables weapons in order to 
 A_S-F_MicroVent,SHIP_SYSTEM,Engages a partial emergency vent of the vessels flux grid at the cost of disabling weapons.,Special,Engages a partial emergency vent of the vessels flux grid at the cost of disabling weapons.,,
 A_S-F_MaliceStorm,SHIP_SYSTEM,"Cycles energy from the Malice Resonator through the hyperspace drive, producing a storm of energy that discharges into all nearby enemies, slowing and disrupting them. Resonator charge is drained to enhance the power of the storm.",Offensive,"Cycles energy from the Malice Resonator through the hyperspace drive, producing a storm of energy that discharges into all nearby enemies, slowing and disrupting them. Resonator charge is drained to enhance the power of the storm.",,
 A_S-F_bunkerShield,SHIP_SYSTEM,"Redirects all power from the weapon systems to shields, greatly increasing the efficiency at which damage is absorbed. Can only remain active for a limited duration before needing to shut down.",Defensive,"Reduces the damage taken by shields, can only remain active for a short period.",,
-,,,,,,
+A_S-F_scragBurn,SHIP_SYSTEM,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at an extreme velocity at the expense of being unable to use shields.",Movement,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at an extreme velocity at the expense of being unable to use shields.",,
 ,,,,,,

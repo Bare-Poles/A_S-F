@@ -178,6 +178,10 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addObjective(minX * 0.5f, 1600f, "sensor_array");
 		api.addObjective(width/4, -1600f, "nav_buoy");
 		
+		api.getContext().aiRetreatAllowed = false;
+//        api.getContext().enemyDeployAll = true; // this makes it a lot harder, mass swarm hell!
+        api.getContext().fightToTheLast = true;
+        
 	}
   
 }

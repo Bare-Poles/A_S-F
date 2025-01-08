@@ -198,6 +198,14 @@
     "A_S-F_ecumenist_stk": 2.5,
     "A_S-F_ecumenist_sup": 2,
 
+    "A_S-F_scrag_ass": 4,
+    "A_S-F_scrag_od": 1,
+    "A_S-F_scrag_raider": 4,
+
+    "A_S-F_marlow_ass": 2.5,
+    "A_S-F_marlow_stk": 2,
+    "A_S-F_marlow_sup": 3,
+
     "A_S-F_giganberg_ark": 1,
     "A_S-F_grandum_ark": 1,
 	# ArkTech ships have a default roles entry! (but it's *really* low rate, just so they *might* spawn in scav fleets, VERY rarely)
