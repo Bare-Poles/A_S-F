@@ -35,7 +35,7 @@ public class ASF_integratedRangefinders extends BaseHullMod {
 			MagicIncompatibleHullmods.removeHullmodWithWarning(
 					stats.getVariant(),
 					"ballistic_rangefinder",
-					"ASF_integratedRangefinders"
+					"A_S-F_integratedRangefinders"
 					);	
 		}
 	}
@@ -103,13 +103,14 @@ public class ASF_integratedRangefinders extends BaseHullMod {
 		tooltip.addSectionHeading("Ballistic weapon range", Alignment.MID, opad);
 		tooltip.addPara("Affects ballistic weapons of all sizes.", opad);
 		
-		float col1W = 120;
-		float colW = (int) ((width - col1W - 12f) / 3f);
-		float lastW = colW;
+		float col1 = 86;
+		float col2 = 99;
+		float col3 = 86;
+		float col4 = 85;
 		
 		tooltip.beginTable(Misc.getBasePlayerColor(), Misc.getDarkPlayerColor(), Misc.getBrightPlayerColor(),
 				20f, true, true, 
-				new Object [] {"Small wpn", col1W, "Medium wpn", colW, "Large wpn", colW, "Range cap", lastW});
+				new Object [] {"Small wpn", col1, "Medium wpn", col2, "Large wpn", col3, "Range cap", col4});
 		
 		tooltip.addRow(Alignment.MID, h, "+" + (int) BONUS_SMALL,
 				Alignment.MID, h, "+" + (int) BONUS_MEDIUM,
@@ -123,7 +124,7 @@ public class ASF_integratedRangefinders extends BaseHullMod {
 		
 		tooltip.beginTable(Misc.getBasePlayerColor(), Misc.getDarkPlayerColor(), Misc.getBrightPlayerColor(),
 				20f, true, true, 
-				new Object [] {"Small wpn", col1W, "Medium wpn", colW, "Large wpn", colW, "Range cap", lastW});
+				new Object [] {"Small wpn", col1, "Medium wpn", col2, "Large wpn", col3, "Range cap", col4});
 		
 		tooltip.addRow(Alignment.MID, h, "+" + (int) (BONUS_SMALL * 0.5f),
 				Alignment.MID, h, "+" + (int) (BONUS_MEDIUM * 0.5f),
@@ -139,11 +140,10 @@ public class ASF_integratedRangefinders extends BaseHullMod {
 		
 		tooltip.addPara("The standard style of %s is incompatible with this integrated system and as such cannot be installed on this vessel.", opad, bad, "Ballistic Rangefinder");
 		
-		
 	}
 	
 	public float getTooltipWidth() {
-		return 506f;	
+		return 375f;	
 	}
 	
 	

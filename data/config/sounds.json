@@ -319,4 +319,11 @@
 		{"file":"sounds/sfx_wpn_guns/heavy_mortar_fire_01.ogg","pitch":0.8,"volume":0.85},
 	],
 
+	"A_S-F_heavypulser_fire": [
+		{"file":"sounds/sfx_wpn_guns/A_S-F_micropulser_fire_01.ogg","pitch":0.92,"volume":0.11},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_micropulser_fire_01.ogg","pitch":0.94,"volume":0.11},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_micropulser_fire_01.ogg","pitch":0.96,"volume":0.11},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_micropulser_fire_01.ogg","pitch":0.98,"volume":0.11},
+	],
+
 }

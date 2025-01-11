@@ -117,7 +117,6 @@ public class ASF_AdaptiveSystems extends BaseHullMod {
 		return null;
 		// So what this hullmod does is as follows:
 		// - As the ship takes hull damage (max bonus at 40% hull or lower)
-		// --- The ships shield arc is increased up to 1.5x its base
 		// --- The ship gains the ability to dissipate hardflux while the shield is up, at up to 15% efficiency
 		// --- The ships timescale is increased by up to 45% (with a minor reduction in speed to partially compensate for this)
 		// - As the ship generates hardflux (max bonus at 80% or higher)

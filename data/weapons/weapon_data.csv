@@ -52,6 +52,7 @@ Strobe Beam,A_S-F_strobe,2,,2000,600,738.46154,,,1,20,11,,,,ENERGY,,640,0,0.05,0
 Micro-Pulse Repeater,A_S-F_micropulser,1,,300,400,,20,,1,100,4,12,3.75,3,ENERGY,12,,0.06666,0,1,,2,6,0.5,2.5,,1000,,,,,,PD,"pd7, energy7, hightech_bp, remnant, merc, ind",,,,Point Defense,,,,,,,,,,22217
 Ion Driver,A_S-F_ionDriver,3,0.6,6500,700,,400,1500,0,18,20,8,0.5,2,ENERGY,440,,0.5,0.3,1,,0,0,0,0,,1000,,,400,,,"STRIKE, USE_VS_FRIGATES","energy18, rare_bp, merc",,,,Strike,,,,,,,,,,22224
 Quad Multi-Lance,A_S-F_quad_multi-lance,3,,5000,1000,1800,,,1,10,20,4,0.111111,1,ENERGY,,1636.363636,0.3,0.3,0.8,0.6,,,,,4000,,,,,,,,"beam20, LR, rare_bp, merc",,,,General,,,,,,,,,,22225
+Heavy-Pulse Repeater,A_S-F_heavypulser,2,0.6,5000,600,,50,,0,70,18,50,5,5,ENERGY,20,,0.0625,0,1,,2,8,0.5,3.5,,1000,,,,,,"PD, ANTI_FTR","pd19, energy15, rare_bp, remnant, merc, ind",,,,Point Defense,,,,,,,,,,22226
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Bramble Smartbomb Rack,A_S-F_bramble,1,,250,600,,250,,10,45,4,12,0.4,4,FRAGMENTATION,75,,0,3.25,4,0.25,20,30,5,2,,200,600,2.5,150,,50,"GUIDED_POOR, DO_NOT_CONSERVE, PD, ANTI_FTR","utility8, pd6, missile_bp, ind",,,,Point Defense (Area),Slow,None,,,,,,,TRUE,2223.6
@@ -191,7 +192,7 @@ Targeting Laser - Silaha,A_S-F_targetinglaser_silaha,0,,1,0,100,,150,8,200,0,,,,
 Persis Submunition,A_S-F_persis_sub,0,,10000,1500,,50,,3,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,500,100,3,30,,,SYSTEM,,,,,Swarm,Fast,Excellent,,,,,,,,222021.1
 Heatstroke Sub,A_S-F_heatstroke_sub,0,,100000,700,,100,,10,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,350,,,10,,,SYSTEM,,,[Anomalous],,Punishment,,,,,"On impact with hull or armour projectile will embed and deal an additional %s damage over the course of %s seconds. 
 If the target overloads then embedded projectiles will combust, changing their damage type to %s.",300 Fragmentation | 8 | High Explosive,,,,22200.31
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+AURA Missile,A_S-F_AURA_missile_berz,0,,1000,2500,,150,150,5,25,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,600,300,10,100,,,SYSTEM,,,,,,,,,,,,,,,222011.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Rangda Deco,A_S-F_rangda_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,"no_drop, no_drop_salvage",,,,,,,,,,,,,,
 Rangda Vector Thruster,A_S-F_rangda_thruster,,,,1,1,,,,,,,,,,,,,10,,,,,,,,,,,,,,SYSTEM,"no_drop, no_drop_salvage",,,,,,,,,,,,,,

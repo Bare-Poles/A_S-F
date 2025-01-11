@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.combat.ShipCommand;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
@@ -234,6 +235,28 @@ public class ASF_GaderogaHullmod extends BaseHullMod {
 		// Fancy Damage Buff Section
 		
 		engine.getCustomData().put("WARBURN_DATA_KEY" + ship.getId(), info);
+		
+		
+		// AI trickery section
+		if (Global.getCombatEngine().isPaused() || ship.getShipAI() == null) {
+			return;
+		}
+		if (ship.getFluxLevel() > 0.9f) {
+			info.VENTBRAINTIMER += (amount * 2f);	
+        } else if (ship.getFluxLevel() < 0.8f) {
+        	info.VENTBRAINTIMER = Math.max(0f, info.VENTBRAINTIMER - amount);
+        }
+		if (info.VENTBRAINTIMER > 4f && !ship.getSystem().isActive()) {
+			ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);
+			info.VENTBRAINTIMER = 0f;
+		}
+		
+		engine.getCustomData().put("WARBURN_DATA_KEY" + ship.getId(), info);
+		
+			// while flux is over 90%, gain "brain" value at 2/sec
+			// if flux is below 80%, lose "brain" value at 1/sec
+			// if "brain" value is at 4 or more, and the system is not currently active, force a vent.
+		// AI trickery section
 	}
 		// So what this hullmod does is as follows:
 		// - Increases monthly supply cost by 75%
@@ -280,5 +303,6 @@ public class ASF_GaderogaHullmod extends BaseHullMod {
         private float TIMER = 0f;
         private boolean ARMED = false;
         private boolean ACTIVE = false;
+        private float VENTBRAINTIMER = 0f;
     }
 }

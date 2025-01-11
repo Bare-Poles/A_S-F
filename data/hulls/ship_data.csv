@@ -76,7 +76,7 @@ Axicon,A_S-F_axicon,Droneship Battlecarrier,Remnant,A_S-F_ammon_deploy,18,12000,
 Ecumenist,A_S-F_ecumenist,Cruiser,High Tech,entropyamplifier,15,6000,800,10000,,700,140,,70,55,45,20,25,1000,OMNI,,120,0.4,0.6,,,80,150,100,90,3,30,8,160000,4,20,420,0.25,25,25,,"rare_bp, hist2t, merc, ind",,0.6,2,3,222417
 Chompiron,A_S-F_chompiron,Cruiser,[Anomalous],ammofeed,40,12000,1500,10000,,700,170,,65,65,50,20,30,1750,FRONT,,360,0.2,0.5,,,200,300,150,150,2,75,9,999999999,4,9,,,24,24,"UNBOARDABLE, HIDE_IN_CODEX","no_autofit, no_dealer",,1.0,3,5,222401.6
 Scrag,A_S-F_scrag,Fast Cruiser,Pirate,A_S-F_scragBurn,12,8000,1100,8000,,400,120,,80,75,65,25,60,1750,FRONT,,130,0.4,1,,,100,130,80,100,4,25,9,100000,4,12,540,0.25,16,16,,rare_bp,,0.5,2,4,222404.5
-Marlow,A_S-F_marlow,Heavy Cruiser,Low Tech,reservewing,15,12000,1200,8000,,450,140,1,40,25,15,12,12,2400,OMNI,,110,0.4,1,,,280,420,160,150,5,30,8,150000,4,12,540,0.25,24,24,"CARRIER, COMBAT, NO_AUTO_ESCORT","rare_bp, merc",,0.4,2,3,222405.1
+Marlow,A_S-F_marlow,Heavy Cruiser,Low Tech,reservewing,16,12000,1200,8000,,450,140,1,40,25,15,12,12,2400,OMNI,,110,0.4,1,,,280,420,160,150,5,30,8,150000,4,12,540,0.25,26,26,"CARRIER, COMBAT, NO_AUTO_ESCORT","rare_bp, merc",,0.4,2,3,222405.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Berzelius,A_S-F_berzelius,Proto-Ark,[ArkTech],A_S-F_loaderOverdrive_berz,65,20000,1800,20000,,1100,430,2,50,50,20,6,9,3800,OMNI,,160,0.4,1,,,0,0,300,400,15,27,7,1600000,3,12,900,0.2,75,75,"UNBOARDABLE, HIDE_IN_CODEX","no_dealer, no_autofit",,0.4,2,4,222346
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

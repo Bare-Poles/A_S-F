@@ -1,20 +1,38 @@
 package org.amazigh.foundry.hullmods;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.combat.ArmorGridAPI;
 import com.fs.starfarer.api.combat.BaseHullMod;
+import com.fs.starfarer.api.combat.CollisionClass;
+import com.fs.starfarer.api.combat.CombatAssignmentType;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatFleetManagerAPI;
+import com.fs.starfarer.api.combat.CombatTaskManagerAPI;
+import com.fs.starfarer.api.combat.DamageType;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.combat.ShipCommand;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
+import com.fs.starfarer.api.impl.campaign.ids.Commodities;
+import com.fs.starfarer.api.impl.campaign.ids.Factions;
+import com.fs.starfarer.api.impl.campaign.ids.Skills;
+import com.fs.starfarer.api.impl.campaign.skills.NeuralLinkScript;
+import com.fs.starfarer.api.loading.DamagingExplosionSpec;
+import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
+import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.VectorUtils;
+import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lazywizard.lazylib.combat.DefenseUtils;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -57,7 +75,21 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 	
 	public Color ENGINE_COLOR = new Color(90,255,165,55);
     private static final Color COLOR_EX = new Color(90,255,165,155);
-		
+	
+    private final IntervalUtil arcInterval1 = new IntervalUtil(0.4f, 0.6f);
+    private final IntervalUtil arcInterval2 = new IntervalUtil(0.4f, 0.6f);
+    private final IntervalUtil arcInterval3 = new IntervalUtil(0.4f, 0.6f);
+    private final IntervalUtil arcInterval4 = new IntervalUtil(0.4f, 0.6f);
+    private static Map<HullSize, Float> phase2Impulse = new HashMap<HullSize, Float>();
+	static {
+		phase2Impulse.put(HullSize.FIGHTER, 200f);
+		phase2Impulse.put(HullSize.FRIGATE, 500f);
+		phase2Impulse.put(HullSize.DESTROYER, 800f);
+		phase2Impulse.put(HullSize.CRUISER, 1600f);
+		phase2Impulse.put(HullSize.CAPITAL_SHIP, 2000f);
+		phase2Impulse.put(HullSize.DEFAULT, 1100f);
+	}
+	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
         stats.getSuppliesPerMonth().modifyPercent(id, SUPPLY_COST);
         stats.getOverloadTimeMod().modifyMult(id, OVERLOAD_MULT);
@@ -103,6 +135,368 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		// RoF Penalty
 		stats.getBallisticRoFMult().modifyMult(spec.getId(), 1f - RoF_PENALTY);
 		// RoF Penalty
+		
+		
+		// Phase 2
+		if (info.PHASE2) {
+			
+			// -30% weapon repair time and 30% soft flux conversion [ANIMA EMULATION: ENGAGED]
+			stats.getCombatWeaponRepairTimeMult().modifyMult(spec.getId(), 0.7f);
+			stats.getShieldSoftFluxConversion().modifyFlat(spec.getId(), 0.3f);
+			
+			// up to +20hp/sec if below 50% hp
+			if (ship.getHitpoints() < (ship.getMaxHitpoints() * 0.5f)) {
+				ship.setHitpoints(ship.getHitpoints() + (HULL_RATIO * 20f * amount));
+			}
+			
+			
+			if (ship.getSystem().isActive() || ship.getFluxTracker().isVenting()) {
+				// arcs!!
+				arcInterval1.advance(amount);
+				if (arcInterval1.intervalElapsed()) {
+					for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
+			            if (weapon.getId().matches("SYS01")) {
+			            	
+			            	Vector2f arcStart = weapon.computePosition(ship);
+			            	float arcAngle = weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-34f, 34f);
+			            	Vector2f arcEnd = MathUtils.getPointOnCircumference(arcStart, MathUtils.getRandomNumberInRange(200f, 280f), arcAngle);
+			            	
+			            	engine.spawnEmpArcVisual(arcStart, ship, arcEnd, ship, 10f,
+			            			new Color(150,128,56,255),
+			            			new Color(255,225,205,255));
+			            	
+			            	Vector2f randomVel1 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(3f, 17f));
+			            	
+			            	Global.getCombatEngine().spawnProjectile(ship,
+			            			null,
+			            			"A_S-F_AURA_missile_berz",
+			            			arcEnd,
+			            			arcAngle,
+			            			randomVel1);
+			            	for (int i=0; i < 6; i++) {
+			            		Vector2f randomVel2 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(10f, 44f));
+			            		
+			            		Global.getCombatEngine().addSmoothParticle(arcEnd,
+			            				randomVel2,
+			            				MathUtils.getRandomNumberInRange(7f, 17f), //size
+			            				1.0f, //brightness
+			            				0.65f, //duration
+			            				new Color(215,190,75,255));
+			            	}
+			            	Global.getSoundPlayer().playSound("amsrm_fire", 1.1f, 0.6f, arcEnd, ship.getVelocity());
+			            }
+					}
+				}
+				
+				arcInterval2.advance(amount);
+				if (arcInterval2.intervalElapsed()) {
+					for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
+			            if (weapon.getId().matches("SYS02")) {
+			            	
+			            	Vector2f arcStart = weapon.computePosition(ship);
+			            	float arcAngle = weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-34f, 34f);
+			            	Vector2f arcEnd = MathUtils.getPointOnCircumference(arcStart, MathUtils.getRandomNumberInRange(200f, 280f), arcAngle);
+			            	
+			            	engine.spawnEmpArcVisual(arcStart, ship, arcEnd, ship, 10f,
+			            			new Color(150,128,56,255),
+			            			new Color(255,225,205,255));
+			            	
+			            	Vector2f randomVel1 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(3f, 17f));
+			            	
+			            	Global.getCombatEngine().spawnProjectile(ship,
+			            			null,
+			            			"A_S-F_AURA_missile_berz",
+			            			arcEnd,
+			            			arcAngle,
+			            			randomVel1);
+			            	for (int i=0; i < 6; i++) {
+			            		Vector2f randomVel2 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(10f, 44f));
+			            		
+			            		Global.getCombatEngine().addSmoothParticle(arcEnd,
+			            				randomVel2,
+			            				MathUtils.getRandomNumberInRange(7f, 17f), //size
+			            				1.0f, //brightness
+			            				0.65f, //duration
+			            				new Color(215,190,75,255));
+			            	}
+			            	Global.getSoundPlayer().playSound("amsrm_fire", 1.1f, 0.6f, arcEnd, ship.getVelocity());
+			            }
+					}
+				}
+				
+				arcInterval3.advance(amount);
+				if (arcInterval3.intervalElapsed()) {
+					for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
+			            if (weapon.getId().matches("SYS03")) {
+			            	
+			            	Vector2f arcStart = weapon.computePosition(ship);
+			            	float arcAngle = weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-34f, 34f);
+			            	Vector2f arcEnd = MathUtils.getPointOnCircumference(arcStart, MathUtils.getRandomNumberInRange(200f, 280f), arcAngle);
+			            	
+			            	engine.spawnEmpArcVisual(arcStart, ship, arcEnd, ship, 10f,
+			            			new Color(150,128,56,255),
+			            			new Color(255,225,205,255));
+			            	
+			            	Vector2f randomVel1 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(3f, 17f));
+			            	
+			            	Global.getCombatEngine().spawnProjectile(ship,
+			            			null,
+			            			"A_S-F_AURA_missile_berz",
+			            			arcEnd,
+			            			arcAngle,
+			            			randomVel1);
+			            	for (int i=0; i < 6; i++) {
+			            		Vector2f randomVel2 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(10f, 44f));
+			            		
+			            		Global.getCombatEngine().addSmoothParticle(arcEnd,
+			            				randomVel2,
+			            				MathUtils.getRandomNumberInRange(7f, 17f), //size
+			            				1.0f, //brightness
+			            				0.65f, //duration
+			            				new Color(215,190,75,255));
+			            	}
+			            	Global.getSoundPlayer().playSound("amsrm_fire", 1.1f, 0.6f, arcEnd, ship.getVelocity());
+			            }
+					}
+				}
+				
+				arcInterval4.advance(amount);
+				if (arcInterval4.intervalElapsed()) {
+					for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
+			            if (weapon.getId().matches("SYS04")) {
+			            	
+			            	Vector2f arcStart = weapon.computePosition(ship);
+			            	float arcAngle = weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-34f, 34f);
+			            	Vector2f arcEnd = MathUtils.getPointOnCircumference(arcStart, MathUtils.getRandomNumberInRange(200f, 280f), arcAngle);
+			            	
+			            	engine.spawnEmpArcVisual(arcStart, ship, arcEnd, ship, 10f,
+			            			new Color(150,128,56,255),
+			            			new Color(255,225,205,255));
+			            	
+			            	Vector2f randomVel1 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(3f, 17f));
+			            	
+			            	Global.getCombatEngine().spawnProjectile(ship,
+			            			null,
+			            			"A_S-F_AURA_missile_berz",
+			            			arcEnd,
+			            			arcAngle,
+			            			randomVel1);
+			            	for (int i=0; i < 6; i++) {
+			            		Vector2f randomVel2 = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(10f, 44f));
+			            		
+			            		Global.getCombatEngine().addSmoothParticle(arcEnd,
+			            				randomVel2,
+			            				MathUtils.getRandomNumberInRange(7f, 17f), //size
+			            				1.0f, //brightness
+			            				0.65f, //duration
+			            				new Color(215,190,75,255));
+			            	}
+			            	Global.getSoundPlayer().playSound("amsrm_fire", 1.1f, 0.6f, arcEnd, ship.getVelocity());
+			            }
+					}
+				}
+				// arcs!!
+				
+			}
+		} else {
+			
+			if (ship.getHullLevel() < 0.5f) {
+				info.PHASE2 = true;
+
+		        // TEXT and sound
+				Global.getSoundPlayer().playSound("ui_refit_slot_filled_ballistic_large", 1.2f, 2.5f, ship.getLocation(), ship.getVelocity());
+					// "ui_refit_slot_filled_energy_large"
+				
+				engine.addFloatingTextAlways(ship.getLocation(),
+						"[Engaging ANIMA Emulation]",
+						NeuralLinkScript.getFloatySize(ship) * 1.5f, new Color(150,215,69,255), ship,
+						12f, // flashFrequency
+						4f, // flashDuration
+						0.5f, // durInPlace
+						2f, // durFloatingUp
+						1.5f, // durFadingOut
+						1f); // baseAlpha
+		        // TEXT and sound
+				
+				
+				// hull restore to 50%, so unless you somehow one-tap the last 50% hp an skip phase 2, it will be *forced* to be at the full 50% hp when phase 2 triggers 
+				ship.setHitpoints(ship.getMaxHitpoints() * 0.5f);
+				
+				// flux reset! (it's a phase transition, only fair it gets a reset!)
+				ship.getFluxTracker().setHardFlux(0f);
+				ship.getFluxTracker().setCurrFlux(0f);
+				
+				// full armour repair
+				ArmorGridAPI armorGrid = ship.getArmorGrid();
+		        final float[][] grid = armorGrid.getGrid();
+		        
+				for (int x = 0; x < grid.length; x++) {
+		            for (int y = 0; y < grid[0].length; y++) {
+		            	armorGrid.setArmorValue(x, y, armorGrid.getMaxArmorInCell());
+		            }
+		        }
+				
+				ship.clearDamageDecals();
+				ship.syncWithArmorGridState();
+		        ship.syncWeaponDecalsWithArmorDamage();
+				// full armour repair
+				
+		        // push shockwave
+		        for (ShipAPI target_ship : engine.getShips()) {
+		        	float dist = ship.getCollisionRadius() + 4000f;
+					if (MathUtils.isWithinRange(ship, target_ship, dist)) {
+						
+						float impulseForce = Math.min(phase2Impulse.get(((ShipAPI) target_ship).getHullSize()) * 4f, (target_ship.getMass() * 0.8f) + phase2Impulse.get(((ShipAPI) target_ship).getHullSize()));
+						// force is whatever is lower of:
+							// 3x hullsize scalar
+							// hullsize scalar + 80% of target mass
+								// so we get a respectable push, but it's not SILLY on stuff like the invictus
+						
+						float range = MathUtils.getDistance(ship, target_ship);
+						float pushScalar = 0.1f + (range / dist); //scaling down pushforce on stuff that is further away!
+						
+						CombatUtils.applyForce(target_ship, VectorUtils.getDirectionalVector(ship.getLocation(), target_ship.getLocation()), impulseForce * pushScalar); // knockback!
+						
+					}
+				}
+		        // push shockwave		        
+				
+		        // blast and blast vfx
+		        float outerSize = (ship.getCollisionRadius() * 3f) + 200f;
+		        
+		        DamagingExplosionSpec blast = new DamagingExplosionSpec(0.8f,
+		        		outerSize,
+		                ship.getCollisionRadius(),
+		                600f,
+		                60f,
+		                CollisionClass.PROJECTILE_FF,
+		                CollisionClass.PROJECTILE_FIGHTER,
+		                3f,
+		                6f,
+		                0.9f,
+		                500,
+		                new Color(215,190,75,255),
+		                new Color(150,128,56,255));
+		        blast.setDamageType(DamageType.FRAGMENTATION);
+		        blast.setShowGraphic(true);
+		        blast.setDetailedExplosionFlashColorCore(new Color(160,165,160,255));
+		        blast.setDetailedExplosionFlashColorFringe(new Color(200,140,80,255));
+		        blast.setUseDetailedExplosion(true);
+		        blast.setDetailedExplosionRadius(outerSize * 1.1f);
+		        blast.setDetailedExplosionFlashRadius(outerSize * 1.3f);
+		        blast.setDetailedExplosionFlashDuration(0.9f);
+		        
+		        engine.spawnDamagingExplosion(blast,ship,ship.getLocation(),true);
+		        
+		        engine.spawnExplosion(ship.getLocation(), ship.getVelocity(), new Color(215,190,75,255), ship.getCollisionRadius() + 200f, 0.75f);
+		        
+		    	// background smoke
+		        for (int i=0; i < 15; i++) {
+		        	float angle = i * 24;
+		        	engine.addNebulaParticle(MathUtils.getPointOnCircumference(ship.getLocation(), 169f, angle),
+			        		MathUtils.getPointOnCircumference(ship.getVelocity(), 10f, angle),
+			        		201f,
+							MathUtils.getRandomNumberInRange(1.7f, 2.1f),
+							0.9f,
+							0.5f,
+							MathUtils.getRandomNumberInRange(3.1f, 3.6f),
+							new Color(140,120,40,51),
+							false);
+		        }
+				
+		        	// main smoke ring
+		        for (int i=0; i < 80; i++) {
+		        	float nebAngle = i * 4.5f;
+		        	float dist = MathUtils.getRandomNumberInRange(0.1f, 0.3f);
+		        	
+		        	engine.addNebulaParticle(MathUtils.getPointOnCircumference(ship.getLocation(), outerSize * dist, nebAngle),
+		        			MathUtils.getPointOnCircumference(ship.getVelocity(), ship.getCollisionRadius() * (1f- dist), nebAngle),
+		        			61f,
+		        			MathUtils.getRandomNumberInRange(1.8f, 2.3f),
+		        			0.75f,
+		        			0.5f,
+		        			MathUtils.getRandomNumberInRange(1.9f, 2.2f),
+		        			new Color(190,150,65,75),
+		        			false);
+		        }
+		        // blast and blast vfx
+		        
+		        // reinforcements
+		        float spawnPointY = (engine.getMapHeight() * 0.5f) + 250f;
+		        CombatFleetManagerAPI fleetManager = engine.getFleetManager(ship.getOriginalOwner());
+		        
+		        // CombatTaskManagerAPI taskManager = (fleetManager != null) ? fleetManager.getTaskManager(ship.isAlly()) : null;
+		        // CombatFleetManagerAPI.AssignmentInfo assignmentInfo = taskManager.createAssignment(CombatAssignmentType.DEFEND, fleetManager.getDeployedFleetMemberEvenIfDisabled(ship), false);
+		        	// order thing disabled because it causes a crash *if* berz is mind controlled when it triggers phase 2
+		        
+		        PersonAPI zelius = Global.getSettings().createPerson();
+		        zelius.setPortraitSprite("graphics/portraits/portrait_berzel.png");
+		        zelius.setFaction(Factions.SCAVENGERS);
+		        zelius.setAICoreId(Commodities.ALPHA_CORE);
+		        zelius.getStats().setLevel(5);
+                zelius.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
+		        zelius.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
+		        zelius.getStats().setSkillLevel(Skills.POINT_DEFENSE, 1);
+		        zelius.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
+		        zelius.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
+		        
+				ShipAPI hoka = fleetManager.spawnShipOrWing("A_S-F_grandum_ark", new Vector2f(0f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, zelius);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(hoka), assignmentInfo, false);
+                hoka.setName("Hoka");
+				
+		        ShipAPI kyokan = fleetManager.spawnShipOrWing("A_S-F_giganberg_ark", new Vector2f(300f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(kyokan), assignmentInfo, false);
+                kyokan.setName("Kyokan");
+                
+                ShipAPI hohei = fleetManager.spawnShipOrWing("A_S-F_gaderoga_ark", new Vector2f(-300f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(hohei), assignmentInfo, false);
+                hohei.setName("Hohei");
+                ShipAPI heiki = fleetManager.spawnShipOrWing("A_S-F_gaderoga_ark", new Vector2f(600f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(heiki), assignmentInfo, false);
+                heiki.setName("Heiki");
+		        
+                ShipAPI kame = fleetManager.spawnShipOrWing("A_S-F_genbura_ark", new Vector2f(-600f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(kame), assignmentInfo, false);
+                kame.setName("Kame");
+                ShipAPI kuro = fleetManager.spawnShipOrWing("A_S-F_genbura_ark", new Vector2f(900f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(kuro), assignmentInfo, false);
+                kuro.setName("Kuro");
+                
+                ShipAPI shoju = fleetManager.spawnShipOrWing("A_S-F_gathima_ark", new Vector2f(-900f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(shoju), assignmentInfo, false);
+                shoju.setName("Shoju");
+                ShipAPI tanju = fleetManager.spawnShipOrWing("A_S-F_gathima_ark", new Vector2f(1200f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(tanju), assignmentInfo, false);
+                tanju.setName("Tanju");
+                ShipAPI kenju = fleetManager.spawnShipOrWing("A_S-F_gathima_ark", new Vector2f(-1200f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(kenju), assignmentInfo, false);
+                kenju.setName("Kenju");
+                
+                ShipAPI hagane = fleetManager.spawnShipOrWing("A_S-F_galsteel_ark", new Vector2f(1500f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(hagane), assignmentInfo, false);
+                hagane.setName("Hagane");
+                ShipAPI tetsu = fleetManager.spawnShipOrWing("A_S-F_galsteel_ark", new Vector2f(-1500f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(tetsu), assignmentInfo, false);
+                tetsu.setName("Tetsu");
+                ShipAPI shin = fleetManager.spawnShipOrWing("A_S-F_galsteel_ark", new Vector2f(1800f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(shin), assignmentInfo, false);
+                shin.setName("Shin");
+                
+                ShipAPI wani = fleetManager.spawnShipOrWing("A_S-F_gatorbacker_ark", new Vector2f(-1800f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(wani), assignmentInfo, false);
+                wani.setName("Wani");
+                ShipAPI kani = fleetManager.spawnShipOrWing("A_S-F_gatorbacker_ark", new Vector2f(2100f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(kani), assignmentInfo, false);
+                kani.setName("Kani");
+                ShipAPI nani = fleetManager.spawnShipOrWing("A_S-F_gatorbacker_ark", new Vector2f(-2100f, spawnPointY + MathUtils.getRandomNumberInRange(-100f, 100f)), -90f, 5f, null);
+                //taskManager.giveAssignment(fleetManager.getDeployedFleetMemberEvenIfDisabled(nani), assignmentInfo, false);
+                nani.setName("Nani");
+				// reinforcements
+		        
+			}
+		}
+		// Phase 2
+		
 		
 		
 		// Vent Repair Section
@@ -268,14 +662,38 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		
 		if (ship.getHullLevel() > info.THRESHOLD) { // here we check if the ship has regenerated hull and adjust our threshold appropriately
 			info.THRESHOLD = ship.getHullLevel();
-		}		
+		}
 		// Fancy Damage Buff Section
+
+		engine.getCustomData().put("WARBURN_B_DATA_KEY" + ship.getId(), info);
+		
+		
+		// AI trickery section
+		if (Global.getCombatEngine().isPaused() || ship.getShipAI() == null) {
+			return;
+		}
+		if (ship.getFluxLevel() > 0.9f) {
+			info.VENTBRAINTIMER += (amount * 2f);	
+        } else if (ship.getFluxLevel() < 0.8f) {
+        	info.VENTBRAINTIMER = Math.max(0f, info.VENTBRAINTIMER - amount);
+        }
+		if (info.VENTBRAINTIMER > 4f && !ship.getSystem().isActive()) {
+	        ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);
+	        info.VENTBRAINTIMER = 0f;
+		}
 		
 		engine.getCustomData().put("WARBURN_B_DATA_KEY" + ship.getId(), info);
+		
+    		// while flux is over 90%, gain "brain" value at 2/sec
+			// if flux is below 80%, lose "brain" value at 1/sec
+			// if "brain" value is at 4 or more, and the system is not currently active, force a vent.
+				// this leaves ~2s to deal the final ~2240 shield HP damage before it vents it away. 
+		// AI trickery section
+		
 	}
 		// So what this hullmod does is as follows:
 		// - Increases monthly supply cost by 80%
-		// - Reduces overload duration by 15%
+		// - Reduces overload duration by 10%
 		// - grants a 5% hardflux dissipation bonus
 		// - Reduces all weapons flux cost as the ship takes hull damage
 		// - Repairs armour while venting, the amount repaired scales up based on current flux level
@@ -285,6 +703,20 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		// --- If timer is over 8, start decaying the timer and gain a timeflow + damage resistance buff until the timer runs out.
 		// --- Speed and RoF are reduced while this buff is active, to stop you becoming a psycho demon, and to make it more of a "free vent" than a pure buff.
 		// ---- also applies a slow flat armour repair to all cells during this "boost"
+	
+		//	- On dropping below 50% HP, enters "Phase 2"   [Engaging ANIMA Emulation]
+		//	  on trigger:
+		//	-- full armour repair
+		//	-- flux reset
+		//	-- hull repaired to 50%
+		//	-- wide radius push (kinda weak tbh) (push str scales down with range to target)
+		//	-- (3x collision radius +200) explosion dealing 600-60 frag dmg
+		//	--- Phase 2 Bonuses:
+		//		 during sys use / active venting: the 4 "nodules" emit arcs, that spawn a (stronger than normal) AURA missile on their target point (each nodule has an independent 0.4s-0.6s interval)
+		//  	 weapon repair time reduced by 30%
+		//  	 30% of shield hardflux damage is converted to soft flux
+		//		 constantly passively repairs up to +20hp/sec if below 50% hp
+		//  	 spawns a fleet of *standard* arktech ships as reinforcements!
 	
 	public String getDescriptionParam(int index, HullSize hullSize) {
 		return null;
@@ -321,5 +753,7 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
         private float TIMER = 0f;
         private boolean ARMED = false;
         private boolean ACTIVE = false;
+        private float VENTBRAINTIMER = 0f;
+        private boolean PHASE2 = false;
     }
 }

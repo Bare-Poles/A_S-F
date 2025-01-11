@@ -310,6 +310,42 @@
         -61, -97,
         -54, -89
       ]
+    },
+    {
+      "id": "SYS01",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 45,
+      "locations": [19.5, 7.5]
+    },
+    {
+      "id": "SYS02",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": -45,
+      "locations": [19.5, -7.5]
+    },
+    {
+      "id": "SYS03",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 135,
+      "locations": [3.5, 8.5]
+    },
+    {
+      "id": "SYS04",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": -135,
+      "locations": [3.5, -8.5]
     }
   ],
   "engineSlots": [

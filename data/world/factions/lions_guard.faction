@@ -16,6 +16,8 @@
 			"A_S-F_electroThermal_blaster",
 			"A_S-F_strobe",
 			"A_S-F_micropulser",
+			"A_S-F_ionDriver",
+			"A_S-F_heavypulser",
 
 			"A_S-F_bramble",
 			"A_S-F_thicket",

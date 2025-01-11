@@ -404,7 +404,9 @@ A_S-F_omer_f,WEAPON,"Lightweight missiles with a specialised flight control syst
 A_S-F_nexter,WEAPON,"A dated design, the Nexter and its semi-guided missile-shells offer impressive range and accuracy in exchange for a vulnerability to point defense fire.
 
 There was a relatively brief era where Gun-Launcher systems were commonplace, but improvements in point-defense targeting rendered them all-but obsolete rather rapidly. The Nexter is one of the few that remains in (comparatively) common service, one of the more effective of such weapons it performs rather effectively against anything without a heavy PD screen.",,,,
-,,,,,,
+A_S-F_heavypulser,WEAPON,"An upscaled point defense pulse gun with an impressive capacitor array, able to lay down a barrage of point defense fire.
+
+While less accurate and efficient than standard beam based point defense weaponry, the Heavy-Pulse Repeater proves a reasonable middleground between a dedicated point defense weapon and a true anti-ship armament.",,,,
 ,,,,,,
 ,,,,,,
 A_S-F_cyclemissilefeed,SHIP_SYSTEM,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,Offensive,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,,

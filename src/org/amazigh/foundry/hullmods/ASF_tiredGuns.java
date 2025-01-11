@@ -20,7 +20,7 @@ public class ASF_tiredGuns extends BaseHullMod {
 		
 		int ballCount = 0;
 		int missCount = 0;
-		int otherCount =0;
+		int otherCount = 0;
 		
 		if (stats.getVariant().getWeaponSpec("WS0001") != null) {
 			if (stats.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.MISSILE) {
@@ -28,7 +28,9 @@ public class ASF_tiredGuns extends BaseHullMod {
 			} else if (stats.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.BALLISTIC) {
 				ballCount++;
 			} else {
-				otherCount++;
+				if (stats.getVariant().getWeaponSpec("WS0001").getSize() == WeaponAPI.WeaponSize.LARGE) {
+					otherCount++;
+				}
 			}
 		}
 		
@@ -38,7 +40,9 @@ public class ASF_tiredGuns extends BaseHullMod {
 			} else if (stats.getVariant().getWeaponSpec("WS0002").getType() == WeaponAPI.WeaponType.BALLISTIC) {
 				ballCount++;
 			} else {
-				otherCount++;
+				if (stats.getVariant().getWeaponSpec("WS0002").getSize() == WeaponAPI.WeaponSize.LARGE) {
+					otherCount++;
+				}
 			}
 		}
 		
@@ -48,7 +52,9 @@ public class ASF_tiredGuns extends BaseHullMod {
 			} else if (stats.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.BALLISTIC) {
 				ballCount++;
 			} else {
-				otherCount++;
+				if (stats.getVariant().getWeaponSpec("WS0003").getSize() == WeaponAPI.WeaponSize.LARGE) {
+					otherCount++;
+				}
 			}
 		}
 		
@@ -66,7 +72,7 @@ public class ASF_tiredGuns extends BaseHullMod {
 			stats.getMissileAmmoRegenMult().modifyMult(id, 1f - ((missCount * RATE_MALUS) * 0.01f));
 		}
 		
-		// and a 5% flux malus if you manage to find some "other" typed weapon to slot in there!
+		// and a 5% flux malus if you manage to find some "other" typed weapon to slot in there! (but only if it's a large!)
 		
 		if (otherCount >0) {
 			stats.getBallisticWeaponFluxCostMod().modifyMult(id, 1f + (otherCount * FLUX_MALUS * 0.01f));
@@ -106,7 +112,7 @@ public class ASF_tiredGuns extends BaseHullMod {
 		int missCount = 0;
 		int otherCount =0;
 		
-		LabelAPI label = tooltip.addPara("The munition loaders installed on this ship struggle to manage feeding the installed Large weaponry and offer degraded performance.", pad);
+		LabelAPI label = tooltip.addPara("The munition loaders installed on this ship struggle to support any installed Large weaponry, and with the more of each type of weapon installed offer reduced performance.", pad);
 		
 
 		tooltip.addSectionHeading("Currently installed weapons", h, banner, Alignment.MID, opad);
