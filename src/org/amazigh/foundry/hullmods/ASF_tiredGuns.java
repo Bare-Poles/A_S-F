@@ -70,6 +70,8 @@ public class ASF_tiredGuns extends BaseHullMod {
 		if (missCount > 0) {
 			stats.getMissileRoFMult().modifyMult(id, 1f - ((missCount * RATE_MALUS) * 0.01f));
 			stats.getMissileAmmoRegenMult().modifyMult(id, 1f - ((missCount * RATE_MALUS) * 0.01f));
+			stats.getMissileAmmoBonus().modifyMult(id, 1f - ((missCount * RATE_MALUS) * 0.01f)); // missile weps also get -ammo at the same rate as the RoF penalty
+			
 		}
 		
 		// and a 5% flux malus if you manage to find some "other" typed weapon to slot in there! (but only if it's a large!)
@@ -114,19 +116,17 @@ public class ASF_tiredGuns extends BaseHullMod {
 		
 		LabelAPI label = tooltip.addPara("The munition loaders installed on this ship struggle to support any installed Large weaponry, and with the more of each type of weapon installed offer reduced performance.", pad);
 		
-
+		
 		tooltip.addSectionHeading("Currently installed weapons", h, banner, Alignment.MID, opad);
 		
 		if (ship.getVariant().getWeaponSpec("WS0001") != null) {
 			if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.MISSILE) {
 				label = tooltip.addPara("Hardpoint: %s.", opad, miss, "Missile");
 				label.setHighlight("Missile");
-				label.setHighlightColors(miss);
 				missCount++;
 			} else if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.BALLISTIC) {
 				label = tooltip.addPara("Hardpoint: %s.", opad, ball, "Ballistic");
 				label.setHighlight("Ballistic");
-				label.setHighlightColors(miss);
 				ballCount++;
 			} else {
 				if (ship.getVariant().getWeaponSpec("WS0001").getSize() == WeaponAPI.WeaponSize.MEDIUM) {
@@ -200,6 +200,9 @@ public class ASF_tiredGuns extends BaseHullMod {
 		
 		if (missCount > 0) {
 			label = tooltip.addPara("Missile weapon Rate of Fire and Ammo Regeneration reduced by %s.", opad, bad, "" + (int)(missCount * RATE_MALUS) + "%");
+			label.setHighlight("" + (int)(missCount * RATE_MALUS) + "%");
+			label.setHighlightColors(bad);
+			label = tooltip.addPara("Missile weapon Ammo Capacity reduced by %s.", opad, bad, "" + (int)(missCount * RATE_MALUS) + "%");
 			label.setHighlight("" + (int)(missCount * RATE_MALUS) + "%");
 			label.setHighlightColors(bad);
 		}

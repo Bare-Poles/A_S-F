@@ -192,7 +192,7 @@ Targeting Laser - Silaha,A_S-F_targetinglaser_silaha,0,,1,0,100,,150,8,200,0,,,,
 Persis Submunition,A_S-F_persis_sub,0,,10000,1500,,50,,3,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,500,100,3,30,,,SYSTEM,,,,,Swarm,Fast,Excellent,,,,,,,,222021.1
 Heatstroke Sub,A_S-F_heatstroke_sub,0,,100000,700,,100,,10,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,350,,,10,,,SYSTEM,,,[Anomalous],,Punishment,,,,,"On impact with hull or armour projectile will embed and deal an additional %s damage over the course of %s seconds. 
 If the target overloads then embedded projectiles will combust, changing their damage type to %s.",300 Fragmentation | 8 | High Explosive,,,,22200.31
-AURA Missile,A_S-F_AURA_missile_berz,0,,1000,2500,,150,150,5,25,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,600,300,10,100,,,SYSTEM,,,,,,,,,,,,,,,222011.1
+AURA Missile,A_S-F_AURA_missile_berz,0,,1000,2400,,120,,5,25,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,600,300,10,100,,,SYSTEM,,,,,,,,,,,,,,,222011.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Rangda Deco,A_S-F_rangda_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,"no_drop, no_drop_salvage",,,,,,,,,,,,,,
 Rangda Vector Thruster,A_S-F_rangda_thruster,,,,1,1,,,,,,,,,,,,,10,,,,,,,,,,,,,,SYSTEM,"no_drop, no_drop_salvage",,,,,,,,,,,,,,

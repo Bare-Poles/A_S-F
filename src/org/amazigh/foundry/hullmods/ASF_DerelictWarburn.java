@@ -111,7 +111,7 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 		
 		
 		// Stat setup section
-		float DAMAGE = 1 - ship.getHullLevel();
+		float DAMAGE = 1.01f - ship.getHullLevel();
 		if (DAMAGE > 0.8f) {
 			DAMAGE = 0.8f;
 		}

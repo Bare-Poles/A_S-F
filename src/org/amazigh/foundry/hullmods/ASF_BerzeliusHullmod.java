@@ -41,8 +41,7 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 	public static final float SUPPLY_COST = 80f;
 	
 	public static final float OVERLOAD_MULT = 0.9f;
-	public static final float REVENGE_SHOT = 25f; // [CUSTOM CARTRIDGE: REVENGE SHOT]
-		//these two are a bit weaker than on normal warburn, because the ship is good enough already
+		//this is a bit weaker than on normal warburn, because the ship is good enough already
 	
 	public static final float RoF_PENALTY = 0.15f; // because the ship is too strong, give it an inherent reduction to RoF to balans it out
 	
@@ -69,17 +68,17 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
         return cellLoc;
     }
         
-	public static final float TIMESCALE = 4f;
-	public static final float TIME_SPEED = 0.66f;
-	public static final float TIME_RoF = 0.6f;
+	public static final float TIMESCALE = 3f; //4f
+	public static final float TIME_SPEED = 0.5f; //0.66f
+	public static final float TIME_RoF = 0.5f; //0.6f
 	
 	public Color ENGINE_COLOR = new Color(90,255,165,55);
     private static final Color COLOR_EX = new Color(90,255,165,155);
 	
-    private final IntervalUtil arcInterval1 = new IntervalUtil(0.4f, 0.6f);
-    private final IntervalUtil arcInterval2 = new IntervalUtil(0.4f, 0.6f);
-    private final IntervalUtil arcInterval3 = new IntervalUtil(0.4f, 0.6f);
-    private final IntervalUtil arcInterval4 = new IntervalUtil(0.4f, 0.6f);
+    private final IntervalUtil arcInterval1 = new IntervalUtil(0.5f, 0.7f);
+    private final IntervalUtil arcInterval2 = new IntervalUtil(0.5f, 0.7f);
+    private final IntervalUtil arcInterval3 = new IntervalUtil(0.5f, 0.7f);
+    private final IntervalUtil arcInterval4 = new IntervalUtil(0.5f, 0.7f);
     private static Map<HullSize, Float> phase2Impulse = new HashMap<HullSize, Float>();
 	static {
 		phase2Impulse.put(HullSize.FIGHTER, 200f);
@@ -89,6 +88,8 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		phase2Impulse.put(HullSize.CAPITAL_SHIP, 2000f);
 		phase2Impulse.put(HullSize.DEFAULT, 1100f);
 	}
+	public static final float PD_MALUS = 0.5f;
+	public static final float P2_SHIELD_MALUS = 1.25f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
         stats.getSuppliesPerMonth().modifyPercent(id, SUPPLY_COST);
@@ -102,6 +103,7 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 	public void advanceInCombat(ShipAPI ship, float amount){
         CombatEngineAPI engine = Global.getCombatEngine();
 		if (engine.isPaused() || !ship.isAlive() || ship.isPiece()) {
+			engine.getTimeMult().unmodify(spec.getId());
 			return;
 		}
 		
@@ -118,39 +120,32 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		}
 		
 		// Stat setup section
-		float DAMAGE = 1 - ship.getHullLevel();
+		float DAMAGE = 1.01f - ship.getHullLevel();
 		if (DAMAGE > 0.8f) {
 			DAMAGE = 0.8f;
 		}
 		float HULL_RATIO = DAMAGE / 0.8f;
 		// Stat setup section
 		
-		
-		// Revenge Shot
-		stats.getBallisticWeaponFluxCostMod().modifyPercent(spec.getId(), -(REVENGE_SHOT * HULL_RATIO));
-		stats.getEnergyWeaponFluxCostMod().modifyPercent(spec.getId(), -(REVENGE_SHOT * HULL_RATIO));
-		stats.getMissileWeaponFluxCostMod().modifyPercent(spec.getId(), -(REVENGE_SHOT * HULL_RATIO));
-		// Revenge Shot
-		
 		// RoF Penalty
 		stats.getBallisticRoFMult().modifyMult(spec.getId(), 1f - RoF_PENALTY);
 		// RoF Penalty
 		
 		
-		// Phase 2
+		// Phase 2 [ANIMA EMULATION: ENGAGED]
 		if (info.PHASE2) {
 			
-			// -30% weapon repair time and 30% soft flux conversion [ANIMA EMULATION: ENGAGED]
-			stats.getCombatWeaponRepairTimeMult().modifyMult(spec.getId(), 0.7f);
-			stats.getShieldSoftFluxConversion().modifyFlat(spec.getId(), 0.3f);
-			
-			// up to +20hp/sec if below 50% hp
-			if (ship.getHitpoints() < (ship.getMaxHitpoints() * 0.5f)) {
-				ship.setHitpoints(ship.getHitpoints() + (HULL_RATIO * 20f * amount));
+			// up to +30hp/sec when below 50% hp
+			if (ship.getHitpoints() < ship.getMaxHitpoints() * 0.5f) {
+				ship.setHitpoints(ship.getHitpoints() + (HULL_RATIO * 30f * amount));
 			}
 			
+			// -50% damage to missiles, +25% shield damage taken, it's swapping defense for offense! 
+			stats.getDamageToMissiles().modifyMult(spec.getId(), PD_MALUS);
+			stats.getShieldDamageTakenMult().modifyMult(spec.getId(), P2_SHIELD_MALUS);
 			
-			if (ship.getSystem().isActive() || ship.getFluxTracker().isVenting()) {
+			
+			if (ship.getSystem().isActive()) {
 				// arcs!!
 				arcInterval1.advance(amount);
 				if (arcInterval1.intervalElapsed()) {
@@ -319,10 +314,10 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		        // TEXT and sound
 				
 				
-				// hull restore to 50%, so unless you somehow one-tap the last 50% hp an skip phase 2, it will be *forced* to be at the full 50% hp when phase 2 triggers 
-				ship.setHitpoints(ship.getMaxHitpoints() * 0.5f);
+				// hull restore to 50%, so unless you somehow one-tap the last 50% hp and skip phase 2, any "excess" damage is wasted. 
+				ship.setHitpoints(ship.getMaxHitpoints() * 0.5f); // [ARMOR DRIVE: LAST STAND]
 				
-				// flux reset! (it's a phase transition, only fair it gets a reset!)
+				// flux reset! (it's a phase transition, only "fair" it gets a reset!)
 				ship.getFluxTracker().setHardFlux(0f);
 				ship.getFluxTracker().setCurrFlux(0f);
 				
@@ -332,7 +327,7 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		        
 				for (int x = 0; x < grid.length; x++) {
 		            for (int y = 0; y < grid[0].length; y++) {
-		            	armorGrid.setArmorValue(x, y, armorGrid.getMaxArmorInCell());
+		            	armorGrid.setArmorValue(x, y, armorGrid.getMaxArmorInCell()); // [ARMOR DRIVE: LAST STAND]
 		            }
 		        }
 				
@@ -512,7 +507,14 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		            float cellSize = armorGrid.getCellSize();
 
 		            if (Float.compare(newArmor, armorGrid.getMaxArmorInCell()) < 0) {
-		                newArmor += REPAIR_MULT * interval.getIntervalDuration() * (2f + ship.getFluxLevel());
+		            	
+		            	float phaseMult = REPAIR_MULT;
+		        		if (info.PHASE2) {
+		        			phaseMult *= 0.5f;
+		            		// halved repair in phase2!
+		        		}
+		        		
+		                newArmor += phaseMult * interval.getIntervalDuration() * (2f + ship.getFluxLevel());
 		                
 		                boolean REPAIR = false;
 		                if (armorGrid.getArmorValue(x, y) < armorGrid.getMaxArmorInCell()) {
@@ -550,7 +552,12 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		        float repairAmount = 5f * amount;
 		        	// so you get a flat 5/sec armour repair in all cells, during the "hull charge"
 		        
-		        if (info.ACTIVE) {
+
+            	if (info.PHASE2) {
+            		repairAmount *= 0.5f;
+            		// halved repair in phase2!
+        		}
+            	if (info.ACTIVE) {
 		        	repairAmount *= 0.5f;
 		        	// halving repair during "hull charge" (balans)
 		        }
@@ -573,7 +580,12 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		// 
 		
 		if (ship.getFluxTracker().isVenting()) {
-			ship.setHitpoints(Math.min(ship.getHitpoints() + (100f * amount), ship.getMaxHitpoints())); // [CUSTOM CARTRIDGE: STUN REGAIN]
+			float phaseMult = 100f;
+    		if (info.PHASE2) {
+    			phaseMult *= 0.5f;
+        		// halved repair in phase2!
+    		}
+			ship.setHitpoints(Math.min(ship.getHitpoints() + (phaseMult * amount), ship.getMaxHitpoints())); // [CUSTOM CARTRIDGE: STUN REGAIN]
 		}
 		
 		// Vent Repair Section
@@ -594,6 +606,10 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 			info.ARMED = true;
 		}
 		
+		if (info.ACTIVE) {
+			ship.blockCommandForOneFrame(ShipCommand.VENT_FLUX); // having Berz vent while in the ACTIVE state is... not great fun
+		}
+		
 		if (info.TIMER > 0f && info.ARMED) {
 			if (!info.ACTIVE) {
 				// INITIAL EFFECT
@@ -607,7 +623,6 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 			if (interval_2.intervalElapsed()) {
 				info.TIMER -= interval_2.getIntervalDuration();
 			}
-			//TIMER -= engine.getElapsedInLastFrame() * stats.getTimeMult().getModifiedValue();
 			
 			// BUFF
 			float shipTimeMult = 1f + ((TIMESCALE - 1f) * (Math.min(info.TIMER/3f, 1f)));
@@ -622,8 +637,7 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 			stats.getBallisticRoFMult().modifyMult(spec.getId(), 1f - (TIME_RoF * (Math.min(info.TIMER/3f, 1f))));
 			stats.getMissileRoFMult().modifyMult(spec.getId(), 1f - (TIME_RoF * (Math.min(info.TIMER/3f, 1f))));
 			
-			float hullBonus = Math.min(0.8f, 1 - ship.getHullLevel()) / 0.8f;
-			float DAM_RES = 0.1f + (0.4f * hullBonus);
+			float DAM_RES = 0.1f + (0.4f * HULL_RATIO);
 			stats.getHullDamageTakenMult().modifyMult(spec.getId(), 1f - DAM_RES);
 			stats.getArmorDamageTakenMult().modifyMult(spec.getId(), 1f - DAM_RES);
 			stats.getEmpDamageTakenMult().modifyMult(spec.getId(), 1f - DAM_RES);
@@ -673,10 +687,17 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 			return;
 		}
 		if (ship.getFluxLevel() > 0.9f) {
-			info.VENTBRAINTIMER += (amount * 2f);	
-        } else if (ship.getFluxLevel() < 0.8f) {
+			info.VENTBRAINTIMER += (amount * 2f);
+        } else if (info.PHASE2) {
+			if (ship.getFluxLevel() > 0.7f) {
+				info.VENTBRAINTIMER += (amount); // in phase2, we are to be more aggressive with venting, as shields are disabled!
+			} else {
+	        	info.VENTBRAINTIMER = Math.max(0f, info.VENTBRAINTIMER - amount);
+			}
+		} else if (ship.getFluxLevel() < 0.8f) {
         	info.VENTBRAINTIMER = Math.max(0f, info.VENTBRAINTIMER - amount);
         }
+		
 		if (info.VENTBRAINTIMER > 4f && !ship.getSystem().isActive()) {
 	        ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);
 	        info.VENTBRAINTIMER = 0f;
@@ -684,8 +705,9 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		
 		engine.getCustomData().put("WARBURN_B_DATA_KEY" + ship.getId(), info);
 		
-    		// while flux is over 90%, gain "brain" value at 2/sec
-			// if flux is below 80%, lose "brain" value at 1/sec
+    		// while flux is over 90%, gain "brain" value at 2/sec {priority-1}
+				// in phase 2 also gains "brain" value at 1/sec when over 70% flux {priority-2}
+			// if flux is below 80%, lose "brain" value at 1/sec {priority-3}
 			// if "brain" value is at 4 or more, and the system is not currently active, force a vent.
 				// this leaves ~2s to deal the final ~2240 shield HP damage before it vents it away. 
 		// AI trickery section
@@ -695,7 +717,6 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		// - Increases monthly supply cost by 80%
 		// - Reduces overload duration by 10%
 		// - grants a 5% hardflux dissipation bonus
-		// - Reduces all weapons flux cost as the ship takes hull damage
 		// - Repairs armour while venting, the amount repaired scales up based on current flux level
 		// - Also repairs hull while venting, albeit very slowly.
 		// -- On taking Hull damage:
@@ -711,11 +732,11 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 		//	-- hull repaired to 50%
 		//	-- wide radius push (kinda weak tbh) (push str scales down with range to target)
 		//	-- (3x collision radius +200) explosion dealing 600-60 frag dmg
-		//	--- Phase 2 Bonuses:
-		//		 during sys use / active venting: the 4 "nodules" emit arcs, that spawn a (stronger than normal) AURA missile on their target point (each nodule has an independent 0.4s-0.6s interval)
-		//  	 weapon repair time reduced by 30%
-		//  	 30% of shield hardflux damage is converted to soft flux
-		//		 constantly passively repairs up to +20hp/sec if below 50% hp
+		//	--- Phase 2 Effects:
+		//		!! all the "normal" repairs have their power halved !!
+		//		!! 50% reduced damage to missiles !!
+		//		!! +25% shield damage taken !!
+		//		 during sys use: the 4 "nodules" emit arcs, that spawn an AURA missile on their target point (each nodule has an independent 0.5s-0.7s interval)
 		//  	 spawns a fleet of *standard* arktech ships as reinforcements!
 	
 	public String getDescriptionParam(int index, HullSize hullSize) {
