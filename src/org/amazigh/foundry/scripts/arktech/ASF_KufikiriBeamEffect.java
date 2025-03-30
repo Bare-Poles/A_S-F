@@ -60,7 +60,7 @@ public class ASF_KufikiriBeamEffect implements BeamEffectPlugin {
 				
 				if (hitShield) {
 					for (int i=0; i < 3; i++) {
-						float kufikiriKEAngle = (i * 12f) - 12f;
+						float kufikiriKEAngle = (i * 14f) - 14f;
 						CombatEntityAPI projK = engine.spawnProjectile(ship, weapon, "A_S-F_kufikiri_KE_sub", beam.getFrom(), weapon.getCurrAngle() + kufikiriKEAngle, vel);
 						engine.addPlugin(new ASF_KufikiriKEProjScript((DamagingProjectileAPI) projK, target));
 					}

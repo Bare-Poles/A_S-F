@@ -110,25 +110,37 @@ public class ASF_rinkaHullmod extends BaseHullMod {
 		Color h = Misc.getHighlightColor();
 		Color bad = Misc.getNegativeHighlightColor();
 		
+		boolean CodexMode = false;
+		if (Global.CODEX_TOOLTIP_MODE) {
+			CodexMode = true;
+		}
 		// An Advanced array of hardware that enhances the performance of ballistic weapons has been installed on this vessel.
 		// Features Accelerator Rails that are active by default, but shut down when Lynx Jets are active and divert power to the Assault Coils.
 		LabelAPI label = tooltip.addPara("An Advanced array of hardware that enhances the performance of ballistic weapons has been installed on this vessel.", pad);
-		if (ship.getVariant().getHullMods().contains("safetyoverrides")) {
-			label = tooltip.addPara("Due to the installation of %s this hardware is operating in an overclocked mode and grants the following bonuses.", pad, bad, "Safety Overrides");
-			label.setHighlight("Safety Overrides");
-			label.setHighlightColors(bad);
-			
-			label = tooltip.addPara("Increases ballistic weapon rate of fire by %s.", opad, h, "" + (int)ROF_BONUS_SO + "%");
-			label.setHighlight("" + (int)ROF_BONUS_SO + "%");
-			label.setHighlightColors(h);
-			label = tooltip.addPara("Reduces weapon recoil by %s.", pad, h, "" + (int)RECOIL_BONUS_SO + "%");
-			label.setHighlight("" + (int)RECOIL_BONUS_SO + "%");
-			label.setHighlightColors(h);
-			label = tooltip.addPara("Increases ballistic projectile velocity by %s.", pad, h, "" + (int)VELOCITY_BONUS_SO + "%");
-			label.setHighlight("" + (int)VELOCITY_BONUS_SO + "%");
-			label.setHighlightColors(h);
-			
-		} else {
+		
+
+		if (!CodexMode) {
+			if (ship.getVariant().getHullMods().contains("safetyoverrides")) {
+				label = tooltip.addPara("Due to the installation of %s this hardware is operating in an overclocked mode and grants the following bonuses.", pad, bad, "Safety Overrides");
+				label.setHighlight("Safety Overrides");
+				label.setHighlightColors(bad);
+				
+				label = tooltip.addPara("Increases ballistic weapon rate of fire by %s.", opad, h, "" + (int)ROF_BONUS_SO + "%");
+				label.setHighlight("" + (int)ROF_BONUS_SO + "%");
+				label.setHighlightColors(h);
+				label = tooltip.addPara("Reduces weapon recoil by %s.", pad, h, "" + (int)RECOIL_BONUS_SO + "%");
+				label.setHighlight("" + (int)RECOIL_BONUS_SO + "%");
+				label.setHighlightColors(h);
+				label = tooltip.addPara("Increases ballistic projectile velocity by %s.", pad, h, "" + (int)VELOCITY_BONUS_SO + "%");
+				label.setHighlight("" + (int)VELOCITY_BONUS_SO + "%");
+				label.setHighlightColors(h);
+				CodexMode = false;
+			} else {
+				CodexMode = true;
+			}
+		}
+		
+		if (CodexMode) {
 			label = tooltip.addPara("Features %s that are active by default, but shut down when %s are active and divert power to the %s.", pad, h, "Accelerator Rails", "Lynx Jets", "Assault Coils");
 			label.setHighlight("Accelerator Rails", "Lynx Jets", "Assault Coils");
 			label.setHighlightColors(h, h, h);

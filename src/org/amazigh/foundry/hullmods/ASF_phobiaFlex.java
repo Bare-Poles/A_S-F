@@ -412,171 +412,175 @@ public class ASF_phobiaFlex extends BaseHullMod {
 		label.setHighlight("Forge reload time cannot be lower than 2 Seconds regardless of weapon damage.");
 		label.setHighlightColors(grey);
 		
-		tooltip.addSectionHeading("Current Bonuses", uni, banner, Alignment.MID, opad);
-		
-		if (ship.getVariant().getWeaponSpec("WS0003") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.ENERGY) {
-				energyCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				ballisticCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.MISSILE) {
-				hasMissiles = true;
-				hasMissile1 = true;
-				empty = false;
-			}
-		}
-		
-		if (ship.getVariant().getWeaponSpec("WS0004") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0004").getType() == WeaponAPI.WeaponType.ENERGY) {
-				energyCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0004").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				ballisticCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0004").getType() == WeaponAPI.WeaponType.MISSILE) {
-				hasMissiles = true;
-				hasMissile2 = true;
-				empty = false;
-			}
-		}
-		
-		if (ship.getVariant().getWeaponSpec("WS0005") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0005").getType() == WeaponAPI.WeaponType.ENERGY) {
-				energyCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0005").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				ballisticCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0005").getType() == WeaponAPI.WeaponType.MISSILE) {
-				hasMissiles = true;
-				hasMissile3 = true;
-				empty = false;
-			}
-		}
-		
-		if (ship.getVariant().getWeaponSpec("WS0006") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0006").getType() == WeaponAPI.WeaponType.ENERGY) {
-				energyCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0006").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				ballisticCount ++;
-				empty = false;
-			} else if (ship.getVariant().getWeaponSpec("WS0006").getType() == WeaponAPI.WeaponType.MISSILE) {
-				hasMissiles = true;
-				hasMissile4 = true;
-				empty = false;
-			}
-		}
-		
-		for (WeaponAPI w : ship.getAllWeapons()) {
-    		if (w.getSlot().getWeaponType() != WeaponType.UNIVERSAL) {
-                continue;
-            }
-            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0003")) {
-            	missile1 = "" + w.getDisplayName();
-            	if (w.usesAmmo() && w.getSpec().getAmmoPerSecond() <= 0) {
-            		missile1b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
-                	missile1Valid = true;
-            	} else {
-            		missile1b = "Not valid for Microforge.";
-            	}
-            }
-            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0004")) {
-            	missile2 = "" + w.getDisplayName();
-            	if (w.usesAmmo() && w.getAmmoPerSecond() <= 0) {
-            		missile2b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
-                	missile2Valid = true;
-            	} else {
-            		missile2b = "Not valid for Microforge.";
-            	}
-            }
-            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0005")) {
-            	missile3 = "" + w.getDisplayName();
-            	if (w.usesAmmo() && w.getAmmoTracker().getAmmoPerSecond() <= 0) {
-                	missile3b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
-                	missile3Valid = true;
-            	} else {
-            		missile3b = "Not valid for Microforge.";
-            	}
-            }
-            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0006")) {
-            	missile4 = "" + w.getDisplayName();
-            	if (w.usesAmmo() && w.getAmmoTracker().getAmmoPerSecond() <= 0) {
-                	missile4b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
-                	missile4Valid = true;
-            	} else {
-            		missile4b = "Not valid for Microforge.";
-            	}
-            }
-		}
-		
-		if (!empty) {
+		if (!Global.CODEX_TOOLTIP_MODE) {
+			tooltip.addSectionHeading("Current Bonuses", uni, banner, Alignment.MID, opad);
 			
-			if (ballisticCount > 0) {
-				label = tooltip.addPara("System sub-arc count increased by %s, and sub-arcs have up to a %s chance to pierce shields scaling with the targets hardflux level.", opad, h, ballisticCount + "", (ballisticCount * 20) + "%");
-				label.setHighlight(ballisticCount + "", (ballisticCount * 20) + "%");
-				label.setHighlightColors(h, h);
+			if (ship.getVariant().getWeaponSpec("WS0003") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.ENERGY) {
+					energyCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					ballisticCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.MISSILE) {
+					hasMissiles = true;
+					hasMissile1 = true;
+					empty = false;
+				}
 			}
 			
-			if (energyCount > 0){
-				label = tooltip.addPara("Energy weapon flux cost reduced by %s.", opad, h, (int)(E_FLUX_BONUS * energyCount) + "%");
-				label.setHighlight((int)(E_FLUX_BONUS * energyCount) + "%");
-				label.setHighlightColors(h);
+			if (ship.getVariant().getWeaponSpec("WS0004") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0004").getType() == WeaponAPI.WeaponType.ENERGY) {
+					energyCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0004").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					ballisticCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0004").getType() == WeaponAPI.WeaponType.MISSILE) {
+					hasMissiles = true;
+					hasMissile2 = true;
+					empty = false;
+				}
 			}
 			
-			if (hasMissiles) {
-				if (hasMissile1) {
-					if (missile1Valid) {
-						label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile1, missile1b);
-						label.setHighlight(missile1, missile1b);
+			if (ship.getVariant().getWeaponSpec("WS0005") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0005").getType() == WeaponAPI.WeaponType.ENERGY) {
+					energyCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0005").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					ballisticCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0005").getType() == WeaponAPI.WeaponType.MISSILE) {
+					hasMissiles = true;
+					hasMissile3 = true;
+					empty = false;
+				}
+			}
+			
+			if (ship.getVariant().getWeaponSpec("WS0006") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0006").getType() == WeaponAPI.WeaponType.ENERGY) {
+					energyCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0006").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					ballisticCount ++;
+					empty = false;
+				} else if (ship.getVariant().getWeaponSpec("WS0006").getType() == WeaponAPI.WeaponType.MISSILE) {
+					hasMissiles = true;
+					hasMissile4 = true;
+					empty = false;
+				}
+			}
+			
+			for (WeaponAPI w : ship.getAllWeapons()) {
+	    		if (w.getSlot().getWeaponType() != WeaponType.UNIVERSAL) {
+	                continue;
+	            }
+	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0003")) {
+	            	missile1 = "" + w.getDisplayName();
+	            	if (w.usesAmmo() && w.getSpec().getAmmoPerSecond() <= 0) {
+	            		missile1b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	                	missile1Valid = true;
+	            	} else {
+	            		missile1b = "Not valid for Microforge.";
+	            	}
+	            }
+	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0004")) {
+	            	missile2 = "" + w.getDisplayName();
+	            	if (w.usesAmmo() && w.getAmmoPerSecond() <= 0) {
+	            		missile2b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	                	missile2Valid = true;
+	            	} else {
+	            		missile2b = "Not valid for Microforge.";
+	            	}
+	            }
+	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0005")) {
+	            	missile3 = "" + w.getDisplayName();
+	            	if (w.usesAmmo() && w.getAmmoTracker().getAmmoPerSecond() <= 0) {
+	                	missile3b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	                	missile3Valid = true;
+	            	} else {
+	            		missile3b = "Not valid for Microforge.";
+	            	}
+	            }
+	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0006")) {
+	            	missile4 = "" + w.getDisplayName();
+	            	if (w.usesAmmo() && w.getAmmoTracker().getAmmoPerSecond() <= 0) {
+	                	missile4b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	                	missile4Valid = true;
+	            	} else {
+	            		missile4b = "Not valid for Microforge.";
+	            	}
+	            }
+			}
+			
+			if (!empty) {
+				
+				if (ballisticCount > 0) {
+					label = tooltip.addPara("System sub-arc count increased by %s, and sub-arcs have up to a %s chance to pierce shields scaling with the targets hardflux level.", opad, h, ballisticCount + "", (ballisticCount * 20) + "%");
+					label.setHighlight(ballisticCount + "", (ballisticCount * 20) + "%");
+					label.setHighlightColors(h, h);
+				}
+				
+				if (energyCount > 0){
+					label = tooltip.addPara("Energy weapon flux cost reduced by %s.", opad, h, (int)(E_FLUX_BONUS * energyCount) + "%");
+					label.setHighlight((int)(E_FLUX_BONUS * energyCount) + "%");
+					label.setHighlightColors(h);
+				}
+				
+				if (hasMissiles) {
+					if (hasMissile1) {
+						if (missile1Valid) {
+							label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile1, missile1b);
+							label.setHighlight(missile1, missile1b);
+							label.setHighlightColors(miss, h);
+						} else {
+							label = tooltip.addPara("%s - %s", opad, miss, missile1, missile1b);
+							label.setHighlight(missile1, missile1b);
+							label.setHighlightColors(miss, bad);
+						}
+					}
+					if (hasMissile2) {
+						if (missile2Valid) {
+						label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile2, missile2b);
+						label.setHighlight(missile2, missile2b);
 						label.setHighlightColors(miss, h);
 					} else {
-						label = tooltip.addPara("%s - %s", opad, miss, missile1, missile1b);
-						label.setHighlight(missile1, missile1b);
+						label = tooltip.addPara("%s - %s", opad, miss, missile2, missile2b);
+						label.setHighlight(missile2, missile2b);
 						label.setHighlightColors(miss, bad);
 					}
+					}
+					if (hasMissile3) {
+						if (missile3Valid) {
+						label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile3, missile3b);
+						label.setHighlight(missile3, missile3b);
+						label.setHighlightColors(miss, h);
+					} else {
+						label = tooltip.addPara("%s - %s", opad, miss, missile3, missile3b);
+						label.setHighlight(missile3, missile3b);
+						label.setHighlightColors(miss, bad);
+					}
+					}
+					if (hasMissile4) {
+						if (missile4Valid) {
+						label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile4, missile4b);
+						label.setHighlight(missile4, missile4b);
+						label.setHighlightColors(miss, h);
+					} else {
+						label = tooltip.addPara("%s - %s", opad, miss, missile4, missile4b);
+						label.setHighlight(missile4, missile4b);
+						label.setHighlightColors(miss, bad);
+					}
+					}
 				}
-				if (hasMissile2) {
-					if (missile2Valid) {
-					label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile2, missile2b);
-					label.setHighlight(missile2, missile2b);
-					label.setHighlightColors(miss, h);
-				} else {
-					label = tooltip.addPara("%s - %s", opad, miss, missile2, missile2b);
-					label.setHighlight(missile2, missile2b);
-					label.setHighlightColors(miss, bad);
-				}
-				}
-				if (hasMissile3) {
-					if (missile3Valid) {
-					label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile3, missile3b);
-					label.setHighlight(missile3, missile3b);
-					label.setHighlightColors(miss, h);
-				} else {
-					label = tooltip.addPara("%s - %s", opad, miss, missile3, missile3b);
-					label.setHighlight(missile3, missile3b);
-					label.setHighlightColors(miss, bad);
-				}
-				}
-				if (hasMissile4) {
-					if (missile4Valid) {
-					label = tooltip.addPara("%s - Forge Time: %s Seconds.", opad, miss, missile4, missile4b);
-					label.setHighlight(missile4, missile4b);
-					label.setHighlightColors(miss, h);
-				} else {
-					label = tooltip.addPara("%s - %s", opad, miss, missile4, missile4b);
-					label.setHighlight(missile4, missile4b);
-					label.setHighlightColors(miss, bad);
-				}
-				}
+				
+			} else {
+				label = tooltip.addPara("No weapons installed in the %s mounts.", opad, uni, "Universal");
+				label.setHighlight("Universal");
+				label.setHighlightColors(uni);
 			}
 			
-		} else {
-			label = tooltip.addPara("No weapons installed in the %s mounts.", opad, uni, "Universal");
-			label.setHighlight("Universal");
-			label.setHighlightColors(uni);
+			
 		}
 		
 		/*

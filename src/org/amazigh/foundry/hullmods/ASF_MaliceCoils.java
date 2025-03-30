@@ -19,6 +19,7 @@ public class ASF_MaliceCoils extends BaseHullMod {
 	public static float PHASE_DISSIPATION_MULT = 2f; // ship (part of) phase anchor (no emergency dive, but other buffs remain)
 	public static float FLUX_THRESHOLD_INCREASE_PERCENT = 80f; // and super adaptive phase coils
 	public static float PHASE_COOLDOWN_REDUCTION = 50f; // shorter phase cooldown, so you can flicker it more effectively (as you only really want to flicker it, based on the high upkeep)
+		// but you have Malice Storm.... so :thinking:
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		

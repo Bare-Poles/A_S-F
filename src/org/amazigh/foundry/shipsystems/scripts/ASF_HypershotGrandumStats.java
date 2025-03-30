@@ -20,7 +20,7 @@ public class ASF_HypershotGrandumStats extends BaseShipSystemScript {
 		
 		float multc = FLUX_REDUCTION * effectLevel;
 		stats.getBallisticWeaponFluxCostMod().modifyPercent(id, -multc);
-		stats.getMissileWeaponFluxCostMod().modifyPercent(id, -(multc/2f));
+		stats.getMissileWeaponFluxCostMod().modifyPercent(id, -(multc));
 	}
 	
 	public void unapply(MutableShipStatsAPI stats, String id) {

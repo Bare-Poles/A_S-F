@@ -3,7 +3,7 @@
   "hullId": "A_S-F_exegetes_lg",
   "displayName": "Strike",
   "goalVariant": true,
-  "fluxCapacitors": 2,
+  "fluxCapacitors": 4,
   "fluxVents": 10,
   "quality": 1,
   "permaMods": [],

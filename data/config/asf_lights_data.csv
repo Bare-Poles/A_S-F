@@ -1,6 +1,7 @@
 id,type,size,intensity,fadeout,color,offset,hit size,hit intensity,hit fadeout,hit color,flash size,flash intensity,flash fadeout,flash color,flash offset,chance,fighter dim
 ,,,,,,,,,,,,,,,,,
 # PROJ,,,,,,,,,,,,,,,,,
+A_S-F_bludgeon_shot,projectile,133,0.3,0.2,"[255,125,70]",,165,0.35,0.9,"[255,121,69]",105,0.25,0.5,"[255,170,133]",,1,TRUE
 A_S-F_bolter_charged_shot,projectile,100,0.3,0.2,"[200,170,75]",,130,0.35,0.9,"[255,235,155]",80,0.25,0.3,"[235,255,150]",,1,TRUE
 A_S-F_bolter_shot,projectile,85,0.25,0.2,"[200,170,75]",,105,0.3,0.75,"[255,235,155]",80,0.25,0.3,"[235,255,150]",,1,TRUE
 A_S-F_breaker_shot,projectile,125,0.3,0.2,"[235,255,155]",,175,0.35,1.1,"[235,255,155]",120,0.3,0.35,"[225,255,165]",,1,TRUE

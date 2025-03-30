@@ -47,10 +47,13 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_estucheon_rkt", FleetMemberType.SHIP, "This Is A Test", false);
 		
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_phobia_ass", FleetMemberType.SHIP, "Trial", true);
+		
+		
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_margrave_stk", FleetMemberType.SHIP, "Trial", true);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_phobia_ass", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_elt", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_marlow_stk", FleetMemberType.SHIP, "Trial", false);
-		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_ass", FleetMemberType.SHIP, "Trial", true); //sup
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_ass", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_std", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_std", FleetMemberType.SHIP, "Trial", false); //ass
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_std", FleetMemberType.SHIP, "Trial", false); //sup
@@ -83,6 +86,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		// Set up the enemy fleet.
 		api.addToFleet(FleetSide.ENEMY, "doom_Strike", FleetMemberType.SHIP, "Search Dialog", false);
+		api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, "Explosively Fortunate", false);
 		api.addToFleet(FleetSide.ENEMY, "champion_Support", FleetMemberType.SHIP, "Extreme Rendition", false);
 		api.addToFleet(FleetSide.ENEMY, "eradicator_Assault", FleetMemberType.SHIP, "Terminal Attention", false);
 		api.addToFleet(FleetSide.ENEMY, "eradicator_Support", FleetMemberType.SHIP, "Two Years Of Plotting", false);
@@ -99,6 +103,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Only Interested", false);
 		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, "Please Transfer", false);
 		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, "Never Commit", false);
+		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, "Nearly As Filling", false);
 		
 		api.addToFleet(FleetSide.ENEMY, "tempest_Attack", FleetMemberType.SHIP, "Your Help", false);
 		api.addToFleet(FleetSide.ENEMY, "tempest_Attack", FleetMemberType.SHIP, "My Greed", false);

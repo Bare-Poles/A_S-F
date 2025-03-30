@@ -3,7 +3,7 @@
   "hullId": "A_S-F_triarii",
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 3,
+  "fluxCapacitors": 7,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],

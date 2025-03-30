@@ -23,5 +23,5 @@
 					   "particleCount":20,
 					   "particleColor":[255,140,50,200]},
 	"projectileSpecId":"A_S-F_klabu_shot",  # projectile that will be fired
-	"fireSoundTwo":"heavy_mauler_fire",
+	"fireSoundTwo":"A_S-F_klabu_fire", # heavy_mauler_fire
 }

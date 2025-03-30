@@ -3,7 +3,7 @@
   "hullId": "A_S-F_morris_p",
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 3,
+  "fluxCapacitors": 4,
   "fluxVents": 20,
   "quality": 1,
   "permaMods": [],

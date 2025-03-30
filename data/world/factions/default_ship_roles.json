@@ -25,7 +25,8 @@
     "A_S-F_dunnock_brwl": 2,
     "A_S-F_dunnock_std": 2,
 
-    "A_S-F_estucheon_rkt": 2, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
+    "A_S-F_estucheon_rkt": 1, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
+    "A_S-F_estucheon_grn": 1,
   },
   "combatSmall": {
     "A_S-F_auditor_esc": 6,
@@ -87,7 +88,8 @@
     "A_S-F_mtumaji_prot": 1,
 	# for the ArkTech bounty!
 
-    "A_S-F_estucheon_rkt": 3, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
+    "A_S-F_estucheon_rkt": 1.5, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
+    "A_S-F_estucheon_grn": 1.5,
 
 
   },
@@ -129,7 +131,8 @@
     "A_S-F_mlinzi_prot": 1,
 	# for the ArkTech bounty!
 
-    "A_S-F_estucheon_rkt": 6.5,
+    "A_S-F_estucheon_rkt": 4,
+    "A_S-F_estucheon_grn": 3.5,
 
     "A_S-F_edifice_ass": 3,
     "A_S-F_edifice_esc": 2,
@@ -211,6 +214,16 @@
 	# ArkTech ships have a default roles entry! (but it's *really* low rate, just so they *might* spawn in scav fleets, VERY rarely)
 
   },
+
+  "combatCapital":{
+    "A_S-F_margrave_ass":2.5,
+    "A_S-F_margrave_elt":0, # PL
+    "A_S-F_margrave_elt2":2.5,
+    "A_S-F_margrave_stk":0, # PL
+    "A_S-F_margrave_sup":0, # PL
+    "A_S-F_margrave_sup2":2.5,
+  },
+
   "carrierSmall": {
     "A_S-F_gaoler_esc": 2,
     "A_S-F_gaoler_stk": 3,

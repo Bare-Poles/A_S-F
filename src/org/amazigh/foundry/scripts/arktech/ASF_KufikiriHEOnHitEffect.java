@@ -2,6 +2,7 @@ package org.amazigh.foundry.scripts.arktech;
 
 import java.awt.Color;
 
+import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
@@ -28,7 +29,7 @@ public class ASF_KufikiriHEOnHitEffect implements OnHitEffectPlugin {
                 40f,
                 20f,
                 blastDamage,
-                blastDamage/2f,
+                blastDamage * 0.6f,
                 CollisionClass.PROJECTILE_FF,
                 CollisionClass.PROJECTILE_FIGHTER,
                 4f,
@@ -47,7 +48,20 @@ public class ASF_KufikiriHEOnHitEffect implements OnHitEffectPlugin {
 		if (target != null) {
 			fxVel.set(target.getVelocity());
 		}
+
+        engine.spawnExplosion(point, fxVel, COLOR_X, 83f, 0.75f);
         
+		for (int i=0; i < 2; i++) {
+			engine.addNebulaParticle(point,
+					MathUtils.getRandomPointInCircle(fxVel, 6f),
+					MathUtils.getRandomNumberInRange(35f, 41f), //size
+					1.69f, //endSizeMult
+					0.3f, //rampUpFraction
+					0.65f, //fullBrightnessFraction
+					MathUtils.getRandomNumberInRange(0.9f, 1.1f), //dur
+					new Color(60,45,40,88));
+		}
+		
 		Global.getSoundPlayer().playSound("system_canister_flak_explosion", 1.25f, 0.75f, point, fxVel); //"explosion_flak", 0.8f, 0.9f
 	}
 }

@@ -4,7 +4,7 @@
   "displayName": "Assault",
   "goalVariant": true,
   "fluxCapacitors": 0,
-  "fluxVents": 9,
+  "fluxVents": 11,
   "quality": 1,
   "permaMods": [],
   "hullMods": [

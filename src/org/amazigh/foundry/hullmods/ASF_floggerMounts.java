@@ -2,6 +2,7 @@ package org.amazigh.foundry.hullmods;
 
 import java.awt.Color;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -76,42 +77,44 @@ public class ASF_floggerMounts extends BaseHullMod {
 		//"Redundant systems in the ships medium mount are able to be diverted to boost performance of any other installed weapons that are not of the same weapon type."
 		//"Redundant systems in the ships medium mount are able to be diverted to boost the performance of other installed weapons depending on the type of the installed weapon."
 		
-		if (ship.getVariant().getWeaponSpec("WS0001") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.MISSILE) {
-				tooltip.addSectionHeading("Currently installed: Missile", miss, banner, Alignment.MID, opad);
-				label = tooltip.addPara("Ballistic weapon Rate of Fire and Ammo Regeneration increased by %s.", opad, h, "" + (int)M_RATE_BONUS + "%");
-				label.setHighlight("" + (int)M_RATE_BONUS + "%");
-				label.setHighlightColors(h);
-				label = tooltip.addPara("Ballistic weapon flux cost reduced by %s.", pad, h, "" + (int)M_FLUX_BONUS + "%");
-				label.setHighlight("" + (int)M_FLUX_BONUS + "%");
-				label.setHighlightColors(h);
-				label = tooltip.addPara("Ballistic weapon Ammo Capacity increased by %s.", pad, h,  "" + (int)M_AMMO_BONUS + "%");
-				label.setHighlight("" + (int)M_AMMO_BONUS + "%");
-				label.setHighlightColors(h);
-			} else if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				tooltip.addSectionHeading("Currently installed: Ballistic", ball, banner, Alignment.MID, opad);
-				label = tooltip.addPara("Missile weapon Ammo Capacity increased by %s.", opad, h, "" + (int)B_AMMO_BONUS + "%");
-				label.setHighlight("" + (int)B_AMMO_BONUS + "%");
-				label.setHighlightColors(h);
-				label = tooltip.addPara("Missile weapon Rate of Fire and Ammo Regeneration increased by %s.", pad, h, "" + (int)B_RATE_BONUS + "%");
-				label.setHighlight("" + (int)B_RATE_BONUS + "%");
-				label.setHighlightColors(h);
+		if (!Global.CODEX_TOOLTIP_MODE) {
+			if (ship.getVariant().getWeaponSpec("WS0001") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.MISSILE) {
+					tooltip.addSectionHeading("Currently installed: Missile", miss, banner, Alignment.MID, opad);
+					label = tooltip.addPara("Ballistic weapon Rate of Fire and Ammo Regeneration increased by %s.", opad, h, "" + (int)M_RATE_BONUS + "%");
+					label.setHighlight("" + (int)M_RATE_BONUS + "%");
+					label.setHighlightColors(h);
+					label = tooltip.addPara("Ballistic weapon flux cost reduced by %s.", pad, h, "" + (int)M_FLUX_BONUS + "%");
+					label.setHighlight("" + (int)M_FLUX_BONUS + "%");
+					label.setHighlightColors(h);
+					label = tooltip.addPara("Ballistic weapon Ammo Capacity increased by %s.", pad, h,  "" + (int)M_AMMO_BONUS + "%");
+					label.setHighlight("" + (int)M_AMMO_BONUS + "%");
+					label.setHighlightColors(h);
+				} else if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					tooltip.addSectionHeading("Currently installed: Ballistic", ball, banner, Alignment.MID, opad);
+					label = tooltip.addPara("Missile weapon Ammo Capacity increased by %s.", opad, h, "" + (int)B_AMMO_BONUS + "%");
+					label.setHighlight("" + (int)B_AMMO_BONUS + "%");
+					label.setHighlightColors(h);
+					label = tooltip.addPara("Missile weapon Rate of Fire and Ammo Regeneration increased by %s.", pad, h, "" + (int)B_RATE_BONUS + "%");
+					label.setHighlight("" + (int)B_RATE_BONUS + "%");
+					label.setHighlightColors(h);
+				} else {
+					tooltip.addSectionHeading("Currently installed: Other", other, banner, Alignment.MID, opad);
+					label = tooltip.addPara("Ballistic weapon Rate of Fire and Ammo Regeneration increased by %s.", opad, h, "" + (int)O_RATE_BONUS_B + "%");
+					label.setHighlight("" + (int)O_RATE_BONUS_B + "%");
+					label.setHighlightColors(h);
+					label = tooltip.addPara("Ballistic weapon flux cost reduced by %s.", pad, h, "" + (int)O_FLUX_BONUS + "%");
+					label.setHighlight("" + (int)O_FLUX_BONUS + "%");
+					label.setHighlightColors(h);
+					label = tooltip.addPara("Missile weapon Rate of Fire and Ammo Regeneration increased by %s.", pad, h, "" + (int)O_RATE_BONUS_M + "%");
+					label.setHighlight("" + (int)O_RATE_BONUS_M + "%");
+					label.setHighlightColors(h);
+				}
+				
 			} else {
-				tooltip.addSectionHeading("Currently installed: Other", other, banner, Alignment.MID, opad);
-				label = tooltip.addPara("Ballistic weapon Rate of Fire and Ammo Regeneration increased by %s.", opad, h, "" + (int)O_RATE_BONUS_B + "%");
-				label.setHighlight("" + (int)O_RATE_BONUS_B + "%");
-				label.setHighlightColors(h);
-				label = tooltip.addPara("Ballistic weapon flux cost reduced by %s.", pad, h, "" + (int)O_FLUX_BONUS + "%");
-				label.setHighlight("" + (int)O_FLUX_BONUS + "%");
-				label.setHighlightColors(h);
-				label = tooltip.addPara("Missile weapon Rate of Fire and Ammo Regeneration increased by %s.", pad, h, "" + (int)O_RATE_BONUS_M + "%");
-				label.setHighlight("" + (int)O_RATE_BONUS_M + "%");
-				label.setHighlightColors(h);
+				tooltip.addSectionHeading("Currently installed: None", grey, banner, Alignment.MID, opad);
+				label = tooltip.addPara("Install a weapon in the vessels medium mount to recieve a bonus.", opad);
 			}
-			
-		} else {
-			tooltip.addSectionHeading("Currently installed: None", grey, banner, Alignment.MID, opad);
-			label = tooltip.addPara("Install a weapon in the vessels medium mount to recieve a bonus.", opad);
 		}
 	}
 

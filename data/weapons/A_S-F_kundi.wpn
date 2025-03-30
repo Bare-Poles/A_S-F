@@ -4,7 +4,7 @@
 	"type":"MISSILE",
 	"size":"SMALL",
 	
-	"turretSprite":"",
+	"turretSprite":"graphics/missiles/A_S-F_missile_gaderoga.png",
 	"turretGlowSprite":"",
 	"hardpointSprite":"",
 	"hardpointGlowSprite":"",

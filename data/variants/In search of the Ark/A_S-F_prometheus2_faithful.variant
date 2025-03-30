@@ -3,7 +3,7 @@
   "hullId": "prometheus2",
   "displayName": "Faithful",
   "goalVariant": false,
-  "fluxCapacitors": 17,
+  "fluxCapacitors": 21,
   "fluxVents": 50,
   "quality": 1,
   "permaMods": [],

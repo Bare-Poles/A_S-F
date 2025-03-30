@@ -3,7 +3,7 @@
   "hullId": "condor",
   "displayName": "Barrage",
   "goalVariant": false,
-  "fluxCapacitors": 2,
+  "fluxCapacitors": 4,
   "fluxVents": 0,
   "quality": 1,
   "permaMods": [],

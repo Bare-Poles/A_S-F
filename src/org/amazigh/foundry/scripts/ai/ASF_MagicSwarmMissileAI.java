@@ -247,7 +247,7 @@ public class ASF_MagicSwarmMissileAI implements MissileAIPlugin, GuidedMissileAI
             correctAngle = correctAngle+correction;
         }
         
-        if(WAVE_AMPLITUDE>0){            
+        if(WAVE_AMPLITUDE>0){
             //waving
             float multiplier=1;
             if(ECCM<=1){

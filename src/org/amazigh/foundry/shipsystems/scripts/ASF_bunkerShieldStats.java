@@ -5,7 +5,7 @@ import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
 public class ASF_bunkerShieldStats extends BaseShipSystemScript {
 	
-	public static float DAMAGE_MULT = 0.875f;
+	public static float DAMAGE_MULT = 0.85f;
 	public static float UPKEEP_MULT = 0.5f;
 	
 	public static final float HARD_DISS = 25f;

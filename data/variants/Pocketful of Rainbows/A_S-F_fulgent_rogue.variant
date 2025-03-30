@@ -4,7 +4,7 @@
   "displayName": "Rogue",
   "goalVariant": false,
   "fluxCapacitors": 12,
-  "fluxVents": 2,
+  "fluxVents": 4,
   "quality": 0,
   "permaMods": [],
   "hullMods": [

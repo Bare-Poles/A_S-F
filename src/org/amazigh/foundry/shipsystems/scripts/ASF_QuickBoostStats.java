@@ -27,7 +27,7 @@ import org.lwjgl.util.vector.Vector2f;
 // added a "drift" mechanic so the ship will "drift" at up to +200 speed after boosting during State.OUT
 
 public class ASF_QuickBoostStats extends BaseShipSystemScript {
-    public static final float MAX_TURN_BONUS = 20f;
+    public static final float MAX_TURN_BONUS = 10f;
     public static final float TURN_ACCEL_BONUS = 20f;
     public static final float INSTANT_BOOST_FLAT = 300f;
     public static final float INSTANT_BOOST_MULT = 4f;
@@ -103,7 +103,8 @@ public class ASF_QuickBoostStats extends BaseShipSystemScript {
 
             stats.getMaxTurnRate().unmodify(id);
             stats.getDeceleration().modifyMult(id, (1f - effectLevel) * 1f * maxDecelPenalty);
-            stats.getTurnAcceleration().modifyPercent(id, TURN_ACCEL_BONUS * effectLevel);
+            stats.getMaxTurnRate().modifyFlat(id, MAX_TURN_BONUS * effectLevel);
+            stats.getTurnAcceleration().modifyFlat(id, TURN_ACCEL_BONUS * effectLevel);
             
             if (boostForward) {
                 ship.giveCommand(ShipCommand.ACCELERATE, null, 0);
@@ -148,8 +149,8 @@ public class ASF_QuickBoostStats extends BaseShipSystemScript {
                 started = true;
             }
             
-            stats.getMaxTurnRate().modifyPercent(id, MAX_TURN_BONUS);
-            stats.getTurnAcceleration().modifyPercent(id, TURN_ACCEL_BONUS * effectLevel);
+            stats.getMaxTurnRate().modifyFlat(id, MAX_TURN_BONUS);
+            stats.getTurnAcceleration().modifyFlat(id, TURN_ACCEL_BONUS);
             ship.getEngineController().getExtendLengthFraction().advance(amount * 2f);
             ship.getEngineController().getExtendWidthFraction().advance(amount * 2f);
             ship.getEngineController().getExtendGlowFraction().advance(amount * 2f);

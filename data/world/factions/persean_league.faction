@@ -28,6 +28,10 @@
 		"A_S-F_triarii_std": 3.5,
 		"A_S-F_triarii_sup2": 2.5,
 
+		"A_S-F_margrave_elt": 2.5,
+		"A_S-F_margrave_stk": 2.5,
+		"A_S-F_margrave_sup": 2.5,
+
 	},
 
     # multiplier for how often hulls show up in the faction's fleets
@@ -37,6 +41,7 @@
             "A_S-F_exegetes":0.6,
 
             "A_S-F_triarii":0.6,
+            "A_S-F_margrave":0.9,
         },
     },
 
@@ -53,6 +58,7 @@
             "A_S-F_lanner",
             "A_S-F_triarii",
             "A_S-F_initone",
+            "A_S-F_margrave",
         ],
     },
 

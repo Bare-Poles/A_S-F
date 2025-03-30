@@ -3,7 +3,7 @@
   "hullId": "A_S-F_lanner",
   "displayName": "Elite",
   "goalVariant": true,
-  "fluxCapacitors": 4,
+  "fluxCapacitors": 6,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],

@@ -1,6 +1,8 @@
 package org.amazigh.foundry.hullmods;
 
 import java.awt.Color;
+
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -116,107 +118,107 @@ public class ASF_tiredGuns extends BaseHullMod {
 		
 		LabelAPI label = tooltip.addPara("The munition loaders installed on this ship struggle to support any installed Large weaponry, and with the more of each type of weapon installed offer reduced performance.", pad);
 		
-		
-		tooltip.addSectionHeading("Currently installed weapons", h, banner, Alignment.MID, opad);
-		
-		if (ship.getVariant().getWeaponSpec("WS0001") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.MISSILE) {
-				label = tooltip.addPara("Hardpoint: %s.", opad, miss, "Missile");
-				label.setHighlight("Missile");
-				missCount++;
-			} else if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				label = tooltip.addPara("Hardpoint: %s.", opad, ball, "Ballistic");
-				label.setHighlight("Ballistic");
-				ballCount++;
-			} else {
-				if (ship.getVariant().getWeaponSpec("WS0001").getSize() == WeaponAPI.WeaponSize.MEDIUM) {
-					label = tooltip.addPara("Hardpoint: %s.", pad, grey, "Medium Weapon");
-					label.setHighlight("Medium Weapon");
+		if (!Global.CODEX_TOOLTIP_MODE) {
+			tooltip.addSectionHeading("Currently installed weapons", h, banner, Alignment.MID, opad);
+			
+			if (ship.getVariant().getWeaponSpec("WS0001") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.MISSILE) {
+					label = tooltip.addPara("Hardpoint: %s.", opad, miss, "Missile");
+					label.setHighlight("Missile");
+					missCount++;
+				} else if (ship.getVariant().getWeaponSpec("WS0001").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					label = tooltip.addPara("Hardpoint: %s.", opad, ball, "Ballistic");
+					label.setHighlight("Ballistic");
+					ballCount++;
 				} else {
-					label = tooltip.addPara("Hardpoint: %s.", opad, other, "Other");
-					label.setHighlight("Other");
-					otherCount++;
+					if (ship.getVariant().getWeaponSpec("WS0001").getSize() == WeaponAPI.WeaponSize.MEDIUM) {
+						label = tooltip.addPara("Hardpoint: %s.", pad, grey, "Medium Weapon");
+						label.setHighlight("Medium Weapon");
+					} else {
+						label = tooltip.addPara("Hardpoint: %s.", opad, other, "Other");
+						label.setHighlight("Other");
+						otherCount++;
+					}
+					
 				}
-				
-			}
-		} else {
-			label = tooltip.addPara("Hardpoint: %s.", opad, grey, "None");
-			label.setHighlight("None");
-		}
-		if (ship.getVariant().getWeaponSpec("WS0002") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0002").getType() == WeaponAPI.WeaponType.MISSILE) {
-				label = tooltip.addPara("Fore Turret: %s.", pad, miss, "Missile");
-				label.setHighlight("Missile");
-				missCount++;
-			} else if (ship.getVariant().getWeaponSpec("WS0002").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				label = tooltip.addPara("Fore Turret: %s.", pad, ball, "Ballistic");
-				label.setHighlight("Ballistic");
-				ballCount++;
 			} else {
-				if (ship.getVariant().getWeaponSpec("WS0002").getSize() == WeaponAPI.WeaponSize.MEDIUM) {
-					label = tooltip.addPara("Fore Turret: %s.", pad, grey, "Medium Weapon");
-					label.setHighlight("Medium");
-				} else {
-					label = tooltip.addPara("Fore Turret: %s.", pad, other, "Other");
-					label.setHighlight("Other");
-					otherCount++;
-				}
+				label = tooltip.addPara("Hardpoint: %s.", opad, grey, "None");
+				label.setHighlight("None");
 			}
-		} else {
-			label = tooltip.addPara("Fore Turret: %s.", pad, grey, "None");
-			label.setHighlight("None");
-		}
-		if (ship.getVariant().getWeaponSpec("WS0003") != null) {
-			if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.MISSILE) {
-				label = tooltip.addPara("Aft Turret: %s.", pad, miss, "Missile");
-				label.setHighlight("Missile");
-				missCount++;
-			} else if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.BALLISTIC) {
-				label = tooltip.addPara("Aft Turret: %s.", pad, ball, "Ballistic");
-				label.setHighlight("Ballistic");
-				ballCount++;
+			if (ship.getVariant().getWeaponSpec("WS0002") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0002").getType() == WeaponAPI.WeaponType.MISSILE) {
+					label = tooltip.addPara("Fore Turret: %s.", pad, miss, "Missile");
+					label.setHighlight("Missile");
+					missCount++;
+				} else if (ship.getVariant().getWeaponSpec("WS0002").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					label = tooltip.addPara("Fore Turret: %s.", pad, ball, "Ballistic");
+					label.setHighlight("Ballistic");
+					ballCount++;
+				} else {
+					if (ship.getVariant().getWeaponSpec("WS0002").getSize() == WeaponAPI.WeaponSize.MEDIUM) {
+						label = tooltip.addPara("Fore Turret: %s.", pad, grey, "Medium Weapon");
+						label.setHighlight("Medium");
+					} else {
+						label = tooltip.addPara("Fore Turret: %s.", pad, other, "Other");
+						label.setHighlight("Other");
+						otherCount++;
+					}
+				}
 			} else {
-				if (ship.getVariant().getWeaponSpec("WS0003").getSize() == WeaponAPI.WeaponSize.MEDIUM) {
-					label = tooltip.addPara("Aft Turret: %s.", pad, grey, "Medium Weapon");
-					label.setHighlight("Medium");
-				} else {
-					label = tooltip.addPara("Fore Turret: %s.", pad, other, "Other");
-					label.setHighlight("Other");
-					otherCount++;
-				}
+				label = tooltip.addPara("Fore Turret: %s.", pad, grey, "None");
+				label.setHighlight("None");
 			}
-		} else {
-			label = tooltip.addPara("Aft Turret: %s.", pad, grey, "None");
-			label.setHighlight("None");
+			if (ship.getVariant().getWeaponSpec("WS0003") != null) {
+				if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.MISSILE) {
+					label = tooltip.addPara("Aft Turret: %s.", pad, miss, "Missile");
+					label.setHighlight("Missile");
+					missCount++;
+				} else if (ship.getVariant().getWeaponSpec("WS0003").getType() == WeaponAPI.WeaponType.BALLISTIC) {
+					label = tooltip.addPara("Aft Turret: %s.", pad, ball, "Ballistic");
+					label.setHighlight("Ballistic");
+					ballCount++;
+				} else {
+					if (ship.getVariant().getWeaponSpec("WS0003").getSize() == WeaponAPI.WeaponSize.MEDIUM) {
+						label = tooltip.addPara("Aft Turret: %s.", pad, grey, "Medium Weapon");
+						label.setHighlight("Medium");
+					} else {
+						label = tooltip.addPara("Fore Turret: %s.", pad, other, "Other");
+						label.setHighlight("Other");
+						otherCount++;
+					}
+				}
+			} else {
+				label = tooltip.addPara("Aft Turret: %s.", pad, grey, "None");
+				label.setHighlight("None");
+			}
+			
+			tooltip.addSectionHeading("Current penalties", h, banner, Alignment.MID, opad);
+			
+			if (ballCount > 0) {
+				label = tooltip.addPara("Ballistic weapon Rate of Fire and Ammo Regeneration reduced by %s.", opad, bad, "" + (int)(ballCount * RATE_MALUS) + "%");
+				label.setHighlight("" + (int)(ballCount * RATE_MALUS) + "%");
+				label.setHighlightColors(bad);
+			}
+			
+			if (missCount > 0) {
+				label = tooltip.addPara("Missile weapon Rate of Fire and Ammo Regeneration reduced by %s.", opad, bad, "" + (int)(missCount * RATE_MALUS) + "%");
+				label.setHighlight("" + (int)(missCount * RATE_MALUS) + "%");
+				label.setHighlightColors(bad);
+				label = tooltip.addPara("Missile weapon Ammo Capacity reduced by %s.", opad, bad, "" + (int)(missCount * RATE_MALUS) + "%");
+				label.setHighlight("" + (int)(missCount * RATE_MALUS) + "%");
+				label.setHighlightColors(bad);
+			}
+			
+			if (otherCount >0) {
+				label = tooltip.addPara("Weapon flux cost to fire increased by %s.", opad, bad, "" + (int)(otherCount * FLUX_MALUS) + "%");
+				label.setHighlight("" + (int)(otherCount * FLUX_MALUS) + "%");
+				label.setHighlightColors(bad);
+			}
+			
+			if (ballCount == 0 && missCount == 0 && missCount == 0) {
+				label = tooltip.addPara("No large weapons installed, no penalties.", opad);
+			}
 		}
-		
-		tooltip.addSectionHeading("Current penalties", h, banner, Alignment.MID, opad);
-		
-		if (ballCount > 0) {
-			label = tooltip.addPara("Ballistic weapon Rate of Fire and Ammo Regeneration reduced by %s.", opad, bad, "" + (int)(ballCount * RATE_MALUS) + "%");
-			label.setHighlight("" + (int)(ballCount * RATE_MALUS) + "%");
-			label.setHighlightColors(bad);
-		}
-		
-		if (missCount > 0) {
-			label = tooltip.addPara("Missile weapon Rate of Fire and Ammo Regeneration reduced by %s.", opad, bad, "" + (int)(missCount * RATE_MALUS) + "%");
-			label.setHighlight("" + (int)(missCount * RATE_MALUS) + "%");
-			label.setHighlightColors(bad);
-			label = tooltip.addPara("Missile weapon Ammo Capacity reduced by %s.", opad, bad, "" + (int)(missCount * RATE_MALUS) + "%");
-			label.setHighlight("" + (int)(missCount * RATE_MALUS) + "%");
-			label.setHighlightColors(bad);
-		}
-		
-		if (otherCount >0) {
-			label = tooltip.addPara("Weapon flux cost to fire increased by %s.", opad, bad, "" + (int)(otherCount * FLUX_MALUS) + "%");
-			label.setHighlight("" + (int)(otherCount * FLUX_MALUS) + "%");
-			label.setHighlightColors(bad);
-		}
-		
-		if (ballCount == 0 && missCount == 0 && missCount == 0) {
-			label = tooltip.addPara("No large weapons installed, no penalties.", opad);
-		}
-		
 		
 	}
 

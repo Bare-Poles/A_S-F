@@ -28,5 +28,5 @@
 	"interruptibleBurst":false,
 	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
 	"projectileSpecId":"A_S-F_nieuport_shot",  # projectile that will be fired
-	"fireSoundTwo":"railgun_fire",
+	"fireSoundTwo":"A_S-F_nieuport_fire", #railgun_fire
 }

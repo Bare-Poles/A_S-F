@@ -17,11 +17,9 @@ public class ASF_AURAFeedStats extends BaseShipSystemScript {
 	public static final float RATE_MULT = 0.4f;
     
     public static final float TIME_MULT_F = 3f;
-    public static final float TIME_SPEED_F = 0.45f;
+    public static final float TIME_SPEED_F = 0.4f;
     public static final float DAM_RES_F = 0.4f;
     public Color ENGINE_COLOR_F = new Color(90,255,165,55);
-    
-    public static final float BLAST_SIZE = 70f; // 22 radius
     
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
 		

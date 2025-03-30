@@ -3,7 +3,7 @@
   "hullId": "A_S-F_ecumenist",
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 8,
+  "fluxCapacitors": 13,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],

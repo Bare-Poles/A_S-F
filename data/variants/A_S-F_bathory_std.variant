@@ -3,7 +3,7 @@
   "hullId": "A_S-F_bathory",
   "displayName": "Standard",
   "goalVariant": true,
-  "fluxCapacitors": 6,
+  "fluxCapacitors": 8,
   "fluxVents": 20,
   "quality": 1,
   "permaMods": [],

@@ -326,7 +326,7 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 		Color h = Misc.getHighlightColor();
 		Color bad = Misc.getNegativeHighlightColor();
 		
-		LabelAPI label = tooltip.addPara("The internal systems of this ship have been constructed using unknown advanced Domain technology.", opad);
+		LabelAPI label = tooltip.addPara("The internal systems of this ship have been adapted to use unknown advanced Domain technology.", opad);
 		label = tooltip.addPara("What limited documentation could be found on internal systems classifies this special configuration as %s", pad, h, "\"Warburn Systems\"");
 		label.setHighlight("\"Warburn Systems\"");
 		label.setHighlightColors(h);

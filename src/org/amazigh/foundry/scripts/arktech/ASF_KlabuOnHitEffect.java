@@ -2,6 +2,7 @@ package org.amazigh.foundry.scripts.arktech;
 
 import java.awt.Color;
 
+import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
@@ -25,10 +26,10 @@ public class ASF_KlabuOnHitEffect implements OnHitEffectPlugin {
 	public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target,
 					  Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {
 		
-		float blastDamage = projectile.getDamageAmount() * 0.75f;
+		float blastDamage = projectile.getDamageAmount() * 0.8f;
 		DamagingExplosionSpec blast = new DamagingExplosionSpec(0.12f,
-                60f,
-                30f,
+                80f,
+                45f,
                 blastDamage,
                 blastDamage * 0.6f,
                 CollisionClass.PROJECTILE_FF,
@@ -36,7 +37,7 @@ public class ASF_KlabuOnHitEffect implements OnHitEffectPlugin {
                 4f,
                 4f,
                 1f,
-                60,
+                80,
                 COLOR_P,
                 COLOR_X);
         blast.setDamageType(DamageType.FRAGMENTATION);
@@ -44,8 +45,8 @@ public class ASF_KlabuOnHitEffect implements OnHitEffectPlugin {
         blast.setDetailedExplosionFlashColorCore(COLOR_D_C);
         blast.setDetailedExplosionFlashColorFringe(COLOR_D_F);
         blast.setUseDetailedExplosion(true);
-        blast.setDetailedExplosionRadius(70f);
-        blast.setDetailedExplosionFlashRadius(200f);
+        blast.setDetailedExplosionRadius(95f);
+        blast.setDetailedExplosionFlashRadius(270f);
         blast.setDetailedExplosionFlashDuration(0.5f);
         
         engine.spawnDamagingExplosion(blast,projectile.getSource(),point,false);
@@ -55,10 +56,24 @@ public class ASF_KlabuOnHitEffect implements OnHitEffectPlugin {
 			fxVel.set(target.getVelocity());
 		}
         
-        engine.spawnExplosion(point, fxVel, COLOR_U, 80f, 1.3f);
+        engine.spawnExplosion(point, fxVel, COLOR_U, 105f, 1.3f);
 
-		engine.addHitParticle(point, fxVel, 150f, 1f, 0.1f, COLOR_U);
+		engine.addHitParticle(point, fxVel, 200f, 1f, 0.1f, COLOR_U);
         
+		for (int i=0; i < 18; i++) {
+        	Vector2f smokePos = MathUtils.getPointOnCircumference(point, MathUtils.getRandomNumberInRange(24f, 36f), i * 20f);
+    		Vector2f smokeVel = MathUtils.getPointOnCircumference(fxVel, MathUtils.getRandomNumberInRange(28f, 41f), i * 20f);
+        	
+    		engine.addNebulaParticle(smokePos,
+    				smokeVel,
+    				MathUtils.getRandomNumberInRange(18f, 22f), //size
+    				1.69f, //endSizeMult
+    				0.4f, //rampUpFraction
+    				0.45f, //fullBrightnessFraction
+    				MathUtils.getRandomNumberInRange(1.2f, 1.5f), //dur
+    				new Color(55,50,45,90));
+        }
+		
 		Global.getSoundPlayer().playSound("system_canister_flak_explosion", 0.75f, 1.0f, point, fxVel); //"explosion_flak", 0.8f, 0.9f
 	}
 }
