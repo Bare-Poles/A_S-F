@@ -52,7 +52,7 @@ public class ASF_ShevalyeEffect implements BeamEffectPlugin {
 				0.5f, // particleDuration
 				140, // particleCount
 				new Color(255,255,255,255), // particleColor
-				new Color(100,255,100,175)  // explosionColor
+				new Color(100,255,100,75)  // explosionColor
 		);
 
 		spec.setDamageType(DamageType.FRAGMENTATION);

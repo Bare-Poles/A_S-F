@@ -150,6 +150,7 @@ A_S-F_jorogumo,SHIP,"A custom modified variant of the Phobia. Alterations includ
 Often considered unsettling and unpleasant, the Phobia proves an unwelcome reminder of the potency of phase vessels in no part thanks to a heavy-duty EMP Emission system.
 
 While an unconventional phase coil layout is the key to this vessels above average maneuverability, what truly sets it apart is the frontal cluster of mounts and their attendant support hardware that allow it far more flexibility in engagement options than initial impressions may suggest.",,,,,
+A_S-F_jorogumo_module,SHIP,An automated launch bay for Clavata Drones.,,,,,
 A_S-F_misside,SHIP,"A missile platform like no other ship (in its class) the Misside features an impressive number of missile mounts that allow it to field a truly punishing load of strike firepower. Alternatively it can be outfitted with support oriented missiles, giving it the ability to act as a persistent thorn in the side of any opposing fleet.",,,,,
 A_S-F_initone,SHIP,"A vessel developed after an in-depth analysis of refined combat data, equipped with an advanced flux system that allows for more aggressive tactics to be employed.
 
@@ -222,6 +223,12 @@ Sacrificing cargo capacity and rear facing weaponry gave pirate shipwrights the 
 A_S-F_marlow,SHIP,"Initially envisaged as a sturdy fire support platform, the Marlow was a victim of scope creep and a resulting a lack of oversight resulted in an attempt to design a ship that can simultaneously act as fire support, carrier and lineship. Sacrifices and compromises were made in the design, ending up with a ship that can technically do all of the things it was meant to, but not necessarily at the same time.",,,,,
 A_S-F_margrave,SHIP,"The product of a Domain Naval Institute exploratory design project to develop a capital ship that can keep up with lighter escort vessels. While the Margrave technically fulfilled the requirements set down, it failed to impress the review board and a rapid pivot to defining it as a hunter-killer that is able to outrange anything it can't outrun lead to it passing through to final production.",,,,,
 ,,,,,,,
+A_S-F_drone_shackle,SHIP,"A light drone armed with a lightweight disruption mortar, able to offer basic point defense cover and limited target disruption.",,,,,
+A_S-F_drone_manacle,SHIP,"A light drone armed with a disruption autocannon, able to offer basic point defense cover and limited target disruption.",,,,,
+A_S-F_drone_panel,SHIP,"While little more than a remote operated plate of armour it does also feature a basic targeting uplink, increasing the range of the parent vessels weaponry slightly for each drone deployed.",,,,,
+A_S-F_drone_clavata,SHIP,"A phase drone armed with a point defense beam, able to significantly prolong the survivability of its parent vessel.",,,,,
+A_S-F_ammon,SHIP,"A compact autonomous lightweight drone, lightly armed and with limited survivability but able to offer effective support and distraction.",,,,,
+,,,,,,,
 ,,,,,,,
 ,,,,,,,
 A_S-F_plas_burster,WEAPON,"Fires bursts of volatile plasma, capable of saturating a region of space with point defense coverage.
@@ -239,8 +246,8 @@ The Lamia Directed Energy Missile was designed to fill a niche that may not have
 A_S-F_lerna,WEAPON,"Launches a carrier missile that deploys a trio of weapon pods that then proceed to fire a spread of ion bolts at their target.
 
 An interesting development on the Lamia, the Lerna Multiple Directed Energy Missile rather than featuring heavier ion emitters, instead deploys three of what are effectively the warhead from a Lamia, but without an engine. The fact that the pods are deployed in a spread proves to be a useful feature as engaging from multiple vectors typically allows some bolts to flank the targets shield.",,,,,
-A_S-F_paladin_tri,WEAPON,"A Paladin PD system modified for mounting on the Auditor Frigate, sacrifices two of the beam emitters and a significant amount of storable charge in its capacitor.",,,,,
-A_S-F_paladin_tri_mod,WEAPON,"A heavily modified variant of the Paladin PD system, exchanges capacitor charge storage for an improved recharge system, reducing burst output capacity in exchange for more efficient constant sustained operation.",,,,,
+A_S-F_paladin_tri,WEAPON,"A Paladin PD system modified for mounting on the Auditor Frigate, slightly less flux efficient, and sacrifices two of the beam emitters as well as a significant amount of storable charge in its capacitor.",,,,,
+A_S-F_paladin_tri_mod,WEAPON,"A heavily modified variant of the Paladin PD system, exchanges the capacitor based charge storage to feature an improved recharge system, reducing burst output capacity in exchange for slightly more powerful pulses at a constant sustained rate of operation.",,,,,
 A_S-F_wasteland,WEAPON,"Launches missiles that deploy smartbombs that carry a single use rack of anti-fighter SRMs, devastating against both fighters and lighter craft.
 
 From the same development lineage as the Thicket system, the Wasteland Smartbomb Complex uses a modified Swarmer SRM rather than the more finnicky proximity mines used in its smaller cousin. The use of point-target explosive warheads rather than area fragmentation charges also has the added benefit of making this weapon highly effective against more lightly armoured ships.",,,,,
@@ -379,6 +386,7 @@ This weapon pushes standard cannon design to a peak, resulting in a truly formid
 A_S-F_cauldron_pod,WEAPON,"A pod loaded with unguided torpedoes that house devastating flux-shear warheads that are able to pressure flux grids and disable weaponry.
 
 Apparently an attempt to develop a sucessor to the Reaper torpedo, the advanced warhead while proving remarkably effective lacks in raw power, so failed in the intent of outclassing the Reaper but still remains a potent weapon.",,,,,
+A_S-F_micropulser_ammon,WEAPON,"A small scale pulse gun outfitted with both a point defense targeting system and a burst capacitor, provides respectable performance for its size. This stripped-down version installed on the Ammon has a notably reduced capacitor size and rate of charge regeneration.",,,,,
 A_S-F_quicksand,WEAPON,"A heavy duty point defense system that delivers a withering hail of explosive tipped shells, primarily effective against smaller craft but also servicable in the role of intercepting inbound munitions.
 
 The Quicksand is a weapon designed to tear through fighters with a brutal efficiency, the sheer volume of fire also means it can wear down starship armour with sustained fire, but a sub-par feeding mechanism causes sustained performance to be somewhat lacking.",,,,,
@@ -414,6 +422,10 @@ A_S-F_bludgeon,WEAPON,"Simple but heavy explosive shells allow this weapon to de
 The Bludgeon is largely outclassed by other cannons in firepower, but that was not the intent behind the design, as instead it was intended to be cheap and easily maintained by the automated systems of Domain war drones.
 
 Despite its relatively poor performance, distribution of blueprints for the manufacture of this weapon was restricted by the Domain, likely to prevent rebels and 'freedom fighters' from being able to access cheap and easily manufacturable weaponry, as such they are generally only found installed on Domain Exploraria drones.",,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
 ,,,,,,,
 ,,,,,,,
 A_S-F_cyclemissilefeed,SHIP_SYSTEM,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,Offensive,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,,,
