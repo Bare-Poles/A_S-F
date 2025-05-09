@@ -39,9 +39,7 @@ Plasma Burster,A_S-F_plas_burster,2,0.8,2000,500,,60,,0,35,10,,,,ENERGY,45,,0.2,
 Pulsed Ion Beam,A_S-F_p_ion,2,,600,800,70,,600,1,15,6,,,,ENERGY,,90,0.2,0.1,0.9,1.5,,,,,3200,,,,,,,FIRE_WHEN_INEFFICIENT,"beam10, LR, remnant, no_dealer, codex_unlockable",,Remnant,,Suppression,,,,,"Hits on hull or armor periodically arc to weapons and engines, dealing extra EMP and energy damage. Hits on shields have a chance to generate a shield-penetrating arc based on the target's hard flux level.",,,,,22222.85
 IR Autopulser,A_S-F_ir_autopulse,1,,1250,550,,60,,0,20,10,40,4,6,ENERGY,45,,0.06,0.00001,2,0.07333,,,,,,1000,,,,,,,"energy13, remnant, rare_bp, merc, ind",,,,General,,,,,,,,,,22291.25
 X-Pulse Laser,A_S-F_x-pulse,1,,1800,600,,240,,0,15,11,,,,ENERGY,276,,0.4,0.2,,,0,5,1,8,,1000,,,,,,,"energy14, remnant, rare_bp, merc, ind",,,,General,,,,,,,,,,22291.5
-Spellbind Saturation Array,A_S-F_spellbind,3,,999999,900,,2000,,100,10,35,,,,ENERGY,6000,,1,11,1,,,,,,,400,,,,,5,"FIRE_WHEN_INEFFICIENT, DANGEROUS","no_sell, no_dealer, restricted, codex_unlockable",,[Anomalous],,Area Denial,,,,,"Projectile randomly releases unstable energy bursts while traveling. Each burst will deal %s damage, the projectile itself does not deal damage and will pass over ships.
-
-The damage value shown is an estimation for damage dealt to a moderately sized target.",400 Energy,,,TRUE,22200.2
+Spellbind Saturation Array,A_S-F_spellbind,3,,999999,900,,2000,,100,10,35,,,,ENERGY,6000,,1,11,1,,,,,,,400,,,,,5,"FIRE_WHEN_INEFFICIENT, DANGEROUS","no_sell, no_dealer, restricted, codex_unlockable, damage_special",,[Anomalous],,Area Denial,,,,,"Projectile randomly releases unstable energy bursts while traveling. Each burst will deal %s damage, the projectile itself does not deal damage and will pass over ships.",400 Energy,,,TRUE,22200.2
 Formia Sling,A_S-F_formia_sling,2,0.75,3000,1200,,80,300,0,15,12,,,,ENERGY,120,,0.4,2,3,0.3,0,4,1,2,,700,100,2.5,90,,,"DO_NOT_AIM, MISSILE_SPREAD","energy13, missile12, remnant, LR, no_dealer, codex_unlockable",,Remnant,,Suppression,Very Fast,Good,,,"Hits on hull or armor arc to weapons and engines, dealing extra damage equal to %s of the original hit.
 
 If installed in an %s type mount: Per-shot damage is increased to %s, and base range is reduced to %s.",25% | Energy | 100 | 800su,Projectile tracking is enhanced by the installation of %s or by any other source of improved %s maneuverability.,ECCM | Missile,,22216.3
@@ -92,7 +90,7 @@ Hits on hull or armor will arc %s times to weapons and engines, each arc dealing
 Persis Multi Seeker,A_S-F_persis,3,0.3,5000,2000,,600,,30,10,5,4,0.083333,1,ENERGY,240,,0,2.5,1,,0,0,0,0,,400,100,5,150,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","missile9, A_S-F_arktech_wep, no_sell, no_dealer, codex_unlockable",,[ArkTech],,Fire Support,Fast,Excellent,,,,,,,,222021
 Weaver Rocket Pod,A_S-F_weaver,0,,900,1200,,80,,5,28,7,100,1,10,HIGH_EXPLOSIVE,0,,0,7.05,20,0.05,11,23,0.5,0.5,,360,90,4.5,45,,,,"rocket12, strike7, derelict, no_dealer, codex_unlockable",,Explorarium,,Pressure,Medium,Drunk,,,"Unstable propellant has a chance to overheat in flight, causing the rocket to detonate prematurely.",,,,,22212.33
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,", codex_require_related",,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Paladin PD System (Tri),A_S-F_paladin_tri,0,,100000,600,600,,,0,75,,12,1,,ENERGY,,240,0,0,0.2,0.1,,,,,1000000,,,,,,,"PD, ANTI_FTR, SYSTEM, SHOW_IN_CODEX","pd19, beam15",,,,Point Defense,,,,,"When all sub-beams impact a target in close proximity to each other, the spalling effect produces an explosion that deals up to 100 points of fragmentation damage to other nearby targets.",100 | fragmentation,,,,22226
 Shevalye PD System,A_S-F_paladin_tri_mod,0,,100000,600,600,,,0,75,,,,,ENERGY,,210,0,0,0.25,0.25,,,,,1000000,,,,,,,"PD, ANTI_FTR, SYSTEM, SHOW_IN_CODEX","pd19, beam15, codex_require_related",,,,Point Defense,,,,,"When all sub-beams impact a target in close proximity to each other, the spalling effect produces an explosion that deals up to 100 points of fragmentation damage to other nearby targets.",100 | fragmentation,,,,22226.1
@@ -157,7 +155,7 @@ Micro-Pulse Repeater (High Delay),A_S-F_micropulser_ammon,0,,1000,400,,20,,1,100
 Moros-class Torpedo,A_S-F_moros_f,0,,1000,1200,,600,,20,10,,1,,,HIGH_EXPLOSIVE,0,,0,1,1,,0,0,0,,,700,400,3,180,,,"SYSTEM, STRIKE, SHOW_IN_CODEX",codex_require_related,,Remnant,,Torpedo,Very Fast,None,,,,,,,TRUE,2229.21
 Quicksand Machinecannon (Fighter),A_S-F_quicksand_f,0,,1000,500,,30,,2,40,,20,3.33333,5,HIGH_EXPLOSIVE,18,,0,0.1,,,1,8,0.5,6,,900,,,20,,,"SYSTEM,PD,ANTI_FTR, SHOW_IN_CODEX",,,,,Point Defense,,,,,,,,,,2223.851
 Omer Spread Missiles (Fighter),A_S-F_omer_f,0,,1000,1000,,60,,15,40,,4,0.2,2,HIGH_EXPLOSIVE,15,,0,9.9,2,0.1,16,16,0,0,,450,90,3,25,,,"SYSTEM,ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE, SHOW_IN_CODEX",,,,,Anti Small Craft,Fast,Excellent,,,,,,,,22212.11
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Jury Flak Cannon,A_S-F_jury,0,,10000,600,,140,,10,50,,,,,FRAGMENTATION,21,,0,3.4,6,0.12,4,18,2,4,,650,,,30,,,"SYSTEM, PD",codex_require_related,,,,Point Defense (Area),,,,,,,,,,222104.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Wasteland Dummy,A_S-F_wasteland_dummy,0,,1000,1000,,125,,15,50,,,,,HIGH_EXPLOSIVE,0,,0,0.1,1,,0,0,0,0,,400,200,4,50,,,"SYSTEM, ANTI_FTR, DO_NOT_AIM",,,,,Anti Small Craft,Fast,Excellent,,,,,,,,22210.11
@@ -179,7 +177,7 @@ Kufikiri HE Sub,A_S-F_kufikiri_HE_sub,0,,1000,1000,,240,,16,10,,,,,HIGH_EXPLOSIV
 Kufikiri KE Sub,A_S-F_kufikiri_KE_sub,0,,1000,1000,,120,60,9,10,,,,,KINETIC,0,,0,0.1,1,,0,0,0,0,,800,,,100,,,SYSTEM,,,,,,,,,,,,,,,222017.2
 Chillblain Collapse Field,A_S-F_chillblain_field,0,,100000,100,,5000,1000,10,18,,,,,ENERGY,0,,0,1,1,,0,0,0,0,,1,,,800,,,SYSTEM,dummy_proj,,,,Destruction,,,,,,,,,,22200.11
 Nasibu Dummy,A_S-F_nasibu_dummy,0,,10000,1500,,200,,10,15,,,,,ENERGY,0,,0,0.1,1,,5,5,0,0,,500,1,9,80,,,SYSTEM,,,,,,,,,,"Missiles are launched in a spread, with a random launch orientation.",,,,,222019.1
-Spellbind Flak,A_S-F_spellbind_flak,0,,100000,40,,200,,15,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,60,,,100,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,22200.21
+Spellbind Flak,A_S-F_spellbind_flak,0,,100000,40,,200,,15,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,40,,,100,,,SYSTEM,dummy_proj,,,,,,,,,,,,,,22200.21
 Lamia Bolt,A_S-F_lamia_bolt,0,,1000,700,,100,300,4,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,600,,,10,,,SYSTEM,,,,,,,,,,,,,,,2223.31
 Lerna Submunition,A_S-F_lerna_sub,0,,1000,800,,300,900,10,20,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,0,0,8,200,,,SYSTEM,,,,,,,,,,"Submunition hits on hull or armor will arc to weapons and engines, dealing extra damage equal to the original hit.",,,,,2223.41
 Lerna Bolt,A_S-F_lerna_bolt,0,,1000,800,,100,300,4,10,,,,,ENERGY,0,,0,0.1,1,,0,0,0,0,,600,,,10,,,SYSTEM,,,,,,,,,,,,,,,2223.42

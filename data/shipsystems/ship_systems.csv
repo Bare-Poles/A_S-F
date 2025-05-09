@@ -1,19 +1,19 @@
 name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u (base cap),cr/u,max uses,regen,charge up,active,down,cooldown,toggle,noDissipation,noHardDissipation,hardFlux,noFiring,noTurning,noStrafing,noAccel,noShield,noVent,isPhaseCloak,tags,icon
 # Superships,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cycle Temporal Core,A_S-F_temporalCore,,,0.1,,,0.1,,2,0.04,0.5,3,5.5,2,,,,,,,,,,,,codex_require_related,graphics/icons/hullsys/temporal_shell.png
+Cycle Temporal Core,A_S-F_temporalCore,,,0.1,,,0.1,,2,0.04,0.5,3,5.5,2,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/temporal_shell.png
 Dimensional Teleporter,A_S-F_dimensionalteleporter,,,,,,0.15,,,,0.3,,0.3,4.9,,,,,,,,,,,,"movement, codex_require_related",graphics/icons/hullsys/displacer.png
-Amita Drive,A_S-F_amitaDrive,,,,,,,,,,1,6,1.5,12.5,,,,,,,,,,,,codex_require_related,graphics/icons/hullsys/high_energy_focus.png
+Amita Drive,A_S-F_amitaDrive,,,,,,,,,,1,6,1.5,12.5,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/high_energy_focus.png
 Ballistic Overdrive,A_S-F_rangdaSys,200,,,,,,,,,5,,3,5,TRUE,,,TRUE,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/ammo_feeder.png
-Resonance Motivator,A_S-F_ResonanceMotivator,,,,,,,,3,0.04,0.25,4,0.25,,,,,,,,,,,,,codex_require_related,graphics/icons/hullsys/high_energy_focus.png
+Resonance Motivator,A_S-F_ResonanceMotivator,,,,,,,,3,0.04,0.25,4,0.25,,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/high_energy_focus.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Bounty/One-off Ships,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Manacle Drones,A_S-F_drone_manacle,,,,,,,,24,0.04,0,,0,0,,,,,,,,,,,,codex_require_related,graphics/icons/hullsys/drone_pd_mid.png
-Heavy Quantum Disruptor,A_S-F_disruptor,,,,,,0.2,,2,0.05,0.5,,1,4,,,,,,,,,,,,codex_require_related,graphics/icons/hullsys/quantum_disruptor.png
+Manacle Drones,A_S-F_drone_manacle,,,,,,,,24,0.04,0,,0,0,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/drone_pd_mid.png
+Heavy Quantum Disruptor,A_S-F_disruptor,,,,,,0.2,,2,0.05,0.5,,1,4,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/quantum_disruptor.png
 Temporal Micro-Burn,A_S-F_temporalBurn_nebel,1,,,,,,,2,0.05,1.2,2,0.8,0.5,TRUE,,,,TRUE,,TRUE,TRUE,TRUE,,,"movement, codex_require_related",graphics/icons/hullsys/plasma_burn.png
 Improved Quick Boost,A_S-F_quickBoost_3,,,,,,,,3,0.125,0.25,0.25,1,0.5,,,,TRUE,,,,,,,,"movement, codex_require_related",graphics/icons/hullsys/maneuvering_jets.png
 Active Flare Launcher,A_S-F_flarelauncher_anom,,,,,,,,,,,,,4,,,,,,,,,,,,defensive,graphics/icons/hullsys/active_flare_launcher.png
-Clavata Drones,A_S-F_drone_clavata,,,,,,,,8,0.1,0,,0,0,,,,,,,,,,,,codex_require_related,graphics/icons/hullsys/drone_pd_high.png
+Clavata Drones,A_S-F_drone_clavata,,,,,,,,8,0.1,0,,0,0,,,,,,,,,,,,"defensive, codex_require_related",graphics/icons/hullsys/drone_pd_high.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # ArkTech,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -26,14 +26,14 @@ AURA System,A_S-F_AURA,,,,,,,,2,0.05,1,2,1.5,2.5,,,,,,,,,,,,"offensive, codex_re
 AURA Unit,A_S-F_AURA_D,,,,,,,,2,0.04,1,2,1.5,2.5,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/high_energy_focus.png
 AURA Feed,A_S-F_AURA_feed,,,,,,,,2,0.05,1,2.5,2,2.5,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/high_energy_focus.png
 Assault Burst Loader,A_S-F_loaderOverdrive_berz,,,,,,,,2,0.0333,1,1,1.6,4,,,,,TRUE,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/ammo_feeder.png
-Micro Vent,A_S-F_MicroVent,,,,,,,,,,0.5,1,2.5,12,,,,,TRUE,,,,,,,codex_require_related,graphics/icons/hullsys/damper_field.png
+Micro Vent,A_S-F_MicroVent,,,,,,,,,,0.5,1,2.5,12,,,,,TRUE,,,,,,,"defensive, codex_require_related",graphics/icons/hullsys/damper_field.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Remmie,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Chronostutter,A_S-F_chronostutter,1,,,,,0.25,,2,0.0666,0.75,3.25,0.5,1,,,,,,,,,,,,codex_require_related,graphics/icons/hullsys/temporal_shell.png
+Chronostutter,A_S-F_chronostutter,1,,,,,0.25,,2,0.0666,0.75,3.25,0.5,1,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/temporal_shell.png
 Adaptive Burst,A_S-F_AdaptiveBurst,1,,,,,,,,,0.5,3,2,8,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/high_energy_focus.png
 Temporal Burn,A_S-F_temporalBurn,1,,,,,,,,,1.5,4,1,8,TRUE,,,,TRUE,,TRUE,TRUE,TRUE,,,"movement, codex_require_related",graphics/icons/hullsys/plasma_burn.png
-Unhinge Chronoflow,A_S-F_unhingeChronoflow,1,,,,,0.2,,,,4,12,3,14,,,,,,,,,,FALSE,,codex_require_related,graphics/icons/hullsys/temporal_shell.png
+Unhinge Chronoflow,A_S-F_unhingeChronoflow,1,,,,,0.2,,,,4,12,3,14,,,,,,,,,,FALSE,,"offensive, codex_require_related",graphics/icons/hullsys/temporal_shell.png
 Ammon Drones,A_S-F_ammon_deploy,,,,,,0.15,,2,0.08,0,0.1,0,2.5,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/drone_pd_high.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,

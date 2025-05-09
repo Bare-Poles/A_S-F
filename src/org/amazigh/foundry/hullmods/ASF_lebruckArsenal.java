@@ -10,7 +10,8 @@ public class ASF_lebruckArsenal extends BaseHullMod {
 	public static final float COST_REDUCTION_S = 1;
 	public static final float COST_REDUCTION_M = 3;
 	public static final float COST_REDUCTION_L = 9;
-		public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
+	
+	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		
 		stats.getDynamic().getMod(Stats.SMALL_BALLISTIC_MOD).modifyFlat(id, -COST_REDUCTION_S);
 		stats.getDynamic().getMod(Stats.SMALL_ENERGY_MOD).modifyFlat(id, -COST_REDUCTION_S);

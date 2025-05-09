@@ -87,4 +87,22 @@
 		],
 	},
 
+	"weaponSellFrequency":{
+		"A_S-F_sakset":7,
+
+		"A_S-F_strobe":3,
+		"A_S-F_quad_multi-lance":3,
+
+		"A_S-F_lamia":7,
+		"A_S-F_lerna":7,
+		"A_S-F_cockatrice":7,
+	},
+
+	"hullmodSellFrequency":{
+		"A_S-F_ElectroVent":3,
+		"A_S-F_anarchyBallistic":2,
+		"A_S-F_anarchyEnergy":2,
+		"A_S-F_anarchyTargeting":2,
+	},
+
 },

@@ -21,4 +21,9 @@
 		],
 	},
 
+	"weaponSellFrequency":{
+		"A_S-F_kaksos":3,
+		"A_S-F_laaja":2,
+	},
+
 },

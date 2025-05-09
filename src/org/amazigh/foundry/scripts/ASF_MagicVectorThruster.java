@@ -166,7 +166,7 @@ public class ASF_MagicVectorThruster implements EveryFrameWeaponEffectPlugin {
                                                 
                         //get the total thrust with mults
                         float combinedThrust=thrust;
-                        combinedThrust*=(SHIP.getMutableStats().getTurnAcceleration().computeMultMod() + SHIP.getMutableStats().getAcceleration().computeMultMod())/2;
+                        combinedThrust*= Math.min(2f, (SHIP.getMutableStats().getTurnAcceleration().computeMultMod() + SHIP.getMutableStats().getAcceleration().computeMultMod())/2);
                         
                         //calculate how much appart the turn and thrust angle are
                         //bellow 90 degrees, the engine is kept at full thrust

@@ -10,11 +10,11 @@ import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.ProximityExplosionEffect;
 
-public class ASF_BrambleOnExplEffect implements ProximityExplosionEffect {
+public class ASF_JuryOnExplEffect implements ProximityExplosionEffect {
 
-	private static final Color COLOR_P = new Color(255,155,125,220);
-	private static final Color COLOR_X1 = new Color(250,215,123,50);
-	private static final Color COLOR_X2 = new Color(175,145,130,50);
+	private static final Color COLOR_P = new Color(255,125,125,220);
+	private static final Color COLOR_X1 = new Color(250,170,125,55);
+	private static final Color COLOR_X2 = new Color(175,130,130,65);
 	
 	public void onExplosion(DamagingProjectileAPI explosion, DamagingProjectileAPI originalProjectile) {
 		
@@ -25,29 +25,28 @@ public class ASF_BrambleOnExplEffect implements ProximityExplosionEffect {
 		engine.addHitParticle(
                 point,
                 explosion.getVelocity(),
-                80f,
+                45f,
                 0.8f,
                 0.1f,
                 COLOR_P);
 		
 		engine.addNebulaParticle(point,
 				explosion.getVelocity(),
-				MathUtils.getRandomNumberInRange(48f, 60f), //size
-				1.5f, //endSizeMult
+				MathUtils.getRandomNumberInRange(35f, 40f), //size
+				1.45f, //endSizeMult
 				0f, //rampUpFraction
 				0.35f, //fullBrightnessFraction
 				MathUtils.getRandomNumberInRange(0.3f, 0.4f), //dur
 				COLOR_X1);
 		
-        for (int i = 0; i < 4; i++) {
-        	
+        for (int i = 0; i < 2; i++) {
         	engine.addNebulaParticle(point,
-    				MathUtils.getRandomPointInCircle(explosion.getVelocity(), 19f),
-    				MathUtils.getRandomNumberInRange(52f, 93f), //size
+    				MathUtils.getRandomPointInCircle(explosion.getVelocity(), 10f),
+    				MathUtils.getRandomNumberInRange(40f, 50f), //size
     				1.8f, //endSizeMult
     				0f, //rampUpFraction
     				0.35f, //fullBrightnessFraction
-    				MathUtils.getRandomNumberInRange(1f, 1.6f), //dur
+    				MathUtils.getRandomNumberInRange(0.9f, 1.4f), //dur
     				COLOR_X2);
         	
         }

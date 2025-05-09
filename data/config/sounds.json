@@ -345,4 +345,14 @@
 		{"file":"sounds/sfx_wpn_guns/heavy_mortar_fire_01.ogg","pitch":0.85,"volume":0.85},
 	],
 
+	"A_S-F_jury_fire":
+	[
+		{"file":"sounds/sfx_wpn_guns/A_S-F_jury_fire_01.ogg","pitch":1.0,"volume":0.55},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_jury_fire_01.ogg","pitch":1.05,"volume":0.55},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_jury_fire_01.ogg","pitch":1.1,"volume":0.55},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_jury_fire_02.ogg","pitch":1.0,"volume":0.55},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_jury_fire_02.ogg","pitch":1.05,"volume":0.55},
+		{"file":"sounds/sfx_wpn_guns/A_S-F_jury_fire_02.ogg","pitch":1.1,"volume":0.55},
+	],
+
 }

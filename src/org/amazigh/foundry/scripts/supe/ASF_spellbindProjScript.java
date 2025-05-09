@@ -16,10 +16,10 @@ import java.util.List;
 
 public class ASF_spellbindProjScript extends BaseEveryFrameCombatPlugin {
 
-	private float timeCounter = 0.2f; // to "jumpstart" the first explosion spawn
+	private float timeCounter = 0.15f; // to "jumpstart" the first explosion spawn
 	private float fxCounter; // variables to check when to do the stuff.
 	private float timeMemory; // variable to remember how long the proj has existed for in total.
-
+	
 	private DamagingProjectileAPI proj; // The projectile itself
 	
 	private static final Color COLOR_N = new Color(210,255,120,160);
@@ -52,12 +52,13 @@ public class ASF_spellbindProjScript extends BaseEveryFrameCombatPlugin {
 		if (proj.getBaseDamageAmount() == 200f) {
 			engine.removePlugin(this);
 			return;
-			// little sanity check to prevent this from attaching to the ""flak mines"" 
+			// little (unneeded?) sanity check to prevent this from attaching to the ""flak mines"" 
 		}
 		
 		Vector2f point = proj.getLocation();
 		
 		timeMemory += amount;
+		timeMemory = Math.min(5f, timeMemory); // capping time scaling, to prevent it going weird if/when (let's be real, it's when) someone manages to *massively* boost range
 		
 		// ""trail""
 		fxCounter += amount;
@@ -72,7 +73,7 @@ public class ASF_spellbindProjScript extends BaseEveryFrameCombatPlugin {
 						COLOR_P);
 			}
 			
-			float count_neb = Math.max(0.1f, timeMemory * MathUtils.getRandomNumberInRange(0.4f, 0.9f));
+			float count_neb = Math.max(0.1f, timeMemory * MathUtils.getRandomNumberInRange(0.34f, 0.69f));
 			for (int i=0; i < count_neb; i++) {
 				engine.addNebulaParticle(MathUtils.getRandomPointInCircle(point, 12f + (timeMemory * 35f)),
 						MathUtils.getRandomPointInCircle(null, 20f + (timeMemory * 3f)),
@@ -87,31 +88,24 @@ public class ASF_spellbindProjScript extends BaseEveryFrameCombatPlugin {
 			fxCounter -= 0.05f;
 		}
 		
-		timeCounter += (amount * (1f + (timeMemory / 4f)));
+		timeCounter += (amount * (1f + (timeMemory / 4f))); // spawn rate increases over proj lifetime
 		if (timeCounter >= 0.35f) {
 			
 			Vector2f fxVel = MathUtils.getRandomPointInCircle(null, 5f);
 	        
-			float count_b = Math.max(0.1f, timeMemory * MathUtils.getRandomNumberInRange(0.5f, 1f));
+			float count_b = 0.1f + (timeMemory * MathUtils.getRandomNumberInRange(0.5f, 1f));
 			// blast count scales up as time goes up, semi-random
 				// 1 guaranteed spawn, and it spawns up to 1 more for each second it has been in flight, but will never be below half of the current max spawn count
 			
-			float count_f = (timeMemory * MathUtils.getRandomNumberInRange(0.5f, 1f)) - MathUtils.getRandomNumberInRange(0f, 1f); 
-					// timeMemory - MathUtils.getRandomNumberInRange(0f, 1f);
-						// OLD: // flak count scales up as time goes up, semi-random, with 1 guaranteed spawn for every second the proj has been in flight
-			// flak count scales the same as blast count, but with a random chance of spawning one fewer flak (potentially no flak spawn!) than how many blasts will be spawned
+			float count_f = (timeMemory * MathUtils.getRandomNumberInRange(0.5f, 1.3f)); 
+			// flak count scales slightly faster (on average) than blast count
 			
 			//spawn explosion
 			float blastDamage = proj.getDamageAmount() * 0.2f;
-
-	        // blast damage is reduced at (longer) ranges, to stop this being (completely) sicko if you stack range boosting stuff
-	        if (timeMemory > 3.2f) {
-	        	blastDamage *= (3.2f / (timeMemory));
-	        }
 			
 			DamagingExplosionSpec blast = new DamagingExplosionSpec(0.2f,
-	                160f,
-	                90f,
+	                180f, //160
+	                105f, //90
 	                blastDamage,
 	                blastDamage * 0.6f,
 	                CollisionClass.PROJECTILE_FF,
@@ -133,9 +127,11 @@ public class ASF_spellbindProjScript extends BaseEveryFrameCombatPlugin {
 			
 	        
 			for (int i=0; i < count_b; i++) {
+
+				float blastDist = Math.min(210f, 50f + (timeMemory * 30f)); //50 + t *25
 				
 		        Vector2f blastSide = MathUtils.getPointOnCircumference(point, MathUtils.getRandomNumberInRange(-(timeMemory * 55f), timeMemory * 55f), proj.getFacing() + 90f);
-		        Vector2f blastPoint = MathUtils.getRandomPointInCircle(blastSide, 50f + (timeMemory * 25f));
+		        Vector2f blastPoint = MathUtils.getRandomPointInCircle(blastSide, blastDist);
 		        engine.spawnDamagingExplosion(blast, proj.getSource(), blastPoint, false);
 		        
 		        engine.addNebulaParticle(blastPoint,
@@ -165,9 +161,11 @@ public class ASF_spellbindProjScript extends BaseEveryFrameCombatPlugin {
 			
 			for (int i=0; i < count_f; i++) {
 				
+				float flakDist = Math.min(210f, 50f + (timeMemory * 30f)); //50 + t *25
+				
 		        //spawn ""flak mine""
 				Vector2f flakSide = MathUtils.getPointOnCircumference(point, MathUtils.getRandomNumberInRange(-(timeMemory * 45f), timeMemory * 45f), proj.getFacing() + 90f);
-		        Vector2f flakPoint = MathUtils.getRandomPointInCircle(flakSide, 50f + (timeMemory * 25f));
+		        Vector2f flakPoint = MathUtils.getRandomPointInCircle(flakSide, flakDist); 
 		        
 		        engine.spawnProjectile(proj.getSource(),
 		        		proj.getWeapon(),
@@ -184,6 +182,15 @@ public class ASF_spellbindProjScript extends BaseEveryFrameCombatPlugin {
 							MathUtils.getRandomNumberInRange(0.7f, 0.9f), //duration
 							COLOR_P);
 				}
+				
+				engine.addNebulaParticle(flakPoint,
+						MathUtils.getPointOnCircumference(fxVel, 40f, proj.getFacing()),
+						MathUtils.getRandomNumberInRange(45f, 60f),
+						1.25f,
+						0.69f,
+						0.35f,
+						MathUtils.getRandomNumberInRange(1.1f, 1.5f),
+						COLOR_N);
 			}
 	        
 			//play sound

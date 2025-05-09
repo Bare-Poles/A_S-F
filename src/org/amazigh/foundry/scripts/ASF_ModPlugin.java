@@ -11,6 +11,7 @@ import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
+import com.fs.starfarer.api.impl.codex.CodexDataV2;
 import com.fs.starfarer.api.loading.Description;
 
 import org.amazigh.foundry.scripts.ai.ASF_AlbatreosMagicMissileAI;
@@ -198,4 +199,39 @@ public class ASF_ModPlugin extends BaseModPlugin {
                 return null;
         }
     }
+    
+    @Override
+	public void onCodexDataGenerated() {
+		
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_auditor"), CodexDataV2.getShipEntryId("A_S-F_auditor_mod"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_rinka"), CodexDataV2.getShipEntryId("A_S-F_rinka_p"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_gaoler"), CodexDataV2.getShipEntryId("A_S-F_mancatcher"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_bathory"), CodexDataV2.getShipEntryId("A_S-F_bathory_mod"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_henki"), CodexDataV2.getShipEntryId("A_S-F_pneuma"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_niteo"), CodexDataV2.getShipEntryId("A_S-F_lafiel"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_morris"), CodexDataV2.getShipEntryId("A_S-F_morris_p"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_peryton"), CodexDataV2.getShipEntryId("A_S-F_perytonne"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_lanner"), CodexDataV2.getShipEntryId("A_S-F_lanner_p"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_apologee"), CodexDataV2.getShipEntryId("apogee"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_phobia"), CodexDataV2.getShipEntryId("A_S-F_jorogumo"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_initone"), CodexDataV2.getShipEntryId("A_S-F_initone_lg"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_chompiron"), CodexDataV2.getShipEntryId("champion"));
+		
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyEnergy"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyFlux"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyShields"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyTargeting"));
+		
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyEnergy"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyFlux"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyEnergy"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyShields"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyEnergy"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyTargeting"));
+
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyFlux"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyShields"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyFlux"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyTargeting"));
+		
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyShields"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyTargeting"));
+		// linking the anarchy hullmods, because it seems like an idea
+		
+	}
+    
 }

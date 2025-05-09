@@ -21,8 +21,8 @@
 					"shotRangeVariance":0.9,
 					"range":0,
 					"explosionSpec":{"duration":0.2f,
-									 "radius":90,
-									 "coreRadius":60,
+									 "radius":100, #90
+									 "coreRadius":69, #60
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":4.0,

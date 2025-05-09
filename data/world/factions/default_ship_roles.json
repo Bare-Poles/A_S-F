@@ -222,6 +222,11 @@
     "A_S-F_margrave_stk":0, # PL
     "A_S-F_margrave_sup":0, # PL
     "A_S-F_margrave_sup2":2.5,
+
+    "A_S-F_glentoran_ass":2.1,
+    "A_S-F_glentoran_brrg":1,
+    "A_S-F_glentoran_brwl":2.2,
+    "A_S-F_glentoran_std":2.2,
   },
 
   "carrierSmall": {

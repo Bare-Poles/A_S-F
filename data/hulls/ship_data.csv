@@ -78,8 +78,10 @@ Chompiron,A_S-F_chompiron,Cruiser,[Anomalous],ammofeed,40,12000,1500,10000,,700,
 Scrag,A_S-F_scrag,Fast Cruiser,Pirate,A_S-F_scragBurn,12,8000,1100,8000,,400,120,,80,75,65,25,60,1750,FRONT,,130,0.4,1,,,100,130,80,100,4,25,9,100000,4,12,540,0.25,16,16,,rare_bp,,,0.5,2,4,222404.5
 Marlow,A_S-F_marlow,Heavy Cruiser,Low Tech,reservewing,16,12000,1200,8000,,450,140,1,40,25,15,12,12,2400,OMNI,,110,0.4,1,,,280,420,160,150,5,30,8,150000,4,12,540,0.25,26,26,"CARRIER, COMBAT, NO_AUTO_ESCORT","rare_bp, merc",,,0.4,2,3,222405.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Berzelius,A_S-F_berzelius,Proto-Ark,[ArkTech],A_S-F_loaderOverdrive_berz,66,20000,1800,20000,,1100,430,2,35,30,20,6,9,3800,OMNI,,160,0.4,1.1,,,0,0,300,400,15,27,7,1600000,3,12,900,0.2,75,75,UNBOARDABLE,"no_dealer, no_autofit, codex_unlockable",,,0.4,2,4,222346
 Margrave,A_S-F_margrave,Battlecruiser,Midline,A_S-F_quickBoost,24,11000,1100,15000,,900,275,,60,40,30,8,10,2400,OMNI,,90,0.4,1,,,350,450,300,300,10,30,8,320000,3,15,600,0.25,40,40,,"rare_bp, merc",,,0.5,2,4,222503
+Glentoran,A_S-F_glentoran,Battleship,Low Tech,burndrive,28,22000,1700,19000,,700,320,,30,15,15,6,6,3600,FRONT,,160,0.4,1,,,800,1600,300,400,15,27,7,350000,3,12,720,0.25,40,40,,"rare_bp, merc",,,0.4,2,4,222500
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Shackle Drone,A_S-F_drone_shackle,,,,,150,20,100,,50,,,225,250,200,150,250,10,NONE,,,,,,,0,0,,,,,,,,,,,,,UNBOARDABLE,no_dealer,Not available (drone),,0,,,22203

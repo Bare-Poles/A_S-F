@@ -689,6 +689,7 @@
 		"fleet_composition_faction": "A_S-F_arkTechD",
 		"fleet_composition_quality": 1,
 		"fleet_transponder": false,
+		"fleet_no_retreat": true,
 		"fleet_behavior": "AGGRESSIVE",
 
 		"location_distance": "CLOSE",

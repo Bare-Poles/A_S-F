@@ -50,4 +50,28 @@
 		],
 	},
 
+	"weaponSellFrequency":{
+		"A_S-F_plas_burster":3,
+		"A_S-F_ir_autopulse":3,
+		"A_S-F_x-pulse":4,
+		"A_S-F_electroThermal_blaster":3,
+		"A_S-F_strobe":6,
+		"A_S-F_micropulser":4,
+		"A_S-F_heavypulser":4,
+
+		"A_S-F_bipartisan":4,
+		"A_S-F_gimbal":4,
+		"A_S-F_sprocket":4,
+		"A_S-F_omer":2,
+		"A_S-F_albatreos":3,
+		"A_S-F_termite":7,
+		"A_S-F_cauldron_pod":5,
+	},
+
+	"hullmodSellFrequency":{
+		"A_S-F_ElectroVent":6,
+		"A_S-F_anarchyEnergy":3,
+		"A_S-F_anarchyShields":3,
+	},	
+
 },

@@ -151,10 +151,12 @@ A_S-F_heatstroke_shot_sparkles_2,A_S-F_heatstroke_shot,A_S-F_trail_sparkle_light
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 A_S-F_heatstroke_sub_shot_smoke,A_S-F_heatstroke_sub_shot,base_trail_heavySmoke,10,0.1,0.1,0.35,7,17,"[55,55,50]","[110,110,135]",0.35,320,5,TRUE,-20,2,0,0,TRUE,FALSE,FALSE,0,25,0,0,0,20,true,false
 A_S-F_heatstroke_sub_shot_core,A_S-F_heatstroke_sub_shot,base_trail_zapWithCore,10,0,0,0.4,6,4,"[255,76,58]","[192,57,44]",0.4,200,100,TRUE,-10,0,0,0,TRUE,FALSE,FALSE,0,25,0,0,0,0,FALSE,false
-A_S-F_heatstroke_sub_shot_sparkles_1,A_S-F_heatstroke_sub_shot,A_S-F_trail_sparkle_light,10,0.05,0.05,0.35,9,10,"[255,121,92]","[255,101,77]",0.2,24,52,TRUE,5,1,0,0,TRUE,FALSE,FALSE,0,10,0.1,0,0,0,FALSE,false
-A_S-F_heatstroke_sub_shot_sparkles_2,A_S-F_heatstroke_sub_shot,A_S-F_trail_sparkle_light,10,0.05,0.05,0.35,9,10,"[255,121,92]","[255,101,77]",0.2,24,-52,TRUE,5,1,0,0,TRUE,FALSE,FALSE,0,-10,0.1,0,0,0,FALSE,false
+A_S-F_heatstroke_sub_shot_sparkles_1,A_S-F_heatstroke_sub_shot,A_S-F_trail_sparkle_light,10,0.05,0.05,0.35,9,10,"[255,121,92]","[255,101,77]",0.2,24,52,TRUE,5,1,0,0,TRUE,FALSE,FALSE,-5,10,0.1,0,0,0,FALSE,false
+A_S-F_heatstroke_sub_shot_sparkles_2,A_S-F_heatstroke_sub_shot,A_S-F_trail_sparkle_light,10,0.05,0.05,0.35,9,10,"[255,121,92]","[255,101,77]",0.2,24,-52,TRUE,5,1,0,0,TRUE,FALSE,FALSE,5,-10,0.1,0,0,0,FALSE,false
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 A_S-F_bludgeon_shot_core,A_S-F_bludgeon_shot,base_trail_zap,10,0,0,0.21,11,11,"[255,111,55]","[204,57,34]",0.69,240,5,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0,0,0,0,false,false
 A_S-F_bludgeon_shot_smoke,A_S-F_bludgeon_shot,base_trail_heavySmoke,10,0.05,0.1,0.3,15,42,"[85,77,72]","[32,40,29]",0.5,240,5,TRUE,0,3,1,0,TRUE,FALSE,FALSE,0,0,0,0,0,0,true,false
 A_S-F_bludgeon_shot_cinder,A_S-F_bludgeon_shot,base_trail_rough,10,0,0.05,0.1,6,10,"[255,210,95]","[60,42,20]",0.95,240,5,TRUE,10,4,1,0,TRUE,FALSE,TRUE,0,0,0,0,0,0,false,false
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+A_S-F_jury_shot,A_S-F_jury_shot,base_trail_smoke,10,0.06,0.06,0.16,7,4,"[200,90,90]","[60,25,20]",0.35,256,10,TRUE,5,2,1,0,TRUE,FALSE,TRUE,0,30,0.15,0,0,90,true,TRUE
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

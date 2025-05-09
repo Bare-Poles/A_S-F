@@ -21,7 +21,7 @@ public class ASF_spellbindOnExplosionEffect implements ProximityExplosionEffect 
         
         engine.addNebulaParticle(point,
 				fxVel,
-				MathUtils.getRandomNumberInRange(60f, 75f),
+				MathUtils.getRandomNumberInRange(69f, 85f), //60-75
 				MathUtils.getRandomNumberInRange(1.5f, 2.0f),
 				0.8f,
 				0.4f,
@@ -34,7 +34,7 @@ public class ASF_spellbindOnExplosionEffect implements ProximityExplosionEffect 
 			    explosion.getSource(),
 			    point,
 			    4,
-			    160,
+			    169, //160
 			    MathUtils.getRandomNumberInRange(0f, 180f),
 			    new Color(90,105,50),
 				new Color(190,200,160));
