@@ -60,7 +60,7 @@ public class ASF_integratedRangefinders extends BaseHullMod {
 					bonus = BONUS_MEDIUM;
 				}
 				if (weapon.getSize() == WeaponSize.LARGE) {
-					bonus = BONUS_MEDIUM;
+					bonus = BONUS_LARGE;
 				}
 				if (weapon.hasAIHint(AIHints.PD)) {
 					bonus *= 0.5f;
