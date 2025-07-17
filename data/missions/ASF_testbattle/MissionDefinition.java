@@ -39,6 +39,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_p_custom", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_mancatcher_custom", FleetMemberType.SHIP, "This Is A Test", false);
 		
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_micare_ass", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_axicon_stk", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_niteo_ass", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_ilgryps_assault", FleetMemberType.SHIP, "This Is A Test", false);
@@ -49,12 +50,15 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_margrave_stk", FleetMemberType.SHIP, "Trial", true);
+		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_glentoran_ass", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_phobia_ass", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_elt", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_marlow_stk", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_ecumenist_ass", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_triarii_std", FleetMemberType.SHIP, "Trial", false); //sup
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_alqand_std", FleetMemberType.SHIP, "Trial", false);
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_porroko_sup", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_ocklynge_std", FleetMemberType.SHIP, "Trial", false); //ass
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_std", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_initone_lg_elt", FleetMemberType.SHIP, "Trial", false);
@@ -89,6 +93,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "doom_Strike", FleetMemberType.SHIP, "Search Dialog", false);
 		api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, "Explosively Fortunate", false);
 		api.addToFleet(FleetSide.ENEMY, "champion_Support", FleetMemberType.SHIP, "Extreme Rendition", false);
+		api.addToFleet(FleetSide.ENEMY, "champion_Support", FleetMemberType.SHIP, "Negligent Affection", false);
 		api.addToFleet(FleetSide.ENEMY, "eradicator_Assault", FleetMemberType.SHIP, "Terminal Attention", false);
 		api.addToFleet(FleetSide.ENEMY, "eradicator_Support", FleetMemberType.SHIP, "Two Years Of Plotting", false);
 		api.addToFleet(FleetSide.ENEMY, "apogee_Balanced", FleetMemberType.SHIP, "Low Price Point", false);
@@ -100,6 +105,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "manticore_Assault", FleetMemberType.SHIP, "Strange Feeling", false);
 		api.addToFleet(FleetSide.ENEMY, "manticore_Support", FleetMemberType.SHIP, "Proudly Made", false);
 		api.addToFleet(FleetSide.ENEMY, "medusa_PD", FleetMemberType.SHIP, "Harsh Words", false);
+		api.addToFleet(FleetSide.ENEMY, "medusa_PD", FleetMemberType.SHIP, "Cobbled Together", false);
 		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Common Type", false);
 		api.addToFleet(FleetSide.ENEMY, "shrike_Attack", FleetMemberType.SHIP, "Only Interested", false);
 		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, "Please Transfer", false);
@@ -118,7 +124,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "lasher_luddic_church_Standard", FleetMemberType.SHIP, "The Rest Is History", false);
 		
 		
-		// api.defeatOnShipLoss("When Not Provided");
 		
 		// Set up the map.
 		float width = 18000f;

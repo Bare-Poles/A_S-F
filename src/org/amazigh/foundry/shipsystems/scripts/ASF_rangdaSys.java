@@ -28,7 +28,7 @@ public class ASF_rangdaSys extends BaseShipSystemScript {
 	
 	public static final float VEL_BONUS = 1.08f;
 	
-	public static final float MISSILE_REGEN_MALUS = 3f;
+	public static final float MISSILE_REGEN_MALUS = 0.25f;
 	
 	public static final float EXIT_ROF_MALUS = 0.2f;
 	
@@ -100,7 +100,8 @@ public class ASF_rangdaSys extends BaseShipSystemScript {
 					ship.setJitterUnder(this, JITTER_UNDER_COLOR, jitterLevel, 10, 0f, 8f + jitterRangeBonus);
 					
 			        ship.syncWithArmorGridState();
-
+			        ship.syncWeaponDecalsWithArmorDamage();
+			        
 		        	REPAIR = true;
 		        } else {
 		        	REPAIR = false;
@@ -117,8 +118,7 @@ public class ASF_rangdaSys extends BaseShipSystemScript {
 			stats.getBallisticProjectileSpeedMult().modifyMult(id, VEL_BONUS);
 			// small hidden velocity bonus, to make weapons more easily aimable
 			
-			float missileMult = 1f / (MISSILE_REGEN_MALUS * effectLevel);
-			stats.getMissileAmmoRegenMult().modifyMult(id, missileMult);
+			stats.getMissileAmmoRegenMult().modifyMult(id, MISSILE_REGEN_MALUS);
 			// only get the weapon buffs when IN/ACTIVE
 		}
 		
@@ -143,14 +143,15 @@ public class ASF_rangdaSys extends BaseShipSystemScript {
         		        // spawns a "purge" "steam vent" when in the out state
         				// which is greenish if repairing
         			} else {
-        				engine.addSmoothParticle(posZero, ship.getVelocity(), MathUtils.getRandomNumberInRange(25f, 35f), intensity, 0.1f, new Color(1f,120f/255f,80f/255f,effectLevel));
+        				float glowAlpha = effectLevel * 0.5f;
+        				engine.addSmoothParticle(posZero, ship.getVelocity(), MathUtils.getRandomNumberInRange(25f, 35f), intensity, 0.1f, new Color(1f,120f/255f,80f/255f,glowAlpha));
         				
-        				Vector2f fastParticleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(80f, 250f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-17f, 17f));
+        				Vector2f fastParticleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(80f, 256f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-17f, 17f));
         	            float randomSize01 = MathUtils.getRandomNumberInRange(3f, 5f);
         	            engine.addSmoothParticle(MathUtils.getRandomPointOnCircumference(posZero, 4f), fastParticleVel, randomSize01, intensity, MathUtils.getRandomNumberInRange(0.2f, 0.25f), new Color(1f,120f/255f,80f/255f,effectLevel));
         				
             			for (int i=0; i < 2; i++) {
-            				Vector2f particleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(35f, 125f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-20f, 20f));
+            				Vector2f particleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(35f, 128f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-20f, 20f));
             	            float randomSize1 = MathUtils.getRandomNumberInRange(3f, 5f);
             	            engine.addSmoothParticle(MathUtils.getRandomPointOnCircumference(posZero, 4f), particleVel, randomSize1, intensity, MathUtils.getRandomNumberInRange(0.35f, 0.5f), new Color(1f,120f/255f,80f/255f,effectLevel));
             	            // spawns "spark" particles when active
@@ -178,14 +179,15 @@ public class ASF_rangdaSys extends BaseShipSystemScript {
         		        // spawns a "purge" "steam vent" when in the out state
         				// which is greenish if repairing
         			} else {
-        				engine.addSmoothParticle(posZero, ship.getVelocity(), MathUtils.getRandomNumberInRange(25f, 35f), intensity, 0.1f, new Color(1f,120f/255f,80f/255f,effectLevel));
+        				float glowAlpha = effectLevel * 0.5f;
+        				engine.addSmoothParticle(posZero, ship.getVelocity(), MathUtils.getRandomNumberInRange(25f, 35f), intensity, 0.1f, new Color(1f,120f/255f,80f/255f,glowAlpha));
         				
-        				Vector2f fastParticleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(80f, 250f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-17f, 17f));
+        				Vector2f fastParticleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(80f, 256f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-17f, 17f));
         	            float randomSize01 = MathUtils.getRandomNumberInRange(3f, 5f);
         	            engine.addSmoothParticle(MathUtils.getRandomPointOnCircumference(posZero, 4f), fastParticleVel, randomSize01, intensity, MathUtils.getRandomNumberInRange(0.2f, 0.25f), new Color(1f,120f/255f,80f/255f,effectLevel));
         				
             			for (int i=0; i < 2; i++) {
-            				Vector2f particleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(35f, 125f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-20f, 20f));
+            				Vector2f particleVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(35f, 128f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-20f, 20f));
             	            float randomSize1 = MathUtils.getRandomNumberInRange(3f, 5f);
             	            engine.addSmoothParticle(MathUtils.getRandomPointOnCircumference(posZero, 4f), particleVel, randomSize1, intensity, MathUtils.getRandomNumberInRange(0.35f, 0.5f), new Color(1f,120f/255f,80f/255f,effectLevel));
             	            // spawns "spark" particles when active

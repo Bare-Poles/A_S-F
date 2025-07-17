@@ -2,6 +2,7 @@ package org.amazigh.foundry.scripts;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -25,32 +26,39 @@ public class ASF_TereshkovOnHitEffect implements OnHitEffectPlugin {
 		
         engine.spawnExplosion(point, fxVel, COLOR_U, 90f, 1.45f);
 		
-        for (int i=0; i < 15; i++) {
-            Vector2f randomVel = MathUtils.getRandomPointOnCircumference(fxVel, MathUtils.getRandomNumberInRange(25f, 60f));
-            
-            float randomSize = MathUtils.getRandomNumberInRange(10f, 25f);
-            float randomTime = MathUtils.getRandomNumberInRange(0.85f, 1.25f);
-            Global.getCombatEngine().addSmoothParticle(point,
-                randomVel,
-                randomSize, //size
-                1.0f, //brightness
-                randomTime, //duration
-                new Color(255,190,100,255));
-        }
+//        for (int i=0; i < 15; i++) {
+//            Vector2f randomVel = MathUtils.getRandomPointOnCircumference(fxVel, MathUtils.getRandomNumberInRange(25f, 60f));
+//            
+//            float randomSize = MathUtils.getRandomNumberInRange(10f, 25f);
+//            float randomTime = MathUtils.getRandomNumberInRange(0.85f, 1.25f);
+//            Global.getCombatEngine().addSmoothParticle(point,
+//                randomVel,
+//                randomSize, //size
+//                1.0f, //brightness
+//                randomTime, //duration
+//                new Color(255,190,100,255));
+//        }
+        
+        ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) target);
+        emitter.location(point);
+		emitter.life(0.85f, 1.25f);
+		emitter.size(10f, 25f);
+		emitter.velocity(24f, 35f);
+		emitter.color(255,190,100,255);
+		emitter.lifeLinkage(false);
+		emitter.burst(15);
         
         for (int i=0; i < 5; i++) {
 			
-            float arcRandom = MathUtils.getRandomNumberInRange(-50, 50);
+            float arcRandom = (i * 18f) - 36f + MathUtils.getRandomNumberInRange(-4f, 4f);
             
             Vector2f origin = MathUtils.getPointOnCircumference(point, MathUtils.getRandomNumberInRange(40f, 55f), projectile.getFacing() + 180f + arcRandom);
-            
-            Vector2f randomVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(15f, 30f));
             
             engine.spawnProjectile(projectile.getSource(),
                         projectile.getWeapon(), "A_S-F_tereshkov_onhit",
                          origin,
                          projectile.getFacing() + arcRandom,
-                         randomVel);
+                         null);
           }
         
 		Global.getSoundPlayer().playSound("system_canister_flak_explosion", 0.70f, 1.1f, point, fxVel);

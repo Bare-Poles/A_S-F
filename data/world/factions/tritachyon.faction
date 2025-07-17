@@ -10,6 +10,7 @@
 
             "A_S-F_phobia",
             "A_S-F_ecumenist",
+            "A_S-F_alqand",
         ],
     },
 
@@ -29,6 +30,7 @@
 			"A_S-F_strobe",
 			"A_S-F_micropulser",
 			"A_S-F_heavypulser",
+			"A_S-F_painter",
 
 			"A_S-F_bramble",
 			"A_S-F_bipartisan",
@@ -58,6 +60,7 @@
 		"A_S-F_strobe":6,
 		"A_S-F_micropulser":4,
 		"A_S-F_heavypulser":4,
+		"A_S-F_painter":4,
 
 		"A_S-F_bipartisan":4,
 		"A_S-F_gimbal":4,

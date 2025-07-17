@@ -15,6 +15,7 @@ import org.magiclib.util.MagicTargeting;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
@@ -273,15 +274,25 @@ public class ASF_LamiaMissileAI implements MissileAIPlugin, GuidedMissileAI {
         	
         	if (jetInterval.intervalElapsed()) {
 
-        		Vector2f vel = MISSILE.getVelocity();
+//        		Vector2f vel = MISSILE.getVelocity();
             	Vector2f loc = MISSILE.getLocation();
             	
-        		for (int i=0; i < 9; i++) {
-        			Vector2f muzzleLoc = MathUtils.getPointOnCircumference(loc, MathUtils.getRandomNumberInRange(6f, 22f), MISSILE.getFacing());
-            		Vector2f muzzleRandomVel = MathUtils.getPointOnCircumference(vel, MathUtils.getRandomNumberInRange(15f, 145f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-1f, 1f));
-            		
-            		engine.addSmoothParticle(muzzleLoc, muzzleRandomVel, MathUtils.getRandomNumberInRange(3f, 6f), 1f, MathUtils.getRandomNumberInRange(0.2f, 0.25f),  new Color(25,130,130,160));
-            	}
+//        		for (int i=0; i < 9; i++) {
+//        			Vector2f muzzleLoc = MathUtils.getPointOnCircumference(loc, MathUtils.getRandomNumberInRange(6f, 22f), MISSILE.getFacing());
+//            		Vector2f muzzleRandomVel = MathUtils.getPointOnCircumference(vel, MathUtils.getRandomNumberInRange(15f, 145f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-1f, 1f));
+//            		
+//            		engine.addSmoothParticle(muzzleLoc, muzzleRandomVel, MathUtils.getRandomNumberInRange(3f, 6f), 1f, MathUtils.getRandomNumberInRange(0.2f, 0.25f),  new Color(25,130,130,160));
+//            	}
+        		ASF_RadialEmitter emitterJet = new ASF_RadialEmitter((CombatEntityAPI) MISSILE);
+        		emitterJet.location(loc);
+        		emitterJet.angle(MISSILE.getFacing() -1f, 2f);
+        		emitterJet.life(0.2f, 0.25f);
+        		emitterJet.size(3f, 6f);
+        		emitterJet.velocity(15f, 130f);
+        		emitterJet.distance(6f, 14f);
+        		emitterJet.color(25,130,130,160);
+        		emitterJet.velDistLinkage(false);
+        		emitterJet.burst(9);
         		
                 Vector2f dampedVel = MISSILE.getVelocity();
                 dampedVel.x = dampedVel.x * 0.85f;
@@ -301,7 +312,7 @@ public class ASF_LamiaMissileAI implements MissileAIPlugin, GuidedMissileAI {
         			
         			engine.spawnProjectile(MISSILE.getSource(), MISSILE.getWeapon(), "A_S-F_lamia_bolt",
         					loc,
-        					MISSILE.getFacing() + ((i * 6f) - 12f) + MathUtils.getRandomNumberInRange(-3f, 3f),
+        					MISSILE.getFacing() + ((i * 6f) - 6f) + MathUtils.getRandomNumberInRange(-3f, 3f),
         					MathUtils.getRandomPointInCircle(vel, 40f));
     				
         			Vector2f meltLoc = MathUtils.getRandomPointInCircle(loc, 15f);
@@ -311,24 +322,43 @@ public class ASF_LamiaMissileAI implements MissileAIPlugin, GuidedMissileAI {
             				MathUtils.getRandomNumberInRange(0.6f, 0.85f),
             				new Color(200,160,50,150));
         			
-        			
-        			for (int j=0; j < 5; j++) {
-                		Vector2f muzzleLoc = MathUtils.getPointOnCircumference(loc, MathUtils.getRandomNumberInRange(9f, 35f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-18f, 18f));
-                		Vector2f muzzleRandomVel = MathUtils.getPointOnCircumference(vel, MathUtils.getRandomNumberInRange(15f, 50f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-18f, 18f));
-                		
-                		engine.addSmoothParticle(muzzleLoc, muzzleRandomVel, MathUtils.getRandomNumberInRange(6f, 14f), 1f, MathUtils.getRandomNumberInRange(0.25f, 0.35f), new Color(100,225,230,255));
-                		
-                		for (int k=0; k < 2; k++) {
-                			Vector2f sparkLoc = MathUtils.getRandomPointInCircle(loc, 15f);
-                			Vector2f sparkRandomVel = MathUtils.getRandomPointOnCircumference(vel, MathUtils.getRandomNumberInRange(15f, 35f));
-                    		
-                    		engine.addSmoothParticle(sparkLoc, sparkRandomVel, MathUtils.getRandomNumberInRange(4f, 10f), 1f,
-                    				MathUtils.getRandomNumberInRange(0.3f, 0.4f),
-                    				new Color(50,180,180,200));
-                		}
-                		
-                	}
+//        			for (int j=0; j < 5; j++) {
+//                		Vector2f muzzleLoc = MathUtils.getPointOnCircumference(loc, MathUtils.getRandomNumberInRange(9f, 35f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-18f, 18f));
+//                		Vector2f muzzleRandomVel = MathUtils.getPointOnCircumference(vel, MathUtils.getRandomNumberInRange(15f, 50f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-18f, 18f));
+//                		
+//                		engine.addSmoothParticle(muzzleLoc, muzzleRandomVel, MathUtils.getRandomNumberInRange(6f, 14f), 1f, MathUtils.getRandomNumberInRange(0.25f, 0.35f), new Color(100,225,230,255));
+//                		
+////                		for (int k=0; k < 2; k++) {
+////                			Vector2f sparkLoc = MathUtils.getRandomPointInCircle(loc, 15f);
+////                			Vector2f sparkRandomVel = MathUtils.getRandomPointOnCircumference(vel, MathUtils.getRandomNumberInRange(15f, 35f));
+////                    		
+////                    		engine.addSmoothParticle(sparkLoc, sparkRandomVel, MathUtils.getRandomNumberInRange(4f, 10f), 1f,
+////                    				MathUtils.getRandomNumberInRange(0.3f, 0.4f),
+////                    				new Color(50,180,180,200));
+////                		}
+//                		
+//                	}
             	}
+        		
+        		ASF_RadialEmitter emitter1 = new ASF_RadialEmitter((CombatEntityAPI) MISSILE);
+        		emitter1.location(loc);
+        		emitter1.angle(MISSILE.getFacing() - 18f, 36f);
+        		emitter1.life(0.25f, 0.35f);
+        		emitter1.size(6f, 14f);
+        		emitter1.velocity(15f, 35f);
+        		emitter1.distance(9f, 26f);
+        		emitter1.color(100,225,230,255);
+        		emitter1.velDistLinkage(false);
+        		emitter1.burst(15);
+        		
+        		ASF_RadialEmitter emitter2 = new ASF_RadialEmitter((CombatEntityAPI) MISSILE);
+        		emitter2.location(loc);
+        		emitter2.life(0.3f, 0.4f);
+        		emitter2.size(4f, 10f);
+        		emitter2.velocity(15f, 35f);
+        		emitter2.color(50,180,180,200);
+        		emitter2.coreDispersion(15f);
+        		emitter2.burst(30);
         		
         		engine.addSmoothParticle(loc, vel, 69f, 1f, 0.1f, new Color(100,230,235,255));
         		engine.addSmokeParticle(loc, vel, 30f, 0.9f, 0.7f, new Color(100,95,90,70));

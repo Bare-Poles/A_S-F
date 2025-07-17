@@ -2,7 +2,7 @@ package org.amazigh.foundry.scripts;
 
 import java.awt.Color;
 
-import org.lazywizard.lazylib.MathUtils;
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
@@ -46,20 +46,15 @@ public class ASF_DestructorOnHitEffect implements OnHitEffectPlugin {
 			fxVel.set(target.getVelocity());
 		}
         
-        for (int i=0; i < 80; i++) {
-            float dist = MathUtils.getRandomNumberInRange(3f, 25f);
-            float angle = MathUtils.getRandomNumberInRange(0f, 360f);
-            Vector2f offsetLoc = MathUtils.getPointOnCircumference(point, dist, angle);
-            Vector2f offsetVel = MathUtils.getPointOnCircumference(fxVel, dist * 6.5f, angle);
-            
-            Global.getCombatEngine().addSmoothParticle(offsetLoc,
-            		offsetVel,
-            		MathUtils.getRandomNumberInRange(3f, 7f), //size
-            		1.0f, //brightness
-            		MathUtils.getRandomNumberInRange(0.5f, 0.7f), //duration
-            		COLOR_P);
-        }
-        
+		ASF_RadialEmitter emitterPulse = new ASF_RadialEmitter((CombatEntityAPI) target);
+		emitterPulse.location(point);
+		emitterPulse.life(0.5f, 0.7f);
+		emitterPulse.size(3f, 7f);
+		emitterPulse.velocity(19.5f, 123.5f);
+		emitterPulse.distance(3f, 22f);
+		emitterPulse.color(255,125,0,255);
+		emitterPulse.burst(80);
+		
         Global.getCombatEngine().addSmoothParticle(point,
         		fxVel,
         		100f, //size

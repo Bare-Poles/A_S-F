@@ -15,8 +15,8 @@
 	"flameoutTime":1,
 	"noEngineGlowTime":0.2,
 	"fadeTime":0.5,
-	"engineSpec":{"turnAcc":2400,
-				  "turnRate":400,
+	"engineSpec":{"turnAcc":2500,
+				  "turnRate":500,
 				  "acc":1800,
 				  "dec":900},
 	"engineSlots":[{"id":"ES1",
@@ -27,7 +27,7 @@
 						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
 						"engineColor":[250,95,40,255],
 						"contrailDuration":0.8,
-						"contrailWidthMult":0.6,
+						"contrailWidthMult":0.72, #0.6
 						"contrailWidthAddedFractionAtEnd":1.2,# can be negative. makes trail spread out/narrow at the end
 						"contrailMinSeg":5, # min segment length, in pixels
 						"contrailMaxSpeedMult":0.1f,

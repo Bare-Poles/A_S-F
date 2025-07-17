@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
@@ -63,61 +64,52 @@ public class ASF_SilahaOnHitEffect implements OnHitEffectPlugin {
 		Global.getSoundPlayer().playSound("tachyon_lance_emp_impact", 0.8f, 1.1f, point, fxVel);
         
 		// frontal particles
-        for (int i=0; i < 80; i++) {
-        	Vector2f spawnLoc = MathUtils.getRandomPointInCone(point, 210f, projectile.getFacing() - 25f, projectile.getFacing() + 25f);
-        	
-            engine.addSmoothParticle(spawnLoc,
-            		MathUtils.getRandomPointOnCircumference(fxVel, 4f),
-            		MathUtils.getRandomNumberInRange(4f, 10f), //size
-            		1.0f, //brightness
-            		MathUtils.getRandomNumberInRange(0.6f, 1.2f), //duration
-            		SPARK_COLOR.darker());
-        }
+		ASF_RadialEmitter emitterFront = new ASF_RadialEmitter((CombatEntityAPI) target);
+		emitterFront.location(point);
+		emitterFront.angle(projectile.getFacing() -25f, 50f);
+		emitterFront.life(0.6f, 1.2f);
+		emitterFront.size(4f, 10f);
+		emitterFront.velocity(0f, 0f);
+		emitterFront.distance(0f, 210f);
+		emitterFront.color(SPARK_COLOR.darker().getRed(),SPARK_COLOR.darker().getGreen(),SPARK_COLOR.darker().getBlue(),SPARK_COLOR.darker().getAlpha());
+		emitterFront.coreDispersion(6f);
+        emitterFront.burst(80);
         
         // side particles
-        for (int i=0; i < 20; i++) {
-        	float sparkAngle1 = projectile.getFacing() + MathUtils.getRandomNumberInRange(79f, 89f);
-        	float sparkAngle2 = projectile.getFacing() - MathUtils.getRandomNumberInRange(79f, 89f);
-        	
-			Vector2f sparkVel1 = MathUtils.getPointOnCircumference(fxVel, MathUtils.getRandomNumberInRange(30f, 175f), sparkAngle1);
-			Vector2f sparkVel2 = MathUtils.getPointOnCircumference(fxVel, MathUtils.getRandomNumberInRange(30f, 175f), sparkAngle2);
-			
-			Global.getCombatEngine().addSmoothParticle(point,
-					sparkVel1,
-					MathUtils.getRandomNumberInRange(2f, 9f), //size
-					0.9f, //brightness
-					MathUtils.getRandomNumberInRange(0.6f, 1f), //duration
-					SPARK_COLOR.darker());
-			Global.getCombatEngine().addSmoothParticle(point,
-					sparkVel2,
-					MathUtils.getRandomNumberInRange(2f, 9f), //size
-					0.9f, //brightness
-					MathUtils.getRandomNumberInRange(0.6f, 1f), //duration
-					SPARK_COLOR.darker());
-        }
+        ASF_RadialEmitter emitterSide1 = new ASF_RadialEmitter((CombatEntityAPI) target);
+        emitterSide1.location(point);
+        emitterSide1.angle(projectile.getFacing() + 79f, 10f);
+        emitterSide1.life(0.6f, 1f);
+        emitterSide1.size(2f, 9f);
+        emitterSide1.velocity(30f, 145f);
+        emitterSide1.color(SPARK_COLOR.darker().getRed(),SPARK_COLOR.darker().getGreen(),SPARK_COLOR.darker().getBlue(),190);
+        emitterSide1.burst(20);
+        ASF_RadialEmitter emitterSide2 = new ASF_RadialEmitter((CombatEntityAPI) target);
+        emitterSide2.location(point);
+        emitterSide2.angle(projectile.getFacing() - 89f, 10f);
+        emitterSide2.life(0.6f, 1f);
+        emitterSide2.size(2f, 9f);
+        emitterSide2.velocity(30f, 145f);
+        emitterSide2.color(SPARK_COLOR.darker().getRed(),SPARK_COLOR.darker().getGreen(),SPARK_COLOR.darker().getBlue(),190);
+        emitterSide2.burst(20);
         
         // rear "jet" particles
-		for (int i=0; i < 20; i++) {
-			for (int j=0; j < 4; j++) {
-				Vector2f sparkVel1 = MathUtils.getPointOnCircumference(fxVel, MathUtils.getRandomNumberInRange(10f, 120f), projectile.getFacing() + MathUtils.getRandomNumberInRange(125f, 235f));
-				
-				engine.addSmoothParticle(point,
-						sparkVel1,
-						MathUtils.getRandomNumberInRange(3f, 8f), //size
-						0.8f, //brightness
-						MathUtils.getRandomNumberInRange(0.55f, 0.7f), //duration
-						SPARK_COLOR.darker());
-			}
-			
-			Vector2f sparkVel2 = MathUtils.getPointOnCircumference(fxVel, MathUtils.getRandomNumberInRange(80f, 280f), projectile.getFacing() + MathUtils.getRandomNumberInRange(177f, 183f));
-			
-			engine.addSmoothParticle(point,
-					sparkVel2,
-					MathUtils.getRandomNumberInRange(2f, 9f), //size
-					0.9f, //brightness
-					MathUtils.getRandomNumberInRange(0.6f, 0.8f), //duration
-					SPARK_COLOR);
-        }
+        ASF_RadialEmitter emitterRear1 = new ASF_RadialEmitter((CombatEntityAPI) target);
+        emitterRear1.location(point);
+        emitterRear1.angle(projectile.getFacing() + 125f, 110f);
+        emitterRear1.life(0.55f, 0.7f);
+        emitterRear1.size(3f, 8f);
+        emitterRear1.velocity(10f, 110f);
+        emitterRear1.color(SPARK_COLOR.darker().getRed(),SPARK_COLOR.darker().getGreen(),SPARK_COLOR.darker().getBlue(),170);
+        emitterRear1.burst(80);
+        ASF_RadialEmitter emitterRear2 = new ASF_RadialEmitter((CombatEntityAPI) target);
+        emitterRear2.location(point);
+        emitterRear2.angle(projectile.getFacing() + 177f, 6f);
+        emitterRear2.life(0.6f, 0.8f);
+        emitterRear2.size(2f, 9f);
+        emitterRear2.velocity(80f, 200f);
+        emitterRear2.color(SPARK_COLOR.getRed(),SPARK_COLOR.getGreen(),SPARK_COLOR.getBlue(),SPARK_COLOR.getAlpha());
+        emitterRear2.burst(20);
         
 	}
 }

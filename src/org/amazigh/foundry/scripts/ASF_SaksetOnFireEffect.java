@@ -2,11 +2,12 @@ package org.amazigh.foundry.scripts;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.OnFireEffectPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -49,28 +50,6 @@ public class ASF_SaksetOnFireEffect implements OnFireEffectPlugin {
     				MathUtils.getRandomNumberInRange(0.6f, 1.1f), //duration
     				new Color(120,105,90,75));
     		
-    		for (int i2=0; i2 <2; i2++) {
-        		// left/right particle jets
-            	float angleL2 = projectile.getFacing() + MathUtils.getRandomNumberInRange(-61f, -49f);
-                Vector2f offsetVelL = MathUtils.getPointOnCircumference(ship_velocity, MathUtils.getRandomNumberInRange(4f, 60f), angleL2);
-                Vector2f pointL2 = MathUtils.getPointOnCircumference(proj_location, MathUtils.getRandomNumberInRange(2f, 20f), angleL2);
-                Global.getCombatEngine().addSmoothParticle(MathUtils.getRandomPointInCircle(pointL2, 3f),
-                		offsetVelL,
-                		MathUtils.getRandomNumberInRange(2f, 5f), //size
-                		1.0f, //brightness
-                		MathUtils.getRandomNumberInRange(0.7f, 1.0f), //duration
-                		new Color(250,160,80,200));
-            	float angleR2 = projectile.getFacing() + MathUtils.getRandomNumberInRange(49f, 61f);
-                Vector2f offsetVelR = MathUtils.getPointOnCircumference(ship_velocity, MathUtils.getRandomNumberInRange(4f, 60f), angleR2);
-                Vector2f pointR2 = MathUtils.getPointOnCircumference(proj_location, MathUtils.getRandomNumberInRange(2f, 20f), angleR2);
-                Global.getCombatEngine().addSmoothParticle(MathUtils.getRandomPointInCircle(pointR2, 3f),
-                		offsetVelR,
-                		MathUtils.getRandomNumberInRange(2f, 7f), //size
-                		1.0f, //brightness
-                		MathUtils.getRandomNumberInRange(0.7f, 1.0f), //duration
-                		new Color(250,160,80,200));
-    		}
-    		
         	for (int i=0; i < 3; i++) {
         		// core smoke spray
         		float angle1 = angle + MathUtils.getRandomNumberInRange(-9f, 9f);
@@ -85,20 +64,44 @@ public class ASF_SaksetOnFireEffect implements OnFireEffectPlugin {
         				MathUtils.getRandomNumberInRange(0.7f, 1.25f), //duration
         				new Color(120,105,90,75));       		
         	}
-
-    		for (int j=0; j < 5; j++) {
-        		// core particle jet
-            	float angle2 = projectile.getFacing() + MathUtils.getRandomNumberInRange(-10f, 10f);
-                Vector2f offsetVel1 = MathUtils.getPointOnCircumference(ship_velocity, MathUtils.getRandomNumberInRange(5f, 90f), angle2);
-                Vector2f point2 = MathUtils.getPointOnCircumference(proj_location, MathUtils.getRandomNumberInRange(2f, 30f), angle2);
-                Global.getCombatEngine().addSmoothParticle(MathUtils.getRandomPointInCircle(point2, 3f),
-                		offsetVel1,
-                		MathUtils.getRandomNumberInRange(2f, 6f), //size
-                		1.0f, //brightness
-                		MathUtils.getRandomNumberInRange(0.9f, 1.2f), //duration
-                		new Color(250,160,80,200));
-    		}
     	}
     	
+		// left/right particle jets
+    	ASF_RadialEmitter emitterJetL = new ASF_RadialEmitter((CombatEntityAPI) ship);
+    	emitterJetL.location(proj_location);
+    	emitterJetL.angle(projectile.getFacing() -61f, 12f);
+    	emitterJetL.life(0.6f, 0.96f);
+    	emitterJetL.size(2f, 5f);
+    	emitterJetL.velocity(4f, 56f);
+		emitterJetL.distance(2f, 18f);
+		emitterJetL.color(250,160,80,150);
+		emitterJetL.velDistLinkage(false);
+		emitterJetL.coreDispersion(3f);
+		emitterJetL.burst(32);
+		ASF_RadialEmitter emitterJetR = new ASF_RadialEmitter((CombatEntityAPI) ship);
+    	emitterJetR.location(proj_location);
+    	emitterJetR.angle(projectile.getFacing() + 49f, 12f);
+    	emitterJetR.life(0.6f, 0.96f);
+    	emitterJetR.size(2f, 5f);
+    	emitterJetR.velocity(4f, 56f);
+		emitterJetR.distance(2f, 18f);
+		emitterJetR.color(250,160,80,150);
+		emitterJetR.velDistLinkage(false);
+		emitterJetR.coreDispersion(3f);
+		emitterJetR.burst(32);
+    	
+    	// core particle jet
+    	ASF_RadialEmitter emitterJet = new ASF_RadialEmitter((CombatEntityAPI) ship);
+    	emitterJet.location(proj_location);
+    	emitterJet.angle(projectile.getFacing() -10f, 20f);
+    	emitterJet.life(0.9f, 1.2f);
+		emitterJet.size(2f, 6f);
+		emitterJet.velocity(5f, 85f);
+		emitterJet.distance(2f, 28f);
+		emitterJet.color(250,160,80,160);
+		emitterJet.velDistLinkage(false);
+		emitterJet.coreDispersion(3f);
+		emitterJet.burst(80);
+		
     }
   }

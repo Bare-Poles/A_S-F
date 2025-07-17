@@ -10,6 +10,7 @@ import com.fs.starfarer.api.combat.BeamAPI;
 import com.fs.starfarer.api.combat.BeamEffectPlugin;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEntityAPI;
+import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
@@ -72,9 +73,10 @@ public class ASF_ZalakBeamEffect implements BeamEffectPlugin {
 					FIRED = true;
 					WeaponAPI weapon = beam.getWeapon();
 					for (int i=0; i < 7; i++) {
-		                Vector2f vel = weapon.getShip().getVelocity();
-		                Vector2f zalakRandomVel = MathUtils.getRandomPointOnCircumference(vel, MathUtils.getRandomNumberInRange(1f, 130f));
-		                engine.spawnProjectile(weapon.getShip(), weapon, "A_S-F_zalak_bolt", beam.getFrom(), weapon.getCurrAngle(), zalakRandomVel);
+						float angle = weapon.getCurrAngle() + MathUtils.getRandomNumberInRange(-13f, 13f);
+		                Vector2f zalakRandomVel = MathUtils.getPointOnCircumference(weapon.getShip().getVelocity(), MathUtils.getRandomNumberInRange(-69f, 69f), angle);
+		                CombatEntityAPI projZ = engine.spawnProjectile(weapon.getShip(), weapon, "A_S-F_zalak_bolt", beam.getFrom(), angle, zalakRandomVel);
+		                engine.addPlugin(new ASF_ZalakProjScript((DamagingProjectileAPI) projZ, target));
 		            }
 					
 					Global.getSoundPlayer().playSound("heavy_blaster_fire", 0.8f, 0.9f, beam.getFrom(), weapon.getShip().getVelocity());

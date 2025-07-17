@@ -58,16 +58,6 @@ public class ASF_ChronostutterStats extends BaseShipSystemScript {
 	}
 	
 	public void unapply(MutableShipStatsAPI stats, String id) {
-		ShipAPI ship = null;
-		boolean player = false;
-		if (stats.getEntity() instanceof ShipAPI) {
-			ship = (ShipAPI) stats.getEntity();
-			player = ship == Global.getCombatEngine().getPlayerShip();
-			id = id + "_" + ship.getId();
-		} else {
-			return;
-		}
-		
 		Global.getCombatEngine().getTimeMult().unmodify(id);
 		stats.getTimeMult().unmodify(id);
 	}

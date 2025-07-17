@@ -3,11 +3,14 @@ package org.amazigh.foundry.scripts.supe;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
+import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.loading.DamagingExplosionSpec;
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.jetbrains.annotations.NotNull;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
+import org.magiclib.util.MagicRender;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -72,20 +75,33 @@ public class ASF_chillblainProjScript extends BaseEveryFrameCombatPlugin {
 		if (timeCounter > TIMER) {
 
 			// sum VFX
-			for (int pulse=0; pulse < 400; pulse++) {
-	            float angle1 = MathUtils.getRandomNumberInRange(0f, 360f);
-	            float randScale1 = MathUtils.getRandomNumberInRange(0.3f*RADIUS, 1.8f*RADIUS);
-	            
-	            Vector2f pulseLoc = MathUtils.getRandomPointInCircle(projLoc, 50f);
-	            Vector2f pulseVel = MathUtils.getPointOnCircumference(projVel, randScale1, angle1);
-
-	            engine.addSmoothParticle(pulseLoc,
-	            		pulseVel,
-	            		MathUtils.getRandomNumberInRange(7f, 21f), //size
-	            		1.0f, //brightness
-	            		MathUtils.getRandomNumberInRange(0.45f, 0.65f), //duration
-	            		new Color(75,175,250,255));
-	        }
+//            Emitter emitterPulse = Particles.initialize(projLoc, "graphics/fx/particlealpha64linear.png");
+//            emitterPulse.color(75,175,250,255);
+//            emitterPulse.setSyncSize(true);
+//            emitterPulse.setInactiveBorder(10000f);
+//            
+//			for (int pulse=0; pulse < 400; pulse++) {
+//				float angle1 = MathUtils.getRandomNumberInRange(0f, 360f);
+//	            float randScale1 = MathUtils.getRandomNumberInRange(0.3f*RADIUS, 1.8f*RADIUS);
+//	            Vector2f pulseVel = MathUtils.getPointOnCircumference(projVel, randScale1, angle1);
+//	            
+//	            emitterPulse.life(0.45f, 0.65f);
+//	            emitterPulse.fadeTime(0f, 0f, 0.15f, 0.2f);
+//	            emitterPulse.circleOffset(0f, 50f);
+//	            emitterPulse.velocity(pulseVel, pulseVel);
+//	            emitterPulse.size(7f, 21f, 7f, 21f);
+//		        Particles.burst(emitterPulse, 1);
+//			}
+			
+			ASF_RadialEmitter emitterPulse = new ASF_RadialEmitter((CombatEntityAPI) proj);
+			emitterPulse.location(projLoc);
+			emitterPulse.life(0.45f, 0.65f);
+			emitterPulse.size(7f, 21f);
+			emitterPulse.velocity(0.3f*RADIUS, 1.5f*RADIUS);
+			emitterPulse.distance(0f, 50f);
+			emitterPulse.color(75,175,250,255);
+			emitterPulse.burst(400);
+			
 			engine.addSmoothParticle(projLoc,
             		projVel,
             		640f, //size
@@ -180,8 +196,8 @@ public class ASF_chillblainProjScript extends BaseEveryFrameCombatPlugin {
 							
 							for (int j1=0; j1 < 2; j1++) {
 								
-								Vector2f offsetVel0 = MathUtils.getRandomPointOnCircumference(tag_vel, MathUtils.getRandomNumberInRange(0f, 30f));
-					            Vector2f offsetVel01 = MathUtils.getRandomPointOnCircumference(tag_vel, MathUtils.getRandomNumberInRange(0f, 30f));
+								Vector2f offsetVel0 = MathUtils.getRandomPointInCircle(tag_vel, 30f);
+					            Vector2f offsetVel01 = MathUtils.getRandomPointInCircle(tag_vel, 30f);
 								
 								engine.addNebulaParticle(arcSource,
 										offsetVel0,
@@ -200,8 +216,8 @@ public class ASF_chillblainProjScript extends BaseEveryFrameCombatPlugin {
 										MathUtils.getRandomNumberInRange(0.4f, 0.6f),
 										new Color(40,140,250,225), false);
 								
-								Vector2f offsetVel02 = MathUtils.getRandomPointOnCircumference(tag_vel, MathUtils.getRandomNumberInRange(0f, 30f));
-					            Vector2f offsetVel03 = MathUtils.getRandomPointOnCircumference(tag_vel, MathUtils.getRandomNumberInRange(0f, 30f));
+								Vector2f offsetVel02 = MathUtils.getRandomPointInCircle(tag_vel, 30f);
+					            Vector2f offsetVel03 = MathUtils.getRandomPointInCircle(tag_vel, 30f);
 								
 								engine.addNebulaParticle(arcEnd,
 										offsetVel02,
@@ -269,10 +285,10 @@ public class ASF_chillblainProjScript extends BaseEveryFrameCombatPlugin {
 			        engine.spawnDamagingExplosion(blast,source,target_ship.getLocation(),true);
 					
 					for (int j0=0; j0 < tag_radius; j0+=20) {
-						Vector2f offsetVel0 = MathUtils.getRandomPointOnCircumference(tag_vel, MathUtils.getRandomNumberInRange(0f, 50f));
-			            Vector2f offsetVel01 = MathUtils.getRandomPointOnCircumference(tag_vel, MathUtils.getRandomNumberInRange(0f, 50f));
-			            Vector2f point0 = MathUtils.getRandomPointOnCircumference(target_ship.getLocation(), MathUtils.getRandomNumberInRange(0f, tag_radius * 0.3f * radMod));
-			            Vector2f point01 = MathUtils.getRandomPointOnCircumference(target_ship.getLocation(), MathUtils.getRandomNumberInRange(0f, tag_radius * 0.3f * radMod));
+						Vector2f offsetVel0 = MathUtils.getRandomPointInCircle(tag_vel,  50f);
+			            Vector2f offsetVel01 = MathUtils.getRandomPointInCircle(tag_vel,  50f);
+			            Vector2f point0 = MathUtils.getRandomPointInCircle(target_ship.getLocation(), tag_radius * 0.3f * radMod);
+			            Vector2f point01 = MathUtils.getRandomPointInCircle(target_ship.getLocation(), tag_radius * 0.3f * radMod);
 			            
 						engine.addNebulaParticle(point0,
 								offsetVel0,
@@ -321,8 +337,8 @@ public class ASF_chillblainProjScript extends BaseEveryFrameCombatPlugin {
 				Vector2f offsetLoc0 = MathUtils.getRandomPointOnCircumference(projLoc, 8f * timeCounter);
 				Vector2f offsetLoc01 = MathUtils.getRandomPointOnCircumference(projLoc, 8f * timeCounter);
 				
-				Vector2f offsetVel0 = MathUtils.getRandomPointOnCircumference(projVel, MathUtils.getRandomNumberInRange(0f, 20f * timeCounter));
-	            Vector2f offsetVel01 = MathUtils.getRandomPointOnCircumference(projVel, MathUtils.getRandomNumberInRange(0f, 20f * timeCounter));
+				Vector2f offsetVel0 = MathUtils.getRandomPointInCircle(projVel, 20f * timeCounter);
+	            Vector2f offsetVel01 = MathUtils.getRandomPointInCircle(projVel, 20f * timeCounter);
 				
 				engine.addNebulaParticle(offsetLoc0,
 						offsetVel0,
@@ -406,51 +422,55 @@ public class ASF_chillblainProjScript extends BaseEveryFrameCombatPlugin {
 			arcCounter -= 0.2f;
 		}
 		
-		if (fxCounter2 > 0.05f) {	
+		// a rendered sprite for the range, as a "failsafe" for mac users (and kinda just because i can)
+		
+		int alpha = 48; // because sprite rendering gets screwy when paused
+		if (Global.getCombatEngine().isPaused()) {
+			alpha = 0;
+		}
+		
+		Vector2f ringSize = new Vector2f((RADIUS -12f) * 2f, (RADIUS -12f) * 2f);
+		SpriteAPI rangeRing = Global.getSettings().getSprite("fx", "A_S-F_range_ring");
+		SpriteAPI rangeRing2 = Global.getSettings().getSprite("fx", "A_S-F_range_ring");
+		
+		MagicRender.singleframe(rangeRing, projLoc, ringSize, proj.getFacing() + (timeCounter * 5f), new Color(75,175,250,alpha), true);
+    	MagicRender.singleframe(rangeRing2, projLoc, ringSize, proj.getFacing() - (timeCounter * 5f), new Color(75,175,250,alpha), true);
+		
+		if (fxCounter2 > 0.05f) {
+				
 			// inwards particles
-			for (int i2=0; i2 < 150; i2++) {
-	            float angle1 = MathUtils.getRandomNumberInRange(0f, 360f);
-	            float randScale1 = MathUtils.getRandomNumberInRange(0.25f*RADIUS, RADIUS);
-	            
-	            Vector2f offsetVel1 = MathUtils.getPointOnCircumference(projVel, randScale1 * 1.2f, angle1);
-	            Vector2f point1 = MathUtils.getPointOnCircumference(projLoc, randScale1, angle1 + 180f);
-
-	            engine.addSmoothParticle(point1,
-	            		offsetVel1,
-	            		MathUtils.getRandomNumberInRange(5f, 11f), //size
-	            		1.0f, //brightness
-	            		MathUtils.getRandomNumberInRange(1f, 1.2f), //duration
-	            		new Color(40,140,250,225));
-	        }
-			
+			ASF_RadialEmitter emitterInwards = new ASF_RadialEmitter((CombatEntityAPI) proj);
+			emitterInwards.location(projLoc);
+			emitterInwards.life(0.7f, 0.9f);
+			emitterInwards.size(5f, 11f);
+			emitterInwards.velocity(-0.3f*RADIUS, -0.9f*RADIUS);
+			emitterInwards.distance(0.25f*RADIUS, 0.75f*RADIUS);
+			emitterInwards.color(40, 140, 250, 225);
+            emitterInwards.burst(150);
+            
 			// "ring" particles
-			for (int i3=0; i3 < 40; i3++) {
-	            float inRing = RADIUS -24f;
-	            
-	            float angle1 = MathUtils.getRandomNumberInRange(0f, 360f);
-	            Vector2f offsetVel1 = MathUtils.getPointOnCircumference(projVel, MathUtils.getRandomNumberInRange(40f, 75f), angle1 + MathUtils.getRandomNumberInRange(85f, 115f));
-	            Vector2f point1 = MathUtils.getPointOnCircumference(projLoc, inRing, angle1);
-
-	            engine.addSmoothParticle(point1,
-	            		offsetVel1,
-	            		MathUtils.getRandomNumberInRange(6f, 14f), //size
-	            		0.8f, //brightness
-	            		MathUtils.getRandomNumberInRange(0.15f, 0.35f), //duration
-	            		new Color(75,175,250,200));
-	            
-	            float angle2 = MathUtils.getRandomNumberInRange(0f, 360f);
-	            Vector2f offsetVel2 = MathUtils.getPointOnCircumference(projVel, MathUtils.getRandomNumberInRange(40f, 75f), angle2 - MathUtils.getRandomNumberInRange(85f, 115f));
-	            Vector2f point2 = MathUtils.getPointOnCircumference(projLoc, inRing, angle2);
-	            
-	            engine.addSmoothParticle(point2,
-	            		offsetVel2,
-	            		MathUtils.getRandomNumberInRange(6f, 14f), //size
-	            		0.8f, //brightness
-	            		MathUtils.getRandomNumberInRange(0.15f, 0.35f), //duration
-	            		new Color(75,175,250,200));
-	        }
-			
+            ASF_RadialEmitter emitterRing1 = new ASF_RadialEmitter((CombatEntityAPI) proj);
+            emitterRing1.location(projLoc);
+            emitterRing1.life(0.15f, 0.35f);
+            emitterRing1.size(6f, 14f);
+			emitterRing1.velocity(40f, 75f);
+			emitterRing1.distance(RADIUS -24f, 0f);
+			emitterRing1.color(75,175,250,200);
+            emitterRing1.emissionOffset(85f, 30f);
+			emitterRing1.burst(40);
+            
+			ASF_RadialEmitter emitterRing2 = new ASF_RadialEmitter((CombatEntityAPI) proj);
+			emitterRing2.location(projLoc);
+			emitterRing2.life(0.15f, 0.35f);
+			emitterRing2.size(6f, 14f);
+			emitterRing2.velocity(40f, 75f);
+			emitterRing2.distance(RADIUS -24f, 0f);
+			emitterRing2.color(75,175,250,200);
+            emitterRing2.emissionOffset(-115f, 30f);
+            emitterRing2.burst(40);
+            
 			fxCounter2 -= 0.05f;
 		}
 	}
+	
 }

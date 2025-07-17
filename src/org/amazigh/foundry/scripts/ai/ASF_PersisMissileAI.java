@@ -14,6 +14,7 @@ import org.magiclib.util.MagicTargeting;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
@@ -98,7 +99,7 @@ public class ASF_PersisMissileAI implements MissileAIPlugin, GuidedMissileAI {
     private float SPLIT_RANGE=1000000; //1000^2
     
 	private static final Color SMOKE_COLOR = new Color(92,110,103,110); // 65,125,115,110
-	private static final Color SPARK_COLOR = new Color(175,255,220,240);
+//	private static final Color SPARK_COLOR = new Color(175,255,220,240);
 	
     //////////////////////
     //    VARIABLES     //
@@ -303,19 +304,32 @@ public class ASF_PersisMissileAI implements MissileAIPlugin, GuidedMissileAI {
                     		MathUtils.getRandomNumberInRange(0.8f, 1.0f), //duration
                     		SMOKE_COLOR);
             		
-            		for (int j=0; j < 6; j++) {
-            			
-        				Vector2f sparkVel = MathUtils.getRandomPointInCone(null, 15f, angle -80f, angle +80f);
-        				
-        				engine.addSmoothParticle(MathUtils.getRandomPointInCone(loc, 9f, angle -80f, angle +80f),
-        						sparkVel,
-        						MathUtils.getRandomNumberInRange(3f, 6f),
-        						1f,
-        						MathUtils.getRandomNumberInRange(0.8f, 1.1f),
-        						SPARK_COLOR);
-            			
-            		}
+//            		for (int j=0; j < 6; j++) {
+//            			
+//        				Vector2f sparkVel = MathUtils.getRandomPointInCone(null, 15f, angle -80f, angle +80f);
+//        				
+//        				engine.addSmoothParticle(MathUtils.getRandomPointInCone(loc, 9f, angle -80f, angle +80f),
+//        						sparkVel,
+//        						MathUtils.getRandomNumberInRange(3f, 6f),
+//        						1f,
+//        						MathUtils.getRandomNumberInRange(0.8f, 1.1f),
+//        						SPARK_COLOR);
+//            			
+//            		}
             	}
+
+    			ASF_RadialEmitter emitter = new ASF_RadialEmitter(null);
+    			emitter.location(MISSILE.getLocation());
+    			emitter.angle(angle - 80f, 160f);
+    			emitter.distance(0f, 9f);
+    			emitter.life(0.8f, 1.1f);
+    			emitter.size(3f, 6f);
+    			emitter.velocity(0f, 15f);
+    			emitter.color(175,255,220,240); // SPARK_COLOR
+    			emitter.velDistLinkage(false);
+    			emitter.angleSplit(true);
+    			emitter.burst(30);
+    			
                 for (int i=0; i < 3; i++) {
 
             		engine.addNebulaSmokeParticle(MathUtils.getRandomPointInCircle(loc, 10f),

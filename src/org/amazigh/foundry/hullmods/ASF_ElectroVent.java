@@ -16,7 +16,6 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 
 public class ASF_ElectroVent extends BaseHullMod {
@@ -32,9 +31,6 @@ public class ASF_ElectroVent extends BaseHullMod {
 		arcCount.put(HullSize.CAPITAL_SHIP, 9f);
 		arcCount.put(HullSize.DEFAULT, 5f);
 	}
-	
-	private IntervalUtil visInterval1 = new IntervalUtil(0.5f,0.75f);
-	private IntervalUtil visInterval2 = new IntervalUtil(0.5f,0.75f);
 	
 	public static Map<HullSize, Float> magBonus = new HashMap<HullSize, Float>();
 	static {
@@ -69,8 +65,9 @@ public class ASF_ElectroVent extends BaseHullMod {
 			
 			float sizeScalar = 1f + (arcCount.get(ship.getHullSize()) / 10f);
 			
-			visInterval1.advance(amount * sizeScalar);
-            if (visInterval1.intervalElapsed()) {
+			info.TIMER1 += (amount * sizeScalar);
+			if (info.TIMER1 > 0.75f) {
+            	info.TIMER1 -= MathUtils.getRandomNumberInRange(0.75f, 0.5f);
             	
             	for (int i=0; i < 3; i++) {
                 	Vector2f sparkPoint = MathUtils.getRandomPointInCircle(ship.getLocation(), ship.getCollisionRadius());
@@ -107,11 +104,12 @@ public class ASF_ElectroVent extends BaseHullMod {
 						1.0f,
 						new Color(140,70,130,70),
 						false);
-		        
             }
             
-            visInterval2.advance(amount * sizeScalar);
-            if (visInterval2.intervalElapsed()) {
+			
+			info.TIMER2 += (amount * sizeScalar);
+			if (info.TIMER2 > 0.75f) {
+            	info.TIMER2 -= MathUtils.getRandomNumberInRange(0.75f, 0.5f);
             	
             	for (int i=0; i < 3; i++) {
                 	Vector2f sparkPoint = MathUtils.getRandomPointInCircle(ship.getLocation(), ship.getCollisionRadius());
@@ -248,6 +246,8 @@ public class ASF_ElectroVent extends BaseHullMod {
 	
     private class ShipSpecificData {
         private boolean OVERLOAD = false;
+        private float TIMER1 = 0f;
+        private float TIMER2 = 0f;
     }
 
 }

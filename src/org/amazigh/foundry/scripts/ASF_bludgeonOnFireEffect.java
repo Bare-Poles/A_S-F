@@ -2,10 +2,12 @@ package org.amazigh.foundry.scripts;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.OnFireEffectPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -37,19 +39,30 @@ public class ASF_bludgeonOnFireEffect implements OnFireEffectPlugin {
                 		new Color(56,46,41,105),
                 		true);
                 
-                for (int j=0; j < 4; j++) {
-
-        			float angle2 = projectile.getFacing() + MathUtils.getRandomNumberInRange(-41f, 41f);
-                    Vector2f sparkVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(10f, 90f), angle2);
-
-                    engine.addSmoothParticle(MathUtils.getRandomPointInCircle(proj_location, 3f),
-                    		sparkVel,
-            				MathUtils.getRandomNumberInRange(3f, 6f), //size
-            				1f, //brightness
-            				MathUtils.getRandomNumberInRange(0.35f, 0.55f), //duration
-            				FLASH_COLOR);
-                	}
+//                for (int j=0; j < 4; j++) {
+//
+//        			float angle2 = projectile.getFacing() + MathUtils.getRandomNumberInRange(-41f, 41f);
+//                    Vector2f sparkVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(10f, 90f), angle2);
+//
+//                    engine.addSmoothParticle(MathUtils.getRandomPointInCircle(proj_location, 3f),
+//                    		sparkVel,
+//            				MathUtils.getRandomNumberInRange(3f, 6f), //size
+//            				1f, //brightness
+//            				MathUtils.getRandomNumberInRange(0.35f, 0.55f), //duration
+//            				FLASH_COLOR);
+//                	}
         	}
+        	
+    		ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) ship);
+    		emitter.location(proj_location);
+    		emitter.angle(projectile.getFacing() - 41f, 82f);
+    		emitter.life(0.35f, 0.55f);
+    		emitter.size(3f, 6f);
+    		emitter.velocity(10f, 80f);
+    		emitter.color(175,105,30,225); //FLASH_COLOR
+    		emitter.coreDispersion(3f);
+    		emitter.burst(36);
+    		
         	
     }
   }

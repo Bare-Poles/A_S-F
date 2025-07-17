@@ -2,10 +2,12 @@ package org.amazigh.foundry.scripts.arktech;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.OnFireEffectPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -36,20 +38,18 @@ public class ASF_KlabuOnFireEffect implements OnFireEffectPlugin {
                 		MathUtils.getRandomNumberInRange(1.8f, 2.6f), //totalDuration
                 		new Color(55,45,40,111),
                 		true);
-                
-                for (int j=0; j < 4; j++) {
-
-        			float angle2 = projectile.getFacing() + MathUtils.getRandomNumberInRange(-36f, 36f);
-                    Vector2f sparkVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(11f, 121f), angle2);
-
-                    engine.addSmoothParticle(MathUtils.getRandomPointInCircle(proj_location, 3f),
-                    		sparkVel,
-            				MathUtils.getRandomNumberInRange(3f, 6f), //size
-            				1f, //brightness
-            				MathUtils.getRandomNumberInRange(0.4f, 0.6f), //duration
-            				FLASH_COLOR);
-                	}
         	}
+        	
+        	ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) ship);
+            emitter.location(proj_location);
+            emitter.angle(projectile.getFacing() -36f, 72f);
+            emitter.life(0.4f, 0.6f);
+            emitter.size(3f, 6f);
+            emitter.velocity(11f, 110f);
+            emitter.color(170,80,30,220); // FLASH_COLOR
+            emitter.velDistLinkage(false);
+            emitter.coreDispersion(3f);
+            emitter.burst(44);
         	
     }
   }

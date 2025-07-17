@@ -2,12 +2,14 @@ package org.amazigh.foundry.shipsystems.scripts;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamageType;
 import com.fs.starfarer.api.combat.EmpArcEntityAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
@@ -89,7 +91,7 @@ public class ASF_empEmissionStats extends BaseShipSystemScript {
 		        				
 		                        float angle = j * MathUtils.getRandomNumberInRange(0f, 36f);
 		                        
-		                        Vector2f flashVel = MathUtils.getPointOnCircumference(target.getVelocity(), MathUtils.getRandomNumberInRange(1f, 25f), angle);
+		                        Vector2f flashVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(1f, 25f), angle);
 		                        Vector2f sparkPoint = MathUtils.getPointOnCircumference(arcStart, MathUtils.getRandomNumberInRange(1f, 40f), angle);
 		                        
 		                        Global.getCombatEngine().addSmoothParticle(sparkPoint,
@@ -191,23 +193,17 @@ public class ASF_empEmissionStats extends BaseShipSystemScript {
         		        					ARC_COLOR_O,
         		        					ARC_COLOR_I);
     		        			}
-
-        	        			for (int j=0; j < 15; j++) {
-        	        				
-        	                        float angle = j * MathUtils.getRandomNumberInRange(0f, 24f);
-        	                        
-        	                        Vector2f flashVel = MathUtils.getPointOnCircumference(target.getVelocity(), MathUtils.getRandomNumberInRange(1f, 15f), angle);
-        	                        Vector2f sparkPoint = MathUtils.getPointOnCircumference(arcEnd, MathUtils.getRandomNumberInRange(2f, 140f), angle);
-        	                        
-        	                        Global.getCombatEngine().addSmoothParticle(sparkPoint,
-        	                        		flashVel,
-        	                        		MathUtils.getRandomNumberInRange(3f, 8f), //size
-        	                        		1.0f, //brightness
-        	                        		0.5f, //duration
-        	                        		ARC_COLOR_O);
-        	        			}
-    		        			
     	        			}
+    	        			
+		        			ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) target);
+		        			emitter.location(arcEnd);
+		        			emitter.life(0.5f, 0.5f);
+		        			emitter.size(3f, 8f);
+		        			emitter.velocity(1f, 14f);
+		        			emitter.distance(2f, 138f);
+		        			emitter.color(35,100,155,255);
+		        	        emitter.velDistLinkage(false);
+		        	        emitter.burst((int) (15f * subArcCount));
             			}
 	        		}
 				}

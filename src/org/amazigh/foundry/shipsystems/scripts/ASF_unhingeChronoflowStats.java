@@ -25,8 +25,8 @@ public class ASF_unhingeChronoflowStats extends BaseShipSystemScript {
 	
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
 		
-		// “Dark. Wet. Drink deep, and descend. The water is warm and well. It is very busy here, though you cannot see it.
-		// The swimmers are curious. The flea always jumps from time to time. It will drink it all. It will drink it deep—“
+		// ï¿½Dark. Wet. Drink deep, and descend. The water is warm and well. It is very busy here, though you cannot see it.
+		// The swimmers are curious. The flea always jumps from time to time. It will drink it all. It will drink it deepï¿½ï¿½
 		
 		ShipAPI ship = null;
 		boolean player = false;
@@ -119,16 +119,7 @@ public class ASF_unhingeChronoflowStats extends BaseShipSystemScript {
 	}
 	
 	public void unapply(MutableShipStatsAPI stats, String id) {
-		ShipAPI ship = null;
-		boolean player = false;
-		if (stats.getEntity() instanceof ShipAPI) {
-			ship = (ShipAPI) stats.getEntity();
-			player = ship == Global.getCombatEngine().getPlayerShip();
-			id = id + "_" + ship.getId();
-		} else {
-			return;
-		}
-		
+				
 		Global.getCombatEngine().getTimeMult().unmodify(id);
 		stats.getTimeMult().unmodify(id);
 		

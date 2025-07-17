@@ -50,7 +50,7 @@ public class ASF_ShevalyeEffect implements BeamEffectPlugin {
 				3f, // particleSizeMin
 				3f, // particleSizeRange
 				0.5f, // particleDuration
-				140, // particleCount
+				120, // particleCount
 				new Color(255,255,255,255), // particleColor
 				new Color(100,255,100,75)  // explosionColor
 		);

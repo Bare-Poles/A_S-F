@@ -2,11 +2,11 @@ package org.amazigh.foundry.scripts.arktech;
 
 import java.awt.Color;
 
-import org.lazywizard.lazylib.MathUtils;
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lwjgl.util.vector.Vector2f;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.OnFireEffectPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -23,18 +23,17 @@ public class ASF_KabidOnFireEffect implements OnFireEffectPlugin {
     	
         engine.spawnExplosion(weapon.getFirePoint(0), vel, COLOR_MUZZLE, 35f, 0.5f);
         
-        for (int i=0; i < 54; i++) {
-            float angle = projectile.getFacing() + MathUtils.getRandomNumberInRange(-1f, 1f);
-            Vector2f offsetVel = MathUtils.getPointOnCircumference(vel, MathUtils.getRandomNumberInRange(10f, 200f), angle);
-            
-            Vector2f point = MathUtils.getPointOnCircumference(weapon.getFirePoint(0), MathUtils.getRandomNumberInRange(2f, 40f), angle);
-            
-            Global.getCombatEngine().addSmoothParticle(MathUtils.getRandomPointInCircle(point, 4f),
-            		offsetVel,
-            		MathUtils.getRandomNumberInRange(2f, 4f), //size
-            		1.0f, //brightness
-            		MathUtils.getRandomNumberInRange(0.35f, 0.5f), //duration
-            		new Color(150,255,240,200));
-        }
+        ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) ship);
+        emitter.location(weapon.getFirePoint(0));
+        emitter.angle(projectile.getFacing() -1f, 2f);
+        emitter.life(0.35f, 0.5f);
+        emitter.size(2f, 4f);
+        emitter.velocity(10f, 190f);
+        emitter.distance(2f, 38f);
+        emitter.color(150,255,240,200);
+        emitter.velDistLinkage(false);
+        emitter.coreDispersion(4f);
+        emitter.burst(54);
+        
     }
   }

@@ -146,6 +146,9 @@
     "A_S-F_morris_p_od": 1,
     "A_S-F_morris_p_raider": 4,
 
+    "A_S-F_micare_ass": 3,
+    "A_S-F_micare_sup": 4.5,
+
   },
   "combatLarge": {
     "A_S-F_gemogee_esc": 1,
@@ -208,6 +211,16 @@
     "A_S-F_marlow_ass": 2.5,
     "A_S-F_marlow_stk": 2,
     "A_S-F_marlow_sup": 3,
+
+    "A_S-F_alqand_ass": 1.5,
+    "A_S-F_alqand_std": 2.5,
+    "A_S-F_alqand_sup": 3.5,
+
+    "A_S-F_porroko_std": 0, # PL
+    "A_S-F_porroko_std2": 4, # MERC
+    "A_S-F_porroko_sup": 0, # PL
+    "A_S-F_porroko_supp": 0, # PL
+    "A_S-F_porroko_sup2": 3.5, # MERC
 
     "A_S-F_giganberg_ark": 1,
     "A_S-F_grandum_ark": 1,

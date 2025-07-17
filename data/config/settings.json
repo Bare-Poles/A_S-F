@@ -16,6 +16,10 @@
 			"A_S-F_persenachia_pipe_glow":"graphics/ships/phase/A_S-F_persenachia_pipe_glow.png",
 			"A_S-F_persenachia_tatt_glow1":"graphics/ships/phase/A_S-F_persenachia_tatt_glow1.png",
 			"A_S-F_persenachia_tatt_glow2":"graphics/ships/phase/A_S-F_persenachia_tatt_glow2.png",
+			"A_S-F_arty_target_pip":"graphics/fx/A_S-F_targetPip.png",
+			"A_S-F_arty_target_ring":"graphics/fx/A_S-F_artyRing.png",
+			"A_S-F_arty_mark_ring":"graphics/fx/A_S-F_artyMarkRing.png",
+			"A_S-F_range_ring":"graphics/fx/A_S-F_markerRing.png",
 		},
 
         "portraits":{

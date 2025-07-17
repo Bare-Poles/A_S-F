@@ -7,12 +7,15 @@ import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.CampaignPlugin;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
+import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.impl.codex.CodexDataV2;
 import com.fs.starfarer.api.loading.Description;
+import com.fs.starfarer.api.util.Misc;
 
 import org.amazigh.foundry.scripts.ai.ASF_AlbatreosMagicMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_FormiaMagicMissileAI;
@@ -29,11 +32,15 @@ import org.amazigh.foundry.scripts.ai.ASF_WeaverDrunkRocketAI;
 import org.amazigh.foundry.scripts.everyframe.ASF_arkTechSpawnPlugin;
 import org.dark.shaders.light.LightData;
 import org.dark.shaders.util.ShaderLib;
+import org.lazywizard.lazylib.MathUtils;
+import org.lwjgl.util.vector.Vector2f;
 
 import exerelin.utilities.NexConfig;
 import exerelin.utilities.NexFactionConfig;
 import exerelin.utilities.NexFactionConfig.StartFleetSet;
 import exerelin.utilities.NexFactionConfig.StartFleetType;
+import particleengine.BaseIEmitter;
+import particleengine.ParticleData;
 
 public class ASF_ModPlugin extends BaseModPlugin {
 	
@@ -216,6 +223,7 @@ public class ASF_ModPlugin extends BaseModPlugin {
 		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_phobia"), CodexDataV2.getShipEntryId("A_S-F_jorogumo"));
 		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_initone"), CodexDataV2.getShipEntryId("A_S-F_initone_lg"));
 		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_chompiron"), CodexDataV2.getShipEntryId("champion"));
+		// linking some variants to their base hulls
 		
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyEnergy"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyFlux"));
@@ -232,6 +240,203 @@ public class ASF_ModPlugin extends BaseModPlugin {
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyShields"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyTargeting"));
 		// linking the anarchy hullmods, because it seems like an idea
 		
+		 
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getWeaponEntryId("A_S-F_painter"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getWeaponEntryId("A_S-F_narc"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getShipSystemEntryId("A_S-F_designate"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepHighTech"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepRemnant"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepMidline"));
+					// CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepDerelict"));
+					// CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepLowTech"));
+			// adding these but commented out, under the assumption that i will actually make them eventually!?
+		// linking artillery stuff
+		
 	}
     
+
+    // Custom Particle Engine emitter, radial emission within an arc, with random velocity+distance matching facing within a provided min/max value
+    // note that dist+vel scale together by default, but it can be set to independent/random
+    public static class ASF_RadialEmitter extends BaseIEmitter {
+    	
+        private final Vector2f location;
+		private float angle, arc, minLife, maxLife, minSize, maxSize, minVelocity, addVelocity, minDistance, addDistance, emissionOffsetBase, emissionOffsetAdd, coreDispersion;
+        private final float[] color = new float[] {1f, 1f, 1f, 1f};
+        private boolean linkage, lifeLink, angleSplit;
+        private CombatEntityAPI anchor;
+
+        public ASF_RadialEmitter(CombatEntityAPI host) {
+        	anchor = host;
+            location = new Vector2f();
+            angle = 0f;
+            arc = 360f; //these default to giving omnidirectional emission, as that's my main use-case for this Emitter
+            minLife = maxLife = 0.5f;
+            minSize = 20f;
+            maxSize = 30f;
+            minVelocity = addVelocity = 1f;
+            minDistance = addDistance = 0f;
+            emissionOffsetBase = emissionOffsetAdd = 0f;
+            linkage = true;
+            lifeLink = angleSplit = false;
+            coreDispersion = 0;
+        }
+
+		@Override
+        public SpriteAPI getSprite() { //graphics/portraits/characters/sebestyen.png
+            return particleengine.Utils.getLoadedSprite("graphics/fx/particlealpha64sq.png");
+        }
+
+        public ASF_RadialEmitter anchor(CombatEntityAPI anchor) {
+            this.anchor = anchor;
+            return this;
+        }
+
+        public ASF_RadialEmitter location(Vector2f location) {
+            this.location.set(location);
+            return this;
+        }
+
+        /**
+         * @param angle
+         * @return Starting angle an The arc in which to emit particles (defaults have it emit in all directions)
+         */
+        public ASF_RadialEmitter angle(float angle, float arc) {
+            this.angle = angle;
+            this.arc = arc;
+            return this;
+        }
+        
+        public ASF_RadialEmitter life(float minLife, float maxLife) {
+            this.minLife = minLife;
+            this.maxLife = maxLife;
+            return this;
+        }
+        
+        public ASF_RadialEmitter size(float minSize, float maxSize) {
+            this.minSize = minSize;
+            this.maxSize = maxSize;
+            return this;
+        }
+
+        public ASF_RadialEmitter color(float r, float g, float b, float a) {
+            color[0] = r;
+            color[1] = g;
+            color[2] = b;
+            color[3] = a;
+            return this;
+        }
+        
+        public ASF_RadialEmitter distance(float minDistance, float addDistance) {
+            this.minDistance = minDistance;
+            this.addDistance = addDistance;
+            return this;
+        }
+        
+        public ASF_RadialEmitter velocity(float minVelocity, float addVelocity) {
+            this.minVelocity = minVelocity;
+            this.addVelocity = addVelocity;
+            return this;
+        }
+        
+        public ASF_RadialEmitter emissionOffset(float emissionOffsetBase, float emissionOffsetAdd) {
+            this.emissionOffsetBase = emissionOffsetBase;
+            this.emissionOffsetAdd = emissionOffsetAdd;
+            return this;
+        }
+        
+        /**
+         * @param velDistLinkage
+         * @return If set to false then velocity and distance random variance will scale independently of each other
+         */
+        public ASF_RadialEmitter velDistLinkage(boolean linkage) {
+            this.linkage = linkage;
+            return this;
+        }
+        
+        /**
+         * @param coreDispersion
+         * @return random radial offset around point (for 2-dimensional offsetting) (Ignored if below 1)
+         */
+        public ASF_RadialEmitter coreDispersion(float coreDispersion) {
+            this.coreDispersion = coreDispersion;
+            return this;
+        }
+        
+        /**
+         * @param lifeLink
+         * @return If lifetime should be linked to vel/dist scaling (defaults to false)
+         */
+        public ASF_RadialEmitter lifeLinkage(boolean lifeLinkage) {
+            this.lifeLink = lifeLinkage;
+            return this;
+        }
+        
+        /**
+         * @param angleSplit
+         * @return If angle of dist/vel should be generated seperate from each other (defaults to false)
+         */
+        public ASF_RadialEmitter angleSplit(boolean angleSplit) {
+            this.angleSplit = angleSplit;
+            return this;
+        }
+        
+        
+        @Override
+        public Vector2f getLocation() {
+            return location;
+        }
+
+        @Override
+        protected ParticleData initParticle(int i) {
+            ParticleData data = new ParticleData();
+
+            float rand = MathUtils.getRandomNumberInRange(0f, 1f);
+            
+            // Life uniformly random between minLife and maxLife
+            float life = MathUtils.getRandomNumberInRange(minLife, maxLife);
+            
+            if (lifeLink) {
+            	life = minLife + ((maxLife - minLife) * rand);
+            }
+            
+            data.life(life).fadeTime(0f, life);
+            
+            // velocity is random within the defined range
+            float theta = angle + MathUtils.getRandomNumberInRange(0, arc);
+            Vector2f vel = Misc.getUnitVectorAtDegreeAngle(theta + (emissionOffsetBase + MathUtils.getRandomNumberInRange(0, emissionOffsetAdd)));
+            vel.scale(minVelocity + (rand * addVelocity));
+            
+            if (angleSplit) {
+            	theta = angle + MathUtils.getRandomNumberInRange(0, arc);
+            }
+            
+            Vector2f pt = new Vector2f(0,0);
+            
+            if (linkage) {
+                pt = MathUtils.getPointOnCircumference(null, minDistance + (rand * addDistance), theta);
+            } else {
+                pt = MathUtils.getPointOnCircumference(null, minDistance + (MathUtils.getRandomNumberInRange(0f, 1f) * addDistance), theta);
+            }
+            
+            if (coreDispersion >= 1f) {
+            	Vector2f.add(MathUtils.getRandomPointInCircle(null, coreDispersion), pt, pt);
+            }
+            
+            // Add the anchor's velocity, if it exists
+            if (anchor != null) {
+                Vector2f.add(anchor.getVelocity(), vel, vel);
+            }
+            data.offset(pt).velocity(vel);
+            
+            // Size uniformly random between minSize and maxSize
+            float size = MathUtils.getRandomNumberInRange(minSize, maxSize);
+            data.size(size, size);
+            
+            // Color
+            data.color(color);
+            
+            return data;
+        }
+        
+    }
 }

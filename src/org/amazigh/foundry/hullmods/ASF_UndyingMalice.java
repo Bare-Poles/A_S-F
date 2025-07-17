@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.CombatUtils;
@@ -44,7 +45,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
 	public static final float MAINT_MALUS = 100f;
 	public static final float DEGRADE_INCREASE_PERCENT = 50f;
 	
-	public static final float HIT_MOD = 30f; // +30% hitstrength "base"
+	public static final float HIT_MOD = 36f; // +36% hitstrength "base"
 	public static final float TIME_MOD = 0.5f; // +50% timescale "base"
 	
 	public static final float DAMAGE_PER_CHARGE = 100f;
@@ -343,16 +344,14 @@ public class ASF_UndyingMalice extends BaseHullMod {
     	    							new Color(190,65,150,70),
     	    							false);
     	    	                
-    	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.2f); i++) {
-    	    	                	Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(target_ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 75f));
-    	    	                	
-    	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.65f),
-    	    	    						sparkVel,
-    	    	    						MathUtils.getRandomNumberInRange(4f, 8f), //size
-    	    	    						1.0f, //brightness
-    	    	    						MathUtils.getRandomNumberInRange(0.35f, 0.5f), //duration
-    	    	    						new Color(255,52,84,255));
-    	    	                }
+    	    	                ASF_RadialEmitter emitterPhaseSpike = new ASF_RadialEmitter((CombatEntityAPI) target_ship);
+    	    	                emitterPhaseSpike.location(target_ship.getLocation());
+    	    	                emitterPhaseSpike.life(0.35f, 0.5f);
+    	    	    			emitterPhaseSpike.size(4f, 8f);
+    	    	    			emitterPhaseSpike.velocity(30f, 45f);
+    	    	    			emitterPhaseSpike.color(255,52,84,255);
+    	    	    			emitterPhaseSpike.coreDispersion(target_ship.getCollisionRadius() * 0.65f);
+    	    	    			emitterPhaseSpike.burst((int) (target_ship.getCollisionRadius() * 0.2f));
     	    	                
     	        			} else {
     			                float angle = MathUtils.getRandomNumberInRange(0f, 360f);
@@ -582,16 +581,14 @@ public class ASF_UndyingMalice extends BaseHullMod {
     	    							new Color(190,65,150,70),
     	    							false);
     	    	                
-    	    	                for (int i=0; i < (target_ship.getCollisionRadius() * 0.2f); i++) {
-    	    	                	Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(target_ship.getVelocity(), MathUtils.getRandomNumberInRange(30f, 75f));
-    	    	                	
-    	    	            		engine.addSmoothParticle(MathUtils.getRandomPointInCircle(target_ship.getLocation(), target_ship.getCollisionRadius() * 0.65f),
-    	    	    						sparkVel,
-    	    	    						MathUtils.getRandomNumberInRange(4f, 8f), //size
-    	    	    						1.0f, //brightness
-    	    	    						MathUtils.getRandomNumberInRange(0.35f, 0.5f), //duration
-    	    	    						new Color(255,52,84,255));
-    	    	                }
+    	    	                ASF_RadialEmitter emitterPhaseSpike = new ASF_RadialEmitter((CombatEntityAPI) target_ship);
+    	    	                emitterPhaseSpike.location(target_ship.getLocation());
+    	    	                emitterPhaseSpike.life(0.35f, 0.5f);
+    	    	    			emitterPhaseSpike.size(4f, 8f);
+    	    	    			emitterPhaseSpike.velocity(30f, 45f);
+    	    	    			emitterPhaseSpike.color(255,52,84,255);
+    	    	    			emitterPhaseSpike.coreDispersion(target_ship.getCollisionRadius() * 0.65f);
+    	    	    			emitterPhaseSpike.burst((int) (target_ship.getCollisionRadius() * 0.2f));
     	    	                
     	        			} else {
     			                float angle = MathUtils.getRandomNumberInRange(0f, 360f);
@@ -779,18 +776,14 @@ public class ASF_UndyingMalice extends BaseHullMod {
 
     			float trueRange = STORM_RANGE + (info.charge * 0.5f);
     			
-    			float offset = MathUtils.getRandomNumberInRange(0f, 10f);
-    			for (int i=0; i < 24; i++) {
-    				float angle = offset + (i * 15f);
-    				Vector2f sparkLoc = MathUtils.getPointOnCircumference(ship.getLocation(), trueRange, angle + MathUtils.getRandomNumberInRange(-4f, 4f));
-            		Vector2f sparkVel = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(-25f, -55f), angle);
-    				Global.getCombatEngine().addSmoothParticle(sparkLoc,
-    						sparkVel,
-    						MathUtils.getRandomNumberInRange(6f, 11f), //size
-    						1.0f, //brightness
-    						MathUtils.getRandomNumberInRange(0.5f, 0.65f), //duration
-    						new Color(255,52,84,225));
-    			}
+                ASF_RadialEmitter emitterRangeRing = new ASF_RadialEmitter((CombatEntityAPI) ship);
+                emitterRangeRing.location(ship.getLocation());
+                emitterRangeRing.life(0.5f, 0.65f);
+                emitterRangeRing.size(6f, 11f);
+                emitterRangeRing.velocity(-25f, -30f);
+                emitterRangeRing.distance(trueRange, 0f);
+                emitterRangeRing.color(255,52,84,225);
+                emitterRangeRing.burst(25);
     		}
     		
     		// general area visual stuff
@@ -991,19 +984,16 @@ public class ASF_UndyingMalice extends BaseHullMod {
 			ship.syncWithArmorGridState();
 	        ship.syncWeaponDecalsWithArmorDamage();
 			
-	        for (int i=0; i < 40; i++) {
-				float angle = MathUtils.getRandomNumberInRange(0f, 360f);
-				Vector2f sparkLoc = MathUtils.getPointOnCircumference(ship.getLocation(), MathUtils.getRandomNumberInRange(35f, 60f), angle);
-				
-				Vector2f sparkVelTemp = MathUtils.getMidpoint(MathUtils.getRandomPointInCircle(null, 1f), ship.getVelocity());
-				Vector2f sparkVel = MathUtils.getPointOnCircumference(sparkVelTemp, MathUtils.getRandomNumberInRange(25f, 35f), angle);
-				engine.addSmoothParticle(sparkLoc,
-						sparkVel,
-						MathUtils.getRandomNumberInRange(4f, 9f), //size
-						1.0f, //brightness
-						MathUtils.getRandomNumberInRange(0.6f, 0.75f), //duration
-						new Color(50,240,100,255));
-        	}
+
+            ASF_RadialEmitter emitterRepair1 = new ASF_RadialEmitter((CombatEntityAPI) ship);
+            emitterRepair1.location(ship.getLocation());
+            emitterRepair1.life(0.6f, 0.75f);
+            emitterRepair1.size(4f, 9f);
+            emitterRepair1.velocity(25f, 10f);
+            emitterRepair1.distance(35f, 25f);
+            emitterRepair1.color(50,240,100,255);
+            emitterRepair1.velDistLinkage(false);
+            emitterRepair1.burst(40);
 	        
 	        for (int i=0; i < 30; i++) {
 				float angle = MathUtils.getRandomNumberInRange(0f, 360f);
@@ -1182,8 +1172,8 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		
 		
         // sprite rendering + passive fx section - [start]
-		Vector2f spritePos = MathUtils.getPointOnCircumference(ship.getLocation(), 2f, ship.getFacing());
-		Vector2f spriteSize = new Vector2f(98f, 104f);
+		Vector2f spritePos = MathUtils.getPointOnCircumference(ship.getLocation(), 6f, ship.getFacing());
+		Vector2f spriteSize = new Vector2f(90f, 116f); // 98, 104
 		float alphaMult = 1f;
 		
 		if (ship.isPhased()) {
@@ -1192,7 +1182,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
 		
         if (info.charge > 0f) {
         	SpriteAPI GlowTatt1 = Global.getSettings().getSprite("fx", "A_S-F_persenachia_tatt_glow1");
-        	int alpha1 = (int) (Math.min(info.charge, 150) * alphaMult);
+        	int alpha1 = 20 + ((int) (Math.min(info.charge, 170) * alphaMult)); // added flat 20 with new glowsprite, and increased "max scale" from 150 to 170
         	
     		double alphaTemp = alpha1;
     		double timeMult = (double) stats.getTimeMult().modified; // this timeMult stuff is a "well fuck sprite rendering gets screwy with increases to timescale, let's fix it!"
@@ -1202,7 +1192,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
         	
         	if (info.charge > 100f) {
         		SpriteAPI GlowTatt2 = Global.getSettings().getSprite("fx", "A_S-F_persenachia_tatt_glow2");
-            	int alpha2 = (int) (Math.min((info.charge - 100f) * 0.75f, 255f) * alphaMult);
+            	int alpha2 = (int) (Math.min((info.charge - 100f) * 0.8f, 255f) * alphaMult); // changed mult from 0.75 to 0.8 with new glowsprite
             	
         		double alphaTemp2 = alpha2;
         		alpha2 = (int) Math.ceil(alphaTemp2 / timeMult);
@@ -1251,10 +1241,9 @@ public class ASF_UndyingMalice extends BaseHullMod {
 				durAdd = chargeScalar * 0.1f;
 			}
 			
-			
-			for (int i=0; i < 5; i++) {
+			for (int i=0; i < 4; i++) {
 				float angle = MathUtils.getRandomNumberInRange(0f, 360f);
-				Vector2f sparkLoc = MathUtils.getPointOnCircumference(ship.getLocation(), MathUtils.getRandomNumberInRange(35f, 45f), angle);
+				Vector2f sparkLoc = MathUtils.getPointOnCircumference(spritePos, MathUtils.getRandomNumberInRange(45f, 60f), angle); //35,45
 				
 				Vector2f sparkVelTemp = MathUtils.getMidpoint(MathUtils.getRandomPointInCircle(null, 1f), ship.getVelocity());
 				Vector2f sparkVel = MathUtils.getPointOnCircumference(sparkVelTemp, MathUtils.getRandomNumberInRange(25f, 35f), angle);
@@ -1277,7 +1266,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
 			
 			engine.addNebulaParticle(ship.getLocation(),
 					MathUtils.getRandomPointInCircle(null, 10f),
-					MathUtils.getRandomNumberInRange(110f, 130f),
+					MathUtils.getRandomNumberInRange(120f, 140f), //110,130
 					1.9f,
 					0.28f,
 					0.69f,

@@ -69,34 +69,41 @@ public class ASF_chillblainDetonator extends BaseEveryFrameCombatPlugin {
 		timeCounter+=amount;
 		if (timeCounter > TIMER) {
 
-            Vector2f fieldRandomVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(1f, 5f));
+			Vector2f fieldRandomVel = MathUtils.getRandomPointInCircle(null, 5f);
 			CombatEntityAPI proj = engine.spawnProjectile(missile.getWeapon().getShip(), missile.getWeapon(), "A_S-F_chillblain_field", missile.getLocation(), missile.getFacing(), fieldRandomVel);
 			engine.addPlugin(new ASF_chillblainProjScript((DamagingProjectileAPI) proj));
 			
-			for (int i=0; i < 3; i++) {
-				Vector2f offsetVel0 = MathUtils.getRandomPointOnCircumference(missile.getVelocity(), MathUtils.getRandomNumberInRange(0f, 45f));
-	            Vector2f point0 = MathUtils.getRandomPointOnCircumference(missile.getLocation(), MathUtils.getRandomNumberInRange(0f, 25f));
-	            Vector2f offsetVel01 = MathUtils.getRandomPointOnCircumference(missile.getVelocity(), MathUtils.getRandomNumberInRange(0f, 45f));
-	            Vector2f point01 = MathUtils.getRandomPointOnCircumference(missile.getLocation(), MathUtils.getRandomNumberInRange(0f, 25f));
+			for (int i=0; i < 5; i++) {
+				Vector2f offsetVel0 = MathUtils.getRandomPointInCircle(proj.getVelocity(), 45f);
+	            Vector2f point0 = MathUtils.getRandomPointInCircle(missile.getLocation(), 25f);
+	            Vector2f offsetVel01 = MathUtils.getRandomPointInCircle(proj.getVelocity(), 45f);
+	            Vector2f point01 = MathUtils.getRandomPointInCircle(missile.getLocation(), 25f);
 				
 				engine.addNebulaParticle(point0,
 						offsetVel0,
-						MathUtils.getRandomNumberInRange(40f, 50f),
-						MathUtils.getRandomNumberInRange(0.4f, 0.5f),
+						MathUtils.getRandomNumberInRange(60f, 75f),
+						MathUtils.getRandomNumberInRange(0.4f, 0.6f),
 						0.4f,
 						0.3f,
-						MathUtils.getRandomNumberInRange(0.6f, 1.0f),
+						MathUtils.getRandomNumberInRange(0.7f, 1.1f),
 						new Color(40,140,250,225)); 
 				engine.addSwirlyNebulaParticle(point01,
 						offsetVel01,
-						MathUtils.getRandomNumberInRange(40f, 50f),
-						MathUtils.getRandomNumberInRange(0.4f, 0.5f),
+						MathUtils.getRandomNumberInRange(60f, 75f),
+						MathUtils.getRandomNumberInRange(0.4f, 0.6f),
 						0.4f,
 						0.3f,
-						MathUtils.getRandomNumberInRange(0.6f, 1.0f),
+						MathUtils.getRandomNumberInRange(0.7f, 1.1f),
 						new Color(40,140,250,225), false);
 			}
 			
+            Global.getCombatEngine().addSmoothParticle(missile.getLocation(),
+            		proj.getVelocity(),
+            		169f, //size
+            		1.0f, //brightness
+            		0.15f, //duration
+            		new Color(75,175,250,180));
+            
             Global.getSoundPlayer().playSound("hit_heavy_energy", 0.8f, 1.25f, missile.getLocation(), missile.getVelocity());
             
             engine.removeEntity(missile);

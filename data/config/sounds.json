@@ -355,4 +355,37 @@
 		{"file":"sounds/sfx_wpn_guns/A_S-F_jury_fire_02.ogg","pitch":1.1,"volume":0.55},
 	],
 
+	"A_S-F_painter_loop":
+	[
+		{"file":"sounds/sfx_wpn_guns/A_S-F_painter_beam_01.ogg","pitch":1.5,"volume":0.15},
+	        # {"file":"sounds/sfx_wpn_missiles/dragonfire_dem_targeting_01.ogg","pitch":0.8,"volume":0.06},
+	],
+
+	"A_S-F_diadol_fire":
+	[
+		{"file":"sounds/sfx_wpn_energy/plasma_cannon_fire_01.ogg","pitch":0.82,"volume":0.76},
+		{"file":"sounds/sfx_wpn_energy/plasma_cannon_fire_02.ogg","pitch":0.82,"volume":0.76},
+		{"file":"sounds/sfx_wpn_energy/plasma_cannon_fire_03.ogg","pitch":0.82,"volume":0.76},
+	],
+
+	"A_S-F_colap_fire":
+	[
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.91,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.92,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.93,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.94,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.95,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.89,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.88,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.87,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.86,"volume":0.69},
+		{"file":"sounds/sfx_wpn_energy/ion_pulser_fire_01.ogg","pitch":0.86,"volume":0.69},
+	],
+
+	"A_S-F_narc_fire":
+	[
+		{"file":"sounds/sfx_wpn_guns/A_S-F_narc_fire_01.ogg","pitch":0.95,"volume":0.9},
+	],
+
+
 }

@@ -68,6 +68,11 @@ Novel Coil Geometry,A_S-F_MaliceCoils,,,,codex_require_related,,,,TRUE,,0,0,0,0,
 Overworked Loaders,A_S-F_tiredGuns,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_tiredGuns,your weapons are eepy :(,your weapons are eepy :(,,graphics/hullmods/A_S-F_tiredGuns.png
 Integrated Rangefinders,A_S-F_integratedRangefinders,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_integratedRangefinders,"Super BRF (works up to 1k range, and at 50% for pd, but not for hybrids!)","Super BRF (works up to 1k range, and at 50% for pd, but not for hybrids!)",,graphics/hullmods/A_S-F_integratedRangefinders.png
 Ruggedized Mounts,A_S-F_ruggedMounts,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ruggedMounts,"Tougher weps, faster wep repairs, and cheaper med balls.","Tougher weps, faster wep repairs, and cheaper med balls.",,graphics/hullmods/A_S-F_ruggedMounts.png
+Tactical Artillery Mount,A_S-F_ArtyMount,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ArtyMount,Core hullmod for Tactical Artillery ships.,Core hullmod for Tactical Artillery ships.,,graphics/hullmods/A_S-F_artillery.png
+Diadol Plasma Artillery,A_S-F_ArtyWepHighTech,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ArtyWepHighTech,High Tech Tactical Artillery.,High Tech Tactical Artillery.,,graphics/hullmods/A_S-F_artilleryHT.png
+Colap Ion Artillery,A_S-F_ArtyWepRemnant,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ArtyWepRem,Remnant Tactical Artillery.,Remnant Tactical Artillery.,,graphics/hullmods/A_S-F_artilleryRem.png
+Celpek Burst Artillery,A_S-F_ArtyWepMidline,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ArtyWepMid,Midline Tactical Artillery.,Midline Tactical Artillery.,,graphics/hullmods/A_S-F_artilleryMid.png
+,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 # ANOMALY,,,,,,,,,,,,,,,,,,,
 Anomalous Systems,A_S-F_anomalousSystems,,,,invisible_in_codex,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_AnomalousSystems,HWPREDICT ROUND FAIL; VDEF PERCENTNAN; CDEF PREDICT & PREDICTSIGMA OOB;,HWPREDICT ROUND FAIL; VDEF PERCENTNAN; CDEF PREDICT & PREDICTSIGMA OOB;,,graphics/hullmods/A_S-F_anomalousSystems.png

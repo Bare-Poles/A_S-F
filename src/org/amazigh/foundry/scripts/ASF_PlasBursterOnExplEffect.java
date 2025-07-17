@@ -2,11 +2,13 @@ package org.amazigh.foundry.scripts;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.ProximityExplosionEffect;
 
@@ -39,18 +41,16 @@ public class ASF_PlasBursterOnExplEffect implements ProximityExplosionEffect {
     				0.35f, //fullBrightnessFraction
     				MathUtils.getRandomNumberInRange(1f, 1.6f), //dur
     				COLOR_X);
-
-            for (int j = 0; j < 6; j++) {
-            	
-            	Global.getCombatEngine().addSmoothParticle(MathUtils.getRandomPointInCircle(point, 35f),
-            			MathUtils.getRandomPointInCircle(null, 4f),
-            			MathUtils.getRandomNumberInRange(1f, 4f), //size
-            			1.0f, //brightness
-            			MathUtils.getRandomNumberInRange(0.9f, 1.3f), //duration
-            			new Color(200,90,245,195));
-            	
-            }
         }
+        
+        ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) explosion);
+        emitter.location(point);
+        emitter.life(0.9f, 1.3f);
+        emitter.size(1f, 4f);
+        emitter.velocity(0f, 4f);
+        emitter.distance(0f, 35f);
+        emitter.color(200,90,245,195);
+        emitter.burst(24);
 	}
 }
 

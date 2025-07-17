@@ -2,6 +2,7 @@ package org.amazigh.foundry.scripts;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -25,19 +26,14 @@ public class ASF_ionDriver_onHit implements OnHitEffectPlugin {
 		Global.getSoundPlayer().playSound("tachyon_lance_emp_impact", 0.8f, 0.65f, point, fxVel);
 		
 		// particle burst
-		for (int i=0; i < 37; i++) {
-            float dist = MathUtils.getRandomNumberInRange(7f, 29f);
-            float angle = MathUtils.getRandomNumberInRange(0f, 360f);
-            Vector2f offsetLoc = MathUtils.getPointOnCircumference(point, dist, angle);
-            Vector2f offsetVel = MathUtils.getPointOnCircumference(fxVel, (34f - dist) * 4.8f, angle);
-            
-            Global.getCombatEngine().addSmoothParticle(offsetLoc,
-            		offsetVel,
-            		MathUtils.getRandomNumberInRange(3f, 6f), //size
-            		1.0f, //brightness
-            		MathUtils.getRandomNumberInRange(0.62f, 0.83f), //duration
-            		new Color(29,200,230,255)); // 29,170,255
-        }
+		ASF_RadialEmitter emitterBurst = new ASF_RadialEmitter((CombatEntityAPI) target);
+		emitterBurst.location(point);
+		emitterBurst.life(0.62f, 0.83f);
+		emitterBurst.size(3f, 6f);
+		emitterBurst.velocity(129.6f, -105.6f); // (34 - (7-29)) * 4.8
+		emitterBurst.distance(7f, 22f);
+		emitterBurst.color(29,200,230,255);
+		emitterBurst.burst(37);
 		
 		// inner arcs
 		for (int i=0; i < 2; i++) {

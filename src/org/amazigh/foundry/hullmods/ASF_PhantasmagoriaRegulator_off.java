@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
@@ -18,6 +19,7 @@ import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamageType;
 import com.fs.starfarer.api.combat.EmpArcEntityAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
@@ -241,21 +243,18 @@ public class ASF_PhantasmagoriaRegulator_off extends BaseHullMod {
 						MathUtils.getRandomNumberInRange(1.9f, 2.7f) - (dist * 0.2f),
 						new Color(215 - colVarR,40,105 + colVarB,120),
 						false);
-    			
-    			// and some sparks
-    			for (int j=0; j < 2; j++) {
-    				float dist2 = MathUtils.getRandomNumberInRange(0.1f, 0.7f);
-        			float angle2 = i * 5f + MathUtils.getRandomNumberInRange(-2f, 2f);
-    				
-                	Global.getCombatEngine().addSmoothParticle(MathUtils.getPointOnCircumference(ship.getLocation(), ship.getCollisionRadius() * 4f * dist2, angle2),
-    		        		MathUtils.getPointOnCircumference(ship.getVelocity(), ship.getCollisionRadius() * 3f * (1f - dist2), angle2),
-    						MathUtils.getRandomNumberInRange(4f, 9f), //size
-    						0.6f, //brightness
-    						MathUtils.getRandomNumberInRange(1.2f, 1.7f), //duration
-    						arcColor);
-            	}
     		}
-    	
+	        
+			// and some sparks
+			ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) ship);
+			emitter.location(ship.getLocation());
+			emitter.life(1.2f, 1.7f);
+			emitter.size(4f, 9f);
+			emitter.velocity(ship.getCollisionRadius() * 2.7f, - (ship.getCollisionRadius() * 1.8f));
+			emitter.distance(ship.getCollisionRadius() * 0.4f, ship.getCollisionRadius() * 2.4f);
+			emitter.color(redA,45,blueA,255);
+			emitter.burst(144);
+			
 	        
 			
 			int arcsFired = 0;

@@ -17,6 +17,7 @@ import org.magiclib.util.MagicTargeting;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.CollisionUtils;
 import org.lazywizard.lazylib.FastTrig;
 import org.lazywizard.lazylib.MathUtils;
@@ -197,15 +198,24 @@ public class ASF_PhiliaMissileAI implements MissileAIPlugin, GuidedMissileAI {
                     		0.4f, //duration
                     		new Color(185,150,175,90));
                 	
-        			for (int i=0; i < 11; i++) {
-                    	Vector2f jinkSparkRandomVel = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(30f, 110f), MISSILE.getFacing() + jinkOffset + MathUtils.getRandomNumberInRange(170f, 190f));
-                    	engine.addSmoothParticle(MISSILE.getLocation(),
-                    			jinkSparkRandomVel,
-                    			MathUtils.getRandomNumberInRange(3f, 6f), //size
-                    			1.0f, //brightness
-                    			MathUtils.getRandomNumberInRange(0.5f, 0.65f), //duration
-                    			new Color(235,150,225,175));
-        			}
+//        			for (int i=0; i < 11; i++) {
+//                    	Vector2f jinkSparkRandomVel = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(30f, 110f), MISSILE.getFacing() + jinkOffset + MathUtils.getRandomNumberInRange(170f, 190f));
+//                    	engine.addSmoothParticle(MISSILE.getLocation(),
+//                    			jinkSparkRandomVel,
+//                    			MathUtils.getRandomNumberInRange(3f, 6f), //size
+//                    			1.0f, //brightness
+//                    			MathUtils.getRandomNumberInRange(0.5f, 0.65f), //duration
+//                    			new Color(235,150,225,175));
+//        			}
+
+        			ASF_RadialEmitter emitterBase = new ASF_RadialEmitter(null);
+        			emitterBase.location(MISSILE.getLocation());
+        			emitterBase.angle(MISSILE.getFacing() + jinkOffset + 170f, 20f);
+        			emitterBase.life(0.5f, 0.65f);
+        			emitterBase.size(3f, 6f);
+        			emitterBase.velocity(30f, 80f);
+        			emitterBase.color(235,150,225,175);
+        			emitterBase.burst(11);
                 	
                 	MISSILE.getVelocity().set(MathUtils.getPointOnCircumference(MISSILE.getVelocity(), JINK_POWER, MISSILE.getFacing() + jinkOffset));
                 	MISSILE.setFacing(MISSILE.getFacing() - (jinkOffset * 0.15f) );

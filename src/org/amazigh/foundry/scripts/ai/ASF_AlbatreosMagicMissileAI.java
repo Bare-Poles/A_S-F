@@ -14,6 +14,7 @@ import org.magiclib.util.MagicTargeting;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
@@ -256,32 +257,32 @@ public class ASF_AlbatreosMagicMissileAI implements MissileAIPlugin, GuidedMissi
                         		0.75f, //full bright fraction
                         		MathUtils.getRandomNumberInRange(0.9f, 1.3f), //duration
                         		new Color(190,185,180,120));
-                    	for (int jj=0; jj < 2; jj++) {
-                        	// left sparks
-                        	Vector2f sparkRandomVelL = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(36f, 55f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-115f, -65f));
-                        	engine.addSmoothParticle(loc,
-                        			sparkRandomVelL,
-                        			MathUtils.getRandomNumberInRange(3f, 6f), //size
-                        			1.0f, //brightness
-                        			1.0f, //duration
-                        			new Color(255,172,69,225));
-                        	// right sparks
-                        	Vector2f sparkRandomVelR = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(36f, 55f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(115f, 65f));
-                        	engine.addSmoothParticle(loc,
-                        			sparkRandomVelR,
-                        			MathUtils.getRandomNumberInRange(3f, 6f), //size
-                        			1.0f, //brightness
-                        			1.0f, //duration
-                        			new Color(255,172,69,225));
-                        	// back sparks
-                        	Vector2f sparkRandomVelB = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(36f, 73f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(170f, 190f));
-                        	engine.addSmoothParticle(loc,
-                        			sparkRandomVelB,
-                        			MathUtils.getRandomNumberInRange(3f, 8f), //size
-                        			1.0f, //brightness
-                        			1.2f, //duration
-                        			new Color(255,172,69,255));
-                    	}
+//                    	for (int jj=0; jj < 2; jj++) {
+//                        	// left sparks
+//                        	Vector2f sparkRandomVelL = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(36f, 55f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(-115f, -65f));
+//                        	engine.addSmoothParticle(loc,
+//                        			sparkRandomVelL,
+//                        			MathUtils.getRandomNumberInRange(3f, 6f), //size
+//                        			1.0f, //brightness
+//                        			1.0f, //duration
+//                        			new Color(255,172,69,225));
+//                        	// right sparks
+//                        	Vector2f sparkRandomVelR = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(36f, 55f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(115f, 65f));
+//                        	engine.addSmoothParticle(loc,
+//                        			sparkRandomVelR,
+//                        			MathUtils.getRandomNumberInRange(3f, 6f), //size
+//                        			1.0f, //brightness
+//                        			1.0f, //duration
+//                        			new Color(255,172,69,225));
+//                        	// back sparks
+//                        	Vector2f sparkRandomVelB = MathUtils.getPointOnCircumference(null, MathUtils.getRandomNumberInRange(36f, 73f), MISSILE.getFacing() + MathUtils.getRandomNumberInRange(170f, 190f));
+//                        	engine.addSmoothParticle(loc,
+//                        			sparkRandomVelB,
+//                        			MathUtils.getRandomNumberInRange(3f, 8f), //size
+//                        			1.0f, //brightness
+//                        			1.2f, //duration
+//                        			new Color(255,172,69,255));
+//                    	}
                 		// frontal smoke jet/trail
                     	for (int k=0; k < 5; k++) {
                     		float jetDist = (i * 18f) + (k * 3f) + MathUtils.getRandomNumberInRange(0f, 15f); // 21-36 - 87-102
@@ -298,6 +299,34 @@ public class ASF_AlbatreosMagicMissileAI implements MissileAIPlugin, GuidedMissi
                     	}
                     }
     			}
+
+            	// left sparks
+    			ASF_RadialEmitter emitterLeft = new ASF_RadialEmitter(null);
+    			emitterLeft.location(loc);
+    			emitterLeft.angle(MISSILE.getFacing() - 115f, 50f);
+    			emitterLeft.life(1f, 1f);
+    			emitterLeft.size(3f, 6f);
+    			emitterLeft.velocity(30f, 25f);
+    			emitterLeft.color(255,172,69,225);
+    			emitterLeft.burst(16);
+            	// right sparks
+    			ASF_RadialEmitter emitterRight = new ASF_RadialEmitter(null);
+    			emitterRight.location(loc);
+    			emitterRight.angle(MISSILE.getFacing() + 65f, 50f);
+    			emitterRight.life(1f, 1f);
+    			emitterRight.size(3f, 6f);
+    			emitterRight.velocity(30f, 25f);
+    			emitterRight.color(255,172,69,225);
+    			emitterRight.burst(16);
+            	// back sparks
+    			ASF_RadialEmitter emitterBack = new ASF_RadialEmitter(null);
+    			emitterBack.location(loc);
+    			emitterBack.angle(MISSILE.getFacing() + 170f, 20f);
+    			emitterBack.life(1.2f, 1.2f);
+    			emitterBack.size(3f, 8f);
+    			emitterBack.velocity(23f, 50f);
+    			emitterBack.color(255,172,69,255);
+    			emitterBack.burst(19);
     			
     		}
     		

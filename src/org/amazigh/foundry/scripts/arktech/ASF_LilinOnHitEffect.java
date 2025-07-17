@@ -2,10 +2,9 @@ package org.amazigh.foundry.scripts.arktech;
 
 import java.awt.Color;
 
-import org.lazywizard.lazylib.MathUtils;
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lwjgl.util.vector.Vector2f;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEntityAPI;
@@ -48,18 +47,14 @@ public class ASF_LilinOnHitEffect implements OnHitEffectPlugin {
         
         engine.spawnExplosion(point, fxVel, COLOR_X, 33f, 0.35f);
         
-        for (int i=0; i < 72; i++) {
-            float dist = MathUtils.getRandomNumberInRange(1f, 35f);
-            Vector2f offsetLoc = MathUtils.getPointOnCircumference(point, dist, i * 5f);
-            Vector2f offsetVel = MathUtils.getPointOnCircumference(fxVel, (36f - dist) * 10f, i * 5f);
-            
-            Global.getCombatEngine().addSmoothParticle(offsetLoc,
-            		offsetVel,
-            		MathUtils.getRandomNumberInRange(3f, 5f), //size
-            		1.0f, //brightness
-            		MathUtils.getRandomNumberInRange(0.3f, 0.4f), //duration
-            		COLOR_P);
-        }
+        ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) target);
+        emitter.location(point);
+        emitter.life(0.3f, 0.4f);
+        emitter.size(3f, 5f);
+        emitter.velocity(350f, -340f); // (36 - (1-35)) * 10
+        emitter.distance(1f, 34f);
+        emitter.color(50,255,25,255); // COLOR_P
+        emitter.burst(75);
         
 	}
 }

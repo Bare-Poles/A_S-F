@@ -19,6 +19,9 @@ public class ASF_phobiaFlex extends BaseHullMod {
 
 	public static final float E_FLUX_BONUS = 4f;
 	
+	public static final float MIN_DAMAGE_CLAMP_MULT = 2f; // the lowest time that is allowed for a missile to take to be forged
+	public static final float FORGE_RATE = 40f; // forge "DPS"
+	
 	public static String PHOBIA_DATA_KEY = "core_phobia_data_key";
 	
 	public static class PhobiaData {
@@ -133,7 +136,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
                     	if (w.getAmmo() < w.getMaxAmmo()) {
                         	forging = true;
                         	data.FORGE_1 = true;
-                        	data.DAMAGE_1 = Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
+                        	data.DAMAGE_1 = Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
                     	}
             		}
                 	continue;
@@ -149,7 +152,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
                     	if (w.getAmmo() < w.getMaxAmmo()) {
                         	forging = true;
                         	data.FORGE_2 = true;
-                        	data.DAMAGE_2 = Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
+                        	data.DAMAGE_2 = Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
                     	}
             		}
                 	continue;
@@ -165,7 +168,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
                     	if (w.getAmmo() < w.getMaxAmmo()) {
                         	forging = true;
                         	data.FORGE_3 = true;
-                        	data.DAMAGE_3 = Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
+                        	data.DAMAGE_3 = Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
                     	}
             		}
                 	continue;
@@ -181,7 +184,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
                     	if (w.getAmmo() < w.getMaxAmmo()) {
                         	forging = true;
                         	data.FORGE_4 = true;
-                        	data.DAMAGE_4 = Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
+                        	data.DAMAGE_4 = Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()));
                     	}
             		}
                 	continue;
@@ -402,14 +405,14 @@ public class ASF_phobiaFlex extends BaseHullMod {
 		label.setHighlightColors(h, uni);
 		
 		tooltip.addSectionHeading("Missile Weapons", miss, banner, Alignment.MID, opad);
-		label = tooltip.addPara("Features a microforge that forges ammo for any non-reloading missile weapons installed in one of the %s mounts at a rate that gives each launcher an equivalent of %s. Reload rate is halved when phased and progress will pause if the ship is overloaded or venting.", opad, uni, "Universal", "40 DPS");
-		label.setHighlight("Universal", "40 DPS");
+		label = tooltip.addPara("Features a microforge that forges ammo for any non-reloading missile weapons installed in one of the %s mounts at a rate that gives each launcher an equivalent of %s. Reload rate is halved when phased and progress will pause if the ship is overloaded or venting.", opad, uni, "Universal", (int)FORGE_RATE + " DPS");
+		label.setHighlight("Universal", (int)FORGE_RATE + " DPS");
 		label.setHighlightColors(uni, h);
 		label = tooltip.addPara("%s", pad, grey, "If the installed weapon deals more EMP than damage, then the EMP value will be used to determine reload time.");
 		label.setHighlight("If the installed weapon deals more EMP than damage, then the EMP value will be used to determine reload time.");
 		label.setHighlightColors(grey);
-		label = tooltip.addPara("%s", pad, grey, "Forge reload time cannot be lower than 2 Seconds regardless of weapon damage.");
-		label.setHighlight("Forge reload time cannot be lower than 2 Seconds regardless of weapon damage.");
+		label = tooltip.addPara("%s", pad, grey, "Forge reload time cannot be lower than " + (int)MIN_DAMAGE_CLAMP_MULT + " Seconds regardless of weapon damage.");
+		label.setHighlight("Forge reload time cannot be lower than " + (int)MIN_DAMAGE_CLAMP_MULT + " Seconds regardless of weapon damage.");
 		label.setHighlightColors(grey);
 		
 		if (!Global.CODEX_TOOLTIP_MODE) {
@@ -478,7 +481,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
 	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0003")) {
 	            	missile1 = "" + w.getDisplayName();
 	            	if (w.usesAmmo() && w.getSpec().getAmmoPerSecond() <= 0) {
-	            		missile1b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	            		missile1b = "" + (double) (Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / FORGE_RATE;
 	                	missile1Valid = true;
 	            	} else {
 	            		missile1b = "Not valid for Microforge.";
@@ -487,7 +490,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
 	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0004")) {
 	            	missile2 = "" + w.getDisplayName();
 	            	if (w.usesAmmo() && w.getAmmoPerSecond() <= 0) {
-	            		missile2b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	            		missile2b = "" + (double) (Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / FORGE_RATE;
 	                	missile2Valid = true;
 	            	} else {
 	            		missile2b = "Not valid for Microforge.";
@@ -496,7 +499,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
 	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0005")) {
 	            	missile3 = "" + w.getDisplayName();
 	            	if (w.usesAmmo() && w.getAmmoTracker().getAmmoPerSecond() <= 0) {
-	                	missile3b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	                	missile3b = "" + (double) (Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / FORGE_RATE;
 	                	missile3Valid = true;
 	            	} else {
 	            		missile3b = "Not valid for Microforge.";
@@ -505,7 +508,7 @@ public class ASF_phobiaFlex extends BaseHullMod {
 	            if (w.getSpec() == ship.getVariant().getWeaponSpec("WS0006")) {
 	            	missile4 = "" + w.getDisplayName();
 	            	if (w.usesAmmo() && w.getAmmoTracker().getAmmoPerSecond() <= 0) {
-	                	missile4b = "" + (double) (Math.max(80f, Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / 40;
+	                	missile4b = "" + (double) (Math.max((FORGE_RATE * MIN_DAMAGE_CLAMP_MULT), Math.max(w.getDerivedStats().getDamagePerShot(), w.getDerivedStats().getEmpPerShot()))) / FORGE_RATE;
 	                	missile4Valid = true;
 	            	} else {
 	            		missile4b = "Not valid for Microforge.";

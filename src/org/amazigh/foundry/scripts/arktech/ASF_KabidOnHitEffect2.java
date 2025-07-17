@@ -2,6 +2,7 @@ package org.amazigh.foundry.scripts.arktech;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -36,19 +37,18 @@ public class ASF_KabidOnHitEffect2 implements OnHitEffectPlugin {
 	                weapon.getCurrAngle() + randomArc,
 	                RandomVel);
 			
-			for (int i=0; i < 39; i++) {
-                float angle = projectile.getFacing() + MathUtils.getRandomNumberInRange(-3.2f, 3.2f);
-                Vector2f offsetVel = MathUtils.getPointOnCircumference(vel, MathUtils.getRandomNumberInRange(9f, 170f), angle);
-                
-                Vector2f point2 = MathUtils.getPointOnCircumference(weapon.getFirePoint(0), MathUtils.getRandomNumberInRange(2f, 36f), angle);
-                
-                Global.getCombatEngine().addSmoothParticle(MathUtils.getRandomPointInCircle(point2, 4f),
-                		offsetVel,
-                		MathUtils.getRandomNumberInRange(2f, 4f), //size
-                		1.0f, //brightness
-                		MathUtils.getRandomNumberInRange(0.31f, 0.46f), //duration
-                		new Color(150,255,240,180));
-            }
+			ASF_RadialEmitter emitter = new ASF_RadialEmitter((CombatEntityAPI) ship);
+            emitter.location(weapon.getFirePoint(0));
+            emitter.angle(projectile.getFacing() -3.2f, 6.4f);
+            emitter.life(0.31f, 0.46f);
+            emitter.size(2f, 4f);
+            emitter.velocity(9f, 161f);
+            emitter.distance(2f, 34f);
+            emitter.color(150,255,240,180);
+            emitter.velDistLinkage(false);
+            emitter.coreDispersion(4f);
+            emitter.burst(39);
+            
 			
 	        engine.spawnEmpArcVisual(point, target, weapon.getFirePoint(0), ship, 10f,
 					new Color(120,85,130,35),

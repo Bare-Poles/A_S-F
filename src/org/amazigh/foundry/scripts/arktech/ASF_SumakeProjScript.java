@@ -33,8 +33,7 @@ public class ASF_SumakeProjScript extends BaseEveryFrameCombatPlugin {
 	private float delayCounter; // Counter for delaying targeting
 	private Vector2f offsetVelocity; // Only used for ONE_TURN_DUMB: keeps velocity from the ship and velocity from the projectile separate (messes up calculations otherwise)
 	private float actualGuidanceDelay; // The actual guidance delay for this specific projectile
-
-
+	
 	/**
 	 * Initializer for the guided projectile script
 	 *

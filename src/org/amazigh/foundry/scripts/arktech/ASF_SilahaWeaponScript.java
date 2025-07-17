@@ -2,6 +2,7 @@ package org.amazigh.foundry.scripts.arktech;
 
 import java.awt.Color;
 
+import org.amazigh.foundry.scripts.ASF_ModPlugin.ASF_RadialEmitter;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -9,6 +10,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEngineLayers;
+import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
 import com.fs.starfarer.api.combat.OnFireEffectPlugin;
@@ -53,22 +55,30 @@ public class ASF_SilahaWeaponScript implements EveryFrameWeaponEffectPlugin, OnF
         
         engine.addHitParticle(proj_location, ship_velocity, 75f, 1f, 0.1f, FLASH_COLOR.brighter());
         
-        for (int i=0; i < 115; i++) {
-        	float arcPoint = MathUtils.getRandomNumberInRange(projectile.getFacing() - 5f, projectile.getFacing() + 5f);
-        	
-        	Vector2f velocity = MathUtils.getPointOnCircumference(ship_velocity, MathUtils.getRandomNumberInRange(0f, 10f), MathUtils.getRandomNumberInRange(projectile.getFacing() - 90f, projectile.getFacing() + 90f));
-        	
-        	Vector2f spawnLocation = MathUtils.getPointOnCircumference(proj_location, MathUtils.getRandomNumberInRange(5f, 125f), arcPoint);
-        	spawnLocation = MathUtils.getRandomPointInCircle(spawnLocation, MathUtils.getRandomNumberInRange(0f, 5f));
-        	
-        	engine.addSmoothParticle(spawnLocation,
-        			velocity,
-        			MathUtils.getRandomNumberInRange(2f, 3f),
-        			1f,
-        			MathUtils.getRandomNumberInRange(0.5f, 3f),
-        			FLASH_COLOR);
-        }
+        ASF_RadialEmitter emitterFront = new ASF_RadialEmitter((CombatEntityAPI) ship);
+        emitterFront.location(proj_location);
+		emitterFront.angle(projectile.getFacing() - 5f, 10f);
+		emitterFront.life(0.5f, 3f);
+		emitterFront.size(2f, 3f);
+		emitterFront.velocity(0f, 10f);
+		emitterFront.distance(5f, 120f);
+		emitterFront.color(150,95,150,210);
+		emitterFront.velDistLinkage(false);
+		emitterFront.emissionOffset(-85f, 85f);
+		emitterFront.coreDispersion(5f);
+		emitterFront.burst(115);
         
+		ASF_RadialEmitter emitterFront2 = new ASF_RadialEmitter((CombatEntityAPI) ship);
+		emitterFront2.location(proj_location);
+		emitterFront2.angle(projectile.getFacing() - 3f, 6f);
+		emitterFront2.life(1.1f, 1.7f);
+		emitterFront2.size(3f, 4f);
+		emitterFront2.velocity(9f, 86f);
+		emitterFront2.color(90,170,95,150);
+		emitterFront2.coreDispersion(3f);
+		emitterFront2.burst(54);
+		
+		
         // spawns particles along an 8px line, centered:  7.5 backwards, 12.5 out to each side
         	// lining up with the "vents" on the sprite!
         
@@ -103,18 +113,6 @@ public class ASF_SilahaWeaponScript implements EveryFrameWeaponEffectPlugin, OnF
     				MathUtils.getRandomNumberInRange(0.6f, 0.9f), //duration
     				SMK_SPRK_COLOR.darker());
         	
-        	for (int j=0; j < 6; j++) {
-        		float arcPoint3 = MathUtils.getRandomNumberInRange(projectile.getFacing() - 3f, projectile.getFacing() +3f);
-            	
-            	Vector2f velocity3 = MathUtils.getPointOnCircumference(ship_velocity, MathUtils.getRandomNumberInRange(9f, 95f), arcPoint3);
-
-            	engine.addSmoothParticle(MathUtils.getRandomPointInCircle(proj_location, 3f),
-                		velocity3,
-        				MathUtils.getRandomNumberInRange(3f, 4f), //size
-        				1f, //brightness
-        				MathUtils.getRandomNumberInRange(1.1f, 1.7f), //duration
-        				SMK_SPRK_COLOR);
-        	}
         }
         
 	}
