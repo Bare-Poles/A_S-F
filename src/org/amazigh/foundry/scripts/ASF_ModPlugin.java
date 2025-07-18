@@ -240,7 +240,7 @@ public class ASF_ModPlugin extends BaseModPlugin {
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyShields"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyTargeting"));
 		// linking the anarchy hullmods, because it seems like an idea
 		
-		 
+		
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getWeaponEntryId("A_S-F_painter"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getWeaponEntryId("A_S-F_narc"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getShipSystemEntryId("A_S-F_designate"));

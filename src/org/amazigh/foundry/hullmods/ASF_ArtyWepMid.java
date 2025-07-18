@@ -73,6 +73,7 @@ public class ASF_ArtyWepMid extends BaseHullMod {
 		    		if (info.fxInterval1.intervalElapsed()) {
 		        		
 		        		int particleAlpha = (int) Math.ceil((20 + (120 * spoolVal)) / timeMult);
+		        		particleAlpha = Math.min(250, particleAlpha);
 		        		
 		        		for (int i=0; i < 3; i++) {
 		            		Vector2f sparkVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(2.5f, 10.3f), port.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-37f, 37f));

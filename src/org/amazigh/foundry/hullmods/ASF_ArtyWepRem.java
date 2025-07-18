@@ -76,6 +76,7 @@ public class ASF_ArtyWepRem extends BaseHullMod {
         	if (info.fxInterval1.intervalElapsed()) {
         		
         		int particleAlpha = (int) Math.ceil((20 + (120 * spoolVal)) / timeMult);
+        		particleAlpha = Math.min(250, particleAlpha);
         		
             	engine.addSmoothParticle(MathUtils.getRandomPointInCircle(portLoc, 1f),
             			ship.getVelocity(),

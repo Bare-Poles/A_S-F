@@ -76,6 +76,7 @@ public class ASF_ArtyWepHighTech extends BaseHullMod {
         	if (info.fxInterval1.intervalElapsed()) {
 
         		int particleAlpha = (int) Math.ceil((22 + (120 * spoolVal)) / timeMult);
+        		particleAlpha = Math.min(250, particleAlpha);
         		
         		for (int i=0; i < 3; i++) {
             		Vector2f sparkVel = MathUtils.getRandomPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(1f, 9f));
