@@ -114,10 +114,13 @@ public class ASF_PainterBeamEffect implements BeamEffectPlugin {
 			
     		double timeMult = (double) ship.getMutableStats().getTimeMult().modified; // because sprite rendering gets screwy with increases to timescale
     		int alpha = (int) Math.ceil(150 / timeMult);
+    		alpha = Math.min(250, alpha);
+    		
     		int red = 100 + (int) (count * 15);
     		int blue = 250 - (int) (count * 15);
     		
     		int alphaRing = (int) ((alpha + (count * 5f)) * 0.3f); 
+    		alphaRing = Math.min(250, alphaRing);
     		
 			Vector2f tagRingSize = new Vector2f((ship.getCollisionRadius() * 2.1f) + (15f * spriteScale), (ship.getCollisionRadius() * 2.1f) + (15f * spriteScale));
 			
