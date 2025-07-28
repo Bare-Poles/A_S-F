@@ -183,3 +183,13 @@ A_S-F_narc_shot_glow,A_S-F_narc_shot,base_trail_smooth,10,0.03,0.04,0.13,41,27,"
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 A_S-F_zalak_bolt_shot,A_S-F_zalak_bolt_shot,base_trail_smooth,10,0.05,0,0.13,15,9,"[100,250,175]","[0,55,30]",0.4,256,-128,TRUE,5,0,1,0,TRUE,FALSE,TRUE,20,200,0.1,0,0,0,FALSE,TRUE
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+A_S-F_expiation_1_shot_main,A_S-F_expiation_1_shot,A_S-F_trail_hard,10,0.05,0,0.3,6,3,"[0,255,100]","[0,55,110]",0.4,256,-120,TRUE,5,0,1,0,TRUE,FALSE,TRUE,20,200,0.1,0,0,0,FALSE,TRUE
+A_S-F_expiation_1_shot_core,A_S-F_expiation_1_shot,base_trail_mild,10,0.01,0.03,0.08,12,5,"[215,255,210]","[0,195,120]",0.8,256,150,TRUE,20,0,1,0,TRUE,FALSE,TRUE,10,100,0.1,0,0,0,FALSE,TRUE
+# A_S-F_expiation_1_shot_glow,A_S-F_expiation_1_shot,base_trail_smooth,10,0.02,0.04,0.1,50,20,"[0,255,75]","[0,150,120]",0.35,256,-250,TRUE,23,1,1,0,TRUE,FALSE,TRUE,20,300,0.1,0,0,0,FALSE,TRUE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -28,7 +28,7 @@ public class ASF_ArtyWepHighTech extends BaseHullMod {
 
 	private float rechargeTime = 3f;
 	private float spoolTime = 1.5f; // portion of recharge time that the vfx is not spooling up
-	private float damage = 1200f;
+	private float damage = 1500f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 	}
@@ -58,6 +58,7 @@ public class ASF_ArtyWepHighTech extends BaseHullMod {
     		
     		double timeMult = (double) ship.getMutableStats().getTimeMult().modified; // this timeMult stuff is a "well fuck sprite rendering gets screwy with increases to timescale, let's fix it!"
     		int alpha = (int) Math.ceil((5 + (24 * spoolVal)) / timeMult);
+    		alpha = Math.min(250, alpha);
     		
     		for (int i=0; i < 2; i++) {
     			float sizeRandom1 = MathUtils.getRandomNumberInRange(28f, 38f);

@@ -338,6 +338,10 @@ public class ASF_ModPlugin extends BaseModPlugin {
             return this;
         }
         
+        /**
+         * @param emissionOffset
+         * @return an additional angle added to the angle of velocity (for when you want the angle of velocity/distance to not be linked)
+         */
         public ASF_RadialEmitter emissionOffset(float emissionOffsetBase, float emissionOffsetAdd) {
             this.emissionOffsetBase = emissionOffsetBase;
             this.emissionOffsetAdd = emissionOffsetAdd;

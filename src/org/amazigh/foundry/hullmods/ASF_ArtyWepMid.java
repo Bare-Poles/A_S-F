@@ -27,7 +27,7 @@ public class ASF_ArtyWepMid extends BaseHullMod {
 
 	private float rechargeTime = 3f;
 	private float spoolTime = 1.5f; // portion of recharge time that the vfx is not spooling up
-	private float damage = 120f;
+	private float damage = 180f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 	}
@@ -148,6 +148,7 @@ public class ASF_ArtyWepMid extends BaseHullMod {
     	    			// frontal particles
     	    			ASF_RadialEmitter emitterFrontal = new ASF_RadialEmitter((CombatEntityAPI) ship);
     	    			emitterFrontal.location(portLoc);
+    	    			emitterFrontal.angle(shotAngle, 0f);
     	    			emitterFrontal.life(0.28f, 0.39f);
     	    			emitterFrontal.size(15f, 13f);
     	    			emitterFrontal.velocity(3f, 43f);

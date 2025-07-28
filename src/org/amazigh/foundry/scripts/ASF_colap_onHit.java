@@ -67,8 +67,8 @@ public class ASF_colap_onHit implements OnHitEffectPlugin {
 			//do arc!
 			engine.spawnEmpArcPierceShields(projectile.getSource(), point, target, target,
 					DamageType.ENERGY,
-					projectile.getDamageAmount() * 0.2f, // damage
-					projectile.getEmpAmount() * 0.5f, // emp
+					projectile.getDamageAmount() * 0.4f, // damage
+					projectile.getEmpAmount() * 0.75f, // emp
 					500f, // max range
 					"tachyon_lance_emp_impact",
 					15f, // thickness

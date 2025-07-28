@@ -279,8 +279,8 @@ public class ASF_ArtyWepRem extends BaseHullMod {
 		label.setHighlightColors(h, h, h);
 		
 		label = tooltip.addPara("Hits on hull or armor will arc to weapons and engines. Hits on shields have a chance to generate a shield-penetrating arc based on the target's hard flux level.", pad);
-		label = tooltip.addPara("Each arc deals %s and %s damage.", pad, h, (int)(damage * 0.2) + " Energy", (int)(emp * 0.5) + " EMP");
-		label.setHighlight((int)(damage * 0.2) + " Energy", (int)(emp * 0.5) + " EMP");
+		label = tooltip.addPara("Each arc deals %s and %s damage.", pad, h, (int)(damage * 0.4) + " Energy", (int)(emp * 0.75) + " EMP");
+		label.setHighlight((int)(damage * 0.4) + " Energy", (int)(emp * 0.75) + " EMP");
 		label.setHighlightColors(h, h);
 		
 		label = tooltip.addPara("This weapon takes %s seconds to recharge after firing.", opad, h, "" + (int)rechargeTime);

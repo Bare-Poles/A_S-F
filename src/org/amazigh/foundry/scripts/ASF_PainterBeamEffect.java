@@ -155,6 +155,11 @@ public class ASF_PainterBeamEffect implements BeamEffectPlugin {
 							if (target_ship.getHullSpec().isBuiltInMod("A_S-F_ArtyMount")) {
 								// check if the ship has the artillery ship hullmod
 								
+
+								if (target_ship == ship) {
+									continue; // don't fire at yourself idiot.
+								}
+								
 								if (target_ship.getFluxTracker().isOverloadedOrVenting()) {
 									continue; // skip the ship if it's overloaded or venting
 								}
@@ -162,15 +167,15 @@ public class ASF_PainterBeamEffect implements BeamEffectPlugin {
 								if (MathUtils.isWithinRange(ship, target_ship, 5000f)) {
 									// check if the Artillery ship is within 5000 range of the target
 									
-									ShipSpecificData info = (ShipSpecificData) engine.getCustomData().get("ASF_ARTILLERY_DATA_KEY" + target_ship.getId());
-									if (info == null) {
+									ShipSpecificData tagInfo = (ShipSpecificData) engine.getCustomData().get("ASF_ARTILLERY_DATA_KEY" + target_ship.getId());
+									if (tagInfo == null) {
 							            continue; // sanity check!
 							        }
 							        
-							        if ((info.READY == true) && (info.LOCK == false)) {
-							        	info.LOCK = true;
-							        	info.TARGET = ship;
-										engine.getCustomData().put("ASF_ARTILLERY_DATA_KEY" + ship.getId(), info);
+							        if ((tagInfo.READY == true) && (tagInfo.LOCK == false)) {
+							        	tagInfo.LOCK = true;
+							        	tagInfo.TARGET = ship;
+										engine.getCustomData().put("ASF_ARTILLERY_DATA_KEY" + target_ship.getId(), tagInfo);
 										recentHits.clear();
 										
 										// "pulse" effect to show the charges have been cleared and an artillery weapon has been fired
