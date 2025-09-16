@@ -18,24 +18,24 @@ import java.util.List;
 public class ASF_colapProjScript extends BaseEveryFrameCombatPlugin {
 
 	//How fast the projectile is allowed to turn, in degrees/second
-	private static final float TURN_RATE = 30f;
+	private static final float TURN_RATE = 39f; //33, 30
 
 	//If non-zero, the projectile will sway back-and-forth by this many degrees during its guidance (with a sway period determined by SWAY_PERIOD).
 	//High values, as one might expect, give very poor tracking. Also, high values will decrease effective range (as the projectiles travel further) so be careful
 	//Secondary and primary sway both run in parallel, allowing double-sine swaying if desired
-	private static final float SWAY_AMOUNT_PRIMARY = 4.9f;
+	private static final float SWAY_AMOUNT_PRIMARY = 5.3f;
 	private static final float SWAY_AMOUNT_SECONDARY = 2.1f;
 
 	//Used together with SWAY_AMOUNT, determines how fast the swaying happens
 	//1f means an entire sway "loop" (max sway right -> min sway -> max sway left -> min sway again) per second, 2f means 2 loops etc.
 	//Projectiles start at a random position in their sway loop on spawning
 	//Secondary and primary sway both run in parallel, allowing double-sine swaying if desired
-	private static final float SWAY_PERIOD_PRIMARY = 1.6f;
-	private static final float SWAY_PERIOD_SECONDARY = 0.9f;
+	private static final float SWAY_PERIOD_PRIMARY = 0.9f;
+	private static final float SWAY_PERIOD_SECONDARY = 1.6f;
 
 	//How fast, if at all, sway falls off with the projectile's lifetime.
 	//At 1f, it's a linear falloff, at 2f it's quadratic. At 0f, there is no falloff
-	private static final float SWAY_FALLOFF_FACTOR = 0.4f;
+	private static final float SWAY_FALLOFF_FACTOR = 0.3f;
 
 	//Only used for the INTERCEPT targeting types: number of iterations to run for calculations.
 	//At 0 it's indistinguishable from a dumbchaser, at 15 it's frankly way too high. 4-7 recommended for slow weapons, 2-3 for weapons with more firerate/lower accuracy

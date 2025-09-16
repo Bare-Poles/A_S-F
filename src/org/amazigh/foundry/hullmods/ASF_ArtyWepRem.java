@@ -120,7 +120,7 @@ public class ASF_ArtyWepRem extends BaseHullMod {
     			
         		for (int i=0; i < 6; i++) {
         			
-        			float realAngle = shotAngle + MathUtils.getRandomNumberInRange(-17f, 17f);
+        			float realAngle = shotAngle + MathUtils.getRandomNumberInRange(-33f, 33f); // 20, 17
         			
         			CombatEntityAPI projC = engine.spawnProjectile(ship, null, "A_S-F_colap",
         					portLoc, // pos

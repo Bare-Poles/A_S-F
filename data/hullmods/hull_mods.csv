@@ -72,7 +72,7 @@ Tactical Artillery Mount,A_S-F_ArtyMount,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundr
 Diadol Plasma Artillery,A_S-F_ArtyWepHighTech,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ArtyWepHighTech,High Tech Tactical Artillery.,High Tech Tactical Artillery.,,graphics/hullmods/A_S-F_artilleryHT.png
 Colap Ion Artillery,A_S-F_ArtyWepRemnant,,,,codex_unlockable,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ArtyWepRem,Remnant Tactical Artillery.,Remnant Tactical Artillery.,,graphics/hullmods/A_S-F_artilleryRem.png
 Celpek Burst Artillery,A_S-F_ArtyWepMidline,,,,,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_ArtyWepMid,Midline Tactical Artillery.,Midline Tactical Artillery.,,graphics/hullmods/A_S-F_artilleryMid.png
-,,,,,,,,,,,,,,,,,,,
+Expiation,A_S-F_expiationInfo,,,,invisible_in_codex,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_expiationInfo,"""Fear, Terror, Anger... the sniper sees them all turn to the cold stare of death from her hidden perch.""",Expiation Info Hullmod,,graphics/hullmods/phase_field.png
 ,,,,,,,,,,,,,,,,,,,
 # ANOMALY,,,,,,,,,,,,,,,,,,,
 Anomalous Systems,A_S-F_anomalousSystems,,,,invisible_in_codex,,,,TRUE,,0,0,0,0,org.amazigh.foundry.hullmods.ASF_AnomalousSystems,HWPREDICT ROUND FAIL; VDEF PERCENTNAN; CDEF PREDICT & PREDICTSIGMA OOB;,HWPREDICT ROUND FAIL; VDEF PERCENTNAN; CDEF PREDICT & PREDICTSIGMA OOB;,,graphics/hullmods/A_S-F_anomalousSystems.png

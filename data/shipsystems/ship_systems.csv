@@ -5,6 +5,7 @@ Dimensional Teleporter,A_S-F_dimensionalteleporter,,,,,,0.15,,,,0.3,,0.3,4.9,,,,
 Amita Drive,A_S-F_amitaDrive,,,,,,,,,,1,6,1.5,12.5,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/high_energy_focus.png
 Ballistic Overdrive,A_S-F_rangdaSys,200,,,,,,,,,5,,3,5,TRUE,,,TRUE,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/ammo_feeder.png
 Resonance Motivator,A_S-F_ResonanceMotivator,,,,,,,,3,0.04,0.25,4,0.25,,,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/high_energy_focus.png
+Sniper Sight,A_S-F_istinaSys,1,,,,,,,,,1,,1,5,TRUE,,,,,,,,,,,"offensive, codex_require_related",graphics/icons/hullsys/lidar_barrage.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Bounty/One-off Ships,,,,,,,,,,,,,,,,,,,,,,,,,,,

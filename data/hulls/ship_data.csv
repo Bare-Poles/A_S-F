@@ -80,6 +80,7 @@ Scrag,A_S-F_scrag,Fast Cruiser,Pirate,A_S-F_scragBurn,12,8000,1100,8000,,400,120
 Marlow,A_S-F_marlow,Heavy Cruiser,Low Tech,reservewing,16,12000,1200,8000,,450,140,1,40,25,15,12,12,2400,OMNI,,110,0.4,1,,,280,420,160,150,5,30,8,150000,4,12,540,0.25,26,26,"CARRIER, COMBAT, NO_AUTO_ESCORT","rare_bp, merc",,,0.4,2,3,222405.1
 Alqand,A_S-F_alqand,Artillery Cruiser,High Tech,flarelauncher_active,14,5000,600,9000,,500,120,,60,40,30,20,25,1500,OMNI,,180,0.4,0.7,,,60,100,60,80,3,27,8,120000,4,12,420,0.25,15,15,,"rare_bp, merc",,,0.6,2,3,222415.1
 Porroko,A_S-F_porroko,Artillery Cruiser,Midline,ammofeed,14,7000,850,9000,,500,130,,60,50,35,20,25,1200,FRONT,,240,0.4,0.8,,,100,150,80,80,3,27,8,120000,4,12,480,0.25,15,15,,"rare_bp, merc",,,0.6,2,3,222415.2
+# Istina,A_S-F_istina,Supercruiser,High Tech,A_S-F_istinaSys,29,6000,600,10000,,650,150,,95,100,80,25,50,1250,OMNI,,140,0.3,0.7,,,60,100,80,90,3,30,9,500000,6,30,480,0.25,35,35,,"no_autofit, req_military, no_dealer, codex_unlockable",,,0.7,2,3,222416
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Berzelius,A_S-F_berzelius,Proto-Ark,[ArkTech],A_S-F_loaderOverdrive_berz,66,20000,1800,20000,,1100,430,2,35,30,20,6,9,3800,OMNI,,160,0.4,1.1,,,0,0,300,400,15,27,7,1600000,3,12,900,0.2,75,75,UNBOARDABLE,"no_dealer, no_autofit, codex_unlockable",,,0.4,2,4,222346

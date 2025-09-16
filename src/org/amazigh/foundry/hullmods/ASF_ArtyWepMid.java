@@ -118,9 +118,9 @@ public class ASF_ArtyWepMid extends BaseHullMod {
     	    			
     	    			Global.getSoundPlayer().playSound("hit_heavy_energy", 0.6f, 0.65f, portLoc, baseVel); // "punch" addition to the firing sound
     	    			
-    	        		for (int i=0; i < 5; i++) {
+    	        		for (int i=0; i < 7; i++) { // 5
     	        			
-    	        			float realAngle = (shotAngle - 22f) + (i * 11f);
+    	        			float realAngle = (shotAngle - 24f) + (i * 8f); // 22,11
     	        			
     	        			CombatEntityAPI projC = engine.spawnProjectile(ship, null, "A_S-F_celpek",
     	        					portLoc, // pos
@@ -226,8 +226,8 @@ public class ASF_ArtyWepMid extends BaseHullMod {
 		
 		LabelAPI label = tooltip.addPara("An integrated Tactical Artillery weapon.", opad);
 		
-		label = tooltip.addPara("Fires %s homing energy bolts, each of which deals %s damage.", opad, h, "Ten", (int)damage + " Energy");
-		label.setHighlight("Ten", (int)damage + " Energy");
+		label = tooltip.addPara("Fires %s homing energy bolts, each of which deals %s damage.", opad, h, "Fourteen", (int)damage + " Energy");
+		label.setHighlight("Fourteen", (int)damage + " Energy");
 		label.setHighlightColors(h, h);
 		
 		label = tooltip.addPara("This weapon takes %s seconds to recharge after firing.", opad, h, "" + (int)rechargeTime);

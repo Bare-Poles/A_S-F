@@ -260,25 +260,22 @@ public class ASF_ModPlugin extends BaseModPlugin {
     public static class ASF_RadialEmitter extends BaseIEmitter {
     	
         private final Vector2f location;
-		private float angle, arc, minLife, maxLife, minSize, maxSize, minVelocity, addVelocity, minDistance, addDistance, emissionOffsetBase, emissionOffsetAdd, coreDispersion;
+		private float angle, arc, minLife, maxLife, minSize, maxSize, minVelocity, addVelocity, minDistance, addDistance, emissionOffsetBase, emissionOffsetAdd, coreDispersion, sizeScale;
         private final float[] color = new float[] {1f, 1f, 1f, 1f};
         private boolean linkage, lifeLink, angleSplit;
         private CombatEntityAPI anchor;
-
+        
         public ASF_RadialEmitter(CombatEntityAPI host) {
         	anchor = host;
             location = new Vector2f();
-            angle = 0f;
-            arc = 360f; //these default to giving omnidirectional emission, as that's my main use-case for this Emitter
+            angle = coreDispersion = sizeScale = emissionOffsetBase = emissionOffsetAdd = minDistance = addDistance = 0f;
+            arc = 360f; //this defaults to giving omnidirectional emission, as that's my main use-case for this Emitter
             minLife = maxLife = 0.5f;
             minSize = 20f;
             maxSize = 30f;
             minVelocity = addVelocity = 1f;
-            minDistance = addDistance = 0f;
-            emissionOffsetBase = emissionOffsetAdd = 0f;
             linkage = true;
             lifeLink = angleSplit = false;
-            coreDispersion = 0;
         }
 
 		@Override
@@ -384,6 +381,15 @@ public class ASF_ModPlugin extends BaseModPlugin {
             return this;
         }
         
+        /**
+         * @param sizeScale
+         * @return Has particles increase in size by this amount over spawn distance (positive values for bigger at max range, negative for smaller at max range)
+         */
+        public ASF_RadialEmitter sizeScale(float sizeScale) {
+            this.sizeScale = sizeScale;
+            return this;
+        }
+        
         
         @Override
         public Vector2f getLocation() {
@@ -416,10 +422,12 @@ public class ASF_ModPlugin extends BaseModPlugin {
             
             Vector2f pt = new Vector2f(0,0);
             
+            float sizeMult = rand;
             if (linkage) {
                 pt = MathUtils.getPointOnCircumference(null, minDistance + (rand * addDistance), theta);
             } else {
-                pt = MathUtils.getPointOnCircumference(null, minDistance + (MathUtils.getRandomNumberInRange(0f, 1f) * addDistance), theta);
+            	sizeMult = MathUtils.getRandomNumberInRange(0f, 1f);
+                pt = MathUtils.getPointOnCircumference(null, minDistance + (sizeMult * addDistance), theta);
             }
             
             if (coreDispersion >= 1f) {
@@ -432,8 +440,8 @@ public class ASF_ModPlugin extends BaseModPlugin {
             }
             data.offset(pt).velocity(vel);
             
-            // Size uniformly random between minSize and maxSize
-            float size = MathUtils.getRandomNumberInRange(minSize, maxSize);
+            // Size uniformly random between minSize and maxSize (but with distance scaling stuff as an optional add on)
+            float size = MathUtils.getRandomNumberInRange(minSize, maxSize) + (sizeScale * sizeMult);
             data.size(size, size);
             
             // Color

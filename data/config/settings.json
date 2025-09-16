@@ -21,6 +21,8 @@
 			"A_S-F_arty_mark_ring":"graphics/fx/A_S-F_artyMarkRing.png",
 			"A_S-F_range_ring":"graphics/fx/A_S-F_markerRing.png",
 			"A_S-F_trail_hard":"graphics/fx/A_S-F_hardTrail.png",
+			"A_S-F_trail_lines":"graphics/fx/A_S-F_lineTrail.png",
+
 		},
 
         "portraits":{

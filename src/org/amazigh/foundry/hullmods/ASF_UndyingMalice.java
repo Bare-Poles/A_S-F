@@ -1186,7 +1186,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
         	
     		double alphaTemp = alpha1;
     		double timeMult = (double) stats.getTimeMult().modified; // this timeMult stuff is a "well fuck sprite rendering gets screwy with increases to timescale, let's fix it!"
-    		alpha1 = (int) Math.ceil(alphaTemp / timeMult);
+    		alpha1 = Math.min(255, (int) Math.ceil(alphaTemp / timeMult));
     		
         	MagicRender.singleframe(GlowTatt1, spritePos, spriteSize, ship.getFacing() - 90f, new Color(255,52,84,alpha1), true);
         	
@@ -1195,7 +1195,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
             	int alpha2 = (int) (Math.min((info.charge - 100f) * 0.8f, 255f) * alphaMult); // changed mult from 0.75 to 0.8 with new glowsprite
             	
         		double alphaTemp2 = alpha2;
-        		alpha2 = (int) Math.ceil(alphaTemp2 / timeMult);
+        		alpha2 = Math.min(255, (int) Math.ceil(alphaTemp2 / timeMult));
             	
             	MagicRender.singleframe(GlowTatt2, MathUtils.getRandomPointInCircle(spritePos, 1f), spriteSize, ship.getFacing() - 90f, new Color(255,52,84,alpha2), true);
         	}
@@ -1218,7 +1218,7 @@ public class ASF_UndyingMalice extends BaseHullMod {
     		
     		double alphaTemp = pipeAlpha;
     		double timeMult = (double) stats.getTimeMult().modified;
-    		pipeAlpha = (int) Math.ceil(alphaTemp / timeMult);
+    		pipeAlpha = Math.min(255, (int) Math.ceil(alphaTemp / timeMult));
     		
         	SpriteAPI GlowPipe = Global.getSettings().getSprite("fx", "A_S-F_persenachia_pipe_glow");
         	MagicRender.singleframe(GlowPipe, spritePos, spriteSize, ship.getFacing() - 90f, new Color(80,255,175,pipeAlpha), true);
