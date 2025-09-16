@@ -89,7 +89,7 @@ public class ASF_ArtyWepRem extends BaseHullMod {
         	info.fxInterval2.advance(amount);
         	if (info.fxInterval2.intervalElapsed()) {
         		
-        		int arcAlpha = (int) Math.ceil((80 * spoolVal) / timeMult);
+        		int arcAlpha = Math.min(255, (int) Math.ceil((80 * spoolVal) / timeMult));
         		Vector2f arcPoint = MathUtils.getPointOnCircumference(portLoc, MathUtils.getRandomNumberInRange(12f, 17f), MathUtils.getRandomNumberInRange(0, 360));
         		
         		engine.spawnEmpArcVisual(portLoc, ship, arcPoint, ship, 7f,
