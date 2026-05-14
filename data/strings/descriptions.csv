@@ -69,7 +69,7 @@ One of the first vessels able to reliably detect phased ships, the Bathory has b
 A_S-F_ilgryps,SHIP,"A remnant of the autonomous AI fleets developed by the Tri-Tachyon Corporation. Illegal under Domain (and Hegemony) law, and an abomination to the Church of Galactic Redemption, the First AI War saw these creations purged from the Sector. At least that is how the official histories tell it.
 
 The Splendor was developed by competing design team as a competitor to the Brilliant and while less prevalent in AI fleets it still remains a reasonably common sight. One interesting feature of this hull is the presence of what appear to be vestigial allowances for crewed usage, although the majority of such features have since been packed with munitions storage or have power conduits running straight through them, showing that such considerations were abandoned at some point relatively late in the design process.",,,,,
-A_S-F_nebel,SHIP,"A unique vessel, the Nebel appears to be an extremely heavily modified version of the Splendor droneship featuring a fully fleshed out crew compartment. A specialised missile foundry has also been installed in the core of the vessel, giving this ship the potential to be far more deadly than other ships of the same weight class and when combined with it's superior combat mobility it can pose as a serious threat to even capital grade vessels.",,,,,
+A_S-F_nebel,SHIP,"A unique vessel, the Nebel appears to be an extremely heavily modified version of the Splendor droneship featuring a fully fleshed out crew compartment. A specialised missile foundry has also been installed in the core of the vessel, giving this ship the potential to be far more deadly than other ships of the same weight class and when combined with its superior combat mobility it can pose as a serious threat to even capital grade vessels.",,,,,
 A_S-F_auditor_mod,SHIP,"Heavily customised variant of the Auditor designed to optimise defensive and anti-fighter capabilities.
 
 This custom modification of the Auditor attempts to go back to its core origin in the Monitor, discarding attempts at increased firepower and instead installs a pair of customised ""Shevalye"" PD Systems giving it unsurpassed point defense capability for a vessel of its size.",,,,,
@@ -84,7 +84,7 @@ A_S-F_rinka,SHIP,"The Rinkas ability to mount a rather heavy armament for a frig
 A_S-F_transparence,SHIP,The Transparence is a unique prototype ship featuring a wide variety of bleeding-edge technologies. The Photon Accelerator Core around which this vessel has been constructed stretches the bounds of what could be considered possible by conventional domain science to allow for the ship to deliver cruiser-grade levels of firepower while being nearly as agile as some frigates.,,,,,
 A_S-F_invigilator,SHIP,"A centralised energy weapon mount with a direct feed to the ships power core gives the Invigilator tremendous potential to deliver high-intensity bursts of damage.
 
-Able to deliver a punch well above it's weight-class the Invigilator is considered a welcome addition to smaller fleets and even poses a not inconsiderable threat to destroyers and even some cruisers.",,,,,
+Able to deliver a punch well above its weight-class the Invigilator is considered a welcome addition to smaller fleets and even poses a not inconsiderable threat to destroyers and even some cruisers.",,,,,
 A_S-F_incisor,SHIP,"A lightweight support fighter, able to provide minor beam suppression and Point Defense at a respectable range. While the Incisor is incapable of dealing notable damage to even the lowest quality shield emitter, the threat of armour ablation proves sufficient to allow the craft to force captains to keep their shields active when under fire.",,,,,
 A_S-F_henki,SHIP,"A high mobility Destroyer, the Henki features a rather advanced sensor array for a combat vessel, this combined with repsectable speed and focused frontal firepower make it a favorite of captains aiming to intercept and destroy smugglers and smaller pirate raiding fleets.
 
@@ -190,7 +190,7 @@ A_S-F_mtetezi,SHIP,"Initial analysis shows significant similarities to Domain au
 Loosely based on the Defender war drone hull, with an additional turreted weapon mount and a more aggressive burst-oriented system.",,,,,
 A_S-F_mlinzi,SHIP,"Initial analysis shows significant similarities to Domain automated war drones, but there are several irregular design features and modifications that mark this as something... Different.
 
-Much like how it's smaller cousin the Mtumaju is based on the Sentry, this is an augmented Bastillon war drone and also features an AURA system in place of flares, along with modified weapon mounts allowing for a more directed delivery of fire.",,,,,
+Much like how its smaller cousin the Mtumaju is based on the Sentry, this is an augmented Bastillon war drone and also features an AURA system in place of flares, along with modified weapon mounts allowing for a more directed delivery of fire.",,,,,
 A_S-F_mbishi,SHIP,"Initial analysis shows significant similarities to Domain automated war drones, but there are several irregular design features and modifications that mark this as something... Different.
 
 Derived from the Berserker war drone hull, this ship is notably more flexible thanks to turreted weapon mounts,alongside the ability to mount missile weaponry.",,,,,
@@ -303,7 +303,7 @@ A_S-F_henki_r,WEAPON,"Unloads volleys of light missiles, designed to occupy host
 A_S-F_pneuma_pod,WEAPON,"Unloads volleys of light missiles, designed to occupy hostile point defenses the missiles lack in any real payload but are fed by a combat-rated autoloader allowing for constant pressure to be sustained.",,,,,
 A_S-F_x-pulse,WEAPON,"Fires coherent pulses of x-rays rather than visible light. Deals respectable damage per shot, but sustaining fire can strain less powerful flux grids.
 
-The higher frequency of the pulses fired by this weapon provide solid armour penetration capabilities compared to more common pulsed laser weapons, giving it an edge against armoured targets in exchange for it's inferior efficiency against shielding.",,,,,
+The higher frequency of the pulses fired by this weapon provide solid armour penetration capabilities compared to more common pulsed laser weapons, giving it an edge against armoured targets in exchange for its inferior efficiency against shielding.",,,,,
 A_S-F_kaksos,WEAPON,"A simple and reliable twin-barreled cannon, able to lay down a barrage of fire rather efficiently. Unfortunately this weapon is lacking in both range and accuracy, making it far less practical than it might first appear.
 
 An old weapon of the domain era. Intended as an upgrade over the Arbalest, shell caliber was reduced and the internals were completely reworked to install an autoejector system, the continued lack of an advanced cooling system means the weapon instead features a second barrel, allowing heat dissipation to be shared between the two.
