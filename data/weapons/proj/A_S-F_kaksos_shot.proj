@@ -8,7 +8,7 @@
 	"width":7,
 	"fadeTime":0.20,
 	"fringeColor":[235,255,215,235],
-	"coreColor":[225,255,205,200],	
+	"coreColor":[225,255,205,200],
 	"textureScrollSpeed":64.0,
 	"pixelsPerTexel":5.0,
 	"bulletSprite":"graphics/missiles/shell_large_green.png"

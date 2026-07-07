@@ -1,0 +1,85 @@
+{
+	"id":"A_S-F_gangstalker_mssl",
+	"specClass":"missile",	
+	"missileType":"MIRV",
+	"sprite":"graphics/missiles/A_S-F_gangstalker_missile.png",
+	"size":[22,24],	
+	"center":[11,12],
+	"collisionRadius":12,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,212,52,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":200, # purely visual
+	"engineSpec":{"turnAcc":480,
+				  "turnRate":120,
+				  "acc":600,
+				  "dec":300},
+
+	"engineSlots":[{"id":"ES1",
+					"loc":[1, 7],
+				    "style":"CUSTOM",
+				    "styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[255,150,40,255],
+						"contrailDuration":1,
+						"contrailWidthMult":0.7,
+						"contrailWidthAddedFractionAtEnd":1.3,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.1f,
+						"contrailAngularVelocityMult":0.6f,
+						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailColor":[126,101,26,150],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":5.0,
+				    "length":25.0,
+				    "angle":175.0},
+
+			{"id":"ES2",
+					"loc":[1, -7],
+				    "style":"CUSTOM",
+				    "styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[255,150,40,255],
+						"contrailDuration":1,
+						"contrailWidthMult":0.7,
+						"contrailWidthAddedFractionAtEnd":1.3,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.1f,
+						"contrailAngularVelocityMult":0.6f,
+						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailColor":[126,101,26,150],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":5.0,
+				    "length":25.0,
+				    "angle":185.0}],
+
+	"behaviorSpec":{"behavior":"MIRV",
+					"splitRange":1500,
+					"minTimeToSplit":2,
+					"canSplitEarly":true,
+					"splitSound":"hurricane_mirv_split",
+					"numShots":30,
+					"damage":60,
+					"impact":5,
+					"emp":0,
+					"damageType":HIGH_EXPLOSIVE,
+					"hitpoints":60,
+					"arc":150,
+					"arcOffset":180,
+					"evenSpread":true,
+					"spreadSpeed":160,
+					"spreadSpeedRange":60,
+					"projectileSpec":"A_S-F_omer_srm",
+					"smokeSpec":{"particleSizeMin":20.0,
+								 "particleSizeRange":20.0,
+								 "cloudParticleCount":12,
+								 "cloudDuration":1.0,
+								 "cloudRadius":18.0,
+								 "blowbackParticleCount":0,
+								 "blowbackDuration":0,
+								 "blowbackLength":0,
+								 "blowbackSpread":0,
+								 "particleColor":[165,100,60,200]}
+					}				    
+}

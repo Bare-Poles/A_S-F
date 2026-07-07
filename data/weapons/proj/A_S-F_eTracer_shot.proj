@@ -1,0 +1,19 @@
+{
+	"id":"A_S-F_eTracer_shot",
+	"specClass":"projectile",
+
+	"onHitEffect":"org.amazigh.foundry.scripts.ASF_eTracerEffect",
+
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+
+	"length":7.0, #33
+	"width":0.5, #8.5
+	"hitGlowRadius":31,
+
+	"fadeTime":0.1,
+	"fringeColor":[0,100,255,255],
+	"coreColor":[220,235,255,210],
+	"bulletSprite":"graphics/missiles/shell_gauss_cannon.png"
+}

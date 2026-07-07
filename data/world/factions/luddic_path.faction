@@ -1,4 +1,16 @@
 {
+    # ships the faction gets access to when importing S&W out-of-faction
+    "shipsWhenImporting":{
+        "hulls":[
+            "A_S-F_dunnock_lp",
+        ],
+    },
+
+    "knownShips":{
+        "hulls":[
+            "A_S-F_dunnock_lp",
+        ],
+    },
 
 	"knownWeapons":{
 		"weapons":[

@@ -1,0 +1,40 @@
+{
+  "variantId": "A_S-F_dunnock_lp_raid",
+  "hullId": "A_S-F_dunnock_lp",
+  "displayName": "Raider",
+  "goalVariant": true,
+  "fluxCapacitors": 2,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "missile_autoloader",
+    "armoredweapons"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "reaper"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "lightag",
+        "WS0004": "lightag"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "heavymg"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

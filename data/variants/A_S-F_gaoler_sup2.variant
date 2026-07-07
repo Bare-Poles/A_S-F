@@ -3,7 +3,7 @@
   "hullId": "A_S-F_gaoler",
   "displayName": "Support",
   "goalVariant": true,
-  "fluxCapacitors": 4,
+  "fluxCapacitors": 0,
   "fluxVents": 0,
   "quality": 1,
   "permaMods": [],
@@ -32,7 +32,7 @@
   ],
   "modules": [],
   "wings": [
-    "thunder_wing",
-    "thunder_wing"
+    "A_S-F_shamshir_wing",
+    "A_S-F_shamshir_wing"
   ]
 }

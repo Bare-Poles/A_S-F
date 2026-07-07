@@ -18,15 +18,15 @@
       "mode": "LINKED",
       "weapons": {
         "WS0004": "A_S-F_sprocket",
-        "WS0005": "A_S-F_sprocket"
+        "WS0006": "A_S-F_sprocket"
       }
     },
     {
       "autofire": false,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "WS0003": "sabot",
-        "WS0006": "sabot"
+        "WS0005": "sabot"
       }
     },
     {

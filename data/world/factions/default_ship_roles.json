@@ -6,9 +6,14 @@
     "A_S-F_velox_supp": 2,
     "A_S-F_auspice_ass": 1,
     "A_S-F_auspice_std": 1.5,
+
     "A_S-F_rinka_ass": 2,
-    "A_S-F_rinka_ass2": 0, # HEGE
-    "A_S-F_rinka_stk": 1.5,
+    "A_S-F_rinka_ass2": 0, # PL
+    "A_S-F_rinka_stk": 2,
+    "A_S-F_rinka_stk2": 0, # PL
+    "A_S-F_rinka_sup": 2,
+    "A_S-F_rinka_sup2": 0, # PL
+
     "A_S-F_invigilator_ass": 3,
     "A_S-F_invigilator_od": 1,
     "A_S-F_invigilator_std": 2.5,
@@ -27,6 +32,20 @@
 
     "A_S-F_estucheon_rkt": 1, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
     "A_S-F_estucheon_grn": 1,
+
+    "A_S-F_gravesend_ass": 2.5,
+    "A_S-F_gravesend_atk": 2.5,
+    "A_S-F_gravesend_brwl": 1.5,
+    "A_S-F_gravesend_p_ass": 2.5,
+    "A_S-F_gravesend_p_raid": 2.5,
+    "A_S-F_gravesend_p_stk": 1.5,
+
+    "A_S-F_dunnock_lp_brwl": 2.5,
+    "A_S-F_dunnock_lp_raid": 2.5,
+    "A_S-F_dunnock_p_ass": 2.5,
+    "A_S-F_dunnock_p_raid": 3,
+    "A_S-F_dunnock_p_stk": 1,
+
   },
   "combatSmall": {
     "A_S-F_auditor_esc": 6,
@@ -49,11 +68,11 @@
     "A_S-F_auspice_stk": 2.5,
 
     "A_S-F_rinka_ass": 2,
-    "A_S-F_rinka_ass2": 0, # HEGE
-    "A_S-F_rinka_od": 1,
-    "A_S-F_rinka_std": 2.5,
+    "A_S-F_rinka_ass2": 0, # PL
     "A_S-F_rinka_stk": 2,
-    "A_S-F_rinka_sup": 0.5,
+    "A_S-F_rinka_stk2": 0, # PL
+    "A_S-F_rinka_sup": 2,
+    "A_S-F_rinka_sup2": 0, # PL
 
     "A_S-F_invigilator_ass": 3,
     "A_S-F_invigilator_od": 1,
@@ -91,6 +110,18 @@
     "A_S-F_estucheon_rkt": 1.5, # so it can spawn in small fleets, albeit rarely (as it barely counts as a destroyer tbqh)
     "A_S-F_estucheon_grn": 1.5,
 
+    "A_S-F_gravesend_ass": 3,
+    "A_S-F_gravesend_atk": 3,
+    "A_S-F_gravesend_brwl": 2,
+    "A_S-F_gravesend_p_ass": 3,
+    "A_S-F_gravesend_p_raid": 3,
+    "A_S-F_gravesend_p_stk": 2,
+
+    "A_S-F_dunnock_lp_brwl": 3.5,
+    "A_S-F_dunnock_lp_raid": 3.5,
+    "A_S-F_dunnock_p_ass": 3,
+    "A_S-F_dunnock_p_raid": 3.5,
+    "A_S-F_dunnock_p_stk": 1.5,
 
   },
   "combatMedium": {
@@ -148,6 +179,15 @@
 
     "A_S-F_micare_ass": 3,
     "A_S-F_micare_sup": 4.5,
+
+    "A_S-F_viceroy_ass": 2.5,
+    "A_S-F_viceroy_sup": 5,
+    "A_S-F_viceroy_ass2": 0, # PL
+    "A_S-F_viceroy_sup2": 0, # PL
+
+    "A_S-F_buraq_p_ass": 3,
+    "A_S-F_buraq_p_od": 1.5,
+    "A_S-F_buraq_p_raider": 3,
 
   },
   "combatLarge": {
@@ -222,6 +262,10 @@
     "A_S-F_porroko_supp": 0, # PL
     "A_S-F_porroko_sup2": 3.5, # MERC
 
+    "A_S-F_gardina_ass": 1.5,
+    "A_S-F_gardina_std": 2.5,
+    "A_S-F_gardina_sup": 3.5,
+
     "A_S-F_giganberg_ark": 1,
     "A_S-F_grandum_ark": 1,
 	# ArkTech ships have a default roles entry! (but it's *really* low rate, just so they *might* spawn in scav fleets, VERY rarely)
@@ -229,17 +273,25 @@
   },
 
   "combatCapital":{
-    "A_S-F_margrave_ass":2.5,
+    "A_S-F_margrave_ass":2.7,
     "A_S-F_margrave_elt":0, # PL
-    "A_S-F_margrave_elt2":2.5,
+    "A_S-F_margrave_elt2":2.7,
     "A_S-F_margrave_stk":0, # PL
     "A_S-F_margrave_sup":0, # PL
-    "A_S-F_margrave_sup2":2.5,
+    "A_S-F_margrave_sup2":2.7,
+
+    "A_S-F_margrave_lg_std":3.9,
+    "A_S-F_margrave_lg_elite":3.6,
+
 
     "A_S-F_glentoran_ass":2.1,
     "A_S-F_glentoran_brrg":1,
     "A_S-F_glentoran_brwl":2.2,
     "A_S-F_glentoran_std":2.2,
+
+    "A_S-F_execrator_ass":2.5,
+    "A_S-F_execrator_sup":2.5,
+    "A_S-F_execrator_stk":2.5,
   },
 
   "carrierSmall": {

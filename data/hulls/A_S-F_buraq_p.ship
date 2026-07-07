@@ -1,0 +1,160 @@
+{
+  "hullName": "Buraq (P)",
+  "hullId": "A_S-F_buraq_p",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/ships/A_S-F_Buraq_p.png",
+  "style": "MIDLINE",
+  "height": 148,
+  "width": 82,
+  "center": [41, 70],
+  "collisionRadius": 100,
+  "shieldCenter": [8, -0],
+  "shieldRadius": 87,
+  "viewOffset": 0,
+  "builtInMods": [
+    "A_S-F_expansiveracks",
+    "unstable_injector",
+    "augmentedengines"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 190,
+      "angle": 0,
+      "locations": [27, 0]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [57, -23]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [57, 30]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": -100,
+      "locations": [19, -28]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": 100,
+      "locations": [19, 28]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [37, -33]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-2.5, 28.5],
+      "length": 30,
+      "width": 6,
+      "angle": 145,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-2.5, -28.5],
+      "length": 30,
+      "width": 6,
+      "angle": -145,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [2, -33],
+      "length": 35,
+      "width": 8,
+      "angle": -135,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [2, 33],
+      "length": 35,
+      "width": 8,
+      "angle": 135,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-69, 0],
+      "length": 69,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 16,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-67, 16],
+      "length": 56,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 15,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-67, -16],
+      "length": 56,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 15,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    62, -35,
+    14, -38,
+    -5, -24,
+    -12, -28,
+    -25, -28,
+    -32, -23,
+    -39, -28,
+    -53, -27,
+    -66, -20,
+    -68, -0,
+    -66, 20,
+    -53, 27,
+    -39, 28,
+    -32, 23,
+    -25, 28,
+    -12, 28,
+    -5, 24,
+    14, 38,
+    52, 38,
+    60, 34,
+    57, 22,
+    69, 18,
+    60, 15,
+    54, -8,
+    62, -15
+  ]
+}

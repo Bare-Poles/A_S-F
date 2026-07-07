@@ -4,9 +4,9 @@
   "hullSize": "DESTROYER",
   "spriteName": "graphics/ships/A_S-F_Buraq.png",
   "style": "MIDLINE",
-  "height": 146,
-  "width": 84,
-  "center": [42, 70],
+  "height": 150,
+  "width": 82,
+  "center": [41, 70],
   "collisionRadius": 100,
   "shieldCenter": [8, -0],
   "shieldRadius": 87,
@@ -22,7 +22,7 @@
       "mount": "TURRET",
       "arc": 190,
       "angle": 0,
-      "locations": [27, -0]
+      "locations": [27, 0]
     },
     {
       "id": "WS0001",
@@ -31,7 +31,7 @@
       "mount": "HARDPOINT",
       "arc": 5,
       "angle": 0,
-      "locations": [60, -30]
+      "locations": [53, -27]
     },
     {
       "id": "WS0003",
@@ -40,16 +40,7 @@
       "mount": "HARDPOINT",
       "arc": 5,
       "angle": 0,
-      "locations": [54, 30]
-    },
-    {
-      "id": "WS0004",
-      "size": "SMALL",
-      "type": "ENERGY",
-      "mount": "TURRET",
-      "arc": 170,
-      "angle": -100,
-      "locations": [12, -29]
+      "locations": [57, 30]
     },
     {
       "id": "WS0005",
@@ -57,13 +48,22 @@
       "type": "ENERGY",
       "mount": "TURRET",
       "arc": 170,
+      "angle": -100,
+      "locations": [19, -28]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 170,
       "angle": 100,
-      "locations": [12, 29]
+      "locations": [19, 28]
     }
   ],
   "engineSlots": [
     {
-      "location": [-7, 31],
+      "location": [-2.5, 28.5],
       "length": 30,
       "width": 6,
       "angle": 145,
@@ -71,7 +71,7 @@
       "style": "MIDLINE"
     },
     {
-      "location": [-7, -31],
+      "location": [-2.5, -28.5],
       "length": 30,
       "width": 6,
       "angle": -145,
@@ -79,7 +79,7 @@
       "style": "MIDLINE"
     },
     {
-      "location": [-1, -37],
+      "location": [2, -33],
       "length": 35,
       "width": 8,
       "angle": -135,
@@ -87,7 +87,7 @@
       "style": "MIDLINE"
     },
     {
-      "location": [-1, 37],
+      "location": [2, 33],
       "length": 35,
       "width": 8,
       "angle": 135,
@@ -95,42 +95,55 @@
       "style": "MIDLINE"
     },
     {
-      "location": [-68, -0],
-      "length": 52,
+      "location": [-69, 0],
+      "length": 60,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 16,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-67, 16],
+      "length": 55,
       "width": 12,
       "angle": 180,
-      "contrailSize": 12,
+      "contrailSize": 15,
       "style": "MIDLINE"
     },
     {
-      "location": [-69, 15],
-      "length": 60,
-      "width": 14,
-      "angle": 180,
-      "contrailSize": 14,
-      "style": "MIDLINE"
-    },
-    {
-      "location": [-69, -15],
-      "length": 60,
-      "width": 14,
+      "location": [-67, -16],
+      "length": 55,
+      "width": 12,
       "angle": -180,
-      "contrailSize": 14,
+      "contrailSize": 15,
       "style": "MIDLINE"
     }
   ],
   "bounds": [
-    60, -37,
-    7, -36,
-    -5, -19,
-    -49, -26,
-    -68, -19,
-    -68, 19,
-    -49, 26,
-    -5, 19,
-    7, 36,
-    50, 38,
-    59, 15,
-    53, -0
+    62, -35,
+    14, -38,
+    -5, -24,
+    -12, -28,
+    -25, -28,
+    -32, -23,
+    -39, -28,
+    -53, -27,
+    -66, -20,
+    -68, -0,
+    -66, 20,
+    -53, 27,
+    -39, 28,
+    -32, 23,
+    -25, 28,
+    -12, 28,
+    -5, 24,
+    14, 38,
+    52, 38,
+    60, 34,
+    57, 22,
+    69, 18,
+    60, 15,
+    54, -8,
+    62, -15
   ]
 }

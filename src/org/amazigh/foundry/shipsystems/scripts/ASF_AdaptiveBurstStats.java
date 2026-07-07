@@ -7,7 +7,6 @@ import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
-import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
@@ -70,17 +69,14 @@ public static final float E_DAMAGE_BONUS_PERCENT = 50f;
 			  for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
 				  if (weapon.isSystemSlot()) {
 					  float randomArc = MathUtils.getRandomNumberInRange(-20f, 20f);
-					  DamagingProjectileAPI bolt = (DamagingProjectileAPI) Global.getCombatEngine().spawnProjectile(ship,
+					  
+					  Global.getCombatEngine().spawnProjectile(ship,
 							  null,
 							  "A_S-F_formia_sys",
 							  weapon.computePosition(ship),
 							  weapon.getAngle() + ship.getFacing() + randomArc,
 							  ship.getVelocity());
 					  
-					  // engine.spawnEmpArcVisual(weapon.computePosition(ship), ship, MathUtils.getRandomPointOnCircumference(weapon.computePosition(ship), 3f), bolt, 7f,
-					  //	  new Color(70,110,200,80),
-					  //	  new Color(200,225,255,100));
-					    
 			    		// scripted muzzle vfx
 			    		for (int i=0; i < 8; i++) {
 			    			// core "muzzle flash"

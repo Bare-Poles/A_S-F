@@ -50,6 +50,7 @@ public class ASF_ArtyWepMid extends BaseHullMod {
     		
     		double timeMult = (double) ship.getMutableStats().getTimeMult().modified; // this timeMult stuff is a "well fuck sprite rendering gets screwy with increases to timescale, let's fix it!"
     		int alpha = (int) Math.ceil((5 + (21 * spoolVal)) / timeMult);
+    		alpha = Math.min(250, alpha);
 
     		info.fxInterval1.advance(amount);
 

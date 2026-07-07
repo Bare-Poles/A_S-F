@@ -1,0 +1,28 @@
+{
+	"id":"A_S-F_eTracer",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"everyFrameEffect":"org.amazigh.foundry.scripts.ASF_eTracerEffect",
+	"type":"ENERGY",
+	"size":"MEDIUM",
+	"turretSprite":"graphics/weapons/A_S-F_eTracer_turret_base.png",
+	"turretGlowSprite":"graphics/weapons/A_S-F_eTracer_turret_glow.png",
+	"hardpointSprite":"graphics/weapons/A_S-F_eTracer_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/weapons/A_S-F_eTracer_hardpoint_glow.png",
+	"glowColor":[145,100,255,255],
+	"turretOffsets":[13,2],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[19,2],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"GLOW_AND_FLASH",
+	"muzzleFlashSpec":{"length":27.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":7.0,
+					   "particleSizeMin":9.0,
+					   "particleSizeRange":13.0,
+					   "particleDuration":0.23,
+					   "particleCount":11,
+					   "particleColor":[100,240,255,255]},
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"projectileSpecId":"A_S-F_eTracer_shot",  # projectile that will be fired
+	"fireSoundTwo":"A_S-F_eTracer_fire",
+}

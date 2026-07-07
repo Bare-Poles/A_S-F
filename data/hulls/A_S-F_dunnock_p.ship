@@ -1,0 +1,119 @@
+{
+  "hullName": "Dunnock (P)",
+  "hullId": "A_S-F_dunnock_p",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/A_S-F_dunnock_p.png",
+  "style": "LOW_TECH",
+  "height": 80,
+  "width": 112,
+  "center": [56, 44],
+  "collisionRadius": 69,
+  "shieldCenter": [2, -0],
+  "shieldRadius": 67,
+  "viewOffset": 0,
+  "builtInMods": [
+    "distributed_fire_control",
+    "rugged",
+    "augmentedengines",
+    "unstable_injector"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [26, 37]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 30,
+      "locations": [-2, 33]
+    },
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [25, -32]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 15,
+      "angle": 0,
+      "locations": [29, -0]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 15,
+      "angle": 180,
+      "locations": [-27, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-28, 44.5],
+      "length": 32,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 32,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-28, -44.5],
+      "length": 32,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 32,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-42, 18],
+      "length": 52,
+      "width": 17,
+      "angle": 180,
+      "contrailSize": 40,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-42, -18],
+      "length": 52,
+      "width": 17,
+      "angle": -180,
+      "contrailSize": 40,
+      "style": "LOW_TECH"
+    }
+  ],
+  "bounds": [
+    29, -38,
+    15, -54,
+    -26, -49,
+    -27, -40,
+    -21, -36,
+    -41, -24,
+    -41, -14,
+    -27, -6,
+    -27, 6,
+    -41, 14,
+    -41, 24,
+    -21, 36,
+    -27, 40,
+    -26, 49,
+    15, 54,
+    29, 40
+  ]
+}

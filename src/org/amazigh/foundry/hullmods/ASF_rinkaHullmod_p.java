@@ -13,10 +13,10 @@ import com.fs.starfarer.api.util.Misc;
 
 public class ASF_rinkaHullmod_p extends BaseHullMod {
 
-	public static final float RECOIL_BONUS = 15f;
+	public static final float RECOIL_MALUS = 15f;
 	
-	public static final float ROF_BONUS = 50f;
-	public static final float FLUX_BONUS = 35f;
+	public static final float ROF_BONUS = 25f;
+	public static final float FLUX_BONUS = 15f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		// lol, lmao.
@@ -32,9 +32,9 @@ public class ASF_rinkaHullmod_p extends BaseHullMod {
 		stats.getBallisticAmmoRegenMult().modifyPercent(spec.getId(), ROF_BONUS);
 		stats.getBallisticWeaponFluxCostMod().modifyPercent(spec.getId(), -FLUX_BONUS);
 			
-		stats.getMaxRecoilMult().modifyMult(spec.getId(), 1f - (0.01f * RECOIL_BONUS));
-		stats.getRecoilPerShotMult().modifyMult(spec.getId(), 1f - (0.01f * RECOIL_BONUS));
-		stats.getRecoilDecayMult().modifyMult(spec.getId(), 1f - (0.01f * RECOIL_BONUS));
+		stats.getMaxRecoilMult().modifyMult(spec.getId(), 1f + (0.01f * RECOIL_MALUS));
+		stats.getRecoilPerShotMult().modifyMult(spec.getId(), 1f + (0.01f * RECOIL_MALUS));
+		stats.getRecoilDecayMult().modifyMult(spec.getId(), 1f + (0.01f * RECOIL_MALUS));
 		
 	}
 	
@@ -54,9 +54,9 @@ public class ASF_rinkaHullmod_p extends BaseHullMod {
 		float opad = 10f;
 		
 		Color h = Misc.getHighlightColor();
+		Color bad = Misc.getNegativeHighlightColor();
 		
-		LabelAPI label = tooltip.addPara("What was once an Advanced array of hardware to enhance the performance of ballistic weapons had been installed on this vessel.", pad);
-		label = tooltip.addPara("Pirate modifications mean that only some of the original features of this hardware operate, but the remaining functional features sill provide the following bonuses:", pad);
+		LabelAPI label = tooltip.addPara("What was once an Advanced array of hardware to enhance weapon performance has undergone pirate modifications and no longer operates to the original specfications, but the remaining functional features still provide the following effects:", pad);
 		
 		label = tooltip.addPara("Increases ballistic weapon rate of fire by %s.", opad, h, "" + (int)ROF_BONUS + "%");
 		label.setHighlight("" + (int)ROF_BONUS + "%");
@@ -64,9 +64,9 @@ public class ASF_rinkaHullmod_p extends BaseHullMod {
 		label = tooltip.addPara("Reduces the flux cost of ballistic weapons by %s.", pad, h, "" + (int)FLUX_BONUS + "%");
 		label.setHighlight("" + (int)FLUX_BONUS + "%");
 		label.setHighlightColors(h);
-		label = tooltip.addPara("Reduces weapon recoil by %s.", pad, h, "" + (int)RECOIL_BONUS + "%");
-		label.setHighlight("" + (int)RECOIL_BONUS + "%");
-		label.setHighlightColors(h);
+		label = tooltip.addPara("Increases weapon recoil by %s.", pad, bad, "" + (int)RECOIL_MALUS + "%");
+		label.setHighlight("" + (int)RECOIL_MALUS + "%");
+		label.setHighlightColors(bad);
 		
 	}
 }

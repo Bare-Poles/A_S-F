@@ -94,6 +94,10 @@ public class ASF_DerelictWarburn extends BaseHullMod {
 	public void advanceInCombat(ShipAPI ship, float amount){
         CombatEngineAPI engine = Global.getCombatEngine();
 		if (engine.isPaused() || !ship.isAlive() || ship.isPiece()) {
+			if (!ship.isAlive() || ship.isPiece()) {
+				ship.getMutableStats().getTimeMult().unmodify(spec.getId());
+				engine.getTimeMult().unmodify(spec.getId());
+			}
 			return;
 		}
 		

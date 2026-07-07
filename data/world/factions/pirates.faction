@@ -1,12 +1,11 @@
 {
-    # variantOverrides restricts hulls to listed variants and adjusts their probability
-	"variantOverrides":{
-	},
     # multiplier for how often hulls show up in the faction's fleets
     "hullFrequency":{
         "hulls":{
             "A_S-F_rinka_p":0.9, # rarer than normal pirate ships, because it can be kinda nasty
             "A_S-F_scrag":0.9, # rarer than normal pirate ships, because the burn is too funny
+            "A_S-F_gravesend_p":0.9, # rarer than normal pirate ships, because the burn is too funny
+            "A_S-F_dunnock_p":0.8, # rarer than normal pirate ships, because medium missile on a frig!
         },
     },
 
@@ -16,6 +15,9 @@
             "A_S-F_rinka_p",
             "A_S-F_morris_p",
             "A_S-F_scrag",
+            "A_S-F_gravesend_p",
+            "A_S-F_buraq_p",
+            "A_S-F_dunnock_p",
         ],
     },
 
@@ -24,6 +26,9 @@
             "A_S-F_rinka_p",
             "A_S-F_morris_p",
             "A_S-F_scrag",
+            "A_S-F_gravesend_p",
+            "A_S-F_buraq_p",
+            "A_S-F_dunnock_p",
         ],
     },
 

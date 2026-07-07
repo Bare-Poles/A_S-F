@@ -4,7 +4,7 @@
   "displayName": "Grenade",
   "goalVariant": true,
   "fluxCapacitors": 0,
-  "fluxVents": 5,
+  "fluxVents": 6,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -19,17 +19,17 @@
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "sabot"
+        "WS0002": "A_S-F_bludgeon"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "A_S-F_bludgeon",
+        "WS0003": "A_S-F_pinion",
         "WS0004": "lightdualac"
       }
     }

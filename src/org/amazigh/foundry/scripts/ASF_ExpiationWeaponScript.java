@@ -33,6 +33,7 @@ import com.fs.starfarer.api.util.IntervalUtil;
 public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, OnFireEffectPlugin  {
 	
 	private int chargeCount = 0;
+	private int arcRate = 0;
 	
 	private IntervalUtil muzzleInterval = new IntervalUtil(0.05f, 0.05f);
 	
@@ -90,42 +91,46 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 		
     	engine.removeEntity(projectile);
     	
-    	//TODO - play base charging "hum" sound
-    	Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
-		
-    	
+    	if (chargeCount > 23) {
+        	Global.getSoundPlayer().playSound("A_S-F_expiation_overcharge", 1f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+        	// overcharge charging "hum" sound
+    	} else {
+        	Global.getSoundPlayer().playSound("A_S-F_expiation_charge", 1f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+        			// A_S-F_painter_loop
+        	// base charging "hum" sound
+    	}
+
     	if (chargeCount == 2 || chargeCount == 8 || chargeCount == 14) {
-//    		Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+    		Global.getSoundPlayer().playSound("A_S-F_expiation_click", 0.9f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
     		// play "lv1" sound
     	}
     	if (chargeCount == 3 || chargeCount == 9 || chargeCount == 15) {
-//    		Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1.05f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+    		Global.getSoundPlayer().playSound("A_S-F_expiation_click", 0.95f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
     		// play "lv2" sound
     	}
     	if (chargeCount == 4 || chargeCount == 10 || chargeCount == 16) {
-//    		Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1.1f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+    		Global.getSoundPlayer().playSound("A_S-F_expiation_click", 1.0f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
     		// play "lv3" sound
     	}
     	if (chargeCount == 5 || chargeCount == 11 || chargeCount == 17) {
-//    		Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1.15f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+    		Global.getSoundPlayer().playSound("A_S-F_expiation_click", 1.05f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
     		// play "lv4" sound
     	}
     	if (chargeCount == 6 || chargeCount == 12 || chargeCount == 18) {
-//    		Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1.25f, 1.1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
-    		// play "lv5!" sound
+    		Global.getSoundPlayer().playSound("A_S-F_expiation_click", 1.2f, 1.1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+    		// play "lv5!!" sound
     	}
     	if (chargeCount == 24) {
-//    		Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
-    		// play "final" sound
+    		Global.getSoundPlayer().playSound("A_S-F_expiation_click", 1.4f, 1.2f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+    		// play "final" sound (overcharge ready!)
     	}
     	if (chargeCount > 31) {
-//    		Global.getSoundPlayer().playSound("A_S-F_painter_loop", 1f, 1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
+    		Global.getSoundPlayer().playSound("A_S-F_expiation_warn", 0.5f, 1.1f, weapon.getFirePoint(0), weapon.getShip().getVelocity());
     		// play "warning" sound
+    		
+    		//TODO - "warning" visual ? ??
+    		// not sure on this, how/what would it even be!
     	}
-    	//TODO - sounds!!
-    	//TODO - sounds!!
-    	//TODO - sounds!!
-    	//TODO - sounds!!
     	
     	
     	if (chargeCount == 0) {
@@ -163,25 +168,22 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 //    	}
 		
 		
-		//TODO
-		//TODO
-		//TODO - think about how i'm handling sounds!!
-			// i guess just a pure-script based method (some horrible if/else chain in the onFire ???)
-			// need to also think about the "startup" sound, and if i want to keep it ??
-		//TODO
-		//TODO
-			// pulse some sort of visual on the "warning" charges!
-		//TODO
-		//TODO
-		
-		
 		if (weapon.getChargeLevel() < 0.05) {
 			weapon.getGlowSpriteAPI().setColor(STAGE_1_COLOR); // resetting glow color!
 		}
 		
+		//TODO - migrate the system lidar beam here?
+		//TODO - so it can change color (and width!) based on charge level!!!
+		//TODO
+		//TODO 
+		//TODO 
+		//TODO 
+		
+		
 		if (chargeCount > 0) {
 			ShipAPI ship = weapon.getShip();
 			float baseAngle = weapon.getCurrAngle();
+			Vector2f muzzleLoc = weapon.getFirePoint(0);
 			
 			double timeMult = (double) ship.getMutableStats().getTimeMult().modified; // this timeMult stuff is a "well fuck sprite rendering gets screwy with increases to timescale, let's fix it!"
     		int alpha = (int) Math.ceil(69 / timeMult);
@@ -189,74 +191,61 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
     		
     		int alpha2 = (int) Math.ceil(43 / timeMult);
     		alpha2 = Math.min(250, alpha);
-    		//TODO - decide if i need a second alpha var for the "pips"
+    		//TODO - decide if i need a second alpha var for the "pips" (final sprites req before i decide on this)
+    		
 			
 			if (ship.getFluxTracker().isOverloaded() || weapon.isDisabled()) {
-				chargeCount = 0; // clear charges if you overload, so you should release and fire if at risk of overload, no autofiring!
-								// also clears charges if the weapon is disabled!
 				
-				//TODO (?) - weapon "explodes" here (with forced disable if overloaded)
-			}
-			
-			
-			
-			if (weapon.getChargeLevel() < 0.9f) {
-				// we fire when `chargeLevel` goes down, or: "how to tell that the trigger has been released"
+				// base disable sound
+				Global.getSoundPlayer().playSound("hit_heavy_energy", 0.8f, 1.2f, muzzleLoc, ship.getVelocity());
 				
-				//TODO - "base" firesound
-				
-					// "base muzzle" particles
-				ASF_RadialEmitter emitterMuzzle1 = new ASF_RadialEmitter((CombatEntityAPI) ship);
-				emitterMuzzle1.location(weapon.getFirePoint(0));
-				emitterMuzzle1.size(13f, 16f);
-    			emitterMuzzle1.coreDispersion(5f);
-				
-    				// "sparkle" particles
-				ASF_RadialEmitter emitterMuzzle2 = new ASF_RadialEmitter((CombatEntityAPI) ship);
-				emitterMuzzle2.location(weapon.getFirePoint(0));
-    			emitterMuzzle2.life(0.7f, 1.8f);
-    			emitterMuzzle2.size(2f, 3.5f);
-    	        emitterMuzzle2.velDistLinkage(false);
-    	        emitterMuzzle2.lifeLinkage(true);
-				
-    	        
 				if (chargeCount > 2) {
+					
+					// "base muzzle" particles
+					ASF_RadialEmitter emitterMuzzle1 = new ASF_RadialEmitter((CombatEntityAPI) ship);
+					emitterMuzzle1.location(muzzleLoc);
+					emitterMuzzle1.size(13f, 16f);
+					emitterMuzzle1.angle(baseAngle -60f, 120f);
+					emitterMuzzle1.coreDispersion(5f);
+					
+					// "sparkle" particles
+					ASF_RadialEmitter emitterMuzzle2 = new ASF_RadialEmitter((CombatEntityAPI) ship);
+					emitterMuzzle2.location(muzzleLoc);
+					emitterMuzzle2.life(0.7f, 1.8f);
+	    			emitterMuzzle2.angle(baseAngle -75f, 150f);
+					emitterMuzzle2.size(2f, 3.5f);
+					emitterMuzzle2.velDistLinkage(false);
+					emitterMuzzle2.lifeLinkage(true);
+					
 					if (chargeCount > 8) {
-						// single shot!
-						engine.spawnProjectile(weapon.getShip(), weapon, "" + shotType.get(Math.min(chargeCount, 25)), weapon.getFirePoint(0), baseAngle, ship.getVelocity());
-						
-						CombatUtils.applyForce(weapon.getShip(), baseAngle + 180f, impulseMult.get(Math.min(chargeCount, 25))); // knockback!
-						
 						if (chargeCount > 14) {
-							
 			    	    	// ""wide"" particles
 							ASF_RadialEmitter emitterMuzzle3 = new ASF_RadialEmitter((CombatEntityAPI) ship);
-							emitterMuzzle3.location(weapon.getFirePoint(0));
+							emitterMuzzle3.location(muzzleLoc);
 			    			emitterMuzzle3.life(0.55f, 1.5f);
+							emitterMuzzle3.angle(baseAngle - 69f, 138f);
 			    			emitterMuzzle3.size(5f, 8f);
 			    	        emitterMuzzle3.velDistLinkage(false);
 			    	        
 							if (chargeCount > 24) {
-								// overcharge muzzle!
-
-								//TODO - overcharge firesound
+								// overcharge blast!
 								
-								//TODO - vis arcs!
-								//TODO
-								//TODO
-								//TODO
-								//TODO
-								//TODO
+								Global.getSoundPlayer().playSound("A_S-F_expiation_fire_4", 0.8f, 1.1f, muzzleLoc, ship.getVelocity());
 								
-								// hardflux "conversion"
-								float fluxVal = Math.max(0f, 0.5f * (ship.getFluxTracker().getCurrFlux() - ship.getFluxTracker().getHardFlux()));
-								ship.getFluxTracker().setCurrFlux(ship.getFluxTracker().getCurrFlux() - fluxVal);
-								ship.getFluxTracker().increaseFlux(fluxVal, true);
+								for (int i=0; i < 5; i++) {
+						            float angleRandom = baseAngle + MathUtils.getRandomNumberInRange(-51f, 51f);
+						            float distanceRandom = 21f + (i * MathUtils.getRandomNumberInRange(14, 23));
+						            Vector2f arcPoint2 = MathUtils.getPointOnCircumference(muzzleLoc, distanceRandom, angleRandom);
+						            
+						            engine.spawnEmpArcVisual(muzzleLoc, ship, arcPoint2, ship, 8f,
+						            		new Color(141,24,128,101),
+					        				new Color(216,104,250,111));
+								}
 								
 								for (int i=0; i < 4; i++) {
-									engine.addSwirlyNebulaParticle(weapon.getFirePoint(0),
+									engine.addSwirlyNebulaParticle(muzzleLoc,
 											ship.getVelocity(),
-											18f * i,
+											23f * i,
 											1.6f,
 											0.1f,
 											0.25f,
@@ -265,10 +254,218 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 											true);
 								}
 								
+								engine.addHitParticle(muzzleLoc, ship.getVelocity(), 140f, 1f, 0.1f, STAGE_4_COLOR.brighter());
+					            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_4B_COLOR, 87f, 0.4f);
+					            
+								emitterMuzzle1.life(0.3f, 0.37f);
+								emitterMuzzle1.velocity(0f, 15f);
+								emitterMuzzle1.distance(0f, 75f);
+								emitterMuzzle1.color(STAGE_4_COLOR.getRed(),STAGE_4_COLOR.getGreen(),STAGE_4_COLOR.getBlue(),STAGE_4_COLOR.getAlpha());
+		    	    			emitterMuzzle1.burst(130);
+								
+		    	    	        emitterMuzzle2.velocity(15f, 25f);
+		    	    	        emitterMuzzle2.distance(0f, 80f);
+		    	    	        emitterMuzzle2.color(STAGE_4_COLOR.getRed(),STAGE_4_COLOR.getGreen(),STAGE_4_COLOR.getBlue(),STAGE_4_COLOR.getAlpha());
+		    	    	        emitterMuzzle2.emissionOffset(-25f, 50f);
+		    	    	        emitterMuzzle2.burst(80);
+
+								emitterMuzzle3.velocity(10f, 15f);
+								emitterMuzzle3.distance(10f, 35f);
+								emitterMuzzle3.color(STAGE_4B_COLOR.getRed(),STAGE_4B_COLOR.getGreen(),STAGE_4B_COLOR.getBlue(),STAGE_4B_COLOR.getAlpha());
+								emitterMuzzle3.coreDispersion(8f);
+								emitterMuzzle3.burst(40);
+								
+							} else {
+								// emp blast!
+								
+								Global.getSoundPlayer().playSound("A_S-F_expiation_fire_3", 0.8f, 1.1f, muzzleLoc, ship.getVelocity());
+								
+								for (int i=0; i < 3; i++) {
+									engine.addSwirlyNebulaParticle(muzzleLoc,
+											ship.getVelocity(),
+											21f * i,
+											1.6f,
+											0.1f,
+											0.25f,
+											0.9f,
+											STAGE_3_COLOR.darker(),
+											true);
+								}
+								
+								engine.addHitParticle(muzzleLoc, ship.getVelocity(), 115f, 1f, 0.1f, STAGE_3_COLOR.brighter());
+					            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_3B_COLOR, 80f, 0.4f);
+					            
+								emitterMuzzle1.life(0.28f, 0.35f);
+								emitterMuzzle1.velocity(0f, 15f);
+								emitterMuzzle1.distance(0f, 65f);
+								emitterMuzzle1.color(STAGE_3_COLOR.getRed(),STAGE_3_COLOR.getGreen(),STAGE_3_COLOR.getBlue(),STAGE_3_COLOR.getAlpha());
+		    	    			emitterMuzzle1.burst(120);
+								
+		    	    	        emitterMuzzle2.velocity(15f, 25f);
+		    	    	        emitterMuzzle2.distance(0f, 70f);
+		    	    	        emitterMuzzle2.color(STAGE_3_COLOR.getRed(),STAGE_3_COLOR.getGreen(),STAGE_3_COLOR.getBlue(),STAGE_3_COLOR.getAlpha());
+		    	    	        emitterMuzzle2.emissionOffset(-25f, 50f);
+		    	    	        emitterMuzzle2.burst(70);
+								
+								emitterMuzzle3.velocity(10f, 15f);
+								emitterMuzzle3.distance(10f, 30f);
+								emitterMuzzle3.color(STAGE_3B_COLOR.getRed(),STAGE_3B_COLOR.getGreen(),STAGE_3B_COLOR.getBlue(),STAGE_3B_COLOR.getAlpha());
+								emitterMuzzle3.coreDispersion(8f);
+								emitterMuzzle3.burst(32);
+							}
+						} else {
+							// bolt blast!
+							
+							Global.getSoundPlayer().playSound("A_S-F_expiation_fire_2", 0.8f, 1.1f, muzzleLoc, ship.getVelocity());
+							
+							for (int i=0; i < 3; i++) {
+								engine.addSwirlyNebulaParticle(muzzleLoc,
+										ship.getVelocity(),
+										19f * i,
+										1.6f,
+										0.1f,
+										0.25f,
+										0.85f,
+										STAGE_2_COLOR.darker(),
+										true);
+							}
+							
+							engine.addHitParticle(muzzleLoc, ship.getVelocity(), 110f, 1f, 0.1f, STAGE_2_COLOR.brighter());
+				            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_2B_COLOR, 75f, 0.4f);
+				            
+							emitterMuzzle1.life(0.25f, 0.32f);
+							emitterMuzzle1.velocity(0f, 15f);
+							emitterMuzzle1.distance(0f, 65f);
+							emitterMuzzle1.color(STAGE_2_COLOR.getRed(),STAGE_2_COLOR.getGreen(),STAGE_2_COLOR.getBlue(),STAGE_2_COLOR.getAlpha());
+	    	    			emitterMuzzle1.burst(110);
+							
+	    	    	        emitterMuzzle2.velocity(15f, 25f);
+	    	    	        emitterMuzzle2.distance(0f, 70f);
+	    	    	        emitterMuzzle2.color(STAGE_2_COLOR.getRed(),STAGE_2_COLOR.getGreen(),STAGE_2_COLOR.getBlue(),STAGE_2_COLOR.getAlpha());
+	    	    	        emitterMuzzle2.emissionOffset(-25f, 50f);
+	    	    	        emitterMuzzle2.burst(70);
+						}
+						
+						
+					} else {
+						// shotgun blast!
+						
+						Global.getSoundPlayer().playSound("A_S-F_expiation_fire_1", 0.75f, 1.1f, muzzleLoc, ship.getVelocity());
+						
+						for (int i=0; i < 3; i++) {
+							engine.addSwirlyNebulaParticle(muzzleLoc,
+									ship.getVelocity(),
+									15f * i,
+									1.6f,
+									0.1f,
+									0.25f,
+									0.7f,
+									STAGE_1_COLOR.darker(),
+									true);
+						}
+						
+						engine.addHitParticle(muzzleLoc, ship.getVelocity(), 85f, 1f, 0.1f, STAGE_1_COLOR.brighter());
+			            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_1_COLOR.darker(), 50f, 0.35f);
+			            
+						emitterMuzzle1.life(0.18f, 0.25f);
+						emitterMuzzle1.velocity(0f, 15f);
+						emitterMuzzle1.distance(0f, 30f);
+						emitterMuzzle1.color(STAGE_1_COLOR.getRed(),STAGE_1_COLOR.getGreen(),STAGE_1_COLOR.getBlue(),STAGE_1_COLOR.getAlpha());
+    	    			emitterMuzzle1.burst(100);
+						
+    	    			emitterMuzzle2.angle(baseAngle -15f, 30f);
+    	    	        emitterMuzzle2.velocity(15f, 25f);
+    	    	        emitterMuzzle2.distance(0f, 60f);
+    	    	        emitterMuzzle2.color(STAGE_1_COLOR.getRed(),STAGE_1_COLOR.getGreen(),STAGE_1_COLOR.getBlue(),STAGE_1_COLOR.getAlpha());
+    	    	        emitterMuzzle2.emissionOffset(-35f, 70f);
+    	    	        emitterMuzzle2.burst(90);
+					}
+				}
+				
+				chargeCount = 0; // clear charges if you overload, so you should release and fire if at risk of overload, no autofiring!
+								// also clears charges if the weapon is disabled!
+				
+				weapon.disable(); // disable the weapon!
+    	        
+			}
+			
+			
+			
+			if (weapon.getChargeLevel() < 0.9f) {
+				// we fire when `chargeLevel` goes down, or: "how to tell that the trigger has been released"
+				
+				if (chargeCount > 2) {
+
+					// "base" firesound
+					Global.getSoundPlayer().playSound("A_S-F_x-pulse_fire", 0.69f, 1.2f, muzzleLoc, ship.getVelocity());
+					
+					// "base muzzle" particles
+				ASF_RadialEmitter emitterMuzzle1 = new ASF_RadialEmitter((CombatEntityAPI) ship);
+				emitterMuzzle1.location(muzzleLoc);
+				emitterMuzzle1.size(13f, 16f);
+    			emitterMuzzle1.coreDispersion(5f);
+				
+    				// "sparkle" particles
+				ASF_RadialEmitter emitterMuzzle2 = new ASF_RadialEmitter((CombatEntityAPI) ship);
+				emitterMuzzle2.location(muzzleLoc);
+    			emitterMuzzle2.life(0.7f, 1.8f);
+    			emitterMuzzle2.size(2f, 3.5f);
+    	        emitterMuzzle2.velDistLinkage(false);
+    	        emitterMuzzle2.lifeLinkage(true);
+				
+					if (chargeCount > 8) {
+						// single shot!
+						engine.spawnProjectile(weapon.getShip(), weapon, "" + shotType.get(Math.min(chargeCount, 25)), muzzleLoc, baseAngle, ship.getVelocity());
+						
+						CombatUtils.applyForce(weapon.getShip(), baseAngle + 180f, impulseMult.get(Math.min(chargeCount, 25))); // knockback!
+						
+						if (chargeCount > 14) {
+							
+			    	    	// ""wide"" particles
+							ASF_RadialEmitter emitterMuzzle3 = new ASF_RadialEmitter((CombatEntityAPI) ship);
+							emitterMuzzle3.location(muzzleLoc);
+			    			emitterMuzzle3.life(0.55f, 1.5f);
+			    			emitterMuzzle3.size(5f, 8f);
+			    	        emitterMuzzle3.velDistLinkage(false);
+			    	        
+							if (chargeCount > 24) {
+								// overcharge muzzle!
+
+								// overcharge firesound
+								Global.getSoundPlayer().playSound("A_S-F_expiation_fire_4", 1.0f, 1.0f, muzzleLoc, ship.getVelocity());
+								
+								
+								for (int i=0; i < 3; i++) {
+						            float angleRandom = baseAngle + MathUtils.getRandomNumberInRange(-23f, 23f);
+						            float distanceRandom = 30f + (i * MathUtils.getRandomNumberInRange(19, 31));
+						            Vector2f arcPoint2 = MathUtils.getPointOnCircumference(muzzleLoc, distanceRandom, angleRandom);
+						            
+						            engine.spawnEmpArcVisual(muzzleLoc, ship, arcPoint2, ship, 8f,
+						            		new Color(141,24,128,101),
+					        				new Color(216,104,250,111));
+								}
+								
+								// hardflux "conversion"
+								float fluxVal = Math.max(0f, 0.5f * (ship.getFluxTracker().getCurrFlux() - ship.getFluxTracker().getHardFlux()));
+								ship.getFluxTracker().setCurrFlux(ship.getFluxTracker().getCurrFlux() - fluxVal);
+								ship.getFluxTracker().increaseFlux(fluxVal, true);
+								
+								for (int i=0; i < 4; i++) {
+									engine.addSwirlyNebulaParticle(muzzleLoc,
+											ship.getVelocity(),
+											19f * i,
+											1.6f,
+											0.1f,
+											0.25f,
+											1.05f,
+											STAGE_4_COLOR.darker(),
+											true);
+								}
+								
 								MagicLensFlare.createSharpFlare(
 				        			    engine,
 				        			    ship,
-				        			    weapon.getFirePoint(0),
+				        			    muzzleLoc,
 				        			    6f,
 				        			    220f,
 				        			    baseAngle + 90f,
@@ -278,15 +475,15 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 								MagicLensFlare.createSharpFlare(
 				        			    engine,
 				        			    ship,
-				        			    weapon.getFirePoint(0),
+				        			    muzzleLoc,
 				        			    4f,
 				        			    160f,
 				        			    baseAngle + 90f,
-				        			    new Color(31,12,64), //125,50,255
-				        				new Color(34,26,85));
+				        			    new Color(47,12,48),
+				        				new Color(54,26,65));
 								
-								engine.addHitParticle(weapon.getFirePoint(0), ship.getVelocity(), 120f, 1f, 0.1f, STAGE_4_COLOR.brighter());
-					            engine.spawnExplosion(weapon.getFirePoint(0), ship.getVelocity(), STAGE_4B_COLOR, 69f, 0.4f);
+								engine.addHitParticle(muzzleLoc, ship.getVelocity(), 120f, 1f, 0.1f, STAGE_4_COLOR.brighter());
+					            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_4B_COLOR, 69f, 0.4f);
 					            
 								emitterMuzzle1.life(0.3f, 0.37f);
 								emitterMuzzle1.angle(baseAngle -6f, 12f);
@@ -312,10 +509,11 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 							} else {
 								// emp muzzle!
 
-								//TODO - emp firesound
+								// emp firesound
+								Global.getSoundPlayer().playSound("A_S-F_expiation_fire_3", 1.0f, 1.0f, muzzleLoc, ship.getVelocity());
 								
 								for (int i=0; i < 3; i++) {
-									engine.addSwirlyNebulaParticle(weapon.getFirePoint(0),
+									engine.addSwirlyNebulaParticle(muzzleLoc,
 											ship.getVelocity(),
 											18f * i,
 											1.6f,
@@ -330,15 +528,15 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 				        		MagicLensFlare.createSharpFlare(
 				        			    engine,
 				        			    ship,
-				        			    weapon.getFirePoint(0),
+				        			    muzzleLoc,
 				        			    4f,
 				        			    160f,
 				        			    baseAngle + 90f,
 				        			    new Color(31,12,64), //125,50,255
 				        				new Color(34,26,85));
 								
-								engine.addHitParticle(weapon.getFirePoint(0), ship.getVelocity(), 100f, 1f, 0.1f, STAGE_3_COLOR.brighter());
-					            engine.spawnExplosion(weapon.getFirePoint(0), ship.getVelocity(), STAGE_3B_COLOR, 64f, 0.4f);
+								engine.addHitParticle(muzzleLoc, ship.getVelocity(), 100f, 1f, 0.1f, STAGE_3_COLOR.brighter());
+					            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_3B_COLOR, 64f, 0.4f);
 					            
 								emitterMuzzle1.life(0.28f, 0.35f);
 								emitterMuzzle1.angle(baseAngle -6f, 12f);
@@ -364,10 +562,11 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 						} else {
 							// bolt muzzle!
 							
-							//TODO - bolt firesound
+							// bolt firesound
+							Global.getSoundPlayer().playSound("A_S-F_expiation_fire_2", 1.0f, 1.0f, muzzleLoc, ship.getVelocity());
 							
 							for (int i=0; i < 3; i++) {
-								engine.addSwirlyNebulaParticle(weapon.getFirePoint(0),
+								engine.addSwirlyNebulaParticle(muzzleLoc,
 										ship.getVelocity(),
 										17.5f * i,
 										1.6f,
@@ -378,8 +577,8 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 										true);
 							}
 							
-							engine.addHitParticle(weapon.getFirePoint(0), ship.getVelocity(), 95f, 1f, 0.1f, STAGE_2_COLOR.brighter());
-				            engine.spawnExplosion(weapon.getFirePoint(0), ship.getVelocity(), STAGE_2B_COLOR, 60f, 0.4f);
+							engine.addHitParticle(muzzleLoc, ship.getVelocity(), 95f, 1f, 0.1f, STAGE_2_COLOR.brighter());
+				            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_2B_COLOR, 60f, 0.4f);
 				            
 							emitterMuzzle1.life(0.25f, 0.32f);
 							emitterMuzzle1.angle(baseAngle -6f, 12f);
@@ -400,18 +599,19 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 					} else {
 						// shotgun shots + muzzle!
 
-						//TODO - shotgun firesound
+						// shotgun firesound
+						Global.getSoundPlayer().playSound("A_S-F_expiation_fire_1", 0.9f, 1.0f, muzzleLoc, ship.getVelocity());
 						
 		            	for (int i=0; i < Math.min(8, (chargeCount+1)); i++) {
 		            		float angle = baseAngle + MathUtils.getRandomNumberInRange(-(chargeCount + 6f), chargeCount + 6f);
 		            		Vector2f vel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(-20f, 40f), angle);
-		            		CombatEntityAPI shotgunProjectile = engine.spawnProjectile(weapon.getShip(), weapon, "A_S-F_expiation", weapon.getFirePoint(0), angle, vel);
+		            		CombatEntityAPI shotgunProjectile = engine.spawnProjectile(weapon.getShip(), weapon, "A_S-F_expiation", muzzleLoc, angle, vel);
 		            		
 		                	engine.addPlugin(new ASF_ExpiationProjScript((DamagingProjectileAPI) shotgunProjectile));
 		            	}
 		            	
 						for (int i=0; i < 3; i++) {
-							engine.addSwirlyNebulaParticle(weapon.getFirePoint(0),
+							engine.addSwirlyNebulaParticle(muzzleLoc,
 									ship.getVelocity(),
 									15f * i,
 									1.6f,
@@ -422,8 +622,8 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 									true);
 						}
 						
-						engine.addHitParticle(weapon.getFirePoint(0), ship.getVelocity(), 75f, 1f, 0.1f, STAGE_1_COLOR.brighter());
-			            engine.spawnExplosion(weapon.getFirePoint(0), ship.getVelocity(), STAGE_1_COLOR.darker(), 40f, 0.35f);
+						engine.addHitParticle(muzzleLoc, ship.getVelocity(), 75f, 1f, 0.1f, STAGE_1_COLOR.brighter());
+			            engine.spawnExplosion(muzzleLoc, ship.getVelocity(), STAGE_1_COLOR.darker(), 40f, 0.35f);
 			            
 						emitterMuzzle1.life(0.18f, 0.25f);
 						emitterMuzzle1.angle(baseAngle -18f, 36f);
@@ -446,16 +646,8 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 			
 			// Muzzle particle effect while charging
 			
-			//TODO - make the "Jet" more stable when turning (change to a glowsprite rather than particles (??)
-			//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
+			//TODO - make the "Jet" more stable when turning (change to a glowsprite rather than particles (?!?)
+			//TODO - yes, good idea, but finalish sprites or smth needed first!
 			//TODO
 			//TODO
 			//TODO
@@ -467,7 +659,7 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 			if (muzzleInterval.intervalElapsed()) {
 				
 				ASF_RadialEmitter emitterFront = new ASF_RadialEmitter((CombatEntityAPI) ship);
-		        emitterFront.location(weapon.getFirePoint(0));
+		        emitterFront.location(muzzleLoc);
 				emitterFront.life(0.2f, 0.4f);
 				emitterFront.size(2f, 3.5f);
 				emitterFront.angle(baseAngle - 25f, 50f);
@@ -476,7 +668,7 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 				if (chargeCount > 8) {
 					
 					ASF_RadialEmitter emitterJet = new ASF_RadialEmitter((CombatEntityAPI) ship);
-			        emitterJet.location(weapon.getFirePoint(0));
+			        emitterJet.location(muzzleLoc);
 					emitterJet.angle(baseAngle - 2f, 4f);
 					emitterJet.life(0.35f, 0.5f);
 					emitterJet.velDistLinkage(false);
@@ -485,7 +677,7 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 					if (chargeCount > 14) {
 						
 						ASF_RadialEmitter emitterWide = new ASF_RadialEmitter((CombatEntityAPI) ship);
-						emitterWide.location(weapon.getFirePoint(0));
+						emitterWide.location(muzzleLoc);
 						emitterWide.life(0.25f, 0.6f);
 						emitterWide.size(5f, 7.5f);
 						emitterWide.velDistLinkage(false);
@@ -509,6 +701,25 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 							emitterFront.color(STAGE_4_COLOR.getRed(),STAGE_4_COLOR.getGreen(),STAGE_4_COLOR.getBlue(),STAGE_4_COLOR.getAlpha());
 							emitterFront.coreDispersion(3f);
 							emitterFront.burst(4);
+							
+							arcRate -= 1;
+							
+							if (arcRate <= 0) {
+								engine.spawnEmpArcVisual(muzzleLoc, ship,
+										MathUtils.getPointOnCircumference(muzzleLoc, MathUtils.getRandomNumberInRange(20f, 30f), ship.getFacing()+MathUtils.getRandomNumberInRange(-13f, 13f)), ship,
+										12f,
+										new Color(165,20,100,155),
+										new Color(255,255,255,160));
+								
+								arcRate = MathUtils.getRandomNumberInRange(10, 15);
+							}
+							
+							// vis arc, random rate!
+							
+							//engine.spawnEmpArcVisual(projectile.getLocation(), ship, projectile.getLocation(), projectile, 9f,
+				    		//		new Color(70,100,155,90),
+				    		//		new Color(220,225,255,111));
+							
 						} else {
 							//emp muzzle particle fx!
 							emitterWide.angle(baseAngle - 50f, 100f);
@@ -566,12 +777,18 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 						glowG = STAGE_4_COLOR.getGreen();
 						glowB = STAGE_4_COLOR.getBlue();
 						
-						Vector2f spriteSize2 = new Vector2f(9, 60);
-						Vector2f spriteSize3 = new Vector2f(12, 80);
+						float sizeScalar1 = MathUtils.getRandomNumberInRange(1f, 1.05f);
+						float sizeScalar2 = MathUtils.getRandomNumberInRange(1f, 1.05f);
+						
+						Vector2f spriteLoc1 = MathUtils.getRandomPointInCircle(muzzleLoc, 2f);
+						Vector2f spriteLoc2 = MathUtils.getRandomPointInCircle(muzzleLoc, 2f);
+						
+						Vector2f spriteSize2 = new Vector2f(9 * sizeScalar1, 60 * sizeScalar1);
+						Vector2f spriteSize3 = new Vector2f(12 * sizeScalar2, 80 * sizeScalar2);
 						SpriteAPI muzzGlow1 = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
 						SpriteAPI muzzGlow2 = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
-		        		MagicRender.singleframe(muzzGlow1, weapon.getFirePoint(0), spriteSize2, baseAngle, new Color(glowR,glowG,glowB,alpha2), true);
-		        		MagicRender.singleframe(muzzGlow2, weapon.getFirePoint(0), spriteSize3, baseAngle, new Color(glowR,glowG,glowB,alpha2), true);
+		        		MagicRender.singleframe(muzzGlow1, spriteLoc1, spriteSize2, baseAngle, new Color(glowR,glowG,glowB,alpha2), true);
+		        		MagicRender.singleframe(muzzGlow2, spriteLoc2, spriteSize3, baseAngle, new Color(glowR,glowG,glowB,alpha2), true);
 					} else {
 						glowR = STAGE_3_COLOR.getRed();
 						glowG = STAGE_3_COLOR.getGreen();
@@ -579,7 +796,7 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 						
 						Vector2f spriteSize2 = new Vector2f(9, 60);
 						SpriteAPI muzzGlow1 = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
-		        		MagicRender.singleframe(muzzGlow1, weapon.getFirePoint(0), spriteSize2, baseAngle, new Color(glowR,glowG,glowB,alpha2), true);
+		        		MagicRender.singleframe(muzzGlow1, muzzleLoc, spriteSize2, baseAngle, new Color(glowR,glowG,glowB,alpha2), true);
 					}
 				} else {
 					glowR = STAGE_2_COLOR.getRed();
@@ -594,11 +811,16 @@ public class ASF_ExpiationWeaponScript implements EveryFrameWeaponEffectPlugin, 
 			
 			for (int i=0; i < 2; i++) {
 				float sizeRandom = Math.min(40f, (20f + chargeCount)) + MathUtils.getRandomNumberInRange(0f, 3f);
+    			Vector2f spriteLoc = muzzleLoc;
+				if (chargeCount > 24) {
+					sizeRandom += MathUtils.getRandomNumberInRange(0f, 8f);
+					spriteLoc = MathUtils.getRandomPointInCircle(muzzleLoc, 2f); // more "unstable" visuals when overcharging
+				}
     			Vector2f spriteSize1 = new Vector2f(sizeRandom, sizeRandom);
-        		MagicRender.singleframe(chargeGlow, weapon.getFirePoint(0), spriteSize1, MathUtils.getRandomNumberInRange(0f, 90f), new Color(glowR,glowG,glowB,alpha), true);
+    			
+        		MagicRender.singleframe(chargeGlow, spriteLoc, spriteSize1, MathUtils.getRandomNumberInRange(0f, 90f), new Color(glowR,glowG,glowB,alpha), true);
         	}
 			
-        	
     		
 			//TODO - charge indicators!
 				//TODO - actual proper size/sprite/positioning (requires final sprites)

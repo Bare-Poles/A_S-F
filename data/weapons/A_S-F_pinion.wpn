@@ -1,0 +1,31 @@
+{
+  "id": "A_S-F_pinion",
+  "specClass": "projectile",
+  "projectileSpecId": "A_S-F_pinion_mssl",
+  "type": "MISSILE",
+  "size": "SMALL",
+  "displayArcRadius": 1000,
+	"turretSprite":"graphics/weapons/A_S-F_pinion_turret.png",
+	"hardpointSprite":"graphics/weapons/A_S-F_pinion_hardpoint.png",
+
+	"hardpointOffsets":[10,0],
+	"turretOffsets":[7,0],
+	"hardpointAngleOffsets":[0],
+	"turretAngleOffsets":[0],
+
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 7,
+    "particleSizeRange": 12,
+    "cloudParticleCount": 2,
+    "cloudDuration": 0.7,
+    "cloudRadius": 6,
+    "blowbackParticleCount": 2,
+    "blowbackDuration": 0.85,
+    "blowbackLength": 14,
+    "blowbackSpread": 9,
+    "particleColor": [155,160,150,130]
+  },
+  "fireSoundTwo": "annihilator_fire"
+}

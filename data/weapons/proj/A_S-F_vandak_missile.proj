@@ -1,0 +1,65 @@
+{
+	"id":"A_S-F_vandak_missile",
+	"specClass":"missile",
+	"missileType":"NO_AI", #MISSILE
+
+	"onHitEffect":"org.amazigh.foundry.scripts.ASF_vandakOnHitEffect",
+
+	"sprite":"graphics/missiles/A_S-F_vandak_missile.png",
+	"size":[20,32],	
+	"center":[10,16],
+	"collisionRadius":16,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,135,80,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":350, # purely visual
+	"explosionSpec":{"duration":0.1f, # not visual
+					 "radius":210,
+					 "coreRadius":120, # full damage within core radius
+					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
+					 "particleSizeMin":5.0,
+					 "particleSizeRange":3.0,
+					 "particleDuration":1.1,
+					 "particleCount":150,
+					 "particleColor":[255,170,115,255],
+					 "explosionColor":[135,110,80,175],
+					 "useDetailedExplosion":true,
+					 "useDetailedExplosionColorAlpha":true,
+					 "detailedExplosionRadius":180,
+					 "detailedExplosionFlashRadius":360,
+					 "detailedExplosionFlashDuration":0.3,
+					 "detailedExplosionFlashColorFringe":[222,140,60,255],
+					 "detailedExplosionFlashColorCore":[135,175,150,255]},
+
+	"reduceDamageWhileFading":true,
+	"dudProbabilityOnFlameout":0,
+
+	"flameoutTime":1.5, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.5, # time spent without the engine glow being rendered
+	"fadeTime":0.75, # fadeout duration
+	"engineSpec":{"turnAcc":400,
+				  "turnRate":100,
+				  "acc":400,
+				  "dec":100},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-14, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[240,100,70,255],
+						"glowSizeMult":2,
+						"contrailDuration":2,
+						"contrailWidthMult":1,
+						"contrailWidthAddedFractionAtEnd":2.5,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.0f,
+						"contrailAngularVelocityMult":0.5f,
+						"contrailSpawnDistMult":0.5f, # how far away from engine it starts
+						"contrailColor":[225,175,150,75],
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":18.0,
+				    "length":80.0,
+				    "angle":180.0}]
+}
+			

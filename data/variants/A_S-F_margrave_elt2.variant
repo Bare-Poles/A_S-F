@@ -3,7 +3,7 @@
   "hullId": "A_S-F_margrave",
   "displayName": "Elite",
   "goalVariant": false,
-  "fluxCapacitors": 0,
+  "fluxCapacitors": 6,
   "fluxVents": 50,
   "quality": 1,
   "permaMods": [],

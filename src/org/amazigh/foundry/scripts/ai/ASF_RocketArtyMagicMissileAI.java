@@ -28,7 +28,7 @@ public class ASF_RocketArtyMagicMissileAI implements MissileAIPlugin, GuidedMiss
     //////////////////////
     
     //Damping of the turn speed when closing on the desired aim. The smaller the snappier.
-    private final float DAMPING=0.1f;
+    private final float DAMPING=0.2f;
     
     //Does the missile switch its target if it has been destroyed?
     private final boolean TARGET_SWITCH=true;
@@ -73,15 +73,12 @@ public class ASF_RocketArtyMagicMissileAI implements MissileAIPlugin, GuidedMiss
     //only used with limited search cones
     private final boolean FAILSAFE = false;
     
-    //range under which the missile start to get progressively more precise in game units.
-    private float PRECISION_RANGE=500;
-    
     //Leading loss without ECCM hullmod. The higher, the less accurate the leading calculation will be.
     //   1: perfect leading with and without ECCM
     //   2: half precision without ECCM
     //   3: a third as precise without ECCM. Default
     //   4, 5, 6 etc : 1/4th, 1/5th, 1/6th etc precision.
-    private float ECCM=3;   //A VALUE BELOW 1 WILL PREVENT THE MISSILE FROM EVER HITTING ITS TARGET!
+    private float ECCM=2;   //A VALUE BELOW 1 WILL PREVENT THE MISSILE FROM EVER HITTING ITS TARGET!
     
     
     //////////////////////
@@ -90,7 +87,6 @@ public class ASF_RocketArtyMagicMissileAI implements MissileAIPlugin, GuidedMiss
     
     //max speed of the missile after modifiers.
     private final float MAX_SPEED;
-    //Random starting offset for the waving.
     private CombatEngineAPI engine;
     private final MissileAPI MISSILE;
     private CombatEntityAPI target;
@@ -108,9 +104,7 @@ public class ASF_RocketArtyMagicMissileAI implements MissileAIPlugin, GuidedMiss
         MAX_SPEED = missile.getMaxSpeed();
         if (missile.getSource().getVariant().getHullMods().contains("eccm")){
             ECCM=1;
-        }        
-        //calculate the precision range factor
-        PRECISION_RANGE=(float)Math.pow((2*PRECISION_RANGE),2);
+        }
     }
     
     //////////////////////
@@ -175,7 +169,6 @@ public class ASF_RocketArtyMagicMissileAI implements MissileAIPlugin, GuidedMiss
             
             Vector2f targetPointRotated = VectorUtils.rotate(new Vector2f(targetPoint), target.getFacing());
             Vector2f.add(lead, targetPointRotated, lead);
-            
         }
         
         //best velocity vector angle for interception
@@ -216,7 +209,7 @@ public class ASF_RocketArtyMagicMissileAI implements MissileAIPlugin, GuidedMiss
     // Taken from Nicke535's homing projectile script, to emulate MISSILE_SPREAD behaviour. 
  	//Used for getting a swarm target point, IE a random point offset on the target. Should only be used when target != null
  	private void applySwarmOffset() {
- 		int i = 40; //We don't want to take too much time, even if we get unlucky: only try 40 times
+ 		int i = 20; //We don't want to take too much time, even if we get unlucky: only try 20 times
  		boolean success = false;
  		while (i > 0 && target != null) {
  			i--;

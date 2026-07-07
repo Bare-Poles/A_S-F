@@ -1,0 +1,24 @@
+{
+  "variantId": "A_S-F_shamshir_fighter",
+  "hullId": "A_S-F_shamshir",
+  "displayName": "Heavy Fighter",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "A_S-F_strobe_f",
+        "WS0002": "lightdualac",
+        "WS0003": "A_S-F_omer_f"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

@@ -1,0 +1,31 @@
+{
+	"specClass":"beam",
+	"id":"A_S-F_shocklance",
+	"type":"ENERGY",
+	"size":"LARGE",
+	"beamFireOnlyOnFullCharge":true,
+
+	"beamEffect":"org.amazigh.foundry.scripts.ASF_shocklanceBeamEffect",
+
+	"turretSprite":"graphics/weapons/A_S-F_shocklance_turret_base.png",
+	"turretGlowSprite":"graphics/weapons/A_S-F_shocklance_turret_glow.png",
+	"hardpointSprite":"graphics/weapons/A_S-F_shocklance_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/weapons/A_S-F_shocklance_hardpoint_glow.png",
+	"turretOffsets":[26, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[35, 0],
+	"hardpointAngleOffsets":[0],
+
+	"fringeColor":[200,10,35,240],
+	"coreColor":[255,250,245,255],
+	"glowColor":[255,105,95,255],
+	"hitGlowBrightenDuration":0,
+	"hitGlowRadius":280,
+	"width":40.0, #50
+	"textureType":LASER,
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF,FIGHTER,ASTEROID],
+	"fireSoundOne":"A_S-F_shocklance_fire", # dragonfire_payload_fire
+	"fireSoundTwo":"ir_autolance_loop",
+}

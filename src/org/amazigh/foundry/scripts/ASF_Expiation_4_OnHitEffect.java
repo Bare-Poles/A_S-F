@@ -19,6 +19,7 @@ import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
 
 public class ASF_Expiation_4_OnHitEffect implements OnHitEffectPlugin {
 
+	private static final Color STAGE_3B_COLOR = new Color(100,75,240,175);
 	private static final Color STAGE_4_COLOR = new Color(255,0,150,200);
 	private static final Color STAGE_4B_COLOR = new Color(200,0,200,125);
 	
@@ -46,10 +47,10 @@ public class ASF_Expiation_4_OnHitEffect implements OnHitEffectPlugin {
 			
 			CombatUtils.applyForce(target, projectile.getFacing(), projectile.getEmpAmount() * impulseMult.get(((ShipAPI) target).getHullSize())); // knockback!
 			
-			for (int i=0; i < 20; i++) {
+			for (int i=0; i < 15; i++) {
 				// done like this so i can force it to bring them (close) to overload, and not just waste the entire soft flux spike if near max flux
-				((ShipAPI) target).getFluxTracker().increaseFlux(projectile.getEmpAmount() * 0.1f, false);
-					// 20 x 40 = 800	But also scales with stat mods to wep damage :) 
+				((ShipAPI) target).getFluxTracker().increaseFlux(projectile.getEmpAmount() * 0.05f, false);
+					// 15 x 80 = 1200	But also scales with stat mods to wep damage :)
 			}
 		}
 		
@@ -57,8 +58,8 @@ public class ASF_Expiation_4_OnHitEffect implements OnHitEffectPlugin {
 		for (int i=0; i < 5; i++) {
 			engine.spawnEmpArcPierceShields(projectile.getSource(), point, target, target,
 					DamageType.ENERGY,
-					projectile.getEmpAmount() * 0.15f, // damage
-					projectile.getEmpAmount() * 0.7f, // emp
+					projectile.getEmpAmount() * 0.125f, // damage
+					projectile.getEmpAmount() * 0.5f, // emp
 					500f, // max range
 					"tachyon_lance_emp_impact",
 					15f, // thickness
@@ -67,11 +68,11 @@ public class ASF_Expiation_4_OnHitEffect implements OnHitEffectPlugin {
 		}
 		// outer arcs
 		for (int i=0; i < 4; i++) {
-			float distanceRandom1 = MathUtils.getRandomNumberInRange(20f, 48f);
+			float distanceRandom1 = MathUtils.getRandomNumberInRange(24f, 56f);
 			float angleRandom1 = MathUtils.getRandomNumberInRange(0, 360);
 			Vector2f arcPoint1 = MathUtils.getPointOnCircumference(point, distanceRandom1, angleRandom1);
 			
-			float distanceRandom2 = distanceRandom1 * MathUtils.getRandomNumberInRange(0.8f, 1.2f);
+			float distanceRandom2 = distanceRandom1 * MathUtils.getRandomNumberInRange(0.9f, 1.25f);
 			float angleRandom2 = angleRandom1 + MathUtils.getRandomNumberInRange(80, 130);
 			Vector2f arcPoint2 = MathUtils.getPointOnCircumference(point, distanceRandom2, angleRandom2);
 			
@@ -84,29 +85,29 @@ public class ASF_Expiation_4_OnHitEffect implements OnHitEffectPlugin {
 		
 			// this does a pretty dang cool "swirly" effect (use it!!)
 		ASF_RadialEmitter emitterSpc1 = new ASF_RadialEmitter(null);
-      emitterSpc1.location(point);
-      emitterSpc1.life(1.1f, 2.2f);
-      emitterSpc1.size(2f, 3f);
-      emitterSpc1.velocity(70f, -45f);
-      emitterSpc1.distance(30f, 90f);
-		emitterSpc1.color(STAGE_4B_COLOR.getRed(),STAGE_4B_COLOR.getGreen(),STAGE_4B_COLOR.getBlue(),STAGE_4B_COLOR.getAlpha());
+		emitterSpc1.location(point);
+		emitterSpc1.life(1.3f, 2.5f);
+		emitterSpc1.size(2f, 3f);
+		emitterSpc1.velocity(70f, -45f);
+		emitterSpc1.distance(35f, 110f);
+		emitterSpc1.color(STAGE_3B_COLOR.getRed(),STAGE_3B_COLOR.getGreen(),STAGE_3B_COLOR.getBlue(),STAGE_3B_COLOR.getAlpha());
 		emitterSpc1.emissionOffset(40f, 15f);
 		emitterSpc1.lifeLinkage(true);
-		emitterSpc1.burst(69);
+		emitterSpc1.burst(90);
 		
 		ASF_RadialEmitter emitterSpc2 = new ASF_RadialEmitter(null);
-      emitterSpc2.location(point);
-      emitterSpc2.life(1.1f, 2.2f);
-      emitterSpc2.size(2f, 3f);
-      emitterSpc2.velocity(70f, -45f);
-	    emitterSpc2.distance(30f, 90f);
-		emitterSpc2.color(STAGE_4B_COLOR.getRed(),STAGE_4B_COLOR.getGreen(),STAGE_4B_COLOR.getBlue(),STAGE_4B_COLOR.getAlpha());
+		emitterSpc2.location(point);
+		emitterSpc2.life(1.3f, 2.5f);
+		emitterSpc2.size(2f, 3f);
+		emitterSpc2.velocity(70f, -45f);
+	    emitterSpc2.distance(35f, 110f);
+		emitterSpc2.color(STAGE_3B_COLOR.getRed(),STAGE_3B_COLOR.getGreen(),STAGE_3B_COLOR.getBlue(),STAGE_3B_COLOR.getAlpha());
 		emitterSpc2.emissionOffset(-55f, 15f);
 		emitterSpc2.lifeLinkage(true);
-		emitterSpc2.burst(69);
+		emitterSpc2.burst(90);
 		
 		
-		engine.spawnExplosion(point, fxVel, STAGE_4B_COLOR, 135f, 0.9f);
+		engine.spawnExplosion(point, fxVel, STAGE_4B_COLOR, 145f, 0.9f);
 		
 		engine.addHitParticle(point, fxVel,
 				200f,

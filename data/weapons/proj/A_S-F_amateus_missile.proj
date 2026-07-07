@@ -1,0 +1,86 @@
+{
+	"id":"A_S-F_amateus_missile",
+	"specClass":"missile",
+
+	"onHitEffect":"org.amazigh.foundry.scripts.ASF_amateusOnHitEffect",
+
+	"missileType":"MISSILE",
+	"sprite":"graphics/missiles/A_S-F_amateus_missile.png",
+	"size":[12,32],	
+	"center":[6,16],
+	"collisionRadius":14,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,172,69,240],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":300, # purely visual
+	"explosionSpec":{"duration":0.1f, # not visual
+					 "radius":110,
+					 "coreRadius":60, # full damage within core radius
+					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
+					 "particleSizeMin":3.0,
+					 "particleSizeRange":4.0,
+					 "particleDuration":1.1,
+					 "particleCount":115,
+					 "particleColor":[255,172,69,255],
+					 "explosionColor":[128,105,81,175],
+					 "useDetailedExplosion":true,
+					 "useDetailedExplosionColorAlpha":true,
+					 "detailedExplosionRadius":150,
+					 "detailedExplosionFlashRadius":310,
+					 "detailedExplosionFlashDuration":0.3,
+					 "detailedExplosionFlashColorFringe":[211,142,57,255],
+					 "detailedExplosionFlashColorCore":[145,175,145,255]},
+
+	"reduceDamageWhileFading":true,
+	"fizzleOnReachingWeaponRange":true,
+	"dudProbabilityOnFlameout":0,
+
+	"flameoutTime":1.5, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.5, # time spent without the engine glow being rendered
+	"fadeTime":0.75, # fadeout duration
+	"engineSpec":{"turnAcc":480,
+				  "turnRate":120,
+				  "acc":560, #320
+				  "dec":80},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-16, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[82,69,255,50],
+						"glowSizeMult":1.8,
+						"glowAlternateColor":[60,50,240,25],
+						"contrailDuration":1,
+						"contrailWidthMult":0.6, #1
+						"contrailWidthAddedFractionAtEnd":1.8,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":.0f,
+						"contrailAngularVelocityMult":0.5f,
+						"contrailSpawnDistMult":.5f, # how far away from engine it starts
+						"contrailColor":[81,105,128,120],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":20.0, #12
+				    "length":85.0, #65
+				    "angle":180.0},
+			{"id":"ES2",
+					"loc":[-16, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[255,172,69,255],
+						"contrailDuration":0.5,
+						"contrailWidthMult":0.36, #0.5
+						"contrailWidthAddedFractionAtEnd":0.6,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":.0f,
+						"contrailAngularVelocityMult":0.5f,
+						"contrailSpawnDistMult":.5f, # how far away from engine it starts
+						"contrailColor":[202,140,75,180],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":12.0, #9
+				    "length":65.0, #50
+				    "angle":180.0}]
+}
+			

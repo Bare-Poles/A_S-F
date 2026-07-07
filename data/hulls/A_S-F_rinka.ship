@@ -4,16 +4,18 @@
   "hullSize": "FRIGATE",
   "spriteName": "graphics/ships/A_S-F_Rinka.png",
   "style": "MIDLINE",
-  "height": 84,
-  "width": 68,
-  "center": [35, 37],
+  "height": 90,
+  "width": 70,
+  "center": [33, 37],
   "collisionRadius": 70,
   "shieldCenter": [7, -0],
   "shieldRadius": 62,
   "viewOffset": 0,
   "builtInMods": [
-    "A_S-F_rinkaHullmod",
-    "ballistic_rangefinder"
+    "A_S-F_rinkaHullmod"
+  ],
+  "builtInWings": [
+    "A_S-F_olkt_wing"
   ],
   "weaponSlots": [
     {
@@ -23,63 +25,101 @@
       "mount": "HARDPOINT",
       "arc": 5,
       "angle": 0,
-      "locations": [25, -11]
+      "locations": [25, -14]
     },
     {
       "id": "WS0002",
       "size": "MEDIUM",
-      "type": "BALLISTIC",
+      "type": "HYBRID",
       "mount": "TURRET",
       "arc": 120,
       "angle": -20,
-      "locations": [3, -19]
+      "locations": [2, -19]
     },
     {
       "id": "WS0003",
       "size": "SMALL",
-      "type": "BALLISTIC",
+      "type": "MISSILE",
       "mount": "HARDPOINT",
       "arc": 5,
       "angle": 0,
-      "locations": [39, 7]
+      "locations": [46, 7]
     },
     {
       "id": "WS0004",
       "size": "SMALL",
-      "type": "MISSILE",
-      "mount": "HARDPOINT",
-      "arc": 5,
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 200,
       "angle": 80,
-      "locations": [2, 25]
+      "locations": [4, 13]
     }
   ],
   "engineSlots": [
     {
-      "location": [-35, 16],
+      "location": [-36, 16],
       "length": 50,
-      "width": 13,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 13,
+      "contrailSize": 20,
       "style": "MIDLINE"
     },
     {
-      "location": [-35, -9],
+      "location": [-36, -16],
       "length": 50,
-      "width": 13,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 13,
+      "contrailSize": 20,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-23, 30],
+      "length": 35,
+      "width": 8,
+      "angle": 135,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-23, -31],
+      "length": 35,
+      "width": 8,
+      "angle": -135,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [24, 22],
+      "length": 35,
+      "width": 8,
+      "angle": 45,
+      "contrailSize": 128,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [20, -33],
+      "length": 35,
+      "width": 8,
+      "angle": -45,
+      "contrailSize": 128,
       "style": "MIDLINE"
     }
   ],
   "bounds": [
-    31, -19,
-    14, -28,
-    -21, -30,
-    -33, -13,
-    -33, 20,
-    -21, 31,
-    36, 20,
-    42, 3,
-    32, 2
+    7, -35,
+    -22, -30,
+    -35, -20,
+    -35, -12,
+    -29, -8,
+    -31, -0,
+    -29, 8,
+    -35, 12,
+    -35, 20,
+    -22, 30,
+    48, 12,
+    48, 2,
+    29, -2,
+    32, -7,
+    32, -21
   ]
 }

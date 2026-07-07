@@ -18,6 +18,7 @@
 		"fighters":[
 			"A_S-F_incisor_wing",
 			"A_S-F_naja_wing",
+			"A_S-F_mandible_wing",
 		],
 	},
 
@@ -40,6 +41,9 @@
 			"A_S-F_albatreos",
 			"A_S-F_termite",
 			"A_S-F_cauldron_pod",
+			"A_S-F_amateus",
+			"A_S-F_limbo",
+			"A_S-F_gangstalker",
 		],
 	},
 	"knownHullMods":{

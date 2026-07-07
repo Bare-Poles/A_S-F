@@ -29,7 +29,7 @@ A_S-F_mancatcher,SHIP,"A heavily modified Gaoler, features heavier weapon mounts
 The Gaoler is a hull designed to act as a relatively lightweight fighter platform, this modified variant improves on the issues with limited armament, but still lacks the dedicated fighter support systems typically seen on heavier carriers and instead features a pack of Manacle class drones.
 
 Manacle class drones are armed with a unique Disruption Autocannon which is modelled on the more common Light Autocannon, but the standard kinetic shell now has a significant portion of its mass devoted to loading a specialised warhead that unleashes a burst of broad-spectrum radiation on impact, this is capable of overwhelming and disabling even hardened systems with sufficient quantities of repeat fire.",,,,,
-A_S-F_gladius_hajod,SHIP,"This modified Gladius LPC has been hacked to allow for three fighters to be produced at once, and the fighters themselves feature improved armour and has an altered weapon load that is focused on disabling targets.",,,,,
+A_S-F_gladius_hajod,SHIP,"This modified Gladius LPC has been hacked to allow for three fighters to be produced at once, and the fighters themselves feature improved armour and have an altered weapon load that is focused on disabling targets.",,,,,
 A_S-F_exegetes,SHIP,"Intended as the hammer to the anvil of the Monitor, High mobilily and a respectable weapons package allow the Exegetes to fill this role quite well.
 
 The high resistance to weapons fire of the ships specialised shield emitter allows the Exegetes to win most one on one engagements, but the narrow projected arc and above average upkeep can cause issues in anything other than the most ideal situations.",,,,,
@@ -69,7 +69,7 @@ One of the first vessels able to reliably detect phased ships, the Bathory has b
 A_S-F_ilgryps,SHIP,"A remnant of the autonomous AI fleets developed by the Tri-Tachyon Corporation. Illegal under Domain (and Hegemony) law, and an abomination to the Church of Galactic Redemption, the First AI War saw these creations purged from the Sector. At least that is how the official histories tell it.
 
 The Splendor was developed by competing design team as a competitor to the Brilliant and while less prevalent in AI fleets it still remains a reasonably common sight. One interesting feature of this hull is the presence of what appear to be vestigial allowances for crewed usage, although the majority of such features have since been packed with munitions storage or have power conduits running straight through them, showing that such considerations were abandoned at some point relatively late in the design process.",,,,,
-A_S-F_nebel,SHIP,"A unique vessel, the Nebel appears to be an extremely heavily modified version of the Splendor droneship featuring a fully fleshed out crew compartment. A specialised missile foundry has also been installed in the core of the vessel, giving this ship the potential to be far more deadly than other ships of the same weight class and when combined with it's superior combat mobility it can pose as a serious threat to even capital grade vessels.",,,,,
+A_S-F_nebel,SHIP,"A unique vessel, the Nebel appears to be an extremely heavily modified version of the Splendor droneship featuring a fully fleshed out crew compartment. A specialised missile foundry has also been installed in the core of the vessel, giving this ship the potential to be far more deadly than other ships of the same weight class and when combined with its superior combat mobility it can pose as a serious threat to even capital grade vessels.",,,,,
 A_S-F_auditor_mod,SHIP,"Heavily customised variant of the Auditor designed to optimise defensive and anti-fighter capabilities.
 
 This custom modification of the Auditor attempts to go back to its core origin in the Monitor, discarding attempts at increased firepower and instead installs a pair of customised ""Shevalye"" PD Systems giving it unsurpassed point defense capability for a vessel of its size.",,,,,
@@ -80,11 +80,11 @@ A_S-F_buraq,SHIP,"The Buraq is unusual as far as missile focused vessels go as i
 A_S-F_auspice,SHIP,"A remnant of the autonomous AI fleets developed by the Tri-Tachyon Corporation. Illegal under Domain (and Hegemony) law, and an abomination to the Church of Galactic Redemption, the First AI War saw these creations purged from the Sector. At least that is how the official histories tell it.
 
 The Auspice acts as a front line support vessel, in that it ""supports"" its allies by crippling lighter targets with its medium energy mount and disabling larger ones with its EMP Emitter.",,,,,
-A_S-F_rinka,SHIP,"The Rinkas ability to mount a rather heavy armament for a frigate makes it popular among mercenaries and hotshot captains alike, but such aggressive loadouts will often lack in practical armaments for dealing with strikecraft and missiles, which can lead to it being relegated from practical usage in larger engagements.",,,,,
+A_S-F_rinka,SHIP,"The Rinka has the ability to mount a rather heavy armament for a frigate, making it popular among mercenaries and hotshot captains alike. Though the need to sacrifice one of the primary weapon mounts to install effective point defense weaponry can lead to it being relegated from practical usage in larger engagements.",,,,,
 A_S-F_transparence,SHIP,The Transparence is a unique prototype ship featuring a wide variety of bleeding-edge technologies. The Photon Accelerator Core around which this vessel has been constructed stretches the bounds of what could be considered possible by conventional domain science to allow for the ship to deliver cruiser-grade levels of firepower while being nearly as agile as some frigates.,,,,,
 A_S-F_invigilator,SHIP,"A centralised energy weapon mount with a direct feed to the ships power core gives the Invigilator tremendous potential to deliver high-intensity bursts of damage.
 
-Able to deliver a punch well above it's weight-class the Invigilator is considered a welcome addition to smaller fleets and even poses a not inconsiderable threat to destroyers and even some cruisers.",,,,,
+Able to deliver a punch well above its weight-class the Invigilator is considered a welcome addition to smaller fleets and even poses a not inconsiderable threat to destroyers and even some cruisers.",,,,,
 A_S-F_incisor,SHIP,"A lightweight support fighter, able to provide minor beam suppression and Point Defense at a respectable range. While the Incisor is incapable of dealing notable damage to even the lowest quality shield emitter, the threat of armour ablation proves sufficient to allow the craft to force captains to keep their shields active when under fire.",,,,,
 A_S-F_henki,SHIP,"A high mobility Destroyer, the Henki features a rather advanced sensor array for a combat vessel, this combined with repsectable speed and focused frontal firepower make it a favorite of captains aiming to intercept and destroy smugglers and smaller pirate raiding fleets.
 
@@ -110,7 +110,7 @@ A_S-F_giganberg,SHIP,"Externally this ship appears to share similarities with so
 While the missile mounting capability and integrated AURA Bolter might seem like enough to make this vessel a serious threat, the pair of Gyastar drone fighter wings are what truly make it shine in combat.
 
 A majority of the data storage on internal systems has been heavily corrupted, but what little documentation can be recovered makes several reference to an ""Ark"" but the location of this Ark, or what it could be remains a mystery.",,,,,
-A_S-F_rinka_p,SHIP,"Pirate engineers have dropped all pretense of subtlety with this conversion of the Rinka, taking an already aggressive craft and ending up with this haphazardly assembled hunk of metal with hypertrophied engines and an aggressively tuned weapons load. While technically lighter armed than the standard Rinka, the combination of tremendous speed and an expanded missile store makes this modification an absolute terror, albeit only for as long as its overclocked systems can manage to hold together.",,,,,
+A_S-F_rinka_p,SHIP,"Pirate engineers have dropped all pretense of subtlety with this conversion of the Rinka, taking an already aggressive craft and ending up with this haphazardly assembled hunk of metal with hypertrophied engines and an aggressively tuned weapons load. While technically lighter armed than the standard Rinka due to the loss of the Oklt drones, the combination of tremendous speed and an ""enhanced"" munitions feeding system makes this modification an absolute terror, albeit only for as long as its overclocked systems can manage to hold together.",,,,,
 A_S-F_apologee,SHIP,"] WARNING: Hull Ident Failure.
 ] Pattern Matching....
 ] 68% Match: Apogee Cruiser.
@@ -162,10 +162,10 @@ A vessel developed after an in-depth analysis of refined combat data, equipped w
 All around impressive performance allows the Initone to engage most targets effectively, but sacrifices made in the integration of the secondary flux bank have resulted in a reduction in what flux can be allocated to the shield emitter, leaving it somewhat vulnerable to kinetic firepower.
 
 Modifications approved by the Supreme Executor removed the 'awkward' and 'ineffective' missile mounts, leaving more room to focus on the vessels primary weaponry.",,,,,
-A_S-F_naja,SHIP,"The Naja is a bomber designed with the sole intent of carrying and effectively delivering a cauldron torpedo.
+A_S-F_naja,SHIP,"The Naja is a bomber designed with the sole intent of carrying and effectively delivering a Cauldron torpedo.
 
 The design was proposed shortly after the Cobra project ran into initial setbacks and rather impressively the design was finalised and into production well before the Cobra even reached final prototype stages. Analysis of the Tri-Tachyon corporations public records show that any allegations of bribes being sent to The Domain Naval Procurement Board are completely unfounded, and it is undoubted that the Naja saw successful development purely through the merits of its design and not through corporate intervention of any kind.",,,,,
-A_S-F_ocklynge,SHIP,"The Ocklynge-class would be long-obsolete without being gutted and filled with new equipment several times over. They've outlived most ships of their time and quite a few newer classes, many say they shouldn't have survived this long and are only fit as museum pieces, but with the state of the sector post-Collapse they are sure to stay in service for a while longer.",,,,,
+A_S-F_ocklynge,SHIP,"The Ocklynge-class would be long-obsolete without being gutted and filled with new equipment several times over. They've outlived most ships of their time and quite a few newer classes, many have said they shouldn't have survived this long and are only fit as museum pieces, but with the state of the sector post-Collapse they are sure to stay in service for a while longer.",,,,,
 A_S-F_axicon,SHIP,"A remnant of the autonomous AI fleets developed by the Tri-Tachyon Corporation. Illegal under Domain (and Hegemony) law, and an abomination to the Church of Galactic Redemption, the First AI War saw these creations purged from the Sector. At least that is how the official histories tell it.
 
 The Axicon acts as a heavy duty platform to support other droneships in combat, it packs a specialised autoforge that deploys groups of Ammon Attack Drones, when combined with the vessels standard flight decks and missile armament it is able to deliver effective pressure from a great distance.
@@ -190,10 +190,10 @@ A_S-F_mtetezi,SHIP,"Initial analysis shows significant similarities to Domain au
 Loosely based on the Defender war drone hull, with an additional turreted weapon mount and a more aggressive burst-oriented system.",,,,,
 A_S-F_mlinzi,SHIP,"Initial analysis shows significant similarities to Domain automated war drones, but there are several irregular design features and modifications that mark this as something... Different.
 
-Much like how it's smaller cousin the Mtumaju is based on the Sentry, this is an augmented Bastillon war drone and also features an AURA system in place of flares, along with modified weapon mounts allowing for a more directed delivery of fire.",,,,,
+Much like how its smaller cousin the Mtumaju is based on the Sentry, this is an augmented Bastillon war drone and also features an AURA system in place of flares, along with modified weapon mounts allowing for a more directed delivery of fire.",,,,,
 A_S-F_mbishi,SHIP,"Initial analysis shows significant similarities to Domain automated war drones, but there are several irregular design features and modifications that mark this as something... Different.
 
-Derived from the Berserker war drone hull, this ship is notably more flexible thanks to turreted weapon mounts,alongside the ability to mount missile weaponry.",,,,,
+Derived from the Berserker war drone hull, this ship is notably more flexible thanks to turreted weapon mounts, alongside the ability to mount missile weaponry.",,,,,
 A_S-F_persenachia,SHIP,"""A heretic, surrounded with the husks of the dead. In order to hide its form, it spreads a dense and violent storm. The glowing fog conceals it while it hunts its prey and then entraps them in a dance of death, creating more victims.""
 - Unknown",,,,,
 A_S-F_estucheon,SHIP,"Although automated machines of war were forbidden in core Domain space, war drones were quietly employed outside of officially incorporated volume. Frontier garrisons were often bolstered by drone ships, and they were deployed liberally against rebellious worlds to tip the terrible balance of attrition, setting the industrial might of the Domain versus the lives of 'freedom fighters'.
@@ -217,21 +217,50 @@ A_S-F_chompiron,SHIP,"] WARNING: Hull Ident Failure.
 ] -
 ] -",,,,,
 A_S-F_estes,SHIP,"A replica of a renowned fighter craft from ages past. With its excellent maneuverability the original was lauded as being unmatched in dogfights, this replica doesn't quite maintain the same maneuverability, but more than makes up for it in durability and firepower.",,,,,
-A_S-F_scrag,SHIP,"Pure aggression focused into a compact package the Scrag is a pirate design through and through,  being focused almost entirely on speed and firepower.
+A_S-F_scrag,SHIP,"Pure aggression focused into a compact package the Scrag is a pirate design through and through, being focused almost entirely on speed and firepower.
 
 Sacrificing cargo capacity and rear facing weaponry gave pirate shipwrights the space required to install a truly oversized main engine that allows the craft to briefly burn at tremendous speeds.",,,,,
 A_S-F_marlow,SHIP,"Initially envisaged as a sturdy fire support platform, the Marlow was a victim of scope creep, and a lack of effective oversight resulted in an attempt to design a ship that can simultaneously act as fire support, carrier and lineship. Sacrifices and compromises were made in the design, ending up with a ship that can technically do all of the things it was meant to, but not necessarily at the same time.",,,,,
 A_S-F_margrave,SHIP,"The product of a Domain Naval Institute exploratory design project to develop a capital ship that can keep up with lighter escort vessels. While the Margrave technically fulfilled the requirements set down, it failed to impress the review board and a rapid pivot to defining it as a hunter-killer that is able to outrange anything it can't outrun was required in order for it to pass through to final production.",,,,,
+A_S-F_margrave_lg,SHIP,"Modified for operations in the Askonia system under orders from Supreme Executor Philip Andrada, this hull includes integrated solar shielding as well as a peculiar internal cladding provided by an industrial conglomerate out of Sindria itself. That the chief designer, appointed by the Supreme Executor for his many cycles of loyal service, sits on the board of that conglomerate is simply an example of the unity and efficiency of the Sindrian Polity.
+
+The product of a Domain Naval Institute exploratory design project to develop a capital ship that can keep up with lighter escort vessels. While the Margrave technically fulfilled the requirements set down, it failed to impress the review board and a rapid pivot to defining it as a hunter-killer that is able to outrange anything it can't outrun was required in order for it to pass through to final production.
+
+This modified Margrave has seen a notable overhaul with the approval of the Supreme Executor, the original design was deemed 'too individualistic' and 'lacking in fleet coherence' as such systems that were deemed 'extraneous to proper fleet discipline' were removed in order to install an EWAR suite giving the ship a valuable role in suppressing hostile targets.",,,,,
 A_S-F_glentoran,SHIP,"A suprisingly recent ship that was built employing modern takes on tried and tested technology, it was apparently originally proposed as a replacement for the ""aging and outdated"" Onslaught class. To little surprise the Glentoran failed to gain much traction in replacing such a venerable and iconic vessel and was generally relegated to second line postings.",,,,,
 A_S-F_alqand,SHIP,"The Alqand-class is a foray by the Tri-Tachyon Corporation to employ a tactical grade artillery system to synergise battlespace opportunities in a fleet-wide operational area, while lacking in personal firepower, it can more than make up for it with the ability to safely deliver supporting fire when supported with the appropriate target designation hardware.",,,,,
 A_S-F_micare,SHIP,"Remnant of the autonomous AI fleets developed by the Tri-Tachyon Corporation. Illegal under Domain (and Hegemony) law, and an abomination to the Church of Galactic Redemption, the First AI War saw these creations purged from the Sector. At least that is how the official histories tell it.
 
 The Micare was designed to act as an escort and fire support vessel, while somewhat at odds with standard droneship doctrine, it still packs a decently capable flux grid that grants it reasonable survivability in direct combat.",,,,,
 A_S-F_porroko,SHIP,"The installation of a tactical grade artillery system often leads the Porokko to be considered a backline combatant first and foremost, but despite this it can field enough firepower to hold its own on the frontlines of an engagement, at least for long enough for support to arrive.",,,,,
+A_S-F_mandible,SHIP,"A lightweight high-speed bomber, the Mandible is one of the few bombers that can reliably score hits on even frigate sized targets, but this capability comes with a sacrifice to raw firepower and survivability.",,,,,
+A_S-F_istina,SHIP, -- WIP CONTENT! WIP CONTENT! WIP CONTENT! WIP CONTENT! --,,,,,
+A_S-F_execrator,SHIP,"A battlecarrier designed to deliver support directly from the front, fielding an advanced and powerful suppression system the Execrator can disrupt the entirety of a hostile battle line making it a highly valuable ship in larger engagements.",,,,,
+A_S-F_viceroy,SHIP,"Designed at the peak of the ""Cruiser School"" era, the Viceroy is a specialised electronic warfare vessel that primarily offers disruptive support and suppression with  its jamming array, but nonetheless still fields a respectable array of weaponry.",,,,,
+A_S-F_gravesend,SHIP,"An aggressive design, the Gravesend packs heavy firepower for a frigate alongside solid defensive plating, the lack of a shield emitter is a notable weakness, but it packs enough firepower to defeat most peer threats before that would become a true concern.",,,,,
+A_S-F_gravesend_p,SHIP,"Pirate rebuild of the Gravesend, Pinball-class frigates are far more aggressive by nature, with a more powerful albeit less responsive engine configuration, alongside a fuel injection system that allows it to burn straight into combat, but the removal of the primary resonant field-dampener system means that survivability has taken a significant impact.",,,,,
+A_S-F_buraq_p,SHIP,"While retaining the large supply of missile munitions this pirate modification of the Buraq instead has a pair of smaller missile mounts, while this leads to reduced overall battlefield longevity the addition of integrated engine enhancements show that the pirates were more concerned with getting in and hitting hard than long term endurance.",,,,,
+A_S-F_dunnock_lp,SHIP,"Fanatics of the Luddic Path have made this ship their own, stripping out all unnecessary furnishing and transforming it into a haphazard vehicle of holy war.
+
+A relic of early ship design, the Dunnock is a contemporatry of the Vanguard, but managed to stay in service thanks to a retrofit that installed a rather basic shield emitter.
+
+While not terribly popular it managed to remain in limited service in frontier fleets thanks to simplistic maintenance requirements and remarkable durability for its size, this also proves to be the same reasoning taken by the Luddic Path for their operation of this modified version of the Dunnock.",,,,,
+A_S-F_dunnock_p,SHIP,"This modified Dunnock has seen the not-so-tender mercies of the pirates with a missile hardpoint grafted in place of two turrets and the downgrade from canister flak  ports to a set of more basic flare launchers.
+
+A relic of early ship design, the Dunnock is a contemporatry of the Vanguard, but managed to stay in service thanks to a retrofit that installed a rather basic shield emitter.
+
+While not terribly popular it managed to remain in limited service in frontier fleets thanks to simplistic maintenance requirements and remarkable durability for its size, this also proves to be the same reasoning taken by the Pirates for their operation of this modified version of the Dunnock.",,,,,
+A_S-F_olkt,SHIP,Drone mounting a single Strobe-class beam emitter that offers a respectable punch for such a light craft.,,,,,
+A_S-F_shamshir,SHIP,"Nearly mounting as much firepower as some light frigates, if left unintercepted the Shamshir can put significant pressure on a target vessel.",,,,,
+A_S-F_trismegistus,SHIP,"A customised and heavily modified variant of the Initone, features altered and augmented weapon mounts alongside an improved engine array.
+
+A focus on energy and missile weaponry offer impressive strike capabilities which suited the mercenary responsible for the suite of modifications this craft underwent.",,,,,
+A_S-F_gardina,SHIP,"An early example of a ship mounting a tactical grade artillery system, the Gardina shows the lack of confidence in a technology that was in its infancy at the time, as it attempts to support the artillery mount with a flight deck while also fielding a reasonable direct-fire capability.",,,,,
+,,,,,,,
 ,,,,,,,
 A_S-F_drone_shackle,SHIP,"A light drone armed with a lightweight disruption mortar, able to offer basic point defense cover and limited target disruption.",,,,,
 A_S-F_drone_manacle,SHIP,"A light drone armed with a disruption autocannon, able to offer basic point defense cover and limited target disruption.",,,,,
-A_S-F_drone_panel,SHIP,"While little more than a remote operated plate of armour it does also feature a basic targeting uplink, increasing the range of the parent vessels weaponry slightly for each drone deployed.",,,,,
+A_S-F_drone_panel,SHIP,"While little more than a remote operated plate of armour it does also features a basic targeting uplink, increasing the range of the parent vessels weaponry slightly for each drone deployed.",,,,,
 A_S-F_drone_clavata,SHIP,"A phase drone armed with a point defense beam, able to significantly prolong the survivability of its parent vessel.",,,,,
 A_S-F_ammon,SHIP,"A compact autonomous lightweight drone, lightly armed and with limited survivability but able to offer effective support and distraction.",,,,,
 ,,,,,,,
@@ -303,7 +332,7 @@ A_S-F_henki_r,WEAPON,"Unloads volleys of light missiles, designed to occupy host
 A_S-F_pneuma_pod,WEAPON,"Unloads volleys of light missiles, designed to occupy hostile point defenses the missiles lack in any real payload but are fed by a combat-rated autoloader allowing for constant pressure to be sustained.",,,,,
 A_S-F_x-pulse,WEAPON,"Fires coherent pulses of x-rays rather than visible light. Deals respectable damage per shot, but sustaining fire can strain less powerful flux grids.
 
-The higher frequency of the pulses fired by this weapon provide solid armour penetration capabilities compared to more common pulsed laser weapons, giving it an edge against armoured targets in exchange for it's inferior efficiency against shielding.",,,,,
+The higher frequency of the pulses fired by this weapon provide solid armour penetration capabilities compared to more common pulsed laser weapons, giving it an edge against armoured targets in exchange for its inferior efficiency against shielding.",,,,,
 A_S-F_kaksos,WEAPON,"A simple and reliable twin-barreled cannon, able to lay down a barrage of fire rather efficiently. Unfortunately this weapon is lacking in both range and accuracy, making it far less practical than it might first appear.
 
 An old weapon of the domain era. Intended as an upgrade over the Arbalest, shell caliber was reduced and the internals were completely reworked to install an autoejector system, the continued lack of an advanced cooling system means the weapon instead features a second barrel, allowing heat dissipation to be shared between the two.
@@ -431,6 +460,39 @@ Despite its relatively poor performance, distribution of blueprints for the manu
 A_S-F_jury,WEAPON,"An integrated autoloading flak system that can saturate an area with a volley of fire, but the somewhat lengthy reload time can leave the Jury less effective against sustained pressure.",,,,,
 A_S-F_painter,WEAPON,"A ""hot"" targeting laser that deals rather minor damage in and of itself, but shows its true value when combined with a vessel that mounts a tactical artillery weapon.",,,,,
 A_S-F_narc,WEAPON,"Gun-based launcher for targeting beacons, while the beacon-shells are not designed for damage output, they remain the premier solution for designating tactical artillery fire.",,,,,
+A_S-F_expiation,WEAPON,"""Fear, Terror, Anger... the sniper sees them all turn to the cold stare of death from her hidden perch.""",- Unknown,,,,
+A_S-F_termite_bomber,WEAPON,"A small rack of short range swarming missiles designed to pressure and disable vessels.
+
+The specialised tracking subroutine that causes the missiles to spread out to a significant degree means that the missiles are often able to bypass shields and less effective point defense fire.",,,,,
+A_S-F_strobe_f,WEAPON,"A singular rapid-cycle beam emitter, able to deliver consistent firepower against any target.
+
+Shorter ranged and slightly less powerful than the emitters in the full-sized Strobe-class beam system, this weapon nonetheless offers respectable firepower for something that is mounted on a fighter scale chassis.",,,,,
+A_S-F_eTracer,WEAPON,"Rapid fire electron discharge system, the initial burst of fire is tremendously effective but the slow recharge limits sustained value.
+
+Originally designed by the Tri-tachyon corporation to be installed on their autonomous AI fleets, unfortunately blueprints for the manufacture of this weapon were lost in the chaos of the First AI War, so they are generally only found installed on remnant vessels.",,,,,
+A_S-F_amateus,WEAPON,"Heavy missile designed for bombardment with a two stage warhead that deals significant damage over a wide area.
+
+The Amateus class missile is an advancement on the Albatreos class with the same base solid-fuel main engine, but the more advanced fusion warhead gives it a much appreciated improvement in performance against shielded targets.",,,,,
+A_S-F_shocklance,WEAPON,"Pumped emission infrared beam emitter that produces a single overwhelmingly high-output burst. While largely inefficient against shields, it has a decent effect against armor and delivers postively ruinous damage to exposed hull.
+
+The distinctive ""muzzle flash"" produced when this weapon fires is actually the result of flushing the  contents of the nano-cooling system that keeps the weapon from melting itself into a hunk of useless slag when firing, the refilling of which pays no small part in contributing to the long recycle time the weapon suffers from.",,,,,
+A_S-F_limbo,WEAPON,"Launches a barrage of small auto-fused seeker mines that will saturate and overwhelm all but the heaviest defenses. A wide blast radius and a respectable payload give the Limbo the ability to retain a valid effect on target against anything from fighter wings all the way up to capital scale targets.
+
+While more agile targets can outpace the basic propulsion system of the mines, the sheer  area coverage and volume of fire means that it can be difficult to avoid every mine.",,,,,
+A_S-F_pinion,WEAPON,"A weapon that offers cheap and vaguely consisent kinetic pressure, at least while ammunition reserves hold.
+
+A flawed stabiliser design means that Pinion rockets will consistently fail to fly in a straight line, but the large reserve of munitions means that they can at least provide indiscriminate pressure for a rather respectable amount of time.
+
+The Pinion is largely outclassed by other missile weapons in firepower, but that was not the intent behind the design, as instead it was intended to be cheap and easily maintained by the automated systems of Domain war drones.
+
+Despite its relatively poor performance, distribution of blueprints for the manufacture of this weapon was restricted by the Domain, likely to prevent rebels and 'freedom fighters' from being able to access cheap and easily manufacturable weaponry, as such they are generally only found installed on Domain Exploraria drones.",,,,,
+A_S-F_remBeacon,WEAPON,"A missile system primarily designed to designate tactical artillery fire, but in the case that there is not a tactical artillery vessel present it still remains able to deliver a reasonable EMP payload.
+
+Originally designed by the Tri-tachyon corporation to be installed on their autonomous AI fleets, unfortunately blueprints for the manufacture of this weapon were lost in the chaos of the First AI War, so they are generally only found installed on remnant vessels.",,,,,
+A_S-F_gangstalker,WEAPON,"A 'smart' missile, that will loiter and apply pressure while waiting for an opening to deliver its primary payload.
+
+While outclassed by most common missile weapons in raw firepower, the simple sensor array built into the main carrier missile means that it is less liable to ""waste"" its primary payload on a targets shield even if not fired at the ideal time.",,,,,
+,,,,,,,
 ,,,,,,,
 ,,,,,,,
 A_S-F_cyclemissilefeed,SHIP_SYSTEM,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,Offensive,Reloads all missile weapons quickly. Generates flux when used. Does not store charges and only has a single regenerating use.,,,
@@ -497,10 +559,23 @@ Weapon repairs are also greatly accelerated.",
 A_S-F_MicroVent,SHIP_SYSTEM,Engages a partial emergency vent of the vessels flux grid at the cost of briefly disabling weapons.,Special,Engages a partial emergency vent of the vessels flux grid at the cost of briefly disabling weapons.,,"Immediately vents {{10%}} of the ship's current flux, and increases flux dissipation by {{50%}} while active.",
 A_S-F_ResonanceMotivator,SHIP_SYSTEM,"Feeds additional energy through core systems, reducing weapon flux costs and enhancing the output of the Malice Resonator.",Offensive,"Feeds additional energy through core systems, reducing weapon flux costs and enhancing the output of the Malice Resonator.",,"Reduces the flux generation of weapons by {{50%}}, reduces all damage taken by {{25%}}, and increases charge generation by {{35%}}.",
 A_S-F_bunkerShield,SHIP_SYSTEM,"Redirects all power from the weapon systems to shields, greatly increasing the efficiency at which damage is absorbed. Can only remain active for a limited duration before needing to shut down.",Defensive,"Reduces the damage taken by shields, can only remain active for a short period.",,The ship's shields take {{85%}} reduced damage.,
-A_S-F_scragBurn,SHIP_SYSTEM,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at an extreme velocity at the expense of being unable to use shields. This pirate adaptation of the system is less efficient than the standard version found on the Flogger.",Movement,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at an extreme velocity at the expense of being unable to use shields.",,The ship's top speed is briefly increased to approximately {{600}} su/second.,
+A_S-F_scragBurn,SHIP_SYSTEM,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at high velocity at the expense of being unable to use shields.",Movement,"Engages an afterburner system that provides a brief engine boost, propels the ship forward at an extreme velocity at the expense of being unable to use shields.",,The ship's top speed is briefly increased to approximately {{600}} su/second.,
 A_S-F_designate,SHIP_SYSTEM,Marks a target with anti-proton charges immediately designating it for Tactical Artillery fire.,Offensive,"Marks a target with 8 anti-proton charges, immediately designating it for Tactical Artillery fire.",8,"The system can hit targets within approximately {{1500}} su of the ship.
 
 The system marks a target with {{8}} charges.
 
 If the system brings the target over {{8}} charges then each excess charge will instead discharge an arc into the target dealing {{20 Energy}} and {{200 EMP}} damage.",
+A_S-F_MagFlux,SHIP_SYSTEM,Projects a wide area suppression field that slows all nearby hostiles while reducing their ability to dissipate flux.,Offensive,Projects a wide area suppression field that slows all nearby hostiles while reducing their ability to dissipate flux.,,"Nearby hostile ships have their top speed and overall maneuverability reduced by {{20%}}, and their flux dissipation rate is reduced by {{10%}}.",
+A_S-F_istinaSys,SHIP_SYSTEM, -- WIP CONTENT! WIP CONTENT! WIP CONTENT! WIP CONTENT! --,Offensive,WIP CONTENT!,,"All weapons other than {{Expiation}} and {{Frontal Small Turrets}} disabled.
+
+Energy weapon range boosted by {{20%}}.
+Energy weapon RoF boosted by {{100%}}.
+Energy weapon damage boosted by {{30%}}.",
+A_S-F_EWAR,SHIP_SYSTEM,Temporarily interferes with the systems of the target ship. Generates a moderate amount of flux when used.,Offensive,Temporarily interferes with the systems of the target ship. Generates a moderate amount of flux when used.,,"The target ship suffers multiple negative effects while under the influence of this system.
+
+Weapon range is reduced by {{10%}}.
+Weapon rate of fire is reduced by {{10%}}.
+Turret turn rate is reduced by {{30%}}.
+Damage dealt to fighters and missiles is reduced by {{20%}}.",
+,,,,,,,
 ,,,,,,,

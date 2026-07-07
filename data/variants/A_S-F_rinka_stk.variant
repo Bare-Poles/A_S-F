@@ -3,7 +3,7 @@
   "hullId": "A_S-F_rinka",
   "displayName": "Strike",
   "goalVariant": true,
-  "fluxCapacitors": 2,
+  "fluxCapacitors": 3,
   "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
@@ -15,13 +15,6 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0004": "swarmer"
-      }
-    },
-    {
-      "autofire": false,
-      "mode": "LINKED",
-      "weapons": {
         "WS0002": "heavymauler"
       }
     },
@@ -29,8 +22,21 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "heavyneedler",
-        "WS0003": "lightneedler"
+        "WS0001": "heavyneedler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "ioncannon"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "A_S-F_bramble"
       }
     }
   ],

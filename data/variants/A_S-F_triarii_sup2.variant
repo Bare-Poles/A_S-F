@@ -3,7 +3,7 @@
   "hullId": "A_S-F_triarii",
   "displayName": "Support",
   "goalVariant": true,
-  "fluxCapacitors": 10,
+  "fluxCapacitors": 8,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
@@ -50,6 +50,6 @@
   ],
   "modules": [],
   "wings": [
-    "thunder_wing"
+    "A_S-F_shamshir_wing"
   ]
 }

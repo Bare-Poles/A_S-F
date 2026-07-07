@@ -1,0 +1,24 @@
+{
+  "variantId": "A_S-F_drone_olkt",
+  "hullId": "A_S-F_olkt",
+  "displayName": "Drone",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "eccm"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "A_S-F_strobe_f"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

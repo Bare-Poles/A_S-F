@@ -1,0 +1,21 @@
+{
+	"id":"A_S-F_EWAR",
+	"type":"STAT_MOD",
+
+	# "aiType":"ENTROPY_AMPLIFIER",
+	"aiType":"CUSTOM",
+	"aiScript":"org.amazigh.foundry.shipsystems.scripts.ai.ASF_AmmonDeployAI",
+
+	"statsScript":"org.amazigh.foundry.shipsystems.scripts.ASF_EwarStats",
+
+	"runScriptWhileIdle":true,
+
+	"fadeActivationSoundOnChargedown":true,
+	"useSound":"A_S-F_EWAR_start", #system_entropy
+	"loopSound":"A_S-F_EWAR_loop", #system_entropy_loop
+	"deactivateSound":"system_entropy_off",
+	"outOfUsesSound":"gun_out_of_ammo",
+
+	"aiHints":{
+	}
+}

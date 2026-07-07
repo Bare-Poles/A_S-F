@@ -19,6 +19,7 @@ import com.fs.starfarer.api.util.Misc;
 
 import org.amazigh.foundry.scripts.ai.ASF_AlbatreosMagicMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_FormiaMagicMissileAI;
+import org.amazigh.foundry.scripts.ai.ASF_GangstalkerMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_LamiaMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_LernaMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_LernaSubMissileAI;
@@ -26,6 +27,7 @@ import org.amazigh.foundry.scripts.ai.ASF_MagicSwarmMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_PersisMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_PersisSwarmMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_PhiliaMissileAI;
+import org.amazigh.foundry.scripts.ai.ASF_PinionDrunkRocketAI;
 import org.amazigh.foundry.scripts.ai.ASF_RocketArtyMagicMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_TermiteMissileAI;
 import org.amazigh.foundry.scripts.ai.ASF_WeaverDrunkRocketAI;
@@ -63,6 +65,9 @@ public class ASF_ModPlugin extends BaseModPlugin {
 	public static final String ASF_PERSIS_SUB_MISSILE_ID = "A_S-F_persis_frag";
 	public static final String ASF_WEAVER_ROCKET_ID = "A_S-F_weaver_rocket";
 	public static final String ASF_NEXTER_MISSILE_ID = "A_S-F_nexter_mssl";
+	public static final String ASF_AMATEUS_MISSILE_ID = "A_S-F_amateus_missile";
+	public static final String ASF_PINION_ROCKET_ID = "A_S-F_pinion_mssl";
+	public static final String ASF_GANGSTALKER_MISSILE_ID = "A_S-F_gangstalker_mssl";
 
 	public boolean HAS_GRAPHICSLIB = false;
     public boolean isExerelin = false;
@@ -202,6 +207,12 @@ public class ASF_ModPlugin extends BaseModPlugin {
                 return new PluginPick<MissileAIPlugin>(new ASF_WeaverDrunkRocketAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
             case ASF_NEXTER_MISSILE_ID:
                 return new PluginPick<MissileAIPlugin>(new ASF_RocketArtyMagicMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            case ASF_AMATEUS_MISSILE_ID:
+                return new PluginPick<MissileAIPlugin>(new ASF_AlbatreosMagicMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            case ASF_PINION_ROCKET_ID:
+                return new PluginPick<MissileAIPlugin>(new ASF_PinionDrunkRocketAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
+            case ASF_GANGSTALKER_MISSILE_ID:
+                return new PluginPick<MissileAIPlugin>(new ASF_GangstalkerMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC);
             default:
                 return null;
         }
@@ -222,8 +233,12 @@ public class ASF_ModPlugin extends BaseModPlugin {
 		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_apologee"), CodexDataV2.getShipEntryId("apogee"));
 		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_phobia"), CodexDataV2.getShipEntryId("A_S-F_jorogumo"));
 		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_initone"), CodexDataV2.getShipEntryId("A_S-F_initone_lg"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_initone"), CodexDataV2.getShipEntryId("A_S-F_trismegistus"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_initone_lg"), CodexDataV2.getShipEntryId("A_S-F_trismegistus"));
 		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_chompiron"), CodexDataV2.getShipEntryId("champion"));
+		CodexDataV2.makeRelated(CodexDataV2.getShipEntryId("A_S-F_gravesend"), CodexDataV2.getShipEntryId("A_S-F_gravesend_p"));
 		// linking some variants to their base hulls
+		
 		
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyEnergy"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_anarchyBallistic"), CodexDataV2.getHullmodEntryId("A_S-F_anarchyFlux"));
@@ -243,12 +258,13 @@ public class ASF_ModPlugin extends BaseModPlugin {
 		
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getWeaponEntryId("A_S-F_painter"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getWeaponEntryId("A_S-F_narc"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getWeaponEntryId("A_S-F_remBeacon"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getShipSystemEntryId("A_S-F_designate"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepHighTech"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepRemnant"));
 		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepMidline"));
+		CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepLowTech"));
 					// CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepDerelict"));
-					// CodexDataV2.makeRelated(CodexDataV2.getHullmodEntryId("A_S-F_ArtyMount"), CodexDataV2.getHullmodEntryId("A_S-F_ArtyWepLowTech"));
 			// adding these but commented out, under the assumption that i will actually make them eventually!?
 		// linking artillery stuff
 		
@@ -292,10 +308,11 @@ public class ASF_ModPlugin extends BaseModPlugin {
             this.location.set(location);
             return this;
         }
-
+        
         /**
-         * @param angle
-         * @return Starting angle an The arc in which to emit particles (defaults have it emit in all directions)
+         * @param angle - initial angle
+         * @param arc - added to base angle
+         * @return Starting angle and The arc in which to emit particles (defaults have it emit in all directions)
          */
         public ASF_RadialEmitter angle(float angle, float arc) {
             this.angle = angle;
@@ -336,7 +353,8 @@ public class ASF_ModPlugin extends BaseModPlugin {
         }
         
         /**
-         * @param emissionOffset
+         * @param emissionOffsetBase - initial angle
+         * @param emissionOffsetAdd - added to base angle
          * @return an additional angle added to the angle of velocity (for when you want the angle of velocity/distance to not be linked)
          */
         public ASF_RadialEmitter emissionOffset(float emissionOffsetBase, float emissionOffsetAdd) {
@@ -346,7 +364,7 @@ public class ASF_ModPlugin extends BaseModPlugin {
         }
         
         /**
-         * @param velDistLinkage
+         * @param linkage
          * @return If set to false then velocity and distance random variance will scale independently of each other
          */
         public ASF_RadialEmitter velDistLinkage(boolean linkage) {
@@ -364,7 +382,7 @@ public class ASF_ModPlugin extends BaseModPlugin {
         }
         
         /**
-         * @param lifeLink
+         * @param lifeLinkage
          * @return If lifetime should be linked to vel/dist scaling (defaults to false)
          */
         public ASF_RadialEmitter lifeLinkage(boolean lifeLinkage) {

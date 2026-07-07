@@ -1,0 +1,49 @@
+{
+  "hullName": "Mandible",
+  "hullId": "A_S-F_mandible",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/A_S-F_mandible.png",
+  "style": "HIGH_TECH",
+  "height": 34,
+  "width": 36,
+  "center": [18, 15],
+  "collisionRadius": 24,
+  "shieldCenter": [-1, -0],
+  "shieldRadius": 23,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 0,
+      "locations": [8, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-14, 6],
+      "length": 35,
+      "width": 8,
+      "angle": 177,
+      "contrailSize": 64,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-14, -6],
+      "length": 35,
+      "width": 8,
+      "angle": 183,
+      "contrailSize": 64,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    12, -4,
+    -13, -8,
+    -13, 8,
+    12, 4
+  ]
+}

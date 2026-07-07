@@ -4,7 +4,7 @@
   "displayName": "Suppression",
   "goalVariant": false,
   "fluxCapacitors": 24,
-  "fluxVents": 13,
+  "fluxVents": 15,
   "quality": 1,
   "permaMods": [],
   "hullMods": [

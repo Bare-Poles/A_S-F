@@ -804,4 +804,84 @@
 	},
 
 
+	"A_S-F_trismegistus": {
+		"trigger_marketFaction_none": ["pirates"],
+		"trigger_marketFaction_enemyWith": true,
+		"trigger_player_minLevel": 5,
+		"trigger_min_days_elapsed": 100,
+		"trigger_min_fleet_size": 160,
+		"trigger_weight_mult": 0.7,
+
+		"job_name": "Wayward Mercenary",
+		"job_description": "The mercenary captain $name has been identified as taking bounties that further pirate interests more often than could be considered typical.\nFurther investigation of their transponder history has seen them visiting pirate ports and operating alongside pirate flagged fleets.\nWe can't afford for their fleet to officialy join pirate raiding operations in the sector, you are to find and eliminate them before they truly turn coat.",
+		"job_comm_reply": "Ah, you caught me. Well let's get the show on the road then.",
+		"job_intel_success": "You stopped $himHerThem, our thanks for doing your part to keep the sector safe.",
+
+		"job_forFaction": "independent",
+		"job_deadline": 90,
+		"job_credit_reward": 300000,
+		"job_reward_scaling": 0.6,
+		"job_reputation_reward": 10,
+		
+		"job_type": "assassination",
+		"job_show_type": true,
+		"job_show_captain": true,
+		"job_show_fleet": "vanilla",
+		"job_show_distance": "vanillaDistance",
+		"job_difficultyDescription": "auto",
+		"job_memKey": "$A_S-F_trismegistus",
+
+		"target_rank": "spaceCaptain",
+		"target_post": "mercenary",
+		"target_personality": "aggressive",
+		"target_level": 7,
+		"target_elite_skills":3,
+		"target_skill_preference": "YES_ENERGY_NO_BALLISTIC_YES_MISSILE_YES_DEFENSE",
+		
+		"fleet_name": "Bounty Hunter",
+		"fleet_faction": "mercenary",
+		"fleet_flagship_variant": "A_S-F_trismegistus_strike",
+		"fleet_flagship_name":"Scorching Subject",
+		"fleet_flagship_recoverable": true,
+		"fleet_preset_ships": {
+			"falcon_p_Strike": 1,
+			"venture_p_Pirate": 1,	
+			"A_S-F_buraq_p_od": 2,
+			"A_S-F_buraq_p_raider": 2,
+			"shrike_p_Attack": 2,
+			"A_S-F_rinka_p_od": 2,
+			"A_S-F_gravesend_p_ass": 2,
+			"A_S-F_gravesend_p_stk": 2,
+		},
+		"fleet_scaling_multiplier": 0.7,
+		"fleet_min_FP": 210,
+		"fleet_composition_faction": "mercenary",
+		"fleet_composition_quality": 1,
+		"fleet_transponder": false,
+		"fleet_behavior": "AGGRESSIVE",
+
+		"location_distance": "CORE",
+		"location_themes": [
+			"theme_core_unpopulated"
+		],
+		"location_themes_blacklist":[
+			"theme_already_occupied",
+			"theme_hidden"
+		],
+		"location_entities": [
+			"gate",
+			"station",
+			"stable_location",
+			"comm_relay",
+			"nav_buoy",
+			"sensor_array",
+			"gas_giant",
+			"planet",
+			"jump_point"
+		],
+		"location_prioritizeUnexplored": false,
+		"location_defaultToAnyEntity": true
+	},
+
+
 },

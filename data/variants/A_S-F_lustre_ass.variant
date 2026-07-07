@@ -4,7 +4,7 @@
   "displayName": "Assault",
   "goalVariant": true,
   "fluxCapacitors": 0,
-  "fluxVents": 20,
+  "fluxVents": 16,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -13,7 +13,7 @@
   ],
   "weaponGroups": [
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
         "WS0003": "amblaster",
@@ -24,8 +24,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "ionpulser",
-        "WS0005": "irpulse"
+        "WS0002": "A_S-F_eTracer",
+        "WS0005": "ioncannon"
       }
     },
     {

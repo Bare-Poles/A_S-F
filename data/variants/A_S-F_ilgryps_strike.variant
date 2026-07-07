@@ -3,7 +3,7 @@
   "hullId": "A_S-F_ilgryps",
   "displayName": "Strike",
   "goalVariant": true,
-  "fluxCapacitors": 10,
+  "fluxCapacitors": 7,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
@@ -35,7 +35,7 @@
       "mode": "LINKED",
       "weapons": {
         "WS0002": "ionpulser",
-        "WS0003": "ionpulser"
+        "WS0003": "A_S-F_eTracer"
       }
     },
     {

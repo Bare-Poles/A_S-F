@@ -1,0 +1,71 @@
+{
+  "variantId": "A_S-F_execrator_sup",
+  "hullId": "A_S-F_execrator",
+  "displayName": "Support",
+  "goalVariant": true,
+  "fluxCapacitors": 21,
+  "fluxVents": 50,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "targetingunit",
+    "advancedoptics"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "tachyonlance"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "ionbeam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "gravitonbeam",
+        "WS0004": "gravitonbeam",
+        "WS0005": "gravitonbeam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "guardian"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "heavyburst",
+        "WS0008": "heavyburst",
+        "WS0009": "heavyburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0010": "pdburst",
+        "WS0011": "pdburst",
+        "WS0012": "pdburst",
+        "WS0013": "pdburst",
+        "WS0014": "pdburst"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "A_S-F_naja_wing",
+    "A_S-F_naja_wing"
+  ]
+}

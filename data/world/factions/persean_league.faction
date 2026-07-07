@@ -28,13 +28,21 @@
 		"A_S-F_triarii_std": 3.5,
 		"A_S-F_triarii_sup2": 2.5,
 
-		"A_S-F_margrave_elt": 2.5,
-		"A_S-F_margrave_stk": 2.5,
-		"A_S-F_margrave_sup": 2.5,
+		"A_S-F_margrave_elt": 2.7,
+		"A_S-F_margrave_stk": 2.7,
+		"A_S-F_margrave_sup": 2.7,
 
 		"A_S-F_porroko_std": 1.5,
 		"A_S-F_porroko_sup": 2.5,
 		"A_S-F_porroko_supp": 3.5,
+
+		"A_S-F_viceroy_ass2": 3,
+		"A_S-F_viceroy_sup2": 4.5,
+
+		"A_S-F_rinka_ass2": 2,
+		"A_S-F_rinka_stk2": 2,
+		"A_S-F_rinka_sup2": 2,
+
 
 	},
 
@@ -46,6 +54,8 @@
 
             "A_S-F_triarii":0.6,
             "A_S-F_margrave":0.9,
+
+            "A_S-F_rinka":0.7,
         },
     },
 
@@ -64,8 +74,15 @@
             "A_S-F_initone",
             "A_S-F_margrave",
             "A_S-F_porroko",
+            "A_S-F_rinka",
         ],
     },
+
+	"knownFighters":{
+		"fighters":[
+			"A_S-F_shamshir_wing",
+		],
+	},
 
 	"knownWeapons":{
 		"weapons":[
@@ -75,6 +92,7 @@
 			"A_S-F_strobe",
 			"A_S-F_quad_multi-lance",
 			"A_S-F_painter",
+			"A_S-F_shocklance",
 
 			"A_S-F_lamia",
 			"A_S-F_lerna",

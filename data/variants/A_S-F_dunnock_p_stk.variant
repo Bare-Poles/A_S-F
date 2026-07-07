@@ -1,37 +1,35 @@
 {
-  "variantId": "A_S-F_rinka_od",
-  "hullId": "A_S-F_rinka",
-  "displayName": "Overdriven",
+  "variantId": "A_S-F_dunnock_p_stk",
+  "hullId": "A_S-F_dunnock_p",
+  "displayName": "Strike",
   "goalVariant": true,
-  "fluxCapacitors": 5,
-  "fluxVents": 2,
+  "fluxCapacitors": 10,
+  "fluxVents": 5,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "unstable_injector",
-    "safetyoverrides"
+    "magazines"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "chaingun"
-      }
-    },
-    {
-      "autofire": false,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0004": "breach"
+        "WS0001": "typhoon"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "heavymg",
-        "WS0003": "lightdualmg"
+        "WS0003": "shredder"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "lightdualmg"
       }
     }
   ],

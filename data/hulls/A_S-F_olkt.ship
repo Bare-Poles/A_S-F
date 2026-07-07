@@ -1,0 +1,54 @@
+{
+  "hullName": "Olkt",
+  "hullId": "A_S-F_olkt",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/A_S-F_Olkt.png",
+  "style": "MIDLINE",
+  "height": 26,
+  "width": 20,
+  "center": [10, 12],
+  "collisionRadius": 15,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 14,
+  "viewOffset": 0,
+  "builtInMods": [
+    "no_weapon_flux",
+    "A_S-F_GlisterEngines"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 15,
+      "angle": 0,
+      "locations": [8, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-5, 6],
+      "length": 15,
+      "width": 5,
+      "angle": 170,
+      "contrailSize": 32,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-5, -6],
+      "length": 15,
+      "width": 5,
+      "angle": -170,
+      "contrailSize": 32,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    11, -4,
+    -1, -8,
+    -10, -0,
+    -1, 8,
+    11, 4
+  ]
+}

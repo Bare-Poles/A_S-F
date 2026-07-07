@@ -1,0 +1,80 @@
+{
+  "hullName": "Shamshir",
+  "hullId": "A_S-F_shamshir",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/A_S-F_shamshir.png",
+  "style": "MIDLINE",
+  "height": 34,
+  "width": 38,
+  "center": [19, 18],
+  "collisionRadius": 22,
+  "shieldCenter": [1, -0],
+  "shieldRadius": 21,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 25,
+      "angle": 0,
+      "locations": [12, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": 0,
+      "locations": [4, 8.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": -21,
+      "locations": [6, -8.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-17, -0],
+      "length": 25,
+      "width": 7,
+      "angle": 180,
+      "contrailSize": 7,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-14, 5],
+      "length": 15,
+      "width": 4,
+      "angle": 170,
+      "contrailSize": 4,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-14, -5],
+      "length": 15,
+      "width": 4,
+      "angle": -170,
+      "contrailSize": 4,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    13, -4,
+    7, -6,
+    5, -16,
+    -3, -16,
+    -16, -3,
+    -16, 3,
+    -3, 16,
+    5, 16,
+    13, 4
+  ]
+}

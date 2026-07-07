@@ -3,7 +3,7 @@
   "hullId": "A_S-F_margrave",
   "displayName": "Strike",
   "goalVariant": true,
-  "fluxCapacitors": 9,
+  "fluxCapacitors": 5,
   "fluxVents": 50,
   "quality": 1,
   "permaMods": [],
@@ -14,7 +14,7 @@
   ],
   "weaponGroups": [
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
         "WS0003": "dragon",
@@ -22,7 +22,7 @@
       }
     },
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
         "WS0005": "gorgon",
@@ -34,14 +34,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "mjolnir"
+        "WS0002": "A_S-F_shocklance"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "A_S-F_quad_multi-lance"
+        "WS0001": "mjolnir"
       }
     },
     {

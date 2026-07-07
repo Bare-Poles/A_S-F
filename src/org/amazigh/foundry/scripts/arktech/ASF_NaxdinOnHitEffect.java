@@ -24,11 +24,12 @@ public class ASF_NaxdinOnHitEffect implements OnHitEffectPlugin {
 			
 			Vector2f randomVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(5f, 10f));
 			
-			engine.spawnProjectile(projectile.getSource(),
+			CombatEntityAPI burst = engine.spawnProjectile(projectile.getSource(),
                     projectile.getWeapon(), "A_S-F_naxdin_burst",
                     offset,
                     projectile.getFacing(),
                     randomVel);
+			((DamagingProjectileAPI)burst).setFromMissile(true);
 		}
 		
 		for (int j=0; j < 3; j++) {
@@ -77,11 +78,12 @@ public class ASF_NaxdinOnHitEffect implements OnHitEffectPlugin {
   			
   			Vector2f randomVel = MathUtils.getRandomPointOnCircumference(null, MathUtils.getRandomNumberInRange(5f, 10f));
   			
-  			engine.spawnProjectile(projectile.getSource(),
+  			CombatEntityAPI bolt = engine.spawnProjectile(projectile.getSource(),
   					projectile.getWeapon(), "A_S-F_naxdin_bolt",
                        origin2,
                        projectile.getFacing() + arcRandom,
                        randomVel);
+			((DamagingProjectileAPI)bolt).setFromMissile(true);
 		}
 		
 		Vector2f fxVel = new Vector2f();

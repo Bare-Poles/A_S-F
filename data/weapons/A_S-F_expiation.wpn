@@ -18,6 +18,6 @@
 	"autocharge":false,
 	"interruptibleBurst":true,
 	"projectileSpecId":"A_S-F_expiation_1_shot",
-	"fireSoundOne":"A_S-F_painter_loop", #A_S-F_painter_loop
+	"fireSoundOne":"A_S-F_expiation_charge", #A_S-F_painter_loop
 	"fireSoundTwo":"",
 }

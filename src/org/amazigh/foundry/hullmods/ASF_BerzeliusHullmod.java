@@ -103,7 +103,10 @@ public class ASF_BerzeliusHullmod extends BaseHullMod {
 	public void advanceInCombat(ShipAPI ship, float amount){
         CombatEngineAPI engine = Global.getCombatEngine();
 		if (engine.isPaused() || !ship.isAlive() || ship.isPiece()) {
-			engine.getTimeMult().unmodify(spec.getId());
+			if (!ship.isAlive() || ship.isPiece()) {
+				ship.getMutableStats().getTimeMult().unmodify(spec.getId());
+				engine.getTimeMult().unmodify(spec.getId());
+			}
 			return;
 		}
 		

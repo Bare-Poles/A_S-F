@@ -32,7 +32,7 @@ public class ASF_afterburnerVisuals extends BaseHullMod {
         if (ship.getSystem().isActive()) {
         	
         	float resist = ship.getSystem().getEffectLevel() * DAMAGE_REDUCTION_SCALE;
-    			
+        	
         	ship.getMutableStats().getHullDamageTakenMult().modifyMult(spec.getId(), 1f - (resist));
         	ship.getMutableStats().getArmorDamageTakenMult().modifyMult(spec.getId(), 1f - (resist));
         	ship.getMutableStats().getEmpDamageTakenMult().modifyMult(spec.getId(), 1f - (resist));
@@ -46,7 +46,7 @@ public class ASF_afterburnerVisuals extends BaseHullMod {
                 if (interval1.intervalElapsed()) {
                 	
                 	for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
-                		if (weapon.isSystemSlot() && (weapon.getSlotSize() == WeaponSize.SMALL)) {
+                		if (weapon.isDecorative() && (weapon.getSlotSize() == WeaponSize.MEDIUM) && weapon.isHidden()) {
                 			Vector2f jetPos = MathUtils.getRandomPointInCircle(weapon.computePosition(ship), 4f);
                 			Vector2f jetVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(20f, 80f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-8f, 8f));
                 			
@@ -76,7 +76,7 @@ public class ASF_afterburnerVisuals extends BaseHullMod {
                 if (interval2.intervalElapsed()) {
                 	
                 	for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
-                		if (weapon.isSystemSlot() && (weapon.getSlotSize() == WeaponSize.SMALL)) {
+                		if (weapon.isDecorative() && (weapon.getSlotSize() == WeaponSize.MEDIUM) && weapon.isHidden()) {
                 			Vector2f jetPos = MathUtils.getRandomPointInCircle(weapon.computePosition(ship), 4f);
                 			Vector2f jetVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(20f, 80f), weapon.computeMidArcAngle(ship) + MathUtils.getRandomNumberInRange(-8f, 8f));
                 			
@@ -108,7 +108,7 @@ public class ASF_afterburnerVisuals extends BaseHullMod {
                 if (interval1.intervalElapsed()) {
                 	
                 	for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
-                		if (weapon.isSystemSlot() && (weapon.getSlotSize() == WeaponSize.MEDIUM)) {
+                		if (weapon.isDecorative() && (weapon.getSlotSize() == WeaponSize.LARGE) && weapon.isHidden()) {
                 			
                 			for (int i=0; i < 2; i++) {
                     			Vector2f jetPosInit = MathUtils.getRandomPointInCircle(weapon.computePosition(ship), 10f);
@@ -124,7 +124,7 @@ public class ASF_afterburnerVisuals extends BaseHullMod {
                     			
                     			engine.addNebulaParticle(jetPosFinal,
                     					jetVel,
-                    					MathUtils.getRandomNumberInRange(18f, 30f),
+                    					MathUtils.getRandomNumberInRange(18f,30f),
                     					1.8f,
                     					0.6f,
                     					0.5f,
@@ -149,7 +149,7 @@ public class ASF_afterburnerVisuals extends BaseHullMod {
                 if (interval2.intervalElapsed()) {
                 	
                 	for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
-                		if (weapon.isSystemSlot() && (weapon.getSlotSize() == WeaponSize.MEDIUM)) {
+                		if (weapon.isDecorative() && (weapon.getSlotSize() == WeaponSize.LARGE) && weapon.isHidden()) {
                 			
                 			for (int i=0; i < 2; i++) {
                     			Vector2f jetPosInit = MathUtils.getRandomPointInCircle(weapon.computePosition(ship), 10f);

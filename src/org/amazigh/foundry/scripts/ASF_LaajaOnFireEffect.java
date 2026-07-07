@@ -52,9 +52,9 @@ public class ASF_LaajaOnFireEffect implements OnFireEffectPlugin {
             		new Color(195,220,155,130));
     		
             
-    		// random projectile velocity thing (scales velocity from -35% to +10%)
+    		// random projectile velocity thing (scales velocity from -30% to +10%)
     		float velScale = projectile.getProjectileSpec().getMoveSpeed(ship.getMutableStats(), weapon);
-    		Vector2f newVel = MathUtils.getPointOnCircumference(projectile.getVelocity(), MathUtils.getRandomNumberInRange(velScale * -0.35f, velScale * 0.1f) , angle);
+    		Vector2f newVel = MathUtils.getPointOnCircumference(projectile.getVelocity(), MathUtils.getRandomNumberInRange(velScale * -0.3f, velScale * 0.1f) , angle);
     		projectile.getVelocity().x = newVel.x;
     		projectile.getVelocity().y = newVel.y;
     		

@@ -1,0 +1,47 @@
+{
+  "variantId": "A_S-F_buraq_p_od",
+  "hullId": "A_S-F_buraq_p",
+  "displayName": "Overdriven",
+  "goalVariant": true,
+  "fluxCapacitors": 10,
+  "fluxVents": 5,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "safetyoverrides"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "sabot",
+        "WS0002": "sabot"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "chaingun"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "lightdualmg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "mininglaser",
+        "WS0006": "mininglaser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

@@ -3,8 +3,8 @@
   "hullId": "A_S-F_exegetes_lg",
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 0,
-  "fluxVents": 11,
+  "fluxCapacitors": 1,
+  "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
   "hullMods": [

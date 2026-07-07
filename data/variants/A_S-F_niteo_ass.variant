@@ -3,7 +3,7 @@
   "hullId": "A_S-F_niteo",
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 5,
+  "fluxCapacitors": 6,
   "fluxVents": 20,
   "quality": 1,
   "permaMods": [],
@@ -40,17 +40,17 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "A_S-F_ir_autopulse",
-        "WS0003": "A_S-F_ir_autopulse",
-        "WS0007": "ioncannon",
-        "WS0008": "ioncannon"
+        "WS0002": "A_S-F_eTracer",
+        "WS0003": "A_S-F_eTracer"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0009": "pdburst"
+        "WS0007": "pdlaser",
+        "WS0008": "pdlaser",
+        "WS0009": "pdlaser"
       }
     }
   ],

@@ -1,7 +1,10 @@
 package org.amazigh.foundry.shipsystems.scripts;
 
+import java.awt.Color;
+
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
+import org.magiclib.util.MagicRender;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CollisionClass;
@@ -14,6 +17,8 @@ import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.combat.ShipwideAIFlags.AIFlags;
 import com.fs.starfarer.api.combat.WeaponAPI.WeaponSize;
+import com.fs.starfarer.api.combat.WeaponAPI.WeaponType;
+import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.loading.WeaponGroupSpec;
 import com.fs.starfarer.api.loading.WeaponGroupType;
@@ -21,9 +26,9 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 
 public class ASF_istinaSysStats extends BaseShipSystemScript {
 
-	public static final float SPEED_MALUS = 0.5f;
-	public static final float RANGE_BOOST = 80f;
-	public static final float RoF_BOOST = 10f;
+	public static final float RANGE_BOOST = 0.3f;
+	public static final float RoF_BOOST = 1f;
+	public static final float DAM_BOOST = 0.3f;
 
 	private String TagWeapon = "A_S-F_targetinglaser_silaha"; // the id of the weapon to use for the targeting laser beam.
 	//TODO - a real weapon
@@ -41,10 +46,10 @@ public class ASF_istinaSysStats extends BaseShipSystemScript {
 			return;
 		}
 		
-		stats.getMaxSpeed().modifyMult(id, 1f - (SPEED_MALUS * effectLevel));
-		stats.getEnergyWeaponRangeBonus().modifyPercent(id, (RANGE_BOOST * effectLevel)); // stat boosts
+		stats.getEnergyWeaponRangeBonus().modifyMult(id, 1f + (RANGE_BOOST * effectLevel));
 		stats.getEnergyRoFMult().modifyMult(id, 1f + (RoF_BOOST * effectLevel));
-
+		stats.getEnergyWeaponDamageMult().modifyMult(id, 1f + (DAM_BOOST * effectLevel));
+		
 		float beamRange = 700;
 		for (WeaponAPI w : ship.getAllWeapons()) {
 			if (w.getSize() == WeaponSize.LARGE) {
@@ -83,6 +88,7 @@ public class ASF_istinaSysStats extends BaseShipSystemScript {
 			  }
 		}
 		
+		beamDrone.getMutableStats().getBeamWeaponRangeBonus().modifyFlat("dem", beamRange);
 		beamDrone.getLocation().set(tagpoint);
 		beamDrone.setFacing(ship.getFacing());
 		beamDrone.getVelocity().set(ship.getVelocity());
@@ -97,20 +103,39 @@ public class ASF_istinaSysStats extends BaseShipSystemScript {
 		beamDrone.giveCommand(ShipCommand.FIRE, MathUtils.getPointOnCircumference(tagpoint, 100f, ship.getFacing()), 0);
 		//TODO - add "sweep"
 		
+		//TODO - have beam stop firing and enter fadeout during sys out state (??)
+		
 		
 		for (WeaponAPI w : ship.getAllWeapons()) {
 			if (w.getSize() == WeaponSize.LARGE) continue;
+			if (w.getSlot().getWeaponType() == WeaponType.SYNERGY)  continue;
 			
 			w.setForceNoFireOneFrame(true);
 			w.setGlowAmount(0, null);
-			// if the weapon is not large size (so not the Expiation), block firing during system activation, and disable any system/etc weapon glow.
+			// if the weapon is not
+				// large size (the Expiation)
+				// in a synergy type slot (the 4 front smalls)
+			// block firing during system activation, and disable any system/etc weapon glow.
 		}
 		
-		
-		
-		//TODO - glows on the reactors
-		
-		//TODO - visual engine size reduction
+		//TODO - glows on the reactors - WIP
+			//TODO - particles?  custom sprite?
+		for (WeaponSlotAPI weapon : ship.getHullSpec().getAllWeaponSlotsCopy()) {
+			  if (weapon.isSystemSlot() && weapon.getSlotSize() == WeaponSize.MEDIUM) {
+				  Vector2f glowpoint = weapon.computePosition(ship);
+				  
+				  float glowLength = 60f + (80f * effectLevel);
+				  Vector2f spriteSize = new Vector2f(glowLength, glowLength);
+				  SpriteAPI coreGlow = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
+				  
+				  int glowAlpha = 41 + (int)(169 * effectLevel);
+				  double timeMult = (double) stats.getTimeMult().modified; // this timeMult stuff is a "well fuck sprite rendering gets screwy with increases to timescale, let's fix it!"
+				  glowAlpha = Math.min(255, (int) Math.ceil(glowAlpha / timeMult));
+				  
+				  MagicRender.singleframe(coreGlow, glowpoint, spriteSize, weapon.getAngle(), new Color(160,120,255,glowAlpha), true);
+			  }
+		}
+		//TODO - glows on the reactors - WIP
 		
 	}
 	
@@ -118,10 +143,10 @@ public class ASF_istinaSysStats extends BaseShipSystemScript {
 		
 		init = false;
 		
-		stats.getMaxSpeed().unmodify(id);
 		stats.getEnergyWeaponRangeBonus().unmodify(id);
 		stats.getEnergyRoFMult().unmodify(id);
-
+		stats.getEnergyWeaponDamageMult().unmodify(id);
+		
 		if (beamDrone != null) {
 			Global.getCombatEngine().removeEntity(beamDrone);
 		}
@@ -129,7 +154,7 @@ public class ASF_istinaSysStats extends BaseShipSystemScript {
 	
 	public StatusData getStatusData(int index, State state, float effectLevel) {
 		if (index == 0) {
-			return new StatusData("-" + (int)SPEED_MALUS + "% top speed", true);
+			return new StatusData("+" + (int) (RANGE_BOOST * 100f) + " weapon range", false);
 		}
 		return null;
 	}

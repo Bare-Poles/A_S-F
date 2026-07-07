@@ -1,0 +1,72 @@
+{
+  "variantId": "A_S-F_margrave_lg_std",
+  "hullId": "A_S-F_margrave_lg",
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 0,
+  "fluxVents": 50,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "targetingunit",
+    "missile_autoloader",
+    "magazines"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0005": "A_S-F_twister",
+        "WS0006": "A_S-F_twister",
+        "WS0007": "A_S-F_twister"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "A_S-F_bipartisan",
+        "WS0004": "A_S-F_bipartisan"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "A_S-F_ionDriver",
+        "WS0002": "autopulse"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0011": "A_S-F_x-pulse"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0008": "A_S-F_plas_burster",
+        "WS0009": "A_S-F_plas_burster",
+        "WS0010": "A_S-F_plas_burster"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0012": "A_S-F_micropulser",
+        "WS0013": "A_S-F_micropulser",
+        "WS0014": "A_S-F_micropulser",
+        "WS0015": "A_S-F_micropulser",
+        "WS0016": "A_S-F_micropulser",
+        "WS0017": "A_S-F_micropulser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

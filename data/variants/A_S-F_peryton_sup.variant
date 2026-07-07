@@ -23,8 +23,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0001": "A_S-F_albatreos",
-        "WS0002": "A_S-F_albatreos"
+        "WS0001": "A_S-F_gangstalker",
+        "WS0002": "A_S-F_gangstalker"
       }
     },
     {

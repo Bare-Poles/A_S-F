@@ -61,8 +61,8 @@ public class ASF_Expiation_3_OnHitEffect implements OnHitEffectPlugin {
 		for (int i=0; i < damArcCount; i++) {
 			engine.spawnEmpArcPierceShields(projectile.getSource(), point, target, target,
 					DamageType.ENERGY,
-					projectile.getDamageAmount() * 0.05f, // damage
-					projectile.getDamageAmount() * 0.25f, // emp
+					projectile.getDamageAmount() * 0.04f, // damage
+					projectile.getDamageAmount() * 0.2f, // emp
 					500f, // max range
 					"tachyon_lance_emp_impact",
 					15f, // thickness

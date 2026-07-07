@@ -12,7 +12,7 @@
   "shieldRadius": 110,
   "viewOffset": 0,
   "builtInMods": [
-    "A_S-F_afterburnerVisuals",
+    "A_S-F_afterburnerVisualsPirate",
     "unstable_injector",
     "augmentedengines"
   ],
@@ -77,8 +77,8 @@
     },
     {
       "id": "WS0010",
-      "size": "MEDIUM",
-      "type": "SYSTEM",
+      "size": "LARGE",
+      "type": "DECORATIVE",
       "mount": "HIDDEN",
       "arc": 60,
       "angle": 172,
@@ -86,8 +86,8 @@
     },
     {
       "id": "WS0011",
-      "size": "MEDIUM",
-      "type": "SYSTEM",
+      "size": "LARGE",
+      "type": "DECORATIVE",
       "mount": "HIDDEN",
       "arc": 60,
       "angle": -172,
@@ -95,8 +95,8 @@
     },
     {
       "id": "WS0012",
-      "size": "SMALL",
-      "type": "SYSTEM",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
       "mount": "HIDDEN",
       "arc": 10,
       "angle": 135,
@@ -104,8 +104,8 @@
     },
     {
       "id": "WS0013",
-      "size": "SMALL",
-      "type": "SYSTEM",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
       "mount": "HIDDEN",
       "arc": 10,
       "angle": -135,
@@ -113,8 +113,8 @@
     },
     {
       "id": "WS0014",
-      "size": "SMALL",
-      "type": "SYSTEM",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
       "mount": "HIDDEN",
       "arc": 10,
       "angle": 45,
@@ -122,8 +122,8 @@
     },
     {
       "id": "WS0015",
-      "size": "SMALL",
-      "type": "SYSTEM",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
       "mount": "HIDDEN",
       "arc": 10,
       "angle": -45,
@@ -131,8 +131,8 @@
     },
     {
       "id": "WS0009",
-      "size": "MEDIUM",
-      "type": "SYSTEM",
+      "size": "LARGE",
+      "type": "DECORATIVE",
       "mount": "HIDDEN",
       "arc": 60,
       "angle": 180,

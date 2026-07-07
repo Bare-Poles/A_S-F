@@ -73,7 +73,7 @@
   ],
   "engineSlots": [
     {
-      "location": [-28, 45],
+      "location": [-28, 44.5],
       "length": 32,
       "width": 10,
       "angle": 180,
@@ -81,7 +81,7 @@
       "style": "LOW_TECH"
     },
     {
-      "location": [-28, -45],
+      "location": [-28, -44.5],
       "length": 32,
       "width": 10,
       "angle": -180,
@@ -89,7 +89,7 @@
       "style": "LOW_TECH"
     },
     {
-      "location": [-42, 19],
+      "location": [-42, 18.5],
       "length": 48,
       "width": 16,
       "angle": 180,
@@ -97,7 +97,7 @@
       "style": "LOW_TECH"
     },
     {
-      "location": [-42, -19],
+      "location": [-42, -18.5],
       "length": 48,
       "width": 16,
       "angle": -180,

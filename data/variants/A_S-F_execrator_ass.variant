@@ -1,0 +1,59 @@
+{
+  "variantId": "A_S-F_execrator_ass",
+  "hullId": "A_S-F_execrator",
+  "displayName": "Assault",
+  "goalVariant": true,
+  "fluxCapacitors": 10,
+  "fluxVents": 50,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "targetingunit",
+    "eccm"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "plasma",
+        "WS0002": "plasma"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "A_S-F_gimbal",
+        "WS0007": "A_S-F_gimbal",
+        "WS0008": "A_S-F_gimbal",
+        "WS0009": "A_S-F_gimbal"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "A_S-F_plas_burster",
+        "WS0004": "A_S-F_plas_burster",
+        "WS0005": "A_S-F_plas_burster"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0010": "pdlaser",
+        "WS0011": "pdlaser",
+        "WS0012": "pdlaser",
+        "WS0013": "pdlaser",
+        "WS0014": "pdlaser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "xyphos_wing",
+    "xyphos_wing"
+  ]
+}

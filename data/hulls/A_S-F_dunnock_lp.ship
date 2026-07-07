@@ -1,0 +1,173 @@
+{
+  "hullName": "Dunnock (LP)",
+  "hullId": "A_S-F_dunnock_lp",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/A_S-F_dunnock_lp.png",
+  "style": "LOW_TECH",
+  "height": 80,
+  "width": 114,
+  "center": [57, 44],
+  "collisionRadius": 69,
+  "shieldCenter": [2, -0],
+  "shieldRadius": 67,
+  "viewOffset": 0,
+  "builtInMods": [
+    "distributed_fire_control",
+    "rugged",
+    "safetyoverrides",
+    "ill_advised",
+    "A_S-F_afterburnerVisualsPirate"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [26, 37]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 30,
+      "locations": [-2, 33]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 160,
+      "angle": -40,
+      "locations": [-2, -34]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -20,
+      "locations": [21, -34]
+    },
+    {
+      "id": "WS0005",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 10,
+      "angle": 45,
+      "locations": [32, 10]
+    },
+    {
+      "id": "WS0006",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": -45,
+      "locations": [32, -10]
+    },
+    {
+      "id": "WS0007",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 10,
+      "angle": 135,
+      "locations": [-6, 54]
+    },
+    {
+      "id": "WS0008",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 10,
+      "angle": -135,
+      "locations": [-6, -54]
+    },
+    {
+      "id": "WS0009",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 60,
+      "angle": 175,
+      "locations": [-39, 26]
+    },
+    {
+      "id": "WS0010",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 60,
+      "angle": -175,
+      "locations": [-39, -26]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-28, 44.5],
+      "length": 32,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 32,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-28, -44.5],
+      "length": 32,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 32,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-42, 18.5],
+      "length": 48,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 40,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-42, -18.5],
+      "length": 48,
+      "width": 16,
+      "angle": -180,
+      "contrailSize": 40,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-29, -0],
+      "length": 40,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 40,
+      "style": "LOW_TECH"
+    }
+  ],
+  "bounds": [
+    28, -38,
+    15, -54,
+    -26, -49,
+    -27, -40,
+    -21, -36,
+    -41, -24,
+    -41, -15,
+    -28, -7,
+    -28, 6,
+    -41, 15,
+    -41, 24,
+    -21, 36,
+    -27, 40,
+    -26, 49,
+    15, 54,
+    28, 40
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "A_S-F_remBeacon",
+  "specClass": "projectile",
+  "projectileSpecId": "A_S-F_remBeacon_missile",
+  "type": "MISSILE",
+  "size": "MEDIUM",
+  "displayArcRadius": 1000,
+	"turretSprite":"graphics/weapons/A_S-F_remBeacon_turret.png",
+	"hardpointSprite":"graphics/weapons/A_S-F_remBeacon_hardpoint.png",
+
+	"hardpointOffsets":[15,4, 15,-4, 13,4, 13,-4, 11,4, 11,-4, 9,4, 9,-4, 7,4, 7,-4],
+	"turretOffsets":[10,4, 10,-4, 8,4, 8,-4, 6,4, 6,-4, 4,4, 4,-4, 2,4, 2,-4],
+	"hardpointAngleOffsets":[2,-2, 7,-7, 12,-12, 17,-17, 22,-22],
+	"turretAngleOffsets":[2,-2, 7,-7, 12,-12, 17,-17, 22,-22],
+
+  "barrelMode": "DUAL",
+  "separateRecoilForLinkedBarrels":"TRUE",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 8,
+    "particleSizeRange": 14,
+    "cloudParticleCount": 2,
+    "cloudDuration": 0.75,
+    "cloudRadius": 7,
+    "blowbackParticleCount": 2,
+    "blowbackDuration": 0.85,
+    "blowbackLength": 15,
+    "blowbackSpread": 9,
+    "particleColor": [170,140,150,130]
+  },
+  "fireSoundTwo": "A_S-F_remBeacon_fire"
+}

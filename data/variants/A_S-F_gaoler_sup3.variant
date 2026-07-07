@@ -9,8 +9,8 @@
   "permaMods": [],
   "hullMods": [
     "expanded_deck_crew",
-    "turretgyros",
-    "pointdefenseai"
+    "pointdefenseai",
+    "turretgyros"
   ],
   "weaponGroups": [
     {

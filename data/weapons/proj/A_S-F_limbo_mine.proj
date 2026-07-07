@@ -1,0 +1,54 @@
+{
+	"id":"A_S-F_limbo_mine",
+	"specClass":"missile",	
+	"missileType":"PHASE_MINE",
+	"sprite":"graphics/missiles/A_S-F_limbo_mine.png",
+	"glowSprite":"graphics/missiles/A_S-F_limbo_mine_glow.png",
+	"glowColor":[190,60,255,255],
+	"size":[42,24],
+	"center":[21,12],
+	"collisionRadius":8,
+	
+	"collisionClass":"MISSILE_NO_FF",
+	"flameoutTime":0.1, # total time from flameout to full fadeout
+	"fadeTime":0.1, # fadeout duration
+	"noEngineGlowTime":0.05, # time spent without the engine glow being rendered
+	"explosionColor":[148,0,211,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":120, # purely visual	
+	"engineSpec":{"turnAcc":500,
+				  "turnRate":150,
+				  "acc":100,
+				  "dec":90},
+	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"range":18, #30
+					"slowToMaxSpeed":true,
+					"delay":0.25,
+					"pingSound":"", # mine_ping
+					"pingColor":[205,30,255,125], # 255a
+					"pingRadius":125,
+					"pingDuration":0.15,
+					"windupSound":"A_S-F_limbo_ping", # mine_windup_heavy
+					"windupDelay":1,
+					"explosionSpec":{"duration":0.1f,
+									 "radius":120,
+									 "coreRadius":70, # full damage within core radius
+									 "collisionClass":PROJECTILE_FF, #MISSILE_FF
+									 "collisionClassByFighter":PROJECTILE_FIGHTER, #MISSILE_FF
+									 "particleSizeMin":3.0,
+									 "particleSizeRange":3.0,
+									 "particleDuration":1,
+									 "particleCount":45,
+									 "particleColor":[148,70,211,255],
+									 "explosionColor":[155,125,255,255],
+									 "useDetailedExplosion":true,
+									 "useDetailedExplosionColorAlpha":true,
+									 "detailedExplosionRadius":80,
+									 "detailedExplosionFlashRadius":200,
+									 "detailedExplosionFlashDuration":0.5,
+									 "detailedExplosionFlashColorFringe":[200,125,255,255],
+									 "detailedExplosionFlashColorCore":[155,155,155,255],
+									 "sound":"A_S-F_limbo_explosion"}, # prox_charge_explosion
+					}
+}
+
+

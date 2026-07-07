@@ -6,13 +6,13 @@
 	
 	"statsScript":"org.amazigh.foundry.shipsystems.scripts.ASF_istinaSysStats",
 
-	"weaponGlowColor":[255,0,255,255],
-	"weaponTypes":[ENERGY],
+	#"weaponGlowColor":[255,0,255,255],
+	#"weaponTypes":[ENERGY],
 
-	"engineGlowColor":[255,0,255,155],
-	"engineGlowLengthMult":0.7,
-	"engineGlowWidthMult":0.8,
-	"engineGlowGlowMult":0.7,
+#	"engineGlowColor":[160,120,255,169], # 100,165,255,255 (HT)
+#	"engineGlowLengthMult":0.7,
+#	"engineGlowWidthMult":0.8,
+#	"engineGlowGlowMult":0.7,
 
 	"useSound":"system_high_energy_focus_activate",
 	"deactivateSound":"system_high_energy_focus_deactivate",

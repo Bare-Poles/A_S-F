@@ -4,6 +4,7 @@ package org.amazigh.foundry.scripts.ai;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEntityAPI;
+import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.GuidedMissileAI;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
@@ -310,11 +311,12 @@ public class ASF_LamiaMissileAI implements MissileAIPlugin, GuidedMissileAI {
             	
         		for (int i=0; i < 3; i++) {
         			
-        			engine.spawnProjectile(MISSILE.getSource(), MISSILE.getWeapon(), "A_S-F_lamia_bolt",
+        			CombatEntityAPI bolt = engine.spawnProjectile(MISSILE.getSource(), MISSILE.getWeapon(), "A_S-F_lamia_bolt",
         					loc,
         					MISSILE.getFacing() + ((i * 6f) - 6f) + MathUtils.getRandomNumberInRange(-3f, 3f),
         					MathUtils.getRandomPointInCircle(vel, 40f));
-    				
+        			((DamagingProjectileAPI)bolt).setFromMissile(true);
+        			
         			Vector2f meltLoc = MathUtils.getRandomPointInCircle(loc, 15f);
         			Vector2f meltRandomVel = MathUtils.getRandomPointOnCircumference(vel, MathUtils.getRandomNumberInRange(15f, 35f));
             		

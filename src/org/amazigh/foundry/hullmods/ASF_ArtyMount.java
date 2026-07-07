@@ -69,7 +69,7 @@ public class ASF_ArtyMount extends BaseHullMod {
     public class ShipSpecificData {
         public boolean READY = false; // is the arty ready to fire
         public boolean LOCK = false; // have we been assigned a target
-        float TIMER = 0f; // cooldown timer management
+        public float TIMER = 0f; // cooldown timer management
 		IntervalUtil fxInterval1 = new IntervalUtil(0.05f, 0.05f); // vfx management
 		IntervalUtil fxInterval2 = new IntervalUtil(0.6f, 0.95f); // vfx management
 		public ShipAPI TARGET = null; // the assigned target

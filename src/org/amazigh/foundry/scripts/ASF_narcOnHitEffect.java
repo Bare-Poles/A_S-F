@@ -54,8 +54,7 @@ public class ASF_narcOnHitEffect implements OnHitEffectPlugin {
 						
 					} else {
 						String uniqueHash = (String.valueOf(projectile.hashCode()) + String.valueOf((int) engine.getTotalElapsedTime(true)) + i);
-						
-						// generating a unique identifying int for each damage instance caused by the arc
+						// generating a unique identifying int for each charge added by the projectile
 						listener.notifyHit(uniqueHash);
 					}
 				}

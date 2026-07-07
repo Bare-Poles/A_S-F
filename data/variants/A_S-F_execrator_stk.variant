@@ -1,0 +1,66 @@
+{
+  "variantId": "A_S-F_execrator_stk",
+  "hullId": "A_S-F_execrator",
+  "displayName": "Strike",
+  "goalVariant": true,
+  "fluxCapacitors": 29,
+  "fluxVents": 50,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "targetingunit",
+    "magazines",
+    "unstable_injector"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0006": "breachpod",
+        "WS0007": "breachpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "autopulse",
+        "WS0002": "autopulse"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "A_S-F_ir_autopulse",
+        "WS0004": "A_S-F_ir_autopulse"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "heavyburst",
+        "WS0008": "heavyburst",
+        "WS0009": "heavyburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0010": "A_S-F_micropulser",
+        "WS0011": "A_S-F_micropulser",
+        "WS0012": "A_S-F_micropulser",
+        "WS0013": "A_S-F_micropulser",
+        "WS0014": "A_S-F_micropulser"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "A_S-F_mandible_wing",
+    "A_S-F_mandible_wing"
+  ]
+}

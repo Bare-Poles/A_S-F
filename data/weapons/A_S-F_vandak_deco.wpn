@@ -1,0 +1,26 @@
+{
+  "collisionClass": "RAY",
+  "collisionClassByFighter": "RAY_FIGHTER",
+
+  "everyFrameEffect": "org.amazigh.foundry.scripts.ASF_vandakDecoScript",
+
+  "coreColor": [255,255,255,255],
+  "fringeColor": [255,255,255,255],
+  "glowColor": [255,255,255,255],
+  "hardpointAngleOffsets": [0],
+  "hardpointOffsets": [0,0],
+  "hardpointSprite": "graphics/missiles/A_S-F_vandak_missile.png",
+  "hitGlowRadius": 0,
+  "id": "A_S-F_vandak_deco",
+  "showDamageWhenDecorative": True,
+  "pixelsPerTexel": 1,
+  "size": "LARGE",
+  "specClass": "beam",
+  "textureScrollSpeed": 64,
+  "textureType": ROUGH,  
+  "turretAngleOffsets": [0],
+  "turretOffsets": [0,0],
+  "turretSprite": "graphics/missiles/A_S-F_vandak_missile.png",
+  "type": "DECORATIVE",
+  "width": 10
+}

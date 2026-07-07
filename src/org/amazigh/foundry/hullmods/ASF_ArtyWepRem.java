@@ -59,6 +59,7 @@ public class ASF_ArtyWepRem extends BaseHullMod {
     		
     		double timeMult = (double) ship.getMutableStats().getTimeMult().modified; // this timeMult stuff is a "well fuck sprite rendering gets screwy with increases to timescale, let's fix it!"
     		int alpha = (int) Math.ceil((5 + (24 * spoolVal)) / timeMult);
+    		alpha = Math.min(250, alpha);
     		
     		for (int i=0; i < 2; i++) {
     			float sizeRandom1 = MathUtils.getRandomNumberInRange(28f, 38f);
@@ -89,7 +90,7 @@ public class ASF_ArtyWepRem extends BaseHullMod {
         	info.fxInterval2.advance(amount);
         	if (info.fxInterval2.intervalElapsed()) {
         		
-        		int arcAlpha = Math.min(255, (int) Math.ceil((80 * spoolVal) / timeMult));
+        		int arcAlpha = Math.min(230, (int) Math.ceil((80 * spoolVal) / timeMult));
         		Vector2f arcPoint = MathUtils.getPointOnCircumference(portLoc, MathUtils.getRandomNumberInRange(12f, 17f), MathUtils.getRandomNumberInRange(0, 360));
         		
         		engine.spawnEmpArcVisual(portLoc, ship, arcPoint, ship, 7f,

@@ -3,7 +3,7 @@
 	"type":"ENGINE_MOD",
 	"aiType":"BURN_DRIVE",
 	
-	"statsScript":"org.amazigh.foundry.shipsystems.scripts.ASF_floggerBurnStats",
+	"statsScript":"org.amazigh.foundry.shipsystems.scripts.ASF_scragBurnStats",
 	
 	"engineGlowColor":[255,138,125,255], #255,150,125,255
 	"engineGlowContrailColor":[255,149,125,25], #255,165,125,25
@@ -39,6 +39,6 @@
 	"aiHints":{
 		"activeSpeedIncrease":0,
 		"burstMovementPotential":600,
-		"averageSpeedIncrease":150,
+		"averageSpeedIncrease":145,
 	}
 }

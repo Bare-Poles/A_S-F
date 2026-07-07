@@ -1,5 +1,5 @@
 {
-  "hullName": "Initone",
+  "hullName": "Margrave",
   "hullId": "A_S-F_margrave",
   "hullSize": "CAPITAL_SHIP",
   "spriteName": "graphics/ships/A_S-F_margrave.png",
@@ -233,32 +233,32 @@
     },
     {
       "location": [-65, 54],
-      "length": 40,
-      "width": 14,
+      "length": 56,
+      "width": 15,
       "angle": 135,
       "contrailSize": 128,
       "style": "MIDLINE"
     },
     {
       "location": [-65, -54],
-      "length": 40,
-      "width": 14,
+      "length": 56,
+      "width": 15,
       "angle": -135,
       "contrailSize": 128,
       "style": "MIDLINE"
     },
     {
       "location": [40.5, 54.5],
-      "length": 38,
-      "width": 13,
+      "length": 50,
+      "width": 14,
       "angle": 45,
       "contrailSize": 128,
       "style": "MIDLINE"
     },
     {
       "location": [40.5, -54.5],
-      "length": 38,
-      "width": 13,
+      "length": 50,
+      "width": 14,
       "angle": -45,
       "contrailSize": 128,
       "style": "MIDLINE"
@@ -266,7 +266,6 @@
   ],
   "bounds": [
     187, 1,
-    180, -0,
     172, -11,
     182, -12,
     183, -35,
@@ -274,14 +273,12 @@
     168, -46,
     73, -47,
     69, -50,
-    33, -51,
+    33, -52,
     25, -59,
-    17, -60,
     -4, -63,
     -7, -65,
     -17, -65,
     -20, -63,
-    -41, -60,
     -49, -59,
     -52, -55,
     -63, -54,
@@ -325,23 +322,18 @@
     -63, 54,
     -52, 55,
     -49, 59,
-    -41, 60,
     -20, 63,
     -17, 65,
     -7, 65,
     -4, 63,
-    17, 60,
     25, 59,
-    33, 51,
-    51, 54,
+    33, 52,
     68, 54,
-    79, 48,
     88, 39,
     137, 38,
     146, 35,
     166, 35,
     182, 32,
-    185, 19,
-    187, 7
+    187, 12
   ]
 }

@@ -3,7 +3,7 @@
   "hullId": "A_S-F_ilgryps",
   "displayName": "Support",
   "goalVariant": true,
-  "fluxCapacitors": 3,
+  "fluxCapacitors": 1,
   "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
@@ -25,8 +25,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0004": "A_S-F_bipartisan",
-        "WS0005": "A_S-F_bipartisan"
+        "WS0004": "A_S-F_remBeacon",
+        "WS0005": "A_S-F_remBeacon"
       }
     },
     {

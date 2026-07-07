@@ -31,7 +31,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		//api.addToFleet(FleetSide.PLAYER, "falcon_p_Strike", FleetMemberType.SHIP, "xXxXx Nerd Slayer 420 xXxXx", false);
 		
-//		api.addToFleet(FleetSide.PLAYER, "A_S-F_istina_test", FleetMemberType.SHIP, "SIMP (Sniper Monkey)", false);
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_istina_test", FleetMemberType.SHIP, "SIMP (Sniper Monkey)", false);
+		//api.addToFleet(FleetSide.PLAYER, "A_S-F_trismegistus_strike", FleetMemberType.SHIP, "Scorching Subject", false);
 		
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_jorogumo_stalker", FleetMemberType.SHIP, "This Is A Test", false);
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_lafiel_custom", FleetMemberType.SHIP, "This Is A Test", false);
@@ -50,10 +51,10 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		//api.addToFleet(FleetSide.PLAYER, "A_S-F_estucheon_rkt", FleetMemberType.SHIP, "This Is A Test", false);
 		
-		
+		api.addToFleet(FleetSide.PLAYER, "A_S-F_execrator_stk", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_margrave_stk", FleetMemberType.SHIP, "Trial", true);
-		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_glentoran_ass", FleetMemberType.SHIP, "Trial", false);
+		
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_phobia_ass", FleetMemberType.SHIP, "Trial", false);
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_lanner_elt", FleetMemberType.SHIP, "Trial", false); //sup
 		api.addToFleet(FleetSide.PLAYER, "A_S-F_marlow_stk", FleetMemberType.SHIP, "Trial", false);
@@ -93,6 +94,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		// Set up the enemy fleet.
 		api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, "Stand Alone", false);
 		api.addToFleet(FleetSide.ENEMY, "doom_Strike", FleetMemberType.SHIP, "Search Dialog", false);
+		api.addToFleet(FleetSide.ENEMY, "aurora_Attack", FleetMemberType.SHIP, "Moving To another Dimension", false);
 		api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, "Explosively Fortunate", false);
 		api.addToFleet(FleetSide.ENEMY, "champion_Support", FleetMemberType.SHIP, "Extreme Rendition", false);
 		api.addToFleet(FleetSide.ENEMY, "champion_Support", FleetMemberType.SHIP, "Negligent Affection", false);

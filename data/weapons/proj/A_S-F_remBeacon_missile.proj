@@ -1,0 +1,42 @@
+{
+	"id":"A_S-F_remBeacon_missile",
+	"specClass":"missile",
+	"missileType":"MISSILE",
+
+	"onHitEffect":"org.amazigh.foundry.scripts.ASF_remBeaconOnHitEffect",
+
+	"sprite":"graphics/missiles/A_S-F_remBeacon_missile.png",
+	"size":[8,12],
+	"center":[4,6],
+	"collisionRadius":12,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,135,155,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":45, # purely visual
+	"flameoutTime":1,
+	"noEngineGlowTime":0.3,
+	"fadeTime":0.5,
+	"engineSpec":{"turnAcc":360,
+				  "turnRate":180,
+				  "acc":250,
+				  "dec":150},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-6, 0],
+
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[255,150,175,255],
+						"contrailDuration":0.9,
+						"contrailWidthMult":1.6,
+						"contrailWidthAddedFractionAtEnd":-0.5,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":4, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.8f, # 0
+						"contrailAngularVelocityMult":0.8f,	
+						"contrailSpawnDistMult":.0f, # how far away from engine it starts
+						"contrailColor":[135,70,85,150],
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":3.6,
+				    "length":25.0,
+				    "angle":180.0}]
+}

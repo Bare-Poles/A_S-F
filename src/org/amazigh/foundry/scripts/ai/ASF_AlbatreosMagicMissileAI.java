@@ -33,7 +33,7 @@ public class ASF_AlbatreosMagicMissileAI implements MissileAIPlugin, GuidedMissi
     private float DELAY=1.0f;
     
     // what fraction of turn rate to drop to after "locking" on to the target.
-    private final float DECAY_TURN=0.45f;
+    private final float DECAY_TURN=0.5f;
 
     //Damping of the turn speed when closing on the desired aim. The smaller the snappier.
     private final float DAMPING=0.1f;

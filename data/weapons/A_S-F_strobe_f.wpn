@@ -1,0 +1,23 @@
+{
+	"id":"A_S-F_strobe_f",  # this id must match what's in the spreadsheet
+	"specClass":"beam",
+	"type":"ENERGY",
+	"size":"SMALL",
+	"turretSprite":"graphics/weapons/A_S-F_strobe_fighter.png",
+	#	"turretGlowSprite":"graphics/weapons/A_S-F_strobe_turret_glow.png",
+	"hardpointSprite":"graphics/weapons/A_S-F_strobe_fighter.png",
+	#	"hardpointGlowSprite":"graphics/weapons/A_S-F_strobe_hardpoint_glow.png",	
+	"turretOffsets":[0,0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[0,0],
+	"hardpointAngleOffsets":[0],
+	"fringeColor":[90,70,95,255], # 155,50,50
+	"coreColor":[255,255,255,100],
+	"glowColor":[160,130,185,255], # 255,100,100
+	"darkCore":false,
+	"width":7.0,
+	"textureType":SMOOTH,
+	"textureScrollSpeed":300.0,
+	"pixelsPerTexel":5.0,
+	"fireSoundOne":"A_S-F_strobe_f_fire",
+}

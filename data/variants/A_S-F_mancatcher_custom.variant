@@ -4,7 +4,7 @@
   "displayName": "Custom",
   "goalVariant": true,
   "fluxCapacitors": 0,
-  "fluxVents": 16,
+  "fluxVents": 14,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -38,6 +38,6 @@
   ],
   "modules": [],
   "wings": [
-    "thunder_wing"
+    "A_S-F_shamshir_wing"
   ]
 }
