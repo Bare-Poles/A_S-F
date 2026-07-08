@@ -105,7 +105,7 @@ After an initial aiming stage accelerates rapidly and continues with limited gui
  Amateus - Payload,A_S-F_amateus_bomb,2,,0,9,,1500,,50,10,0,,,,ENERGY,0,,0,1,1,,0,0,0,0,,10,,,5000,,,"SYSTEM, DANGEROUS",,,,,Explode,,,,,,,,,,222103.11
 Limbo Mine Projector,A_S-F_limbo,2,,4500,1200,,200,,10,15,22,360,,,HIGH_EXPLOSIVE,0,,0,6.3,12,0.15,15,15,0,0,,150,450,10,160,,,"ANTI_FTR, MISSILE_SPREAD, RESET_BARREL_INDEX_ON_BURST","rocket15, utility19, rare_bp, merc, ind, remnant",,,,Pressure / Area Denial,Slow,Minor,,,,,,,TRUE,22213
 Pinion Rocket Pack,A_S-F_pinion,0,,100,1500,,75,,8,25,3,120,,,KINETIC,0,,0,0.5,1,,10,10,0,0,,500,100,3.8,40,,10,DO_NOT_CONSERVE,"kinetic5, rocket7, strike0, derelict, no_dealer, codex_unlockable",,Explorarium,,Anti Shield,Fast,Drunk,,,,,,,,22211
-Oizys Tracker Missile,A_S-F_remBeacon,2,0.8,2500,1500,,50,100,10,10,10,,,,ENERGY,10,,0,7.4,5,0.15,4,10,1,1,,420,180,7,80,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","utility14, missile12, remnant, codex_unlockable",,Remnant,,Designation,Medium,Good,,,"%s
+Oizys Tracker Missile,A_S-F_remBeacon,2,0.8,2500,1500,,50,100,10,10,10,,,,ENERGY,10,,0,7.4,5,0.15,4,10,1,1,,420,180,7,80,,,"DO_NOT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT","utility14, missile12, remnant, codex_unlockable",,Remnant,,Designation,Fast,Good,,,"%s
 Each shot adds %s charge to the target.
 Each charge lasts for %s.
 Any charges over %s will instead discharge an arc into the target dealing %s and %s damage.",Anti-Proton Target Designator | One | 10 seconds | 8 | 20 Energy | 200 EMP,,,TRUE,22227.2
